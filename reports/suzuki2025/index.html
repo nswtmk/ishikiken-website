@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>意識の科学を世界と繋ぐ — 2025年度 国際学会レポート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1d24;
+    --ink-soft:#41464f;
+    --muted:#7a808b;
+    --line:#e4e2dc;
+    --paper:#faf8f3;
+    --paper-2:#f3efe7;
+    --accent:#1f6f78;
+    --accent-deep:#0d4047;
+    --accent-warm:#c2683a;
+    --gold:#b08a3e;
+    --shadow:0 18px 50px -22px rgba(20,30,40,.45);
+    --maxw:980px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Noto Sans JP",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.95;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    letter-spacing:.01em;
+  }
+  img{display:block;max-width:100%}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .hero{
+    position:relative;
+    min-height:78vh;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:clamp(2rem,6vw,6rem);
+    color:#fff;
+    overflow:hidden;
+    background:linear-gradient(120deg,#0d4047 0%,#1f6f78 55%,#2a8f93 100%);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(900px 500px at 80% -10%,rgba(255,255,255,.18),transparent 60%),
+      radial-gradient(700px 600px at 0% 110%,rgba(13,64,71,.6),transparent 60%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;width:100%}
+  .hero .kicker{
+    font-family:"Cormorant Garamond",serif;
+    font-style:italic;
+    font-size:clamp(1.1rem,2.4vw,1.6rem);
+    letter-spacing:.06em;
+    color:#cdeceb;
+    margin-bottom:1.2rem;
+  }
+  .hero h1{
+    font-family:"Noto Serif JP",serif;
+    font-weight:600;
+    font-size:clamp(2rem,5.4vw,3.6rem);
+    line-height:1.4;
+    letter-spacing:.02em;
+    text-shadow:0 2px 30px rgba(0,0,0,.25);
+  }
+  .hero h1 .em{color:#ffe7c2}
+  .hero .byline{
+    margin-top:2.2rem;
+    font-size:1.02rem;
+    color:#e7f4f3;
+    line-height:1.7;
+  }
+  .hero .byline strong{font-weight:700;letter-spacing:.04em}
+  .hero .scroll-hint{
+    position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);
+    z-index:2;color:#dfeeee;font-size:.78rem;letter-spacing:.25em;text-transform:uppercase;
+    opacity:.8;animation:bob 2.4s ease-in-out infinite;
+  }
+  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+
+  main{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.2rem,5vw,2rem)}
+
+  .lead{
+    font-family:"Noto Serif JP",serif;
+    font-size:clamp(1.05rem,2.2vw,1.22rem);
+    line-height:2.15;
+    color:var(--ink-soft);
+    padding:clamp(3rem,7vw,5rem) 0 1rem;
+  }
+  .lead .firstline::first-letter{
+    font-family:"Noto Serif JP",serif;
+    font-size:3.4em;float:left;line-height:.82;
+    padding:.05em .12em 0 0;color:var(--accent);font-weight:600;
+  }
+  .author-note{
+    font-size:.92rem;line-height:1.9;color:var(--muted);
+    padding:0 0 clamp(2rem,5vw,3rem);
+    border-bottom:1px solid var(--line);
+  }
+  .author-note a{color:var(--accent);font-weight:500}
+
+  .toc{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:.5rem;margin:2.6rem 0 1rem;
+  }
+  .toc a{
+    display:block;padding:.85rem 1rem;border:1px solid var(--line);
+    border-radius:12px;background:var(--paper-2);color:var(--ink-soft);
+    font-size:.86rem;line-height:1.5;transition:.2s;
+  }
+  .toc a:hover{border-color:var(--accent);color:var(--accent-deep);text-decoration:none;transform:translateY(-2px);box-shadow:var(--shadow)}
+  .toc a b{display:block;font-family:"Cormorant Garamond",serif;font-size:1.15rem;color:var(--accent);font-weight:600}
+
+  section.report{padding:clamp(3.2rem,7vw,5.5rem) 0;border-bottom:1px solid var(--line)}
+  .sec-num{
+    font-family:"Cormorant Garamond",serif;font-style:italic;
+    font-size:1.5rem;color:var(--accent-warm);letter-spacing:.05em;
+    display:flex;align-items:center;gap:.8rem;margin-bottom:.5rem;
+  }
+  .sec-num::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--accent-warm),transparent)}
+  h2{
+    font-family:"Noto Serif JP",serif;font-weight:600;
+    font-size:clamp(1.5rem,3.6vw,2.15rem);line-height:1.5;
+    letter-spacing:.01em;color:var(--ink);margin-bottom:1rem;
+  }
+  h2 a{color:inherit;text-decoration:none;border-bottom:2px solid rgba(31,111,120,.28);transition:.2s}
+  h2 a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+  .meta{
+    display:flex;flex-wrap:wrap;gap:.55rem .9rem;align-items:center;
+    margin:0 0 2rem;font-size:.86rem;color:var(--muted);
+  }
+  .chip{
+    display:inline-flex;align-items:center;gap:.4rem;
+    padding:.3rem .8rem;background:var(--paper-2);border:1px solid var(--line);
+    border-radius:999px;color:var(--ink-soft);font-weight:500;
+  }
+  .chip svg{width:14px;height:14px;fill:none;stroke:var(--accent);stroke-width:1.7}
+  .report p{margin-bottom:1.35rem;color:var(--ink-soft)}
+  .report p strong{color:var(--ink);font-weight:700}
+
+  figure{margin:2.2rem 0}
+  figure img{
+    width:100%;border-radius:14px;box-shadow:var(--shadow);
+    border:1px solid rgba(0,0,0,.04);
+  }
+  figure video{width:100%;border-radius:14px;box-shadow:var(--shadow)}
+  figcaption{
+    margin-top:.7rem;font-size:.82rem;color:var(--muted);
+    text-align:center;font-style:italic;letter-spacing:.02em;
+  }
+  .fig-duo{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2.2rem 0}
+  .fig-duo figure{margin:0}
+  .fig-duo.eqh img{aspect-ratio:4/3;object-fit:cover}
+  @media(max-width:640px){.fig-duo{grid-template-columns:1fr}}
+
+  .gallery{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+    gap:.7rem;margin:2rem 0 .5rem;
+  }
+  .gallery a{display:block;overflow:hidden;border-radius:10px;position:relative;aspect-ratio:4/3;box-shadow:var(--shadow)}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .gallery a:hover img{transform:scale(1.07)}
+  .gallery-note{font-size:.8rem;color:var(--muted);text-align:center;font-style:italic}
+
+  .outro{padding:clamp(3.5rem,8vw,6rem) 0;text-align:center}
+  .outro .sec-num{justify-content:center}
+  .outro .sec-num::after{display:none}
+  .outro p{max-width:660px;margin:0 auto 1.35rem;color:var(--ink-soft);text-align:left}
+  .thanks{
+    font-family:"Noto Serif JP",serif;font-size:1.15rem;color:var(--accent-deep);
+    margin-top:2rem;font-weight:500;
+  }
+
+  footer{
+    background:var(--accent-deep);color:#cfe6e5;text-align:center;
+    padding:3rem 1.5rem;font-size:.88rem;line-height:1.9;
+  }
+  footer a{color:#ffe7c2}
+  footer .brand{font-family:"Noto Serif JP",serif;font-size:1.1rem;color:#fff;letter-spacing:.06em;margin-bottom:.5rem}
+
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:99;
+    background:linear-gradient(90deg,#1f6f78,#c2683a,#ffe7c2)}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">2025 — A Year Across the Science of Consciousness</div>
+    <h1>意識の科学を<span class="em">世界</span>と繋ぐ<br>2025年度 国際学会レポート</h1>
+    <div class="byline">
+      <strong>鈴木 啓介</strong>（北海道大学）<br>
+      2026年3月 ｜ 意識研（意識科学研究会）
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</header>
+
+<main>
+  <p class="lead">
+    <span class="firstline">照りつける太陽の下、乾いた稜線を貸し切りバスが延々と走っていく——2025年度は、そんな旅の一場面から始まっていた。</span>
+    真夏のギリシャに始まり、晩夏のバンコク、秋の北海道まで、世界各地の意識研究の現場を訪れた一年。本レポートでは、参加した4つの国際学会・イベントについて、現場の空気とともに報告する。
+  </p>
+
+  <p class="author-note">
+    筆者・鈴木啓介（北海道大学）は、深層ニューラルネットワークを用いて意識の変性状態を記述する計算論的神経現象学を研究している。詳しいプロフィールは<a href="https://keisukesuzuki.org/" target="_blank" rel="noopener">こちら</a>。
+  </p>
+
+  <nav class="toc">
+    <a href="#s1"><b>01</b>ASSC2025 ｜ クレタ島</a>
+    <a href="#s2"><b>02</b>QUALIUS Retreat ｜ クレタ島</a>
+    <a href="#s3"><b>03</b>CoRN 2025 ｜ バンコク</a>
+    <a href="#s4"><b>04</b>MoC6 ｜ 札幌</a>
+  </nav>
+
+  <section class="report" id="s1">
+    <div class="sec-num">01</div>
+    <h2><a href="https://assc2025.gr/" target="_blank" rel="noopener">ASSC2025</a> — クレタ島で開催された第28回大会</h2>
+    <div class="meta">
+      <span class="chip"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>2025年7月6〜9日</span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>ギリシャ・クレタ島</span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M10 14a5 5 0 007 0l2-2a5 5 0 00-7-7l-1 1"/><path d="M14 10a5 5 0 00-7 0l-2 2a5 5 0 007 7l1-1"/></svg><a href="https://assc2025.gr/" target="_blank" rel="noopener">assc2025.gr</a></span>
+    </div>
+
+    <p>2024年の東京開催に続き、意識の科学的研究を牽引する国際学会ASSC（Association for the Scientific Study of Consciousness）の第28回大会が、クレタ島で開催された。本学会は毎年、欧州・南北アメリカ・アジアを巡回しながら開催されており、2025年度は真夏の地中海を舞台に世界各国から意識研究者が集まった。2011年の京都大会以来ほぼ毎年参加しているが、当時は少数派だった変性意識やスピリチュアリティにまつわる話題が学会の中心に躍り出てくる過程を、十数年にわたって内側から見てきたことになる。今年は、その変化がこれまでで最も鮮明な形で現れた大会だった。</p>
+
+    <p>今大会の特徴は、「非定型の意識体験」（サイケデリクス、瞑想、インド哲学）が主要な柱の一つとして扱われていた点だ。これらはかつて主流の意識研究から距離を置かれていたテーマだが、現在は科学的議論の中心を占めている。</p>
+
+    <div class="fig-duo">
+      <figure>
+        <img src="assets/ASSC/reception_party_crete_dance.jpg" alt="ウェルカム・レセプションでのクレタ伝統舞踊" loading="lazy">
+        <figcaption>ウェルカム・レセプションでは、伝統衣装をまとったダンサーたちがクレタ島の民俗舞踊を披露。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/ASSC/01Creet.jpg" alt="クレタ島の街並み" loading="lazy">
+        <figcaption>会場周辺のクレタ島の街並み。糸杉と石造りの家並みが地中海の夏を映す。</figcaption>
+      </figure>
+    </div>
+
+    <figure>
+      <img src="assets/ASSC/07Robin.jpg" alt="ロビン・カーハート＝ハリス博士の基調講演">
+      <figcaption>サイケデリクス研究の第一人者ロビン・カーハート＝ハリス博士による基調講演。</figcaption>
+    </figure>
+
+    <p>基調講演を行った<a href="https://neuroscape.ucsf.edu/profile/robin-carhart-harris/" target="_blank" rel="noopener">ロビン・カーハート＝ハリス博士</a>は、2019年にインペリアル・カレッジ・ロンドンで世界初となる「サイケデリクス研究センター」を設立し、現在はカリフォルニア大学サンフランシスコ校（UCSF）でラルフ・メツナー冠教授を務める、この分野を牽引してきた研究者である。講演ではまず、自身が2014年に提唱した「エントロピック・ブレイン仮説」が紹介された。脳の自発活動が示す複雑さ（エントロピー）こそが、意識の変性状態を測るうえで最も頼りになる指標だとする理論である。</p>
+
+    <p>シロシビン投与後にEEGで観測される脳活動エントロピーの上昇は、投与からわずか1時間ほどで測定できるにもかかわらず、4か月後の主観的な幸福感の改善までも予測しうるという。同様の上昇は、麻酔からの覚醒や熟練瞑想者の深い瞑想状態など、意識が拡張する場面にも広く見られる。</p>
+
+    <p>もう一つの軸が、「サイケデリック（psychedelic）」という言葉の来歴である。精神科医ハンフリー・オズモンドが作家オルダス・ハクスリーとの往復書簡で作った造語で、ギリシャ語の「魂」と「顕わにする」を組み合わせたものだ。精神病を模倣するのではなく、隠れている心の全体を観察可能にする点にこそ本質があるという考えに基づく。この語源は、ハクスリーが『知覚の扉』で参照したベルクソンの「フィルター」概念、すなわち脳が意識を生存に必要な範囲へ絞り込むという考えにまで遡る。このフィルターを緩めて閾下の情報を「減圧」するという見立てを、カーハート＝ハリス博士は自身のエントロピック・ブレイン仮説の出発点として位置づけていた。</p>
+
+    <p>このベルクソン＝ハクスリーに遡る「フィルター（還元弁）」という主題は、実は筆者自身が近年取り組んできたものでもある。2026年に <em>Frontiers in Psychology</em> へ発表した論文「<a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1819038/full" target="_blank" rel="noopener">Beyond the reducing valve: towards a computational neurophenomenology of altered states via deep neural networks</a>」では、ハクスリーの「還元弁」の比喩を深層ニューラルネットワークの言葉で再定式化し、幻覚・サイケデリック体験・自我消失といった変性意識状態を、ネットワークの目的関数と制約の違い（C×G×D枠組み）として統一的に記述することを提案した。</p>
+
+    <p>もう一つの基調講演を行ったのは、<a href="https://avivabo.edu.haifa.ac.il/about-me" target="_blank" rel="noopener">ハイファ大学准教授のアヴィヴァ・ベルコヴィッチ＝オハナ博士</a>である。きっかけは、22年前の瞑想中に起きた体験だった——思考も身体感覚も感情も、「自分」という物語さえも消え去りながら、意識だけは40分ほど失われなかったという。この体験を機に学術の世界へ戻った博士は、瞑想を「意識を研究するための手段」として位置づける神経現象学（neurophenomenology）に取り組んできた。フランシスコ・ヴァレラが提唱したこの研究プログラムは、一人称の現象学的記述と三人称の生理学的計測を、互いに制約し合う対話として往還させるものである。</p>
+
+    <p>博士の枠組みでは、自己は身体化された行為主体感である「ミニマルセルフ」と、言語的・記憶的な人格的同一性である「ナラティブセルフ」の二層で捉えられる。熟練瞑想者の脳波を計測した研究では、自己と外界の境界を溶解させる瞑想中に、自己意識に関わる脳部位（後帯状皮質）の活動が低下することが確認された。また、無意識下の「死の否認」を測る課題では瞑想者にその否認の弱まりが見られたが、アヤワスカ経験者には同様の傾向が見られず、瞑想とサイケデリクスとでは長期的な影響の質が異なることが示唆された。</p>
+
+    <p>もう一人の基調講演者、<a href="https://www.philosophy.ox.ac.uk/people/monima-chadha" target="_blank" rel="noopener">オックスフォード大学のモニマ・チャダ博士</a>は、インド哲学における「無我（Selfless）」の概念を取り上げた。西洋的な倫理観では、行為の責任を引き受ける自己が存在しなければ、倫理的責任を負う主体そのものが失われてしまうというリスクが生じる。これに対しインド哲学には輪廻の概念があり、今世での倫理的な行動が来世に影響するとされる。この枠組みによって、無我の立場に立ちながらも倫理的な行動が促されるのだという。</p>
+
+    <p>基調講演以外にも、マカクザルを用いたサイケデリクス研究の発表があった。ヒトに近い視覚応答を持ちながら道具も扱える非ヒト霊長類は、サイケデリクス研究のモデル生物として適しているのだという。実験では、シロシビンがマカクザルの錐体細胞の発火率を高め、顔細胞の視覚チューニングを変化させることが確認された。サイケデリクスが単一ニューロンのレベルで意識的知覚を変えうることを示す結果である。</p>
+
+    <div class="fig-duo eqh">
+      <figure>
+        <img src="assets/ASSC/03MonkeyLSD1.jpg" alt="「なぜサルにサイケデリクスを投与するのか？」のスライド" loading="lazy">
+        <figcaption>「なぜサルにサイケデリクスを投与するのか？」という問いを示すスライド。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/ASSC/06MonkeyLSD4.jpg" alt="マカクザル研究の結論スライド" loading="lazy">
+        <figcaption>実験の結論を示すスライド。</figcaption>
+      </figure>
+    </div>
+
+    <p>マカクザルへの投与実験のような動物神経科学から、瞑想やインド哲学まで、これほど隔たったテーマが一つの会場に同居する。それがASSCという学会だ。</p>
+
+    <p>ポスター会場では、邦訳『「意識」を語る』（<em>Conversations on Consciousness</em>）の著者として知られるスーザン・ブラックモア氏が、「あらゆる経験は、脳が作り出す予測的なモデルにすぎない」とするポスターを発表していた。</p>
+
+    <div class="fig-duo">
+      <figure>
+        <img src="assets/ASSC/10GreenHair.jpg" alt="スーザン・ブラックモア氏" loading="lazy" style="aspect-ratio:5/6;object-fit:cover;object-position:center 100%">
+        <figcaption>スーザン・ブラックモア氏。トレードマークの鮮やかな髪色。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/ASSC/11Susan.jpg" alt="ブラックモア氏のポスター発表" loading="lazy" style="aspect-ratio:5/6;object-fit:cover;object-position:center 40%">
+        <figcaption>同氏のポスター「What is it like to be a predictive mental model?」。</figcaption>
+      </figure>
+    </div>
+
+    <p>幻覚の幾何学パターンをめぐっては、薬物を使わずにそれを引き出す研究も報告された。リヴァプール大学のSubjective Experience Labが用いる「ガンツフリッカー（Ganzflicker）」は、一定の周波数で点滅する光を見つめることで、健常者に視覚的な幻覚を誘発する手法である。報告されるパターンは、トンネル・螺旋・蜘蛛の巣・格子に分類される。これは、心理学者ハインリッヒ・クリューヴァーが1928年の著書でメスカリン誘発幻覚から見出した、繰り返し現れる基本図形の分類「クリューヴァーの形態定数」に一致する。</p>
+
+    <div class="fig-duo eqh">
+      <figure>
+        <img src="assets/ASSC/ganzflicker_task.jpg" alt="ガンツフリッカー課題のスライド" loading="lazy" style="object-position:center 45%">
+        <figcaption>「ガンツフリッカー」課題（リヴァプール大学）。1〜7.5Hzで点滅する光を見つめ、立ち上がってくる幻覚を報告する。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/ASSC/ganzflicker_pattenrs.jpg" alt="ガンツフリッカーで報告されるパターンとクリューヴァーの形態定数" loading="lazy" style="object-position:center 73%">
+        <figcaption>報告されたパターンは、トンネル・螺旋・蜘蛛の巣・格子に分類され、そのすべてがクリューヴァーの形態定数に対応していた。</figcaption>
+      </figure>
+    </div>
+
+    <p>意識研究とAIの接点を扱ったセッションもあった。マレー・シャナハン氏（インペリアル・カレッジ・ロンドン名誉教授／Google DeepMind）は、共著論文「<a href="https://arxiv.org/abs/2506.05068" target="_blank" rel="noopener">Does It Make Sense to Speak of Introspection in Large Language Models?</a>」にもとづき、大規模言語モデル（LLM）に「内省」という言葉を適用する意味を論じた。採用したのは、内部状態と報告内容を結ぶ因果的経路があって初めて内省的と呼べるという控えめな定義である。たとえばGeminiに詩の「創作過程」を語らせると、本来あり得ない工程を含む作り話（fabrication）が返ってくる。一方、自らの出力の文体から「温度」パラメータの高低を判断させる課題では、値が文体を左右するという明確な因果経路のもとで、正しく自己判定できた。シャナハン氏は、この後者こそ内省と呼ぶに値する最小限の事例だと結論づけた。この論点は、Anthropicが2025年10月に発表した研究「<a href="https://www.anthropic.com/research/introspection" target="_blank" rel="noopener">Emergent Introspective Awareness in Large Language Models</a>」とも関わりが深い。既知の概念に対応する内部パターンをモデルの活性化に人為的に注入し、それを言語化する前に異常を検知できるかを調べたところ、最新モデルほど、限定的ながら内部状態を監視・報告する能力の兆候を示したという。</p>
+
+    <div class="fig-duo eqh">
+      <figure>
+        <img src="assets/ASSC/08Shanahan1.jpg" alt="マレー・シャナハン氏によるLLMの内省をめぐる発表" loading="lazy">
+        <figcaption>マレー・シャナハン氏による、LLMの「内省」を検証する発表。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/ASSC/09Shanahan2.jpg" alt="「Conceptions of Introspection」のスライド" loading="lazy">
+        <figcaption>スライド「Conceptions of Introspection」。E・M・フォースターの一節も引かれた。</figcaption>
+      </figure>
+    </div>
+
+    <p>次回2026年大会は南米チリ・サンティアゴで開催予定。チリは、神経現象学の提唱者ヴァレラの生誕の地でもあり、現在もDMT研究で著名なクリストファー・ティンマーマン氏らを輩出するなど、意識研究が盛んな土壌を持つ。筆者も現地参加を予定している。</p>
+  </section>
+
+  <section class="report" id="s2">
+    <div class="sec-num">02</div>
+    <h2>QUALIUS Retreat — 変性意識と向き合う5日間の合宿</h2>
+    <div class="meta">
+      <span class="chip"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>2025年7月10〜14日</span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>ギリシャ・クレタ島</span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M10 14a5 5 0 007 0l2-2a5 5 0 00-7-7l-1 1"/><path d="M14 10a5 5 0 00-7 0l-2 2a5 5 0 007 7l1-1"/></svg><a href="https://qri.org/" target="_blank" rel="noopener">QRI</a> / <a href="https://aliusresearch.org/" target="_blank" rel="noopener">ALIUS</a></span>
+    </div>
+
+    <p>ASSC2025のサテライトイベントとして、QRI（Qualia Research Institute）とALIUSが主催した「QUALIUS Retreat on Non-Ordinary States of Consciousness」に参加した。会場はクレタ島のASSC本大会とは反対側の海岸沿いの施設。約30名の参加者が5日間にわたって寝食を共にしながら、研究発表・議論・技術開発・瞑想実践に取り組むという、独特な形式のイベントだった。</p>
+
+    <p>会場へは、ASSC本大会が開かれたヘラクリオンから、貸し切りバスでクレタ島を横断して向かった。山並みとオリーブ畑がどこまでも続く道のり。途中の小さな村では木陰のテラスに腰を下ろし、これから5日間を共にする仲間たちと地中海の昼食を囲んだ。学会の喧騒から、少しずつ別の時間へと移っていく道中だった。</p>
+
+    <div class="fig-duo eqh">
+      <figure>
+        <img src="assets/Crete/11MoveToRetreat.jpg" alt="バスからのクレタ島の車窓" loading="lazy">
+        <figcaption>ヘラクリオンからリトリート会場へ。バスの車窓を流れていくクレタ島の乾いた山並み。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/Crete/12LunchOntheWay.jpg" alt="道中の村での昼食" loading="lazy">
+        <figcaption>道中の村で木陰のテラスを借りての昼食。これから寝食を共にする仲間との、最初の食卓。</figcaption>
+      </figure>
+    </div>
+
+    <figure>
+      <img src="assets/Crete/13RetreatLocation.jpg" alt="海を望むリトリート会場">
+      <figcaption>エーゲ海を見下ろす丘の上のリトリート会場。</figcaption>
+    </figure>
+
+    <p>参加者の構成が独特だった。半数はサイケデリクス・瞑想・催眠を専門とする科学者だが、残りはソフトウェアエンジニア、アーティスト、瞑想実践者など。変性意識体験（ASC）に異なる角度からアプローチする多様な専門家たちが、肩書を外してフラットに議論を交わす場は、科学者主体のASSC本大会とは異なる雰囲気があった。</p>
+
+    <p>朝は瞑想、昼はサイケデリック体験を再現したVRデモの検証と研究発表、夜は星空の下で音楽という一日の流れだった。変性意識を「体験させ、同時に計測する」ための装置が、その場で次々と披露された。George氏は、コントローラーで呼吸を捉え、その呼吸が知覚に及ぼす影響を扱う自作システム「Viscereality」を実演。チューリッヒ大学の研究者は、VRと神経可塑性を促す物質（サイコプラストゲン）を組み合わせ、薬理学的に拡張されたVR体験を目指す構想を語った。研究発表の場は室内に限らず、芝生に車座になった参加者を前に屋外で行われることもあった。</p>
+
+    <div class="fig-duo">
+      <figure>
+        <img src="assets/Crete/18George.jpg" alt="Georgeの呼吸計測VRデモ Viscereality" loading="lazy">
+        <figcaption>本リトリートの主催者George氏による自作システム「Viscereality」のデモ。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/Crete/20Hector.jpg" alt="VRとサイコプラストゲンに関する発表" loading="lazy">
+        <figcaption>チューリッヒ大学の研究者による発表「Virtual Reality and Psychoplastogens」。</figcaption>
+      </figure>
+    </div>
+
+    <div class="fig-duo eqh">
+      <figure>
+        <img src="assets/Crete/14Psychedelic.jpg" alt="ティモ・シュミット氏による屋外での研究発表" loading="lazy">
+        <figcaption>ティモ・シュミット（Timo Schmidt）氏による研究発表。変性意識の測定手法がテーマ。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/Crete/16Pawel.jpg" alt="パヴェウ・モティカ氏による研究発表" loading="lazy">
+        <figcaption>共同研究者パヴェウ・モティカ氏の発表。立体視版幻覚機械の開発者でもある同氏とは、ここでも活発に議論を交わした。</figcaption>
+      </figure>
+    </div>
+
+    <p>変性意識の入り口を再現しようとする試みが、科学・工学・アートの垣根を越えて集まった。共同研究者パヴェウ・モティカ氏が開発した立体視版「幻覚機械」は、深層ニューラルネットワークとパノラマVR映像を組み合わせて幻覚様の視覚体験を再現する、筆者自身が2017年に<em>Scientific Reports</em>誌へ発表した論文「<a href="https://www.nature.com/articles/s41598-017-16316-2" target="_blank" rel="noopener">A Deep-Dream Virtual Reality Platform for Studying Altered Perceptual Phenomenology</a>」の装置を、立体視化して拡張したものである。ほかにも、Redditのコミュニティr/replicationsのモデレーターとして幻覚剤体験時の視覚変容を数多くの動画で「再現」してきたアーティスト「Symmetric Vision」氏がいる。彼の再現動画は独特で、鑑賞しているだけで、こちらの頭もクラクラしてくる。一方、牧野豊氏の知覚に関わるアート・デモは他とは趣が異なり、既存の変性意識の再現よりも、我々の感覚をハックし、新しい知覚体験そのものを作り出そうとする方向性だった。</p>
+
+    <div class="fig-duo eqh">
+      <figure>
+        <img src="assets/Crete/21InfinityVision.jpg" alt="Symmetric Vision のデモ" loading="lazy">
+        <figcaption>サイケデリック体験時の視覚変容を動画で再現するアーティスト「<a href="https://symmetric-vision.xyz/" target="_blank" rel="noopener">Symmetric Vision</a>」氏によるデモ。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/Crete/22Hippie.jpg" alt="goofi-pipe の発表" loading="lazy">
+        <figcaption>ソフトウェア基盤「goofi-pipe」の発表。多様な信号を扱える変性意識研究の共通フレームワーク。</figcaption>
+      </figure>
+    </div>
+
+    <p>理論面で特に注目を集めたのが、<a href="https://qri.org/people/andr%C3%A9s-g%C3%B3mez-emilsson" target="_blank" rel="noopener">アンドレス・ゴメス＝エミルソン（Andrés Gómez-Emilsson）</a>氏による発表だ。本職はソフトウェアエンジニアながら、この10年あまり、自身のブログを中心に意識研究の論考を発表し続けてきた在野の理論家でもある。QRIの中心メンバーの一人でもある同氏は、今回、量子もつれ（quantum entanglement）と意識の関係に踏み込む議論を展開した。意識を物理の言葉で捉え直そうとする議論は、神経科学者・エンジニア・瞑想実践者が入り混じる、このリトリートならではのセッションとなった。</p>
+
+    <p>その着想は、サイケデリック体験において人は量子もつれを「体験」できるのではないか、というものだ。アンドレス氏はこれを実験に落とし込んだ。画面にはランダムウォークする3つの軌道が表示される。そのうち2つは、あらかじめ軌道が決められたもの（すでにサイコロが振られている）。残る1つだけは、放射線を元にした「物理的」乱数発生器によって、リアルタイムに生成される。深いサイケデリック体験のなかで、人はこの物理的乱数が分岐させる複数の未来を同時に経験できるのか。それがこの実験の焦点だった。結果は残念ながら、「3つの軌道を区別できない」というネガティブなものであった。しかし、サイケデリック体験で得た直観を実際の実験にまで落とし込んだ点は興味深かった。</p>
+
+    <div class="fig-duo eqh">
+      <figure>
+        <img src="assets/Crete/25Andreas.jpg" alt="アンドレス・ゴメス＝エミルソン氏の発表" loading="lazy" style="object-position:center 22%">
+        <figcaption>アンドレス・ゴメス＝エミルソン氏の発表。量子もつれと意識の関係について、身振りを交えて論じた。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/Crete/Andreas_quantomEntanglment.jpg" alt="量子もつれのセットアップを示すゴメス＝エミルソン氏" loading="lazy">
+        <figcaption>発表で示された実験のセットアップ。画面を3本の軌道が走る。</figcaption>
+      </figure>
+    </div>
+
+    <p>2日目・3日目の午後には、コーディングセッションが設けられた。参加者はそれぞれが開発してきた変性意識体験のシミュレータを持ち寄り、コードを書いては、互いの作品を体験し合った。誰かのデバイスを装着して視覚世界を体験し、また席に戻って自分のコードを直すという場面が繰り返された。制作と体験が一体になった時間であった。</p>
+
+    <figure>
+      <img src="assets/Crete/27CodingSession.jpg" alt="午後のコーディングセッションの様子" loading="lazy">
+      <figcaption>午後のコーディングセッション。それぞれの変性意識シミュレータを、その場で作り込んでいく。</figcaption>
+    </figure>
+
+    <div class="fig-duo">
+      <figure>
+        <img src="assets/Crete/30Cyborg.jpg" alt="牧野豊氏の作品「Foldings」を装着する参加者" loading="lazy">
+        <figcaption>牧野豊氏の知覚アート作品「<a href="https://www.yutakamakino.com/html/foldings.html" target="_blank" rel="noopener">Foldings</a>」（2018）を、仲間に装着してもらう一幕。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/Crete/VR_Sessions.jpg" alt="夕暮れの中庭でVR体験を試す参加者たち" loading="lazy">
+        <figcaption>夕暮れの中庭で、開発したばかりのVR体験を試す。ミラー状のバイザー越しに見えている世界を、言葉にしていく。</figcaption>
+      </figure>
+    </div>
+
+    <div class="fig-duo eqh">
+      <figure>
+        <img src="assets/Crete/24Pool.jpg" alt="牧野豊氏の作品「Confabulation」を体験する参加者" loading="lazy">
+        <figcaption>一見プールで遊んでいるようだが、プールを囲む4基のスピーカーが没入的な音響空間を作る牧野豊氏の作品「<a href="https://www.yutakamakino.com/html/confabulation.html" target="_blank" rel="noopener">Confabulation</a>」を体験している様子。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/Crete/31UnderTree.jpg" alt="オリーブの木陰での研究発表" loading="lazy">
+        <figcaption>強い日差しを避け、オリーブの木陰で涼を取りながら研究発表は続いた。</figcaption>
+      </figure>
+    </div>
+
+    <p>リトリートを締めくくるカンファレンスディナーでは、地元クレタ島の演奏家たちによる生演奏が披露され、専門も国籍も異なる面々が一つのテーブルを囲んだ。地中海の星空の下、クレタ音楽に合わせてみんなで踊った。</p>
+
+    <div class="fig-duo eqh">
+      <figure>
+        <img src="assets/Crete/28AfternoonBreak.jpg" alt="午後のリトリートの中庭" loading="lazy">
+        <figcaption>午後のひととき。山を背にした石造りの宿とプール。会期中、この中庭で議論やデモが行われた。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/Crete/32Dinner.jpg" alt="夜の食卓と地元演奏家による生演奏" loading="lazy">
+        <figcaption>夜の食卓。星空の下、地元クレタ島の演奏家たちによる生演奏が続いた。</figcaption>
+      </figure>
+    </div>
+
+    <p>本イベントは意識研にスポンサーとして支援をいただき実現したもので、オーガナイザーのGeorge氏とは2024年の札幌国際シンポジウム「<a href="https://sites.google.com/view/awareandalive/home" target="_blank" rel="noopener">Aware &amp; Alive</a>」以来の再会となった。今後の国際的な共同研究の可能性についても、ここクレタ島で話し合うことができた。George氏からは、今回のような研究リトリートを日本で開催する際には協力を惜しまないという約束もいただいた。5日間の日程を終えた別れ際には、名残を惜しむように、あちこちで長い抱擁が交わされていた。</p>
+
+  </section>
+
+  <section class="report" id="s3">
+    <div class="sec-num">03</div>
+    <h2><a href="https://www.conresnet.org/corn-2025.html" target="_blank" rel="noopener">CoRN 2025</a> — バンコクで招待講演、2027年北大開催も決定</h2>
+    <div class="meta">
+      <span class="chip"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>2025年8月6〜8日</span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>タイ・バンコク</span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M10 14a5 5 0 007 0l2-2a5 5 0 00-7-7l-1 1"/><path d="M14 10a5 5 0 00-7 0l-2 2a5 5 0 007 7l1-1"/></svg><a href="https://www.conresnet.org/corn-2025.html" target="_blank" rel="noopener">conresnet.org</a></span>
+    </div>
+
+    <div class="fig-duo">
+      <figure>
+        <img src="assets/CoRN/04ConferenceAudience.jpg" alt="CoRN2025バンコク会場の様子">
+        <figcaption>バンコク市内の会場。学生から僧侶まで、多様な聴衆が現象的意識についての議論に耳を傾けた。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/CoRN/13Bangkok.jpg" alt="バンコクの夕景" loading="lazy">
+        <figcaption>会場周辺のバンコクの夕景。高層ビルと寺院の尖塔が同じ空に並ぶ。</figcaption>
+      </figure>
+    </div>
+
+    <p>会場を一歩出ると、湿った熱気と屋台の匂いがまとわりついてくる。移動のたびに、寺院の尖塔と高層ビルが交互に車窓を流れていった。</p>
+
+    <p>台湾の哲学者が中心となって発足したアジア・太平洋地域の意識研究学会「<a href="https://www.conresnet.org/corn-2025.html" target="_blank" rel="noopener">Consciousness Research Network（CoRN）</a>」に、招待講演者として初めて参加した。2年に一度開催される本学会は、日本・シンガポールでの開催実績もあり、第5回目となる今回はバンコクで開催された。</p>
+
+    <p>参加者・発表者の構成は、哲学者と神経科学者・心理学者でほぼ半々に保たれている。現象的意識の構造を、哲学と科学の両面から問い続ける。それがCoRNの核にある。神経科学や心理学が中心のASSCと比べると、哲学・現象学の講演の比重が大きい印象を受けた。人文学と科学の融合を掲げる<a href="https://www.chain.hokudai.ac.jp/" target="_blank" rel="noopener">北海道大学CHAIN</a>の理念とも重なっており、田口茂センター長も同じく招待講演者として参加した。</p>
+
+    <p><a href="http://finks.de/" target="_blank" rel="noopener">サシャ・フィンク氏</a>（FAUエアランゲン／グラスゴー大学）は、基調講演「When is your red my red? — 現象的距離と意識への構造主義的アプローチ」で、意識を要素間の関係＝構造として捉える構造主義（Structuralism）的な理論を展開した。折しも、構造主義と機能主義という意識への二つのアプローチをどう整理すべきか考えていた時期で、頭の中が一気に整理される感覚があり、収穫の多い講演だった。</p>
+
+    <figure>
+      <img src="assets/CoRN/09SachaFink.jpg" alt="サシャ・フィンク氏の基調講演「When is your red my red?」" loading="lazy">
+      <figcaption>サシャ・フィンク氏の基調講演。</figcaption>
+    </figure>
+
+    <div class="fig-duo">
+      <figure>
+        <img src="assets/CoRN/01DavidAlais_Imagery.jpg" alt="心的イメージに関する講演" loading="lazy">
+        <figcaption>デイヴィッド・アレイス氏による、心的イメージ（mental imagery）をめぐる発表。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/CoRN/02_aphantasia.jpg" alt="アファンタジアに関する発表" loading="lazy">
+        <figcaption>アファンタジア（心的イメージを持たない状態）に関する発表。</figcaption>
+      </figure>
+    </div>
+
+    <p>アファンタジア（視覚的な心的イメージを思い浮かべられない状態）については、行為に基づく（エナクティブな）立場からの発表があった。想像と知覚とを区別する感覚は、まだ意識の中心には上っていない環境刺激の情報から生まれるとする枠組みが示された。この視点に立つと、アファンタジアは心的イメージを作る力が欠けた状態というより、概念を扱う脳領域と視覚情報を扱う脳領域がそれぞれ過度に活発でありながら、両者の連携がうまく働いていない状態として捉え直される。この解釈は、当事者が色の濃淡を想像上で比較できたり、鮮明な夢を見たりするという、一見矛盾した既存の知見も説明しうるという。</p>
+
+    <div class="fig-duo eqh">
+      <figure>
+        <img src="assets/CoRN/10Metzinger_MPS.jpg" alt="メッツィンガーの純粋意識をめぐる講演" loading="lazy">
+        <figcaption>トマス・メッツィンガー『The Elephant and the Blind』を引き、「純粋意識」と最小現象的経験（MPE）を論じた講演。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/CoRN/11HakwanRau.jpg" alt="ハクワン・ラウ氏の講演" loading="lazy">
+        <figcaption>メタ認知（metacognition）研究で知られるハクワン・ラウ（Hakwan Lau）氏の講演。</figcaption>
+      </figure>
+    </div>
+
+    <p>2027年のCoRNを、<a href="https://www.chain.hokudai.ac.jp/" target="_blank" rel="noopener">北海道大学CHAIN</a>で開催することが正式に決定し、筆者がメインオーガナイザーを務めることになった。哲学・AI・神経科学が交差する場であるCHAINでCoRNを開催することには大きな意義があると感じており、この決定に今から胸が高鳴っている。学術変革領域研究「クオリア構造学」のサマースクールとも日程を合わせる形で、アジアの意識研究ネットワークの中核となる大会を目指したい。</p>
+
+    <p>会期中には、研究発表に加えてチャオプラヤー川のディナークルーズなど、アジア各地の研究者と交流する機会にも恵まれた。川面を渡る夜風の中、対岸にライトアップされた寺院を眺めながら、次はどこで会えるだろうかと言葉を交わした夜だった。2027年の札幌大会へ向けて、研究者ネットワークを広げる出張となった。</p>
+
+    <div class="gallery">
+      <a href="assets/CoRN/06CruiseDinner1.jpg" target="_blank"><img src="assets/CoRN/06CruiseDinner1.jpg" alt="ディナークルーズ" loading="lazy"></a>
+      <a href="assets/CoRN/07CruiseDinner2.jpg" target="_blank"><img src="assets/CoRN/07CruiseDinner2.jpg" alt="ディナークルーズの様子" loading="lazy"></a>
+      <a href="assets/CoRN/08CruiseDinner3.jpg" target="_blank"><img src="assets/CoRN/08CruiseDinner3.jpg" alt="川辺の夜景" loading="lazy"></a>
+      <a href="assets/CoRN/12LastDinner.jpg" target="_blank"><img src="assets/CoRN/12LastDinner.jpg" alt="最終日の会食" loading="lazy"></a>
+    </div>
+    <p class="gallery-note">※ 写真をクリックすると拡大表示されます</p>
+  </section>
+
+  <section class="report" id="s4">
+    <div class="sec-num">04</div>
+    <h2><a href="https://amcs-community.org/events/moc6-2025/" target="_blank" rel="noopener">MoC6</a> — 意識の数理を語る、初のアジア開催</h2>
+    <div class="meta">
+      <span class="chip"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>2025年9月30日〜10月4日</span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>北海道大学（札幌）</span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M10 14a5 5 0 007 0l2-2a5 5 0 00-7-7l-1 1"/><path d="M14 10a5 5 0 00-7 0l-2 2a5 5 0 007 7l1-1"/></svg><a href="https://amcs-community.org/events/moc6-2025/" target="_blank" rel="noopener">amcs-community.org</a></span>
+    </div>
+
+    <p>ローカルオーガナイザーとして運営に深く携わった国際学会「Models of Consciousness 6（MoC6）」を、2025年10月1〜4日に北海道大学で開催した。会場の手配、レセプションパーティやカンファレンスディナーの準備、エクスカーションの企画、要旨集の編集やプログラム作成——数えきれない実務に追われながら迎えた開幕当日、世界各地から集まった研究者たちの顔を会場に見渡した瞬間の安堵は、今も忘れられない。</p>
+
+    <p>MoCは、意識を「数理モデルや形式的枠組み（フォーマリズム）」で記述することを目指す学会である。「脳のどこが活動するか」を突き止める実験的アプローチとは一線を画し、意識の構造そのものを数学の言葉で表現しようとする。2019年のオックスフォード発足以来6回目となる今大会では、初のアジア開催地として札幌が選ばれた。</p>
+
+    <p>学会の合間に観光を兼ねたエクスカーションが組まれるのは珍しくないが、今回は開催前日という日程で、これは正直初めての経験だった。しかし、これが案外よかった。一人で初めてその学会に参加する人は、周囲と打ち解けて議論が弾むようになるまで時間がかかるものだが、開幕前のハイキングは、そうした新参者にとって格好のアイスブレイクの機会となった。今回は札幌近郊にそびえる藻岩山（標高531m）を、参加者全員でおよそ1時間半かけてハイキング。秋晴れの登山道を語り合いながら登り、山頂からは札幌の街並みと石狩平野を一望できた。世界中から集まった研究者たちが、自分たちが開催した学会のために札幌の山を登っている——その光景を眺めながら、研究の議論から離れた時間を味わった。</p>
+
+    <div class="fig-duo eqh">
+      <figure>
+        <img src="assets/Moc6/01HikingMt.Moiwa.jpg" alt="藻岩山の登山口" loading="lazy">
+        <figcaption>登山口から藻岩山へ。議論を続けながら山道を登る。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/Moc6/02HikingMt.Moiwa2.jpg" alt="登山道での語らい" loading="lazy" style="object-position:center 30%">
+        <figcaption>登山道での語らい。研究の話は山の上でも尽きない。</figcaption>
+      </figure>
+    </div>
+
+    <div class="fig-duo">
+      <figure>
+        <img src="assets/Moc6/04GroupPhoto.jpg" alt="藻岩山山頂での集合写真" loading="lazy">
+        <figcaption>山頂での集合写真。秋晴れの札幌に、世界の研究者たちが集った。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/Moc6/03ViewFromMt.Moiwa.jpg" alt="藻岩山山頂からの眺望" loading="lazy">
+        <figcaption>山頂からの眺望。札幌の街並みが眼下に広がる。</figcaption>
+      </figure>
+    </div>
+
+    <p>国内からは池上高志氏（東京大学）、金井良太氏（アラヤ）、国外からはフェルナンド・ロサス氏（サセックス大学）、スーザン・シュナイダー氏（フロリダ・アトランティック大学）などの第一線研究者を招待講演者に迎え、最終的に約90名が参加した。今回の3つの主要テーマは「意識の哲学と数学化された現象学」「意識への量子論的アプローチとその前提」「人工意識の研究」。なかでも量子論的アプローチは今大会の主要な話題の一つで、量子力学の数学的形式を認知過程の記述に応用する「量子認知」の最新動向が議論された。脳内の微小管における量子過程が意識を生むとする「量子脳理論」（ペンローズ＝ハメロフ仮説）とは異なるアプローチである点は注意が必要だが、数理的に意識を語ろうとするMoCらしいテーマ設定だった。</p>
+
+    <p>金井良太氏（アラヤ）は「Qualia and Symmetry」と題した講演で、クオリアの構造を対称性の数学によって捉える理論的枠組みを提示した。たとえば、犬が視野の中を動いても「犬らしさ」という同一性は変わらない——この変わらない部分を「クオリア署名」、位置のように変わる部分を「クオリア属性」と呼ぶ。色なら色相の変化が属性、彩度や明度が署名にあたる。属性の幾何学的な形は対称性の数学から自動的に決まるため個体間で普遍的だが、署名同士の関係——何が何に似ていると感じるか——は学習や経験によって人ごとに異なりうる、という対比が示された。</p>
+
+    <p>トム・フローズ氏（OIST）は、AIの急速な進展が人類の自己像を揺るがしつつある中、知性とは別に人間の意識に固有の役割があるとすればそれは何かを問うた。ある理論が意識の存在を説明したと言えるためには「意識があることで、無い場合と比べて世界に何らかの固有の違いが生じる」ことを示す必要があるとする独自の基準（Participation Criterion）を提示し、人間とAIの関係を捉え直す視点を示した。</p>
+
+    <div class="fig-duo">
+      <figure>
+        <img src="assets/Moc6/05Keynote_RyotaKanai.jpg" alt="金井良太氏の基調講演" loading="lazy">
+        <figcaption>金井良太氏（アラヤ）の講演「Qualia and Symmetry」。クオリアを対称性の言葉で捉える試み。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/Moc6/07Keynote_TomFrorse.jpg" alt="トム・フローズ氏の基調講演" loading="lazy">
+        <figcaption>トム・フローズ氏（OIST）の基調講演。人間とAIの関係を意識の観点から捉え直した。</figcaption>
+      </figure>
+    </div>
+
+    <p>フェルナンド・ロサス氏（サセックス大学）は「Consciousness and emergence」と題し、創発（emergence）という議論の続く概念に、多元的かつ実用主義的な立場から取り組んだ。反証可能な仮説として検証できる形式的な創発の理論を紹介し、それが生物・人工システム双方の意識研究にどう応用できるかを論じた。</p>
+
+    <p>人工意識をめぐる発表を代表するものとして、スーザン・シュナイダー氏（フロリダ・アトランティック大学、著書<em>Artificial You: AI and the Future of Your Mind</em>）による基調講演があった。AIの意識を検証する自然言語テスト「ACT（AI Consciousness Test）」を紹介しつつ、現行の大規模言語モデル（LLM）には懐疑的な立場を取った——概念表現が人間らしく見えるのは意識の証拠ではなく、人間のデータを反映した結果にすぎないとする「誤謬理論」である。</p>
+
+    <div class="fig-duo">
+      <figure>
+        <img src="assets/Moc6/06Keynote_FernandoRosas.jpg" alt="フェルナンド・ロサス氏の基調講演" loading="lazy">
+        <figcaption>フェルナンド・ロサス氏の基調講演。「因果的創発（causal emergence）」の情報理論による定式化を論じた。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/Moc6/Keynot_Susan.jpg" alt="スーザン・シュナイダー氏の基調講演" loading="lazy">
+        <figcaption>スーザン・シュナイダー氏の基調講演。人工知能と意識という根源的な問いを論じた。</figcaption>
+      </figure>
+    </div>
+
+    <p>1000人を超える巨大な学会と違い、100人に満たない今回のMoC6の規模には、参加者全員が互いを十分に知り合えるという利点があった。数日間を同じ顔ぶれで過ごすうちに、肩書きを超えた会話が自然と生まれていく——それもまた、この規模だからこそ得られたものだった。</p>
+
+    <div class="fig-duo">
+      <figure>
+        <img src="assets/Moc6/08Socials.jpg" alt="懇親会の様子" loading="lazy">
+        <figcaption>学会後の懇親会。数式を離れ、打ち解けた会話が弾んだ。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/Moc6/afterconference_dinner.jpg" alt="学会後のディナー" loading="lazy">
+        <figcaption>クロージング後のディナー。学会の最後の夜を惜しんで。</figcaption>
+      </figure>
+    </div>
+
+    <p>次回MoC7は2026年10月、デンマーク・コペンハーゲンで開催される。引き続きオーガナイザーとして運営を支援しながら、現地で議論に加わる予定だ。</p>
+  </section>
+
+  <section class="outro" id="end">
+    <div class="sec-num">おわりに</div>
+    <p>藻岩山の山頂から札幌の街を見下ろしたとき、ギリシャの乾いた稜線からバンコクの喧騒を経てこの北海道に至るまで、意識研究を追いかけ続けた一年の景色が重なって見えた。「意識とは何か」という問いへの確定した答えはまだない。しかし、哲学者・神経科学者・エンジニア・アーティストが異なる言語と方法論を持ち寄りながら、同じ問いに向かい続けている。そこに日本から加わり、発信し続けることこそ、意識研の役割なのだと改めて感じた。</p>
+    <p>2026年度も、国際学会への参加・運営と国内での体験会・講演会を通じて、意識研究の動向を皆さまにお伝えしていきたい。</p>
+    <p class="thanks">ご支援に、深く感謝申し上げます。</p>
+  </section>
+</main>
+
+<footer>
+  <div class="brand">意識研 — 意識科学研究会</div>
+  <div>2025年度 国際学会レポート ｜ 鈴木 啓介（北海道大学）</div>
+  <div>意識研について詳しくは <a href="https://ishikiken.jp/" target="_blank" rel="noopener">こちら</a></div>
+</footer>
+
+<script>
+  var bar=document.getElementById('progress');
+  function onScroll(){
+    var h=document.documentElement;
+    var sc=(h.scrollTop)/(h.scrollHeight-h.clientHeight);
+    bar.style.width=(sc*100)+'%';
+  }
+  document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</body>
+</html>
