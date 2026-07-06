@@ -172,6 +172,39 @@
   .arch-item { display: flex; justify-content: space-between; align-items: baseline; padding: 30px 0; border-bottom: 1px solid var(--line); font-size: 17px; }
   .arch-item .tag { font-size: 12px; letter-spacing: .18em; color: var(--ink-soft); }
 
+  /* activities */
+  .year-block { display: grid; grid-template-columns: 150px 1fr; gap: 40px; padding: 64px 0; border-top: 1px solid var(--line); }
+  .year-block:first-of-type { border-top: none; }
+  .year-block .y { font-size: 28px; font-weight: 700; letter-spacing: .04em; }
+  .year-block .y small { display: block; font-size: 12px; font-weight: 400; letter-spacing: .12em; color: var(--ink-soft); margin-top: 8px; line-height: 1.8; }
+  .year-block .y-lead { font-size: 15.5px; margin-bottom: 36px; color: var(--ink); }
+  .act { padding: 20px 0; border-top: 1px solid var(--line); }
+  .act:first-of-type { border-top: none; padding-top: 0; }
+  .act h4 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .act h4 span { font-size: 12px; font-weight: 600; letter-spacing: .14em; color: var(--moss); margin-left: 12px; }
+  .act p { font-size: 14.5px; color: var(--ink-soft); }
+
+  /* reports & finance */
+  .fin-note { font-size: 13px; color: var(--ink-soft); margin-top: 18px; }
+  .fin-highlight { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 40px 0 72px; }
+  .fin-cell { background: var(--paper); padding: 32px 28px; }
+  .fin-cell .k { font-size: 12.5px; letter-spacing: .16em; color: var(--ink-soft); margin-bottom: 14px; }
+  .fin-cell .v { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .fin-cell .v small { font-size: 13px; font-weight: 400; color: var(--ink-soft); }
+  .fin-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  .fin-table th, .fin-table td { padding: 16px 12px; font-size: 15px; border-bottom: 1px solid var(--line); text-align: right; }
+  .fin-table th { font-size: 12.5px; letter-spacing: .12em; color: var(--ink-soft); font-weight: 600; border-bottom: 1px solid var(--ink); }
+  .fin-table th:first-child, .fin-table td:first-child { text-align: left; }
+  .rep-h { font-size: 14px; letter-spacing: .22em; color: var(--moss); font-weight: 600; margin: 72px 0 20px; }
+  .rep-h:first-of-type { margin-top: 0; }
+
+  /* about */
+  .about-dl { border-top: 1px solid var(--line); }
+  .about-row { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 30px 0; border-bottom: 1px solid var(--line); }
+  .about-row dt { font-size: 13px; letter-spacing: .18em; color: var(--ink-soft); padding-top: 4px; }
+  .about-row dd { font-size: 16px; line-height: 2.1; }
+  .about-row dd small { color: var(--ink-soft); font-size: 13px; }
+
   /* footer */
   footer { border-top: 1px solid var(--line); padding: 80px 0 60px; }
   footer .container { display: flex; justify-content: space-between; align-items: flex-end; }
@@ -207,7 +240,9 @@
     .tl-dot { display: none; }
     .tl-item { position: relative; }
     .tl-item::before { content: ""; position: absolute; left: 0; top: 44px; width: 9px; height: 9px; border-radius: 50%; background: var(--moss); }
-    .prog-grid, .conf-days, .forest-cols { grid-template-columns: 1fr; }
+    .prog-grid, .conf-days, .forest-cols, .fin-highlight { grid-template-columns: 1fr; }
+    .year-block, .about-row { grid-template-columns: 1fr; gap: 16px; }
+    .fin-table { display: block; overflow-x: auto; }
     footer .container { flex-direction: column; align-items: flex-start; gap: 32px; }
     .foot-right { text-align: left; }
   }
@@ -233,7 +268,9 @@
       <li><a href="#programs"><span class="num">4</span><span>3つのプログラム</span></a></li>
       <li><a href="#forest"><span class="num">5</span><span>森</span></a></li>
       <li><a href="#conference"><span class="num">6</span><span>Conference 2026</span></a></li>
-      <li><a href="#archive"><span class="num">7</span><span>Archive</span></a></li>
+      <li><a href="#activities"><span class="num">7</span><span>活動報告</span></a></li>
+      <li><a href="#reports"><span class="num">8</span><span>事業報告・財務</span></a></li>
+      <li><a href="#about"><span class="num">9</span><span>法人概要</span></a></li>
     </ul>
   </nav>
 
@@ -484,23 +521,178 @@
     </div>
   </section>
 
-  <!-- 7 ARCHIVE -->
-  <section id="archive">
+  <!-- 7 ACTIVITIES -->
+  <section id="activities">
     <div class="container">
       <div class="sec-head reveal">
         <span class="n">7</span>
-        <h2>Archive<span class="en">アーカイブ</span></h2>
+        <h2>活動報告<span class="en">Activities</span></h2>
       </div>
-      <div class="arch-list reveal">
-        <div class="arch-item">
-          <span>マシン・コンシャスネス 現状レポート</span>
-          <span class="tag">COMING SOON</span>
-        </div>
-        <div class="arch-item">
-          <span>カンファレンス 2026 記録</span>
-          <span class="tag">COMING SOON</span>
+      <p class="poem reveal" style="margin-bottom:72px;">
+        意識研は2023年に活動を開始し、2024年9月に一般財団法人となりました。<br>
+        「テクノロジー」「メディテーション」「ウェルビーイング」の<br>
+        三つのテーマを軸に、研究会・リトリート・読書会・研究支援を重ねています。
+      </p>
+
+      <div class="year-block reveal">
+        <div class="y">2025<small>年度</small></div>
+        <div>
+          <p class="y-lead">三つのプロジェクトを継続しつつ、恒常的な拠点となるリトリートセンターの建設計画が本格始動。</p>
+          <div class="act">
+            <h4>ハルシネーションマシン<span>TECHNOLOGY</span></h4>
+            <p>鈴木啓介氏（北海道大学）主導のリアルタイム幻覚機械の開発を継続支援。国際人工生命会議 ALIFE2025（京都）でのデモ展示、ASSC2025（ギリシャ・クレタ島）での発表。国際学会「Models of Consciousness 6」（北海道大学・初のアジア開催・約90名）の開催。「QUALIUS Retreat on Non-Ordinary States of Consciousness」のスポンサーも務めた。</p>
+          </div>
+          <div class="act">
+            <h4>仏教と意識<span>MEDITATION</span></h4>
+            <p>藤野正寛氏（立命館大学）主導のもと「研究者のための瞑想リトリート2025」を立命館大学と共催（静岡・日月倶楽部、3泊4日、多分野の研究者23名が参加）。参加研究者による人工知能学会2026企画セッション「瞑想とAI」が採択。藤野氏のTEDx Kyoto University講演は公開4ヶ月で再生18万回超。タイ・MCU大学でのヴィパッサナー瞑想実地調査も実施。</p>
+          </div>
+          <div class="act">
+            <h4>意識と里山<span>WELL-BEING</span></h4>
+            <p>信原幸弘氏を中心に、宮沢賢治読書会・ベルクソン読書会を毎月開催。山梨県北杜市・山形県高畠町での合宿、糞土庵（茨城）・「無の会」（福島）へのフィールドワークを実施。</p>
+          </div>
+          <div class="act">
+            <h4>リトリートセンター建設計画<span>FOREST</span></h4>
+            <p>山梨県北杜市に「瞑想ホール」「研究合宿棟」「森」を一体的に備えた研究所兼社会実験フォレストの建設計画を本格化。VUILD株式会社とともに、約100名収容の瞑想ホールと40名以上が宿泊可能な宿泊棟のプランを策定中。</p>
+          </div>
         </div>
       </div>
+
+      <div class="year-block reveal">
+        <div class="y">2024<small>年度</small></div>
+        <div>
+          <p class="y-lead">一般財団法人意識研究財団として法人化。三つのチーム体制で活動を本格化。</p>
+          <div class="act">
+            <h4>ハルシネーションマシン<span>TECHNOLOGY</span></h4>
+            <p>鈴木啓介氏（北海道大学）の「ハルシネーションマシン（幻覚機械）」を取り上げ、変性意識をめぐるディスカッションと体験会を開催、初号機アップデートの開発資金を支援。前年度テーマ「マインドアップローディング」は渡邉正峰×信原幸弘の対談として早川書房より書籍化。</p>
+          </div>
+          <div class="act">
+            <h4>仏教と意識<span>MEDITATION</span></h4>
+            <p>研究者向け瞑想リトリートの開催支援。永沢哲氏・藤田一照氏・井上ウィマラ氏を招き、新妻雅弘氏・下西風澄氏・ハナムラチカヒロ氏との対談形式の研究会を実施。</p>
+          </div>
+          <div class="act">
+            <h4>意識と里山<span>WELL-BEING</span></h4>
+            <p>「意識と里山PJ」を開始。里山的な自足的・循環的な暮らしの可能性と意義を問う。パーマカルチャーセンタージャパンを訪問し、宮沢賢治読書会・ベルクソン読書会を開始。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="year-block reveal">
+        <div class="y">2023<small>年度<br>（財団設立前）</small></div>
+        <div>
+          <p class="y-lead">「意識研」として活動開始。信原幸弘（東京大学名誉教授）を代表に、三つのテーマで連続研究会を開催。</p>
+          <div class="act">
+            <h4>マインドアップローディング</h4>
+            <p>話題提供：渡辺正峰氏（東京大学）。マインドとは何か、アップローディングの原理的・技術的可能性、その後の世界を問うた。</p>
+          </div>
+          <div class="act">
+            <h4>ウェルビーイングとテクノロジー</h4>
+            <p>話題提供：渡邊淳司氏（NTTコミュニケーション科学基礎研究所）。ウェルビーイングとは何か、ウェルビーイングなテクノロジーの条件と社会を問うた。</p>
+          </div>
+          <div class="act">
+            <h4>マインドフルネス</h4>
+            <p>話題提供：藤野正寛氏（NTTコミュニケーション科学基礎研究所）。マインドフルネスとは何か、そのためのテクノロジーの可能性、マインドフルな社会を問うた。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 REPORTS & FINANCE -->
+  <section id="reports">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="n">8</span>
+        <h2>事業報告・財務<span class="en">Reports &amp; Finance</span></h2>
+      </div>
+
+      <div class="reveal">
+        <h3 class="rep-h">事業報告書</h3>
+        <div class="arch-list">
+          <div class="arch-item">
+            <span>2025年度 事業報告書</span>
+            <span class="tag">2026.03期</span>
+          </div>
+          <div class="arch-item">
+            <span>2024年度 事業報告書</span>
+            <span class="tag">2025.03期</span>
+          </div>
+          <div class="arch-item">
+            <span>カンファレンス 2026「マシン・コンシャスネス」記録</span>
+            <span class="tag">COMING SOON</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <h3 class="rep-h" style="margin-top:88px;">財務ハイライト ── 2024年度決算</h3>
+        <div class="fin-highlight" style="margin-bottom:0;">
+          <div class="fin-cell">
+            <div class="k">経常収益</div>
+            <div class="v">13,201,153<small> 円</small></div>
+          </div>
+          <div class="fin-cell">
+            <div class="k">経常費用</div>
+            <div class="v">7,251,361<small> 円</small></div>
+          </div>
+          <div class="fin-cell">
+            <div class="k">正味財産期末残高</div>
+            <div class="v">5,949,792<small> 円</small></div>
+          </div>
+        </div>
+        <p class="fin-note">2025年3月31日現在。経常収益のうち受取寄付金 13,200,000円。</p>
+      </div>
+
+      <div class="reveal">
+        <h3 class="rep-h" style="margin-top:88px;">寄付実績</h3>
+        <table class="fin-table">
+          <thead>
+            <tr><th>年</th><th>受取寄付金</th><th>うち研究助成</th><th>うち事務局費</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2023</td><td>4,200,000円</td><td>2,400,000円</td><td>1,800,000円</td></tr>
+            <tr><td>2024</td><td>4,500,000円</td><td>2,700,000円</td><td>1,800,000円</td></tr>
+            <tr><td>2025</td><td>5,000,000円</td><td>3,200,000円</td><td>1,800,000円</td></tr>
+            <tr><td>2026（進行中）</td><td>3,100,000円</td><td>2,200,000円</td><td>900,000円</td></tr>
+          </tbody>
+        </table>
+        <p class="fin-note">いただいた寄付は、研究助成（研究開発支援・リトリート開催・若手研究者への謝金等）と財団運営に充てています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="n">9</span>
+        <h2>法人概要<span class="en">About</span></h2>
+      </div>
+      <dl class="about-dl reveal">
+        <div class="about-row">
+          <dt>名称</dt>
+          <dd>一般財団法人 意識研究財団<br><small>The Consciousness Research Foundation</small></dd>
+        </div>
+        <div class="about-row">
+          <dt>目的</dt>
+          <dd>当法人は、意識に関する研究の推進と支援に努め、人間の意識や価値、生きる意味などの根源的な問いを探求するとともに、広く社会に問いかけることで、慈悲に基づいた個人や社会の成長を促し、文化の発展に寄与することを目的とする。</dd>
+        </div>
+        <div class="about-row">
+          <dt>設立年月日</dt>
+          <dd>2024年9月26日</dd>
+        </div>
+        <div class="about-row">
+          <dt>所在地</dt>
+          <dd>山梨県甲府市里吉4-8-40</dd>
+        </div>
+        <div class="about-row">
+          <dt>役員</dt>
+          <dd>
+            代表理事　七沢智樹<br>
+            理事　七沢智樹／國府田淳／長谷川愛<br>
+            評議員　信原幸弘／渡邉正峰／芦澤大地
+          </dd>
+        </div>
+      </dl>
     </div>
   </section>
 
