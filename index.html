@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>意識研究財団｜根源に遡り、新たなパラダイムを開く</title>
+<meta name="description" content="意識研究財団は、意識という概念の誕生以前にまで遡り、意識の究極問題を問い直す研究財団です。">
+<style>
+  :root {
+    --paper: #faf9f5;
+    --ink: #14140f;
+    --ink-soft: #4a4a42;
+    --line: #d9d7cd;
+    --moss: #3d5a3d;
+    --sidebar-w: 400px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", Arial, sans-serif;
+    font-feature-settings: "palt";
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- sidebar ---------- */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: var(--sidebar-w);
+    padding: 48px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 10;
+    /* invert automatically over the dark conference section */
+    mix-blend-mode: difference;
+    color: #fff;
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand-mark {
+    width: 44px; height: 44px; flex: none;
+  }
+  .brand-name { font-size: 15px; font-weight: 600; letter-spacing: .14em; }
+  .brand-name small { display: block; font-size: 9px; font-weight: 400; letter-spacing: .18em; color: rgba(255,255,255,.62); margin-top: 2px; }
+
+  .toc { list-style: none; }
+  .toc li { border-bottom: 1px solid transparent; }
+  .toc a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 9px 0;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: .02em;
+    color: #fff;
+    opacity: .55;
+    transition: opacity .3s;
+  }
+  .toc a:hover, .toc a.active { opacity: 1; }
+  .toc .num { font-size: 15px; font-weight: 400; margin-right: 24px; }
+
+  .sidebar-cta {
+    display: flex; align-items: center; justify-content: space-between;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 15px; font-weight: 600;
+    transition: background .3s, color .3s;
+  }
+  .sidebar-cta:hover { background: #fff; color: #000; }
+  .sidebar-cta .circle {
+    width: 34px; height: 34px; border: 1px solid currentColor; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 14px;
+  }
+  .sidebar-foot { margin-top: 18px; font-size: 12px; color: rgba(255,255,255,.62); letter-spacing: .06em; }
+
+  /* ---------- main ---------- */
+  main { margin-left: var(--sidebar-w); }
+  .container { padding: 0 96px 0 64px; max-width: 1040px; }
+
+  section { padding: 130px 0; border-top: 1px solid var(--line); }
+  section:first-of-type { border-top: none; }
+
+  .sec-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 88px;
+  }
+  .sec-head .n { font-size: 44px; font-weight: 600; }
+  .sec-head h2 { font-size: clamp(34px, 4.5vw, 58px); font-weight: 700; letter-spacing: .01em; }
+  .sec-head .en { display: block; text-align: right; font-size: 13px; font-weight: 400; letter-spacing: .28em; color: var(--ink-soft); margin-top: 10px; text-transform: uppercase; }
+
+  /* hero */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; padding: 130px 0; border-top: none; }
+  .hero h1 {
+    font-size: clamp(44px, 6.2vw, 84px);
+    font-weight: 700;
+    line-height: 1.42;
+    letter-spacing: .04em;
+    text-align: right;
+  }
+  .hero .lead { margin-top: 40px; text-align: right; font-size: 17px; line-height: 2.3; }
+  .hero .lead-en { margin-top: 14px; text-align: right; font-size: 11px; letter-spacing: .12em; color: var(--ink-soft); }
+
+  .poem { font-size: 17.5px; line-height: 2.5; }
+  .poem p + p { margin-top: 2.5em; }
+  .poem .em { font-weight: 700; }
+  .kicker { font-size: 13px; letter-spacing: .3em; color: var(--moss); font-weight: 600; margin-bottom: 28px; text-transform: uppercase; }
+
+  /* domains */
+  .domain { display: grid; grid-template-columns: 120px 1fr; gap: 32px; padding: 56px 0; border-top: 1px solid var(--line); }
+  .domain:first-of-type { border-top: none; }
+  .domain .d-num { font-size: 15px; letter-spacing: .1em; color: var(--ink-soft); padding-top: 8px; }
+  .domain h3 { font-size: 30px; font-weight: 700; margin-bottom: 6px; }
+  .domain .d-sub { font-size: 13px; letter-spacing: .2em; color: var(--moss); font-weight: 600; margin-bottom: 20px; }
+  .domain p { font-size: 15.5px; color: var(--ink-soft); max-width: 620px; }
+
+  /* timeline */
+  .timeline { position: relative; margin-top: 20px; }
+  .timeline::before {
+    content: ""; position: absolute; left: 178px; top: 12px; bottom: 12px;
+    width: 1px; background: var(--ink);
+  }
+  .tl-item { display: grid; grid-template-columns: 150px 56px 1fr; align-items: start; padding: 44px 0; }
+  .tl-depth { text-align: right; font-size: 13px; letter-spacing: .08em; color: var(--ink-soft); padding-top: 10px; line-height: 1.6; }
+  .tl-dot { position: relative; height: 100%; }
+  .tl-dot::before {
+    content: ""; position: absolute; left: 24px; top: 14px;
+    width: 9px; height: 9px; border-radius: 50%; background: var(--moss);
+  }
+  .tl-body h3 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+  .tl-body .q { font-size: 15.5px; color: var(--ink-soft); max-width: 560px; }
+
+  /* programs */
+  .prog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .prog { background: var(--paper); padding: 44px 36px 52px; }
+  .prog .p-num { font-size: 13px; letter-spacing: .12em; color: var(--ink-soft); margin-bottom: 40px; }
+  .prog h3 { font-size: 23px; font-weight: 700; margin-bottom: 4px; }
+  .prog .p-role { font-size: 14px; color: var(--moss); font-weight: 600; margin-bottom: 20px; }
+  .prog p { font-size: 14.5px; color: var(--ink-soft); }
+
+  /* forest */
+  .forest-quote { font-size: clamp(26px, 3.4vw, 40px); font-weight: 700; line-height: 1.9; letter-spacing: .03em; margin-bottom: 64px; }
+  .forest-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  .forest-cols h4 { font-size: 14px; letter-spacing: .22em; color: var(--moss); font-weight: 600; margin-bottom: 16px; }
+  .forest-cols p { font-size: 15.5px; color: var(--ink-soft); }
+
+  /* conference — dark */
+  .dark {
+    background: var(--ink); color: var(--paper);
+    margin-left: calc(-1 * var(--sidebar-w));
+    padding-left: var(--sidebar-w);
+    border-top: none;
+  }
+  .dark .container { padding-top: 130px; padding-bottom: 130px; }
+  .dark .sec-head .en, .dark .conf-meta, .dark .conf-day p { color: #9a9a8e; }
+  .conf-title { font-size: clamp(36px, 5vw, 64px); font-weight: 700; letter-spacing: .02em; line-height: 1.4; margin-bottom: 20px; }
+  .conf-meta { font-size: 15px; letter-spacing: .1em; margin-bottom: 72px; }
+  .conf-days { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #3a3a32; border: 1px solid #3a3a32; margin-bottom: 56px; }
+  .conf-day { background: var(--ink); padding: 40px 36px; }
+  .conf-day .d { font-size: 13px; letter-spacing: .2em; color: #9a9a8e; margin-bottom: 24px; }
+  .conf-day h4 { font-size: 21px; font-weight: 700; margin-bottom: 14px; }
+  .conf-day p { font-size: 14.5px; }
+  .conf-note { font-size: 14px; color: #9a9a8e; line-height: 2.2; }
+
+  /* archive */
+  .arch-list { border-top: 1px solid var(--line); }
+  .arch-item { display: flex; justify-content: space-between; align-items: baseline; padding: 30px 0; border-bottom: 1px solid var(--line); font-size: 17px; }
+  .arch-item .tag { font-size: 12px; letter-spacing: .18em; color: var(--ink-soft); }
+
+  /* footer */
+  footer { border-top: 1px solid var(--line); padding: 80px 0 60px; }
+  footer .container { display: flex; justify-content: space-between; align-items: flex-end; }
+  .foot-name { font-size: 20px; font-weight: 700; letter-spacing: .08em; }
+  .foot-name small { display: block; font-size: 10px; font-weight: 400; letter-spacing: .2em; color: var(--ink-soft); margin-top: 6px; }
+  .foot-right { font-size: 12.5px; color: var(--ink-soft); text-align: right; line-height: 2.2; }
+
+  /* reveal animation */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 1100px) {
+    :root { --sidebar-w: 0px; }
+    .sidebar {
+      position: static; width: auto; flex-direction: row; align-items: center;
+      padding: 24px 28px; border-bottom: 1px solid var(--line);
+    }
+    .toc, .sidebar-cta, .sidebar-foot { display: none; }
+    main { margin-left: 0; }
+    .container { padding: 0 28px; }
+    .dark { margin-left: 0; padding-left: 0; }
+    .hero { min-height: 72vh; }
+    .hero h1, .hero .lead, .hero .lead-en { text-align: left; }
+    .hero { align-items: flex-start; }
+    section { padding: 90px 0; }
+    .sec-head { flex-direction: column; gap: 10px; margin-bottom: 56px; }
+    .sec-head h2, .sec-head .en { text-align: left; }
+    .domain { grid-template-columns: 1fr; gap: 8px; }
+    .timeline::before { left: 4px; }
+    .tl-item { grid-template-columns: 1fr; padding: 34px 0 34px 32px; }
+    .tl-depth { text-align: left; padding-top: 0; margin-bottom: 8px; }
+    .tl-dot { display: none; }
+    .tl-item { position: relative; }
+    .tl-item::before { content: ""; position: absolute; left: 0; top: 44px; width: 9px; height: 9px; border-radius: 50%; background: var(--moss); }
+    .prog-grid, .conf-days, .forest-cols { grid-template-columns: 1fr; }
+    footer .container { flex-direction: column; align-items: flex-start; gap: 32px; }
+    .foot-right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <a class="brand" href="#top">
+    <svg class="brand-mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="22" cy="22" r="15" stroke="#fff" stroke-width="2.4"/>
+      <circle cx="22" cy="22" r="8"  stroke="#fff" stroke-width="2.4" opacity=".65"/>
+      <circle cx="22" cy="22" r="2.6" fill="#fff"/>
+    </svg>
+    <span class="brand-name">意識研究財団<small>FOUNDATION FOR CONSCIOUSNESS STUDIES</small></span>
+  </a>
+
+  <nav>
+    <ul class="toc">
+      <li><a href="#concept"><span class="num">1</span><span>Concept</span></a></li>
+      <li><a href="#domains"><span class="num">2</span><span>3つの領域</span></a></li>
+      <li><a href="#research"><span class="num">3</span><span>5つの研究</span></a></li>
+      <li><a href="#programs"><span class="num">4</span><span>3つのプログラム</span></a></li>
+      <li><a href="#forest"><span class="num">5</span><span>森</span></a></li>
+      <li><a href="#conference"><span class="num">6</span><span>Conference 2026</span></a></li>
+      <li><a href="#archive"><span class="num">7</span><span>Archive</span></a></li>
+    </ul>
+  </nav>
+
+  <div>
+    <a class="sidebar-cta" href="#conference">
+      <span>Conference 2026</span>
+      <span class="circle">↓</span>
+    </a>
+    <p class="sidebar-foot">根源に遡り、新たなパラダイムを開く</p>
+  </div>
+</aside>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container" style="width:100%; display:flex; flex-direction:column; align-items:inherit;">
+      <h1 class="reveal">根源に遡り、<br>新たなパラダイムを<br>開く。</h1>
+      <p class="lead reveal">意識とは何か——<br>その問いを、「意識」という概念の誕生以前から、問い直す。</p>
+      <p class="lead-en reveal">Tracing consciousness back to its origins, toward a new paradigm.</p>
+    </div>
+  </section>
+
+  <!-- 1 CONCEPT -->
+  <section id="concept">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="n">1</span>
+        <h2>Concept<span class="en">理念</span></h2>
+      </div>
+      <div class="poem reveal">
+        <p>
+          私たちが「意識」と呼んでいるもの——<br>
+          意識と無意識に分かれ、言語で語られる心のあり方は、<br>
+          近代以後に発明された、ひとつの概念にすぎません。
+        </p>
+        <p>
+          ならば、意識の究極問題を問うためには、<br>
+          意識というものが、心というものが、<br>
+          いかに形作られてきたのかにまで、遡らなければならない。
+        </p>
+        <p>
+          原初の生命の意識から、<br>
+          縄文一万年の精神文化、仏教二五〇〇年の心の探求、<br>
+          つい数世代前まで続いた里山の暮らし、<br>
+          そして、機械の意識まで。
+        </p>
+        <p class="em">
+          過去に遡ることで、未来が見える。
+        </p>
+        <p>
+          遡ることは、単なる相対化ではありません。<br>
+          掘り下げて得られた知見から、<br>
+          研究の方向性へ、技術へ、社会へ、生活へ——<br>
+          未来のあり方を提言していく。<br>
+          遡行こそが、構築の方法です。
+        </p>
+        <p>
+          より良く生きることは、他者と、生きとし生けるものと、<br>
+          世界との絡み合いの中で、初めて実現する。<br>
+          その良い関係性をつくる前提が、慈悲。<br>
+          意識研究財団は、「意識の究極問題を問う」ことと<br>
+          「慈悲に基づいた社会の実現」を目的に、活動します。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 DOMAINS -->
+  <section id="domains">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="n">2</span>
+        <h2>3つの領域<span class="en">Three Domains</span></h2>
+      </div>
+
+      <div class="domain reveal">
+        <div class="d-num">Domain 01</div>
+        <div>
+          <h3>遡行</h3>
+          <div class="d-sub">意識の根源に遡って、意識を捉え直す</div>
+          <p>いつ意識は誕生したのか（進化的起源）。「意識」という観念はどのように生まれ、変遷してきたのか（概念の系譜）。古代の人々の暮らしから、どのような意識が立ち上がっていたのか（実験考古学）。三つの方向から、意識の根源へと遡ります。</p>
+        </div>
+      </div>
+
+      <div class="domain reveal">
+        <div class="d-num">Domain 02</div>
+        <div>
+          <h3>価値探索</h3>
+          <div class="d-sub">人間にとって、意識とは何かを探索する</div>
+          <p>現在の意識のあり方とは異なる、多様な意識のあり方を探索します。縄文・旧石器の時代、原始仏教、里山の暮らし——日本列島にいまだ息づく生き方の中の「意識」を、暮らしと身体の実践から掘り下げ、どのような意識が、どのような生き方が良いのかという問いに応答します。</p>
+        </div>
+      </div>
+
+      <div class="domain reveal">
+        <div class="d-num">Domain 03</div>
+        <div>
+          <h3>再構築</h3>
+          <div class="d-sub">意識科学の新たなパラダイム構築に貢献する</div>
+          <p>機械の意識の問題が浮上する現代。意識の意味を相対化し、価値の問いを問い直した上で、既存のフレームから自由な視点で機械意識の議論に向き合います。近代的人間像だけにフォーカスしない、生きとし生けるもののあり方を汲んだAIの開発構想まで、視野に入れます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 RESEARCH -->
+  <section id="research">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="n">3</span>
+        <h2>5つの研究<span class="en">Research Projects</span></h2>
+      </div>
+      <p class="poem reveal" style="margin-bottom:72px;">
+        5つの研究プロジェクトは、並列のテーマ集ではなく、<br>
+        時間の深度の上に配置される、遡行軸上の5つの定点です。
+      </p>
+
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-depth">数十億年前〜</div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <h3>意識の根源</h3>
+            <p class="q">意識という概念・心は、いかに誕生したか。概念以前の意識を問う。</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-depth">数万年前〜<br>数千年前</div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <h3>意識-考古学（縄文意識）</h3>
+            <p class="q">縄文時代の考古学的な考察と実験考古学の実践から、その心（意識）の価値を探る。</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-depth">2500年前〜現在</div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <h3>仏教と意識</h3>
+            <p class="q">瞑想・慈悲・縁起・無我。体系的に論じられてきた意識の価値を探求する。</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-depth">弥生〜数世代前</div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <h3>意識里山</h3>
+            <p class="q">産業革命以前の暮らしにおける、意識と時間のあり方を掘り下げる。</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-depth">現在〜未来</div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <h3>意識とテクノロジー</h3>
+            <p class="q">AI・機械は、意識概念をどうひっくり返すか。機械と生命の境界を問う。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 PROGRAMS -->
+  <section id="programs">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="n">4</span>
+        <h2>3つのプログラム<span class="en">Programs</span></h2>
+      </div>
+      <div class="prog-grid reveal">
+        <div class="prog">
+          <div class="p-num">Program 01</div>
+          <h3>カンファレンス</h3>
+          <div class="p-role">問いを開く場</div>
+          <p>年に一度、意識の問いを公開の場で開く。メインストリームの議論への接続と、その前提を問い直すオルタナティブの提示を、ひとつの舞台で行います。</p>
+        </div>
+        <div class="prog">
+          <div class="p-num">Program 02</div>
+          <h3>研究支援</h3>
+          <div class="p-role">問いを支える装置</div>
+          <p>意識の問いを問う研究者への、グラントによる支援。世界の動向を踏まえながら、日本発の戦略的な研究支援を設計します。若手研究者への支援も明確に位置づけます。</p>
+        </div>
+        <div class="prog">
+          <div class="p-num">Program 03</div>
+          <h3>森での活動</h3>
+          <div class="p-role">問いを生きる場</div>
+          <p>机上の議論だけでは、意識の「価値」には迫れない。フィールドとしての森を持ち、身体・生活・技術を通した実践的な探求を、学術と往復させます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 FOREST -->
+  <section id="forest">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="n">5</span>
+        <h2>森<span class="en">The Forest</span></h2>
+      </div>
+      <p class="forest-quote reveal">「究極の問いを、<br>土地と森に降ろす。」</p>
+      <div class="poem reveal" style="margin-bottom:72px;">
+        <p>
+          甲斐駒ヶ岳の麓、縄文中期の精神文化圏の中心地に隣接する、<br>
+          山梨県北杜市の約6ヘクタールの山林。<br>
+          遡行の軸を、観念ではなく身体で遡るための場所です。
+        </p>
+      </div>
+      <div class="forest-cols reveal">
+        <div>
+          <h4>普遍層 ── 沈黙と観想</h4>
+          <p>宗教や文化の違いを超えて共有される、沈黙・観想の実践。意識の根源へと向かう静けさの層。</p>
+        </div>
+        <div>
+          <h4>縄文的層 ── 土・火・水・森仕事</h4>
+          <p>土に触れ、火を焚き、水を汲み、森に手を入れる。暮らしの実践から立ち上がる意識の層。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 CONFERENCE (dark) -->
+  <section id="conference" class="dark">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="n">6</span>
+        <h2>Conference 2026<span class="en">カンファレンス</span></h2>
+      </div>
+      <h3 class="conf-title reveal">マシン・<br>コンシャスネス</h3>
+      <p class="conf-meta reveal">2026.10.24 – 25｜東京ミッドタウン｜現地招待制＋オンライン無料配信</p>
+
+      <div class="conf-days reveal">
+        <div class="conf-day">
+          <div class="d">DAY 1 ── 10.24</div>
+          <h4>人間 / 機械の意識</h4>
+          <p>ベイエリアで立ち上がった機械意識研究のメインストリームに、正面から接続する一日。基調講演と、1枠50分のじっくりとした発表・議論。</p>
+        </div>
+        <div class="conf-day">
+          <div class="d">DAY 2 ── 10.25</div>
+          <h4>モア・ザン・ヒューマン / 機械の意識</h4>
+          <p>機械と生命の境界を問い、意識の根源の問いへと開く一日。植物の意識、意識概念の系譜、意識の進化的起源——前提そのものを問いに付します。</p>
+        </div>
+      </div>
+
+      <p class="conf-note reveal">
+        メインストリームが暗黙の前提としているもの——所与としての意識概念、計算論的機能主義、近代西洋的な人間像——を問える場は、世界にもほとんど存在しません。そこに、日本から差し込む。<br>
+        本カンファレンスの記録は、ウェブレポート・電子書籍として発刊し、アーカイブに格納します。
+      </p>
+    </div>
+  </section>
+
+  <!-- 7 ARCHIVE -->
+  <section id="archive">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="n">7</span>
+        <h2>Archive<span class="en">アーカイブ</span></h2>
+      </div>
+      <div class="arch-list reveal">
+        <div class="arch-item">
+          <span>マシン・コンシャスネス 現状レポート</span>
+          <span class="tag">COMING SOON</span>
+        </div>
+        <div class="arch-item">
+          <span>カンファレンス 2026 記録</span>
+          <span class="tag">COMING SOON</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="foot-name">意識研究財団<small>FOUNDATION FOR CONSCIOUSNESS STUDIES</small></div>
+      <div class="foot-right">
+        根源に遡り、新たなパラダイムを開く<br>
+        © Foundation for Consciousness Studies
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  // reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // active toc highlight
+  const links = [...document.querySelectorAll('.toc a')];
+  const secs = links.map(a => document.querySelector(a.getAttribute('href')));
+  const nav = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  secs.forEach(s => s && nav.observe(s));
+</script>
+</body>
+</html>
