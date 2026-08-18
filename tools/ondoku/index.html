@@ -200,6 +200,30 @@
   .mr-chapter-meta { flex: none; font-size: 11px; color: var(--sumi-thin); }
   .mr-chapter.is-now .mr-chapter-name { color: var(--asagi); }
   .mr-chapter-tools { display: flex; gap: 6px; flex: none; }
+  .mr-sec-toggle {
+    flex: none; width: 30px; height: 30px; margin: -6px 0; border-radius: 50%;
+    border: 1px solid var(--line); background: var(--paper); color: var(--sumi-thin);
+    display: inline-flex; align-items: center; justify-content: center; font-size: 10px;
+  }
+  .mr-sec-toggle:active { background: var(--paper-2); }
+  .mr-sec-toggle.is-open { border-color: var(--asagi); color: var(--asagi); }
+  .mr-sec-toggle span { display: block; transition: transform .12s; }
+  .mr-sec-toggle.is-open span { transform: rotate(90deg); }
+
+  .mr-sec {
+    display: flex; align-items: baseline; gap: 10px; width: 100%; text-align: left;
+    padding: 10px 6px; border: none; border-bottom: 1px solid var(--line);
+    background: none; color: var(--sumi-soft);
+  }
+  .mr-sec:active { background: var(--paper-2); }
+  .mr-sec-tick { flex: none; color: var(--sumi-thin); font-size: 10px; letter-spacing: 0; }
+  .mr-sec-name {
+    flex: 1 1 auto; font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: 15px; line-height: 1.55;
+  }
+  .mr-sec-meta { flex: none; font-size: 11px; color: var(--sumi-thin); }
+  .mr-sec.is-now { color: var(--asagi); }
+  .mr-sec.is-now .mr-sec-tick { color: var(--asagi); }
 
   .mr-mark-item {
     display: block; width: 100%; text-align: left; padding: 12px 6px 12px 14px;
@@ -677,6 +701,53 @@ function buildChapters(blocks) {
   return chapters.filter(function (c) { return c.blocks.length || c.title; });
 }
 
+/* 章の下の見出し（節・項）。文の番号まで数えておく。
+   目次を開いたときにその章のぶんだけ数え、あとは控えを使う */
+var secCache = {};
+function clearSecCache() { secCache = {}; }
+
+function sectionsOf(ci) {
+  if (secCache[ci]) return secCache[ci];
+  var ch = state.doc && state.doc.chapters[ci];
+  if (!ch) return [];
+  var secs = [], n = 0, minLv = 99;
+  ch.blocks.forEach(function (b) {
+    if (b.t === 'h') { if (b.level < minLv) minLv = b.level; }
+  });
+  ch.blocks.forEach(function (b) {
+    if (b.t === 'h') { secs.push({ text: b.text, level: b.level, depth: b.level - minLv, si: n, chars: 0 }); n += 1; }
+    else {
+      n += splitSents(b.text).length;
+      if (secs.length) secs[secs.length - 1].chars += b.text.length;
+    }
+  });
+  /* 次の見出しの手前までがその節の範囲 */
+  secs.forEach(function (sc, k) { sc.end = k + 1 < secs.length ? secs[k + 1].si : Infinity; });
+  secCache[ci] = secs;
+  return secs;
+}
+
+/* いま読んでいるのがどの節か */
+function currentSection(ci, si) {
+  var secs = sectionsOf(ci), found = -1;
+  for (var k = 0; k < secs.length; k++) if (secs[k].si <= si) found = k;
+  return found;
+}
+
+/* 章のどこからでも読み始める。同じ章なら開き直さない */
+function goTo(ci, si, autoplay) {
+  if (ci === state.ci && state.sents.length) {
+    state.si = Math.min(Math.max(si || 0, 0), state.sents.length - 1);
+    focusSentence(state.si, true);
+    updateSpineNow();
+    saveSoon();
+    if (autoplay) play();
+    else if (state.playing) { state.epoch++; if (SY) SY.cancel(); speakCurrent(); }
+  } else {
+    openChapter(ci, !!autoplay, si || 0);
+  }
+}
+
 /* 章番号：前付けは番号から外れる */
 function numbering() {
   var n = 0;
@@ -761,7 +832,7 @@ function openChapter(i, autoplay, atSentence) {
     html.push(b.t === 'h' ? '<p class="mr-h" data-level="' + b.level + '">' : '<p class="mr-p">');
     parts.forEach(function (txt) {
       html.push('<span class="mr-s" data-i="' + state.sents.length + '">' + esc(txt) + '</span>');
-      state.sents.push({ text: txt, head: b.t === 'h', el: null });
+      state.sents.push({ text: txt, head: b.t === 'h', level: b.t === 'h' ? b.level : 0, el: null });
     });
     html.push('</p>');
   });
@@ -1084,6 +1155,8 @@ function runCommand(raw) {
   var q = t.replace(/(を|に|へ|から)?\s*(読み上げて|読みあげて|読んで|よんで|読み上げ|再生して|再生|開いて|ひらいて|聞かせて|きかせて|して|ください|お願い|おねがい)[。！!？?]*$/g, '').trim();
   var byName = chapterByName(q || t);
   if (byName >= 0) { openChapter(byName, true, 0); return; }
+  var bySec = sectionByName(q || t);
+  if (bySec) { goTo(bySec.ci, bySec.si, true); setStatus(bySec.text); return; }
 
   if (/(読み上げ|読んで|よんで|再生|話して|喋って|しゃべって|音読)/.test(t)) { play(); return; }
   setStatus('「' + t + '」がわかりませんでした。「第一章を読み上げて」「次の章」「止めて」のように伝えてください', true);
@@ -1250,6 +1323,7 @@ function exportMarks() {
    7. 目次
    ============================================================ */
 var arranging = false;
+var openSecs = {};      /* 目次で節をひらいている章 */
 function renderToc() {
   var box = $('tocList');
   box.innerHTML = '';
@@ -1278,6 +1352,7 @@ function renderToc() {
       openChapter(i, true, 0);
     });
     row.appendChild(no); row.appendChild(name);
+    var hasSecs = !arranging && c.blocks.some(function (b) { return b.t === 'h'; });
     if (arranging) {
       var tools = document.createElement('div');
       tools.className = 'mr-chapter-tools';
@@ -1301,15 +1376,77 @@ function renderToc() {
         if (state.ci === i) { state.ci = -1; $('sheet').innerHTML = ''; state.sents = []; }
         else if (state.ci > i) state.ci -= 1;
         clearDocKeys().then(function () { return saveDoc(state.doc); });
+        clearSecCache(); openSecs = {};
         saveSoon(); renderToc();
       });
       tools.appendChild(t1); tools.appendChild(t2);
       row.appendChild(tools);
     } else {
       row.appendChild(meta);
+      if (hasSecs) {
+        var tg = document.createElement('button');
+        tg.className = 'mr-sec-toggle' + (openSecs[i] ? ' is-open' : '');
+        tg.title = '節・項を開く';
+        tg.setAttribute('aria-expanded', openSecs[i] ? 'true' : 'false');
+        tg.innerHTML = '<span>\u25b8</span>';
+        tg.addEventListener('click', function (e) {
+          e.stopPropagation();
+          openSecs[i] = !openSecs[i];
+          renderToc();
+        });
+        row.appendChild(tg);
+      }
     }
     box.appendChild(row);
+    if (hasSecs && openSecs[i]) box.appendChild(secList(i));
   });
+}
+
+/* 節・項の並び。押すとその見出しから読み始める */
+function secList(ci) {
+  var wrap = document.createElement('div');
+  var secs = sectionsOf(ci);
+  var nowSec = ci === state.ci ? currentSection(ci, state.si) : -1;
+  secs.forEach(function (sc, k) {
+    var b = document.createElement('button');
+    b.className = 'mr-sec' + (k === nowSec ? ' is-now' : '');
+    b.style.paddingLeft = (16 + sc.depth * 16) + 'px';
+    var tick = document.createElement('div');
+    tick.className = 'mr-sec-tick';
+    tick.textContent = sc.depth === 0 ? '\u2014' : '\u00b7';
+    var nm = document.createElement('div');
+    nm.className = 'mr-sec-name';
+    nm.textContent = sc.text;
+    var mt = document.createElement('div');
+    mt.className = 'mr-sec-meta';
+    mt.textContent = sc.chars ? sc.chars.toLocaleString() + '字' : '';
+    b.appendChild(tick); b.appendChild(nm); b.appendChild(mt);
+    b.addEventListener('click', function () {
+      closeScreens();
+      goTo(ci, sc.si, true);
+      setStatus(sc.text);
+    });
+    wrap.appendChild(b);
+  });
+  return wrap;
+}
+
+/* 章名で見つからないときは節・項の名前でも探す */
+function sectionByName(q) {
+  if (!state.doc || q.length < 2) return null;
+  var qq = q.replace(/\s/g, ''), best = null, bestLen = 0;
+  state.doc.chapters.forEach(function (c, ci) {
+    if (!c.blocks.some(function (b) { return b.t === 'h'; })) return;
+    sectionsOf(ci).forEach(function (sc) {
+      var t = sc.text.replace(/\s/g, '');
+      if (!t) return;
+      if (qq.indexOf(t) >= 0 || t.indexOf(qq) >= 0) {
+        var len = Math.min(t.length, qq.length);
+        if (len > bestLen) { bestLen = len; best = { ci: ci, si: sc.si, text: sc.text }; }
+      }
+    });
+  });
+  return best;
 }
 function refreshNowLabel() {
   if (state.ci < 0 || !state.doc) { $('nowCh').textContent = ''; return; }
@@ -1329,6 +1466,7 @@ function ingest(blocks, name) {
   state.doc = { name: name, loadedAt: Date.now(), chapters: chapters };
   state.marks = [];
   state.ci = -1; state.si = 0;
+  clearSecCache(); openSecs = {};
   $('startView').hidden = true;
   clearDocKeys()
     .then(function () { return saveDoc(state.doc); })
@@ -1371,6 +1509,8 @@ function openScreen(id) { closeScreens(); $(id).hidden = false; }
 
 $('btnToc').addEventListener('click', function () {
   if (!$('scrToc').hidden) { closeScreens(); return; }
+  /* いま読んでいる章の節ははじめからひらいておく */
+  if (state.ci >= 0 && openSecs[state.ci] === undefined) openSecs[state.ci] = true;
   renderToc(); openScreen('scrToc');
 });
 $('btnTocClose').addEventListener('click', closeScreens);
