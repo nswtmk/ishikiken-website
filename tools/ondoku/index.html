@@ -5,7 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="音読">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#faf8f3">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png" type="image/png">
 <title>音読装置</title>
 <style>
   :root {
@@ -223,6 +229,17 @@
   .mr-drop-hint { font-size: 11.5px; color: var(--sumi-thin); margin-top: 12px; line-height: 1.8; }
   .mr-or { font-size: 11px; letter-spacing: .2em; color: var(--sumi-thin); margin: 16px 0 10px; }
 
+  @media (max-height: 780px) {
+    .mr-start { padding-top: 3vh; }
+    .mr-start h1 { font-size: 24px; }
+    .mr-start p { font-size: 12.5px; line-height: 1.9; margin-bottom: 18px; }
+    .mr-drop { padding: 20px 14px; }
+  }
+  .mr-install { margin-top: 22px; padding: 13px 16px; border: 1px solid var(--line); border-radius: 12px;
+    font-size: 12px; line-height: 1.95; color: var(--sumi-soft); text-align: left; }
+  .mr-install[hidden] { display: none; }
+  .mr-install b { color: var(--ai); font-weight: 600; }
+  .mr-install .mr-btn { margin-top: 8px; }
   .mr-keyhelp { font-size: 11.5px; color: var(--sumi-thin); line-height: 2; margin-top: 26px; }
   .mr-keyhelp code { font-family: ui-monospace, Menlo, monospace; border: 1px solid var(--line);
     border-radius: 4px; padding: 0 5px; font-size: 11px; }
@@ -268,6 +285,7 @@
         <div class="mr-or">または</div>
         <button class="mr-btn" id="btnPasteOpen" style="padding:10px 20px;font-size:14px;">本文を貼り付ける</button>
         <div class="mr-drop-hint" style="margin-top:10px">ファイルを選べない端末では、こちらから本文を直接貼れます</div>
+        <div class="mr-install" id="installHint" hidden></div>
         <div class="mr-keyhelp">
           <code>Space</code> 再生と停止　<code>←</code> <code>→</code> 一文ずつ　<code>M</code> 朱を入れる
         </div>
@@ -1462,6 +1480,41 @@ Promise.all([kvGet('settings'), kvGet('marks'), kvGet('progress'), loadDoc()])
     setStatus('保存の読み出しに失敗しました（' + e.message + '）', true);
     paintPlay();
   });
+
+/* ============================================================
+   11. いつでも開けるようにする（ホーム画面・電波なし）
+   ============================================================ */
+if ('serviceWorker' in navigator && /^https:|^http:\/\/(localhost|127\.)/.test(location.href)) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').catch(function () { /* 使えなくても本体は動く */ });
+  });
+}
+
+(function installHint() {
+  var box = $('installHint');
+  if (!box) return;
+  var standalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+  if (standalone) return;
+  var deferred = null;
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault(); deferred = e;
+    box.innerHTML = '<b>アプリとして置く</b><br>この道具をホーム画面（またはアプリ一覧）に置くと、次からは一押しで開けます。';
+    var b = document.createElement('button');
+    b.className = 'mr-btn'; b.textContent = 'ホーム画面に置く';
+    b.addEventListener('click', function () {
+      if (!deferred) return;
+      deferred.prompt(); deferred = null; box.hidden = true;
+    });
+    box.appendChild(b);
+    box.hidden = false;
+  });
+  if (IS_IOS) {
+    box.innerHTML = '<b>アプリとして置く</b><br>下の <span style="font-family:system-ui">共有</span> ボタン → '
+      + '「ホーム画面に追加」を選ぶと、次からは一押しで開けます。'
+      + '一度読み込んだ原稿は端末に残るので、電波のないところでも読み上げられます。';
+    box.hidden = false;
+  }
+})();
 
 window.__ondoku = state;   /* 動作確認用 */
 })();
