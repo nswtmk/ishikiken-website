@@ -221,7 +221,13 @@
     flex: 1 1 auto; font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
     font-size: 15px; line-height: 1.55;
   }
-  .mr-sec-meta { flex: none; font-size: 11px; color: var(--sumi-thin); }
+  .mr-sec-meta { flex: none; font-size: 11px; color: var(--sumi-thin); font-variant-numeric: tabular-nums; }
+  .mr-chapter-meta { font-variant-numeric: tabular-nums; }
+  .mr-toc-sum {
+    padding: 4px 6px 12px; font-size: 11px; letter-spacing: .1em; color: var(--sumi-thin);
+    border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums;
+  }
+  .mr-sec.is-lead .mr-sec-name { font-family: inherit; font-size: 13px; color: var(--sumi-thin); }
   .mr-sec.is-now { color: var(--asagi); }
   .mr-sec.is-now .mr-sec-tick { color: var(--asagi); }
 
@@ -706,6 +712,14 @@ function buildChapters(blocks) {
 var secCache = {};
 function clearSecCache() { secCache = {}; }
 
+/* 字数は本文だけ数える。見出しの文字は原稿の分量ではない */
+function bodyChars(ch) {
+  return ch.blocks.reduce(function (a, b) { return a + (b.t === 'h' ? 0 : b.text.length); }, 0);
+}
+function docChars() {
+  return (state.doc ? state.doc.chapters : []).reduce(function (a, c) { return a + bodyChars(c); }, 0);
+}
+
 function sectionsOf(ci) {
   if (secCache[ci]) return secCache[ci];
   var ch = state.doc && state.doc.chapters[ci];
@@ -714,15 +728,25 @@ function sectionsOf(ci) {
   ch.blocks.forEach(function (b) {
     if (b.t === 'h') { if (b.level < minLv) minLv = b.level; }
   });
+  var lead = 0;                                   /* 最初の見出しより前の本文 */
   ch.blocks.forEach(function (b) {
     if (b.t === 'h') { secs.push({ text: b.text, level: b.level, depth: b.level - minLv, si: n, chars: 0 }); n += 1; }
     else {
       n += splitSents(b.text).length;
       if (secs.length) secs[secs.length - 1].chars += b.text.length;
+      else lead += b.text.length;
     }
   });
   /* 次の見出しの手前までがその節の範囲 */
   secs.forEach(function (sc, k) { sc.end = k + 1 < secs.length ? secs[k + 1].si : Infinity; });
+  /* 節の字数は、その下にぶら下がる項もひっくるめた数にする。
+     でないと項を持つ節が実際より痩せて見える */
+  for (var k = secs.length - 1; k >= 0; k--) {
+    var tot = secs[k].chars;
+    for (var j = k + 1; j < secs.length && secs[j].depth > secs[k].depth; j++) tot += secs[j].chars;
+    secs[k].total = tot;
+  }
+  secs.lead = lead;
   secCache[ci] = secs;
   return secs;
 }
@@ -1332,6 +1356,11 @@ function renderToc() {
     e.className = 'mr-note'; e.textContent = 'まだ原稿がありません。';
     box.appendChild(e); return;
   }
+  var sum = document.createElement('div');
+  sum.className = 'mr-toc-sum';
+  sum.textContent = state.doc.chapters.length + '章　' + docChars().toLocaleString() + '字';
+  box.appendChild(sum);
+
   var nums = numbering();
   state.doc.chapters.forEach(function (c, i) {
     var row = document.createElement('div');
@@ -1343,7 +1372,7 @@ function renderToc() {
     name.className = 'mr-chapter-name';
     name.style.cssText = 'background:none;border:none;text-align:left;padding:0;';
     name.textContent = c.title;
-    var chars = c.blocks.reduce(function (a, b) { return a + b.text.length; }, 0);
+    var chars = bodyChars(c);
     var meta = document.createElement('div');
     meta.className = 'mr-chapter-meta';
     meta.textContent = chars.toLocaleString() + '字';
@@ -1407,19 +1436,22 @@ function secList(ci) {
   var wrap = document.createElement('div');
   var secs = sectionsOf(ci);
   var nowSec = ci === state.ci ? currentSection(ci, state.si) : -1;
-  secs.forEach(function (sc, k) {
+  var rows = secs.slice();
+  if (secs.lead) rows.unshift({ text: '章のはじめ', depth: 0, si: 0, total: secs.lead, lead: true });
+  rows.forEach(function (sc, k) {
     var b = document.createElement('button');
-    b.className = 'mr-sec' + (k === nowSec ? ' is-now' : '');
+    var idx = secs.lead ? k - 1 : k;
+    b.className = 'mr-sec' + (idx === nowSec ? ' is-now' : '') + (sc.lead ? ' is-lead' : '');
     b.style.paddingLeft = (16 + sc.depth * 16) + 'px';
     var tick = document.createElement('div');
     tick.className = 'mr-sec-tick';
-    tick.textContent = sc.depth === 0 ? '\u2014' : '\u00b7';
+    tick.textContent = sc.lead ? '\u25e6' : (sc.depth === 0 ? '\u2014' : '\u00b7');
     var nm = document.createElement('div');
     nm.className = 'mr-sec-name';
     nm.textContent = sc.text;
     var mt = document.createElement('div');
     mt.className = 'mr-sec-meta';
-    mt.textContent = sc.chars ? sc.chars.toLocaleString() + '字' : '';
+    mt.textContent = sc.total ? sc.total.toLocaleString() + '字' : '0字';
     b.appendChild(tick); b.appendChild(nm); b.appendChild(mt);
     b.addEventListener('click', function () {
       closeScreens();
@@ -1473,9 +1505,7 @@ function ingest(blocks, name) {
     .then(function () { kvSet('marks', []); });
   renderToc();
   openScreen('scrToc');
-  var chars = chapters.reduce(function (a, c) {
-    return a + c.blocks.reduce(function (x, b) { return x + b.text.length; }, 0);
-  }, 0);
+  var chars = chapters.reduce(function (a, c) { return a + bodyChars(c); }, 0);
   setStatus(name + '　' + chapters.length + '章　' + chars.toLocaleString() + '字を読み込みました');
 }
 
