@@ -1214,6 +1214,9 @@ function refreshNowLabel() {
    ============================================================ */
 function ingest(blocks, name) {
   var chapters = buildChapters(blocks);
+  /* 本文のない見出し（別案の表題など）は目次に並べない */
+  var withBody = chapters.filter(function (c) { return c.blocks.length; });
+  if (withBody.length) chapters = withBody;
   if (!chapters.length) { setStatus('本文が見つかりませんでした', true); return; }
   state.doc = { name: name, loadedAt: Date.now(), chapters: chapters };
   state.marks = [];
