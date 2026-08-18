@@ -154,6 +154,12 @@
   .mr-ico.mr-play { width: 52px; height: 52px; border-color: var(--ai); color: var(--ai); }
   .mr-ico.is-shu { border-color: var(--shu); color: var(--shu); }
   .mr-ico svg { width: 17px; height: 17px; fill: currentColor; }
+  .mr-ico.mr-rate { width: auto; min-width: 46px; border-radius: 999px; padding: 0 11px;
+    font-size: 13px; letter-spacing: .02em; font-variant-numeric: tabular-nums; }
+  .mr-ico.mr-rate.is-fast { border-color: var(--ai); color: var(--ai); }
+
+  .mr-rate-steps { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+  .mr-rate-steps .mr-btn { font-variant-numeric: tabular-nums; }
   .mr-ico.mr-play svg { width: 21px; height: 21px; }
 
   .mr-cmd { flex: 1 1 auto; display: flex; align-items: center; gap: 6px;
@@ -332,7 +338,12 @@
         </div>
         <div class="mr-field">
           <label>速さ　<span id="rateVal">1.00</span></label>
-          <input type="range" id="rateInput" min="0.5" max="2" step="0.05" value="1">
+          <input type="range" id="rateInput" min="0.5" max="3" step="0.05" value="1">
+          <div class="mr-rate-steps" id="rateSteps"></div>
+          <div class="mr-note" style="margin-top:8px">
+            下の <code>×</code> ボタンを押しても速さが上がります（押すたびに一段ずつ、上限まで行くと最初に戻る）。
+            声によっては 2 倍を超えると端末側で頭打ちになることがあります。そのときは別の声を選んでください。
+          </div>
         </div>
         <div class="mr-field">
           <label>高さ　<span id="pitchVal">1.00</span></label>
@@ -386,6 +397,7 @@
       <button class="mr-ico is-shu" id="btnMark" title="朱を入れる（M）"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 6.1 6.4.5-4.9 4.2 1.5 6.2L12 16.7 6.4 20l1.5-6.2L3 9.6l6.4-.5z"/></svg></button>
     </div>
     <div class="mr-row">
+      <button class="mr-ico mr-rate" id="btnRate" title="速さを上げる（長押しで戻す）">×1.0</button>
       <button class="mr-ico" id="btnVoice" title="声と速さ"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4zm12.5 3c0-1.5-.8-2.8-2-3.4v6.8c1.2-.6 2-1.9 2-3.4zM14.5 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-.9 7-4.5 7-8.8s-3-7.9-7-8.8z"/></svg></button>
       <div class="mr-cmd">
         <input id="cmdInput" type="text" placeholder="第一章を読み上げて" autocomplete="off" autocapitalize="off" spellcheck="false">
@@ -1035,8 +1047,10 @@ function runCommand(raw) {
   if (!t) return;
   setStatus('');
   if (/(止め|停止|ストップ|やめ|静か|黙)/.test(t)) { stop(); setStatus('止めました'); return; }
-  if (/(ゆっくり|遅く|おそく)/.test(t)) { setRate(settings.rate - 0.1); return; }
-  if (/(速く|はやく|早く|急い)/.test(t)) { setRate(settings.rate + 0.1); return; }
+  var mrate = t.match(/([0-9]+(?:[.．][0-9]+)?)\s*倍/);
+  if (mrate) { setRate(parseFloat(mrate[1].replace('．', '.'))); return; }
+  if (/(ゆっくり|遅く|おそく)/.test(t)) { stepRate(-1); return; }
+  if (/(速く|はやく|早く|急い)/.test(t)) { stepRate(1); return; }
   if (/(もう一度|もういちど|繰り返|くりかえ|リピート)/.test(t)) {
     if (state.playing) { state.epoch++; if (SY) SY.cancel(); }
     state.playing = true; paintPlay(); unlockSpeech(); speakCurrent();
@@ -1075,13 +1089,89 @@ function runCommand(raw) {
   setStatus('「' + t + '」がわかりませんでした。「第一章を読み上げて」「次の章」「止めて」のように伝えてください', true);
 }
 
-function setRate(r) {
-  settings.rate = Math.max(0.5, Math.min(2, Math.round(r * 20) / 20));
+var RATE_MIN = 0.5, RATE_MAX = 3;
+var RATE_STEPS = [0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.4, 3];
+var rateTimer = 0;
+
+function clampRate(r) {
+  r = Math.round((isFinite(r) ? r : 1) * 20) / 20;
+  return Math.max(RATE_MIN, Math.min(RATE_MAX, r));
+}
+
+function setRate(r, quiet) {
+  settings.rate = clampRate(r);
   $('rateInput').value = String(settings.rate);
   $('rateVal').textContent = settings.rate.toFixed(2);
-  setStatus('速さ ' + settings.rate.toFixed(2));
+  paintRate();
+  if (!quiet) setStatus('速さ ' + settings.rate.toFixed(2) + ' 倍');
   saveSoon();
-  if (state.playing) { state.epoch++; if (SY) SY.cancel(); speakCurrent(); }
+  respeakForRate();
+}
+
+/* 速さは発話ごとにしか変えられないので、いま読んでいる文を作り直す。
+   ただしつまみを動かしているあいだ作り直し続けると iOS で声が詰まって
+   そのまま黙ってしまう。手が止まってから一度だけ作り直す。 */
+function respeakForRate() {
+  if (!state.playing) return;
+  state.epoch++;
+  if (SY) SY.cancel();
+  clearTimeout(rateTimer);
+  rateTimer = setTimeout(function () {
+    if (!state.playing) return;
+    state.epoch++;
+    speakCurrent();
+  }, 220);
+}
+
+/* 押すたびに一段ずつ速くする。上限まで行ったら最初の段に戻る */
+function stepRate(dir) {
+  var i = -1, k;
+  for (k = 0; k < RATE_STEPS.length; k++) {
+    if (Math.abs(RATE_STEPS[k] - settings.rate) < 0.026) { i = k; break; }
+  }
+  if (i < 0) {
+    /* 段の途中にいるときは、進む向きの隣の段へ寄せる */
+    i = 0;
+    for (k = 0; k < RATE_STEPS.length; k++) {
+      if (dir > 0 ? RATE_STEPS[k] <= settings.rate : RATE_STEPS[k] < settings.rate) i = k;
+    }
+    if (dir > 0) i += 1;
+    setRate(RATE_STEPS[Math.max(0, Math.min(RATE_STEPS.length - 1, i))]);
+    return;
+  }
+  i += dir;
+  if (i >= RATE_STEPS.length) i = 0;
+  if (i < 0) i = RATE_STEPS.length - 1;
+  setRate(RATE_STEPS[i]);
+}
+
+function paintRate() {
+  var b = $('btnRate');
+  if (b) {
+    b.textContent = '×' + (settings.rate % 1 === 0 ? settings.rate.toFixed(1) : String(settings.rate));
+    b.classList.toggle('is-fast', settings.rate > 1.001);
+  }
+  var box = $('rateSteps');
+  if (box) {
+    var kids = box.children;
+    for (var k = 0; k < kids.length; k++) {
+      kids[k].classList.toggle('is-on', Math.abs(parseFloat(kids[k].dataset.rate) - settings.rate) < 0.026);
+    }
+  }
+}
+
+function buildRateSteps() {
+  var box = $('rateSteps');
+  if (!box) return;
+  box.innerHTML = '';
+  RATE_STEPS.forEach(function (r) {
+    var b = document.createElement('button');
+    b.className = 'mr-btn';
+    b.dataset.rate = String(r);
+    b.textContent = '×' + (r % 1 === 0 ? r.toFixed(1) : String(r));
+    b.addEventListener('click', function () { setRate(r); });
+    box.appendChild(b);
+  });
 }
 
 /* ============================================================
@@ -1318,6 +1408,8 @@ $('btnNextCh').addEventListener('click', function () { runCommand('次の章'); 
 $('btnMark').addEventListener('click', toggleMark);
 
 $('rateInput').addEventListener('input', function () { setRate(parseFloat(this.value)); });
+$('btnRate').addEventListener('click', function () { stepRate(1); });
+$('btnRate').addEventListener('contextmenu', function (e) { e.preventDefault(); stepRate(-1); });
 $('pitchInput').addEventListener('input', function () {
   settings.pitch = parseFloat(this.value);
   $('pitchVal').textContent = settings.pitch.toFixed(2);
@@ -1430,6 +1522,8 @@ document.addEventListener('keydown', function (e) {
   else if (e.key === 'ArrowLeft') { e.preventDefault(); jump(-1); }
   else if (e.key === 'ArrowRight') { e.preventDefault(); jump(1); }
   else if (e.key === 'm' || e.key === 'M') { e.preventDefault(); toggleMark(); }
+  else if (e.key === '+' || e.key === '=' || e.key === ']') { e.preventDefault(); stepRate(1); }
+  else if (e.key === '-' || e.key === '[') { e.preventDefault(); stepRate(-1); }
   else if (e.key === 'Escape') { closeScreens(); }
 });
 
@@ -1443,18 +1537,22 @@ window.addEventListener('beforeunload', function () { if (SY) SY.cancel(); });
 /* ============================================================
    10. 起動
    ============================================================ */
+buildRateSteps();
+paintRate();
+
 Promise.all([kvGet('settings'), kvGet('marks'), kvGet('progress'), loadDoc()])
   .then(function (r) {
     var st = r[0], mk = r[1], pg = r[2], doc = r[3];
     if (st) {
       settings.voiceURI = st.voiceURI || '';
-      settings.rate = st.rate || 1;
+      settings.rate = clampRate(st.rate || 1);
       settings.pitch = st.pitch || 1;
       settings.auto = st.auto !== false;
       settings.readHead = st.readHead !== false;
     }
     $('rateInput').value = String(settings.rate);
     $('rateVal').textContent = settings.rate.toFixed(2);
+    paintRate();
     $('pitchInput').value = String(settings.pitch);
     $('pitchVal').textContent = settings.pitch.toFixed(2);
     $('btnAuto').textContent = '自動送り　' + (settings.auto ? '入' : '切');
