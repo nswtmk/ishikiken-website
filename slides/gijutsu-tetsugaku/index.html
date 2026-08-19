@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>なぜ、いま技術哲学か｜宇野さん レクチャー・スライド</title>
+<meta name="description" content="技術哲学がなぜ現代において必要なのか。人間と技術の不可分性、技術と哲学の不可分性、技術多様性、そしてモア・ザン・ヒューマンのテクノロジーへ。全3部構成のレクチャースライド。">
+<style>
+  :root {
+    --paper: #faf9f5;
+    --ink: #14140f;
+    --ink-soft: #4a4a42;
+    --line: #d9d7cd;
+    --moss: #0ca568;
+    --mint: #1de394;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    background: #eceae2;
+    color: var(--ink);
+    font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", Arial, sans-serif;
+    font-feature-settings: "palt";
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+
+  /* ---------- stage ---------- */
+  .deck { position: fixed; inset: 0; display: grid; place-items: center; overflow: hidden; }
+  .stage {
+    position: relative;
+    width: 1280px; height: 720px;
+    flex: none;
+    background: var(--paper);
+    transform-origin: center center;
+    box-shadow: 0 18px 60px rgba(20,20,15,.12);
+    overflow: hidden;
+  }
+  .slide {
+    position: absolute; inset: 0;
+    padding: 74px 96px 92px;
+    display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden;
+    transition: opacity .38s ease;
+  }
+  .slide.is-active { opacity: 1; visibility: visible; }
+
+  /* ---------- common type ---------- */
+  .kicker { font-size: 13px; letter-spacing: .3em; color: var(--moss); font-weight: 600; text-transform: uppercase; }
+  .slide h2 { font-size: 42px; font-weight: 700; line-height: 1.5; letter-spacing: .02em; margin-top: 18px; }
+  .slide h2 .thin { font-weight: 400; color: var(--ink-soft); }
+  .lead { font-size: 19px; line-height: 2.1; color: var(--ink-soft); margin-top: 18px; max-width: 900px; }
+  .body { margin-top: 46px; flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; }
+
+  ul.pts { list-style: none; }
+  ul.pts > li {
+    position: relative;
+    font-size: 24px; line-height: 1.95; letter-spacing: .01em;
+    padding-left: 34px; margin-bottom: 24px; max-width: 1010px;
+  }
+  ul.pts > li::before {
+    content: ""; position: absolute; left: 2px; top: 20px;
+    width: 9px; height: 9px; border-radius: 50%;
+    border: 1.6px solid var(--mint);
+  }
+  ul.pts > li.em::before { background: var(--moss); border-color: var(--moss); }
+  ul.pts > li.em { font-weight: 700; }
+  ul.pts > li small { display: block; font-size: 16px; color: var(--ink-soft); line-height: 1.9; margin-top: 6px; font-weight: 400; }
+  ul.pts.tight > li { margin-bottom: 16px; font-size: 22px; }
+
+  .note {
+    margin-top: auto; padding-top: 22px; border-top: 1px solid var(--line);
+    font-size: 15px; line-height: 1.95; color: var(--ink-soft); max-width: 960px;
+  }
+  .arrow { color: var(--moss); font-weight: 700; }
+  .term { border-bottom: 1.6px solid var(--mint); padding-bottom: 1px; }
+  .en { font-size: .62em; letter-spacing: .06em; color: var(--ink-soft); font-weight: 400; }
+
+  /* ---------- title slide ---------- */
+  .slide.title { justify-content: center; align-items: flex-end; text-align: right; padding-right: 110px; }
+  .slide.title h1 { font-size: 78px; font-weight: 700; line-height: 1.42; letter-spacing: .04em; }
+  .slide.title .sub { font-size: 22px; color: var(--ink-soft); margin-top: 30px; letter-spacing: .06em; line-height: 2; }
+  .slide.title .meta { font-size: 14px; letter-spacing: .2em; color: var(--ink-soft); margin-top: 46px; }
+  .rings { position: absolute; left: -160px; top: 50%; transform: translateY(-50%); width: 560px; height: 560px; pointer-events: none; }
+  .rings circle { fill: none; stroke: var(--mint); stroke-width: 1.6; }
+  .rings .r1 { stroke-dasharray: 4 7; animation: spin 90s linear infinite; transform-origin: 280px 280px; }
+  .rings .r2 { stroke-dasharray: 5 9; animation: spin 150s linear infinite reverse; transform-origin: 280px 280px; }
+  .rings .r3 { stroke-dasharray: 3 6; animation: spin 220s linear infinite; transform-origin: 280px 280px; }
+  .rings .core { fill: var(--mint); stroke: none; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .rings circle { animation: none !important; } .slide { transition: none; } }
+
+  /* ---------- part divider ---------- */
+  .slide.part { background: var(--ink); color: var(--paper); justify-content: center; }
+  .slide.part .kicker { color: var(--mint); }
+  .slide.part .pnum { font-size: 128px; font-weight: 700; line-height: 1; letter-spacing: .02em; margin: 22px 0 18px; }
+  .slide.part h2 { font-size: 52px; margin-top: 0; }
+  .slide.part .lead { color: #9a9a8e; font-size: 18px; }
+
+  /* ---------- agenda ---------- */
+  .agenda { list-style: none; border-top: 1px solid var(--line); }
+  .agenda li { display: grid; grid-template-columns: 92px 1fr; gap: 28px; align-items: baseline; padding: 28px 0; border-bottom: 1px solid var(--line); }
+  .agenda .n { font-size: 30px; font-weight: 700; color: var(--moss); }
+  .agenda h3 { font-size: 30px; font-weight: 700; letter-spacing: .02em; }
+  .agenda p { font-size: 16px; color: var(--ink-soft); margin-top: 8px; line-height: 1.9; }
+
+  /* ---------- column grids ---------- */
+  .cols { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .cols.c2 { grid-template-columns: 1fr 1fr; }
+  .cols.c3 { grid-template-columns: 1fr 1fr 1fr; }
+  .col { background: var(--paper); padding: 30px 30px 34px; }
+  .col .h { font-size: 13px; letter-spacing: .2em; color: var(--moss); font-weight: 600; margin-bottom: 16px; }
+  .col h3 { font-size: 25px; font-weight: 700; line-height: 1.6; margin-bottom: 14px; }
+  .col p { font-size: 16.5px; line-height: 2; color: var(--ink-soft); }
+  .col p + p { margin-top: 12px; }
+  .col.mid { background: #f3f2ea; border-left: 1.6px dashed var(--mint); border-right: 1.6px dashed var(--mint); }
+  .col.mid h3 { color: var(--ink); }
+  .col .tagline { display: inline-block; font-size: 12.5px; letter-spacing: .1em; border: 1.4px dashed var(--mint); border-radius: 999px; padding: 5px 15px; margin-top: 18px; line-height: 1.6; }
+
+  /* ---------- two-axis ---------- */
+  .axes { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .axis { border: 1px solid var(--line); border-top: 3px solid var(--moss); padding: 26px 28px 30px; background: var(--paper); }
+  .axis .n { font-size: 12.5px; letter-spacing: .2em; color: var(--ink-soft); margin-bottom: 12px; }
+  .axis h3 { font-size: 28px; font-weight: 700; line-height: 1.55; margin-bottom: 16px; }
+  .axis ul { list-style: none; }
+  .axis li { font-size: 15.5px; line-height: 1.9; color: var(--ink-soft); padding-left: 18px; position: relative; margin-bottom: 8px; }
+  .axis li::before { content: ""; position: absolute; left: 0; top: 13px; width: 7px; height: 1.6px; background: var(--mint); }
+
+  /* ---------- statement ---------- */
+  .statement { font-size: 40px; font-weight: 700; line-height: 1.85; letter-spacing: .03em; }
+  .statement small { display: block; max-width: 960px; font-size: 17px; font-weight: 400; color: var(--ink-soft); line-height: 2.1; margin-top: 26px; letter-spacing: 0; }
+
+  /* ---------- paths ---------- */
+  .paths { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .path { border: 1px solid var(--line); padding: 26px 24px 30px; }
+  .path.on { border: 1.8px solid var(--moss); background: #f4faf6; }
+  .path .n { font-size: 12.5px; letter-spacing: .18em; color: var(--ink-soft); margin-bottom: 12px; }
+  .path h3 { font-size: 22px; font-weight: 700; line-height: 1.6; margin-bottom: 12px; }
+  .path h3 small { display: block; font-size: 11.5px; letter-spacing: .14em; color: var(--moss); font-weight: 600; margin-top: 5px; }
+  .path p { font-size: 15px; line-height: 1.95; color: var(--ink-soft); }
+  .path p + p { margin-top: 10px; }
+
+  /* ---------- chrome ---------- */
+  .foot {
+    position: absolute; left: 96px; right: 96px; bottom: 34px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 12px; letter-spacing: .18em; color: var(--ink-soft);
+  }
+  .slide.part .foot { color: rgba(250,249,245,.5); }
+  .bar { position: absolute; left: 0; bottom: 0; height: 3px; background: var(--mint); transition: width .38s ease; z-index: 5; }
+
+  .ui { position: fixed; right: 20px; bottom: 18px; display: flex; gap: 8px; z-index: 40; transition: opacity .4s; }
+  .ui.idle { opacity: 0; pointer-events: none; }
+  .ui button {
+    font: inherit; font-size: 12px; letter-spacing: .14em;
+    background: var(--paper); color: var(--ink-soft);
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 8px 16px; cursor: pointer; transition: background .2s, color .2s;
+  }
+  .ui button:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .toc {
+    position: fixed; inset: 0; z-index: 50; background: var(--ink); color: var(--paper);
+    padding: 56px 6vw; overflow-y: auto; display: none;
+  }
+  .toc.open { display: block; }
+  .toc h4 { font-size: 12px; letter-spacing: .3em; color: var(--mint); font-weight: 600; margin-bottom: 26px; }
+  .toc ol { list-style: none; columns: 2; column-gap: 56px; }
+  .toc li { break-inside: avoid; }
+  .toc button {
+    font: inherit; text-align: left; width: 100%;
+    display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: baseline;
+    background: none; border: none; border-bottom: 1px solid #33332c; color: rgba(250,249,245,.72);
+    padding: 11px 0; font-size: 15.5px; cursor: pointer; transition: color .2s;
+  }
+  .toc button:hover, .toc button.here { color: #fff; }
+  .toc button.here .no { color: var(--mint); }
+  .toc .no { font-size: 12px; letter-spacing: .1em; color: #7b7b70; }
+  .toc .pt { font-size: 11px; letter-spacing: .2em; color: var(--mint); display: block; margin-top: 4px; }
+
+  /* ---------- print ---------- */
+  @page { size: 1280px 720px; margin: 0; }
+  @media print {
+    body { overflow: visible; background: #fff; }
+    .deck { position: static; display: block; overflow: visible; }
+    .stage { width: 1280px; height: auto; transform: none !important; box-shadow: none; overflow: visible; }
+    .slide {
+      position: static; opacity: 1 !important; visibility: visible !important;
+      width: 1280px; height: 720px; page-break-after: always; break-after: page;
+    }
+    .ui, .toc, .bar { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+<div class="stage" id="stage">
+
+  <!-- 01 -->
+  <section class="slide title" data-title="なぜ、いま技術哲学か" data-part="">
+    <svg class="rings" viewBox="0 0 560 560" aria-hidden="true">
+      <circle class="r1" cx="280" cy="280" r="258"/>
+      <circle class="r2" cx="280" cy="280" r="196"/>
+      <circle class="r3" cx="280" cy="280" r="132"/>
+      <circle class="core" cx="280" cy="280" r="5"/>
+    </svg>
+    <div class="kicker">Philosophy of Technology</div>
+    <h1>なぜ、いま<br>技術哲学か</h1>
+    <p class="sub">人間と技術、技術と哲学。<br>その不可分性が切実になった時代に</p>
+    <p class="meta">宇野さん レクチャー ／ 全3部構成</p>
+  </section>
+
+  <!-- 02 -->
+  <section class="slide" data-title="本日の見取り図" data-part="">
+    <div class="kicker">Agenda</div>
+    <h2>本日の見取り図</h2>
+    <div class="body">
+      <ol class="agenda">
+        <li>
+          <span class="n">1</span>
+          <div>
+            <h3>なぜ、いま技術哲学が必要なのか</h3>
+            <p>技術哲学がマイナーである理由と、それでも無視できない2つの不可分性。そして生成AIがもたらした「逆転」。</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">2</span>
+          <div>
+            <h3>技術哲学の問いはどこへ向かうべきか</h3>
+            <p>ポストヒューマニズムの限界、ユク・ホイの技術多様性、そして「内側から近代を超える」という課題。</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">3</span>
+          <div>
+            <h3>モア・ザン・ヒューマンのテクノロジーへ</h3>
+            <p>ヒューマニズムの延長でも、トランスヒューマニズムでもない第三の道を考える。</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section class="slide part" data-title="PART 1｜なぜ、いま技術哲学が必要なのか" data-part="">
+    <div class="kicker">Part One</div>
+    <div class="pnum">1</div>
+    <h2>なぜ、いま<br>技術哲学が必要なのか</h2>
+    <p class="lead">技術哲学はまったくメジャーではない。それでも、いま最も切実な学問である——その理由から始めます。</p>
+  </section>
+
+  <!-- 04 -->
+  <section class="slide" data-title="出発点：技術に囲まれて生きている" data-part="1">
+    <div class="kicker">1 — 01</div>
+    <h2>出発点｜私たちは、テクノロジーに囲まれて生きている</h2>
+    <div class="body">
+      <ul class="pts">
+        <li>AIが出てきて、<span class="term">技術とは何か・テクノロジーとは何か</span>を考えることの切実さが、ますます増している</li>
+        <li>同時に「人間とは何か」「AIとは何か」も、否応なく考えさせられる</li>
+        <li class="em">ならば「そもそもテクノロジーとは何か」を問うことは、それ自体として重要なはずだ</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section class="slide" data-title="哲学はいま、どう使われているか" data-part="1">
+    <div class="kicker">1 — 02</div>
+    <h2>哲学はいま、どう使われているか</h2>
+    <div class="body">
+      <div class="cols c2">
+        <div class="col">
+          <div class="h">Classic</div>
+          <h3>古典的な問い</h3>
+          <p>そもそも、なぜ世界は存在しているのか。人間とは何か。世界とは何か。</p>
+        </div>
+        <div class="col">
+          <div class="h">Now</div>
+          <h3>令和の人文ブーム</h3>
+          <p>哲学は、生きるための「処方箋」として使われている。</p>
+          <p>＝哲学が重要だということ自体は、それなりに共有されている。</p>
+        </div>
+      </div>
+      <div class="note"><span class="arrow">→</span> では、<strong>技術哲学</strong>はなぜ重要なのか。ここから始めなければならない。</div>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section class="slide" data-title="現状：技術哲学はメジャーではない" data-part="1">
+    <div class="kicker">1 — 03</div>
+    <h2>現状｜ぶっちゃけ、技術哲学は<br>まったくメジャーではない</h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>2023年、『WIRED』での連載を開始。以後この数年、かなり力を入れてきた</li>
+        <li>翻訳の刊行、関連書の出版。SNS上でもそれなりに話題になった<small>——もっとも、「技術哲学をやっている」と言い続けている人間が他にいない、という事情もある</small></li>
+        <li class="em">それでも、他分野と比べれば依然として圧倒的にマイナーである</li>
+      </ul>
+      <div class="note">比較：「AIの哲学」はそれなりに知られている（三宅さんほか）。にもかかわらず技術哲学は広まらない。これは努力量の問題ではなく、<strong>構造の問題</strong>だと考えている。</div>
+    </div>
+  </section>
+
+  <!-- 07 -->
+  <section class="slide" data-title="なぜマイナーなのか——構造的な無視" data-part="1">
+    <div class="kicker">1 — 04</div>
+    <h2>なぜマイナーなのか｜<span class="thin">両側からの、構造的な無視</span></h2>
+    <div class="body">
+      <div class="cols c3">
+        <div class="col">
+          <div class="h">Philosophy</div>
+          <h3>哲学をやっている人</h3>
+          <p>人間が好き。人間とは何か、人間の悩みを考えたい。</p>
+          <p>その反対側にある技術には、興味がない。</p>
+        </div>
+        <div class="col mid">
+          <div class="h">Between</div>
+          <h3>技術哲学</h3>
+          <p>技術と哲学の、あいだの学問。</p>
+          <p>ゆえに両側から、構造的に無視されることになる。</p>
+          <span class="tagline">ここが無視できない</span>
+        </div>
+        <div class="col">
+          <div class="h">Technology</div>
+          <h3>技術をやっている人</h3>
+          <p>実際に作ってなんぼだと考えている。</p>
+          <p>哲学は付属物にすぎない。人間とは何かは、後から考えればいい。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 -->
+  <section class="slide" data-title="無視できない理由：2つの不可分性" data-part="1">
+    <div class="kicker">1 — 05</div>
+    <h2>それでも無視できない理由｜<span class="thin">2つの不可分性</span></h2>
+    <div class="body">
+      <div class="axes">
+        <div class="axis">
+          <div class="n">AXIS 01</div>
+          <h3>人間は技術と<br>不可分である</h3>
+          <ul>
+            <li>人間は技術的であり、技術は人間である</li>
+            <li>プロメテウス神話から、アンディ・クラーク『生まれながらのサイボーグ』まで、ずっと言われてきた</li>
+            <li>私たちのすべての行為は、技術を媒介にして行われる</li>
+            <li>社会そのものが、技術によって運営・運用される</li>
+          </ul>
+        </div>
+        <div class="axis">
+          <div class="n">AXIS 02</div>
+          <h3>技術は哲学と<br>不可分である</h3>
+          <ul>
+            <li>哲学者はつねに技術に関心を持ってきた（中山さんの技術哲学史ほか）</li>
+            <li>遡れば、世界はそもそも機械的である／ロゴス＝メカニズムに従う、という発想がある</li>
+            <li>ゆえに究極のエンジニアリングとは、世界の構造をモデルにして何かを作ることになる</li>
+            <li>プラトン以降の西洋形而上学＝イデア論。この発想は非常に根強い</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 -->
+  <section class="slide" data-title="2つの不可分性が指し示す次元" data-part="1">
+    <div class="kicker">1 — 06</div>
+    <h2>この2つが指し示す次元</h2>
+    <div class="body">
+      <ul class="pts">
+        <li><strong>テクノロジーを発展させること＝世界の背後にある見えない構造を明らかにすること</strong><small>イデア、あるいはメカニズム。技術は、世界の真理へのアクセス手段になる。</small></li>
+        <li><strong>人間と技術が、もはや分けられない次元にまで来ること</strong><small>行為は技術に媒介され、社会は技術によって運用される。だからこそ切実になる。</small></li>
+      </ul>
+      <div class="note">この2つは長らく「原理的にはそうだ」という話だった。<span class="arrow">→</span> それが、いま現実になった。</div>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section class="slide" data-title="生成AIによって、2つがアクチュアルになった" data-part="1">
+    <div class="kicker">1 — 07</div>
+    <h2>いま、この2つが生成AIによって<br>アクチュアルになった</h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li class="em">私たちの存在が技術的に作られていくことは、もはや何の疑いもない</li>
+        <li>AIによって、私たちのあり方が変わる。スマホによって変わる</li>
+        <li>どんなデバイスが出るか、どんな技術が広まるかで、人間の行動も社会の行動も変わる</li>
+        <li>負の側面：AIの登場と同時に防衛テックが台頭し、戦争へと駆り立てられていくことも起きている</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 11 -->
+  <section class="slide" data-title="世界の真理を明らかにするのは誰か" data-part="1">
+    <div class="kicker">1 — 08</div>
+    <h2>もう一方の極｜<span class="thin">世界の真理を明らかにするのは、誰か</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>これまで：世界の背後にあるメカニズムを明らかにするのは、<strong>人間</strong>だった</li>
+        <li>これから：人間よりはるかに高度な知能をもつ存在＝<strong>AI</strong>が、それを明らかにしていく</li>
+        <li>その先：世界の背後にシミュレーションがあることを否定できない、という立場<small>シミュレーション仮説（ボストロム／チャーマーズ）</small></li>
+        <li>そこに重なるもの：メシア思想、そしてアメリカのプロテスタンティズムの基層にあるカルヴァン主義＝<span class="term">予定説</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 12 -->
+  <section class="slide" data-title="逆転——テクノフィロソフィー" data-part="1">
+    <div class="kicker">1 — 09</div>
+    <h2>逆転｜<span class="thin">テクノフィロソフィー <span class="en">Technophilosophy</span></span></h2>
+    <div class="body">
+      <p class="statement">技術によって、人間ははじめて<br>世界のことがわかる。<small>テクノロジーの発展は、この世界の真理を解き明かすことに直結する。<br>そしてテクノロジーが発展して初めて、「人間とは何か」「世界とは何か」という古典的な哲学の問いが明らかになる（デイヴィッド・チャーマーズ）。</small></p>
+      <div class="note"><span class="arrow">→</span> 人間と技術の役割が逆転する。私たちはそのただ中にいる。<br>ゆえに技術哲学は、いま極めて重要な学問になっている——にもかかわらず、相変わらず広まっていない。</div>
+    </div>
+  </section>
+
+  <!-- 13 -->
+  <section class="slide" data-title="第1部まとめ：だから書き続けている" data-part="1">
+    <div class="kicker">1 — 10</div>
+    <h2>だから、書き続けている</h2>
+    <div class="body">
+      <ul class="pts">
+        <li>この事態は非常に重要なので、技術哲学という学問と、<strong>技術哲学的な思考</strong>を多くの人に知ってほしい</li>
+        <li>そのために『WIRED』でひたすら連載を続けている</li>
+        <li>近作の焦点：<span class="term">テクノロジーの背後にある世界観</span>についての問いを深めていくこと</li>
+      </ul>
+      <div class="note">——ここまでが第1部。ここから、その問いがどこへ向かうべきかを考えます。</div>
+    </div>
+  </section>
+
+  <!-- 14 -->
+  <section class="slide part" data-title="PART 2｜技術哲学の問いはどこへ向かうべきか" data-part="">
+    <div class="kicker">Part Two</div>
+    <div class="pnum">2</div>
+    <h2>技術哲学の問いは<br>どこへ向かうべきか</h2>
+    <p class="lead">人間中心主義を超える、と言われる。しかし、それは誰にとって可能なのか。</p>
+  </section>
+
+  <!-- 15 -->
+  <section class="slide" data-title="技術哲学の系譜が到達した地点" data-part="2">
+    <div class="kicker">2 — 01</div>
+    <h2>技術哲学の系譜が到達した地点</h2>
+    <div class="body">
+      <ul class="pts">
+        <li>技術か人間か、<strong>どちらかが優位というわけではない</strong></li>
+        <li>両者は相互に絡み合い、相互作用する</li>
+        <li>そして、<span class="term">ネットワーク</span>を構成する</li>
+        <li class="em">考えてみれば当たり前だが、これを前提に考えよう、となっていった</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 16 -->
+  <section class="slide" data-title="ポストヒューマニズムとその限界" data-part="2">
+    <div class="kicker">2 — 02</div>
+    <h2>現代の要請｜<span class="thin">ポストヒューマニズム、その限界</span></h2>
+    <div class="body">
+      <div class="cols c2">
+        <div class="col">
+          <div class="h">要請</div>
+          <h3>人間中心主義を超えて</h3>
+          <p>人間中心主義を超えたポストヒューマニズムの観点から、テクノロジーを考えなければならない——というのが現代の到達点。</p>
+        </div>
+        <div class="col">
+          <div class="h">実感</div>
+          <h3>しかし、超えられない</h3>
+          <p>はっきり言えば、ヨーロッパの哲学者は人間中心主義を超えた思考ができない。</p>
+          <p>国際交流ワークショップや、私たちが主催・運営した国際技術哲学会でも強くそう思った。明示的に論じることも少なく、論じていても結局は人間から見た視点を逃れられない。</p>
+        </div>
+      </div>
+      <div class="note">おそらく、言語の構造、そして宗教観そのものがそうなっているからだと思う。</div>
+    </div>
+  </section>
+
+  <!-- 17 -->
+  <section class="slide" data-title="ユク・ホイ｜技術多様性" data-part="2">
+    <div class="kicker">2 — 03</div>
+    <h2>ユク・ホイ｜<span class="thin">技術多様性 <span class="en">Technodiversity</span></span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li class="em">テクノロジーの背後には、宇宙観・世界観がある</li>
+        <li>そしてそれが、テクノロジーのあり方を方向づけている</li>
+        <li>『中国における技術への問い』：欧米に対して中国はこうなっている、という<strong>相対化</strong>ができる</li>
+      </ul>
+      <div class="note">これだけを読むと、多文化主義のように見える。——しかし、そうではない。</div>
+    </div>
+  </section>
+
+  <!-- 18 -->
+  <section class="slide" data-title="『ポストヨーロッパ』——内側から超える" data-part="2">
+    <div class="kicker">2 — 04</div>
+    <h2>『ポストヨーロッパ』｜<span class="thin">内側から超える</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>ここでの「ヨーロッパ」とは、<strong>現代社会の規範や基本となる信念</strong>のこと。つまり<span class="term">近代</span>である</li>
+        <li>だから、日本もすでにヨーロッパ化している</li>
+        <li class="em">乗り越えるべきは近代であり、それは外から取り替えるのではなく、<strong>内側から</strong>超えなければならない</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 19 -->
+  <section class="slide" data-title="中国の例と、その失われ方" data-part="2">
+    <div class="kicker">2 — 05</div>
+    <h2>中国の例と、その失われ方</h2>
+    <div class="body">
+      <div class="cols c2">
+        <div class="col">
+          <div class="h">かつて</div>
+          <h3>道徳と結びついた技術</h3>
+          <p>天——宇宙的な理のようなものがあり、それに即すことが善いこととされる。</p>
+          <p>良い技術とは、その理にそぐう技術である。</p>
+        </div>
+        <div class="col">
+          <div class="h">いま</div>
+          <h3>ほとんど失われている</h3>
+          <p>そうした考え方は、現代の中国でもほとんど失われている。</p>
+          <p>古文書を探れば出てくるかもしれない。しかし中国もまた、近代化＝ヨーロッパ化した。</p>
+        </div>
+      </div>
+      <div class="note">だから「古いやり方を取り戻そう」という話には、そのままではならない。</div>
+    </div>
+  </section>
+
+  <!-- 20 -->
+  <section class="slide" data-title="では、日本は" data-part="2">
+    <div class="kicker">2 — 06</div>
+    <h2>では、日本は</h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>「世界一AIフレンドリーな国」を目指している日本</li>
+        <li>「日本的な世界観がある」とも言われる</li>
+        <li>しかし私たちは十分に欧米化していて、洋服を着て、ヨーロッパの人と変わらない生活をしている</li>
+        <li>もちろん日本的なエッセンスは見られる。だが基本は、すでに近代の内側にある</li>
+      </ul>
+      <div class="note"><span class="arrow">→</span> だからこそ、取り戻すのではなく<strong>内側から超えていく</strong>べきだ——ここまでが第2部。</div>
+    </div>
+  </section>
+
+  <!-- 21 -->
+  <section class="slide part" data-title="PART 3｜モア・ザン・ヒューマンのテクノロジーへ" data-part="">
+    <div class="kicker">Part Three</div>
+    <div class="pnum">3</div>
+    <h2>モア・ザン・ヒューマンの<br>テクノロジーへ</h2>
+    <p class="lead">ヒューマニズムの延長でもなく、トランスヒューマニズムでもない場所を考える。</p>
+  </section>
+
+  <!-- 22 -->
+  <section class="slide" data-title="ここまでの前提（3つ）" data-part="3">
+    <div class="kicker">3 — 01</div>
+    <h2>ここまでの前提</h2>
+    <div class="body">
+      <ul class="pts">
+        <li><strong>技術と人間が不可分である</strong>ことが、切実になってきている</li>
+        <li><strong>技術と哲学が不可分である</strong>ことも、切実になってきている</li>
+        <li>日本的な思想・哲学はある。しかし私たちもすでにヨーロッパ化している<small>だから、ヨーロッパの哲学の内側から超えていくほかない。</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 23 -->
+  <section class="slide" data-title="既存の道①｜トランスヒューマニズム" data-part="3">
+    <div class="kicker">3 — 02</div>
+    <h2>既存の道 ①｜<span class="thin">トランスヒューマニズム</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li class="em">一体なのだから、いっそ本当に一体になろう——という考え方</li>
+        <li>人間と技術の一体、そしてテクノロジーと哲学の一体。その<strong>両方を同時に実現してしまう</strong></li>
+        <li>ある意味で、西洋の2つの軸からの必然的な帰結である</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 24 -->
+  <section class="slide" data-title="既存の道②｜古典的ヒューマニズムの延長" data-part="3">
+    <div class="kicker">3 — 03</div>
+    <h2>既存の道 ②｜<span class="thin">古典的ヒューマニズムの延長</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>そうではない、と考える人たちは、古き良き人間像に従う</li>
+        <li>人間と技術を分ける。テクノロジーと哲学を分ける</li>
+        <li>人間は独立した中心であり、技術は<strong>道具にすぎない</strong>と考える</li>
+      </ul>
+      <div class="note"><span class="arrow">→</span> さて、それは本当に実現可能なのか。これが次の問いになる。</div>
+    </div>
+  </section>
+
+  <!-- 25 -->
+  <section class="slide" data-title="第三の道｜モア・ザン・ヒューマン" data-part="3">
+    <div class="kicker">3 — 04</div>
+    <h2>第三の道｜<span class="thin">モア・ザン・ヒューマン</span></h2>
+    <div class="body">
+      <div class="paths">
+        <div class="path">
+          <div class="n">PATH 01</div>
+          <h3>ヒューマニズムの延長<small>Humanism</small></h3>
+          <p>人間は中心。技術は道具。</p>
+          <p>両者は分けられる、という前提に立つ。</p>
+        </div>
+        <div class="path">
+          <div class="n">PATH 02</div>
+          <h3>トランスヒューマニズム<small>Transhumanism</small></h3>
+          <p>不可分なのだから、一体になる。</p>
+          <p>西洋の2つの軸の帰結。</p>
+        </div>
+        <div class="path on">
+          <div class="n">PATH 03</div>
+          <h3>モア・ザン・ヒューマン<small>More-than-human</small></h3>
+          <p>そのどちらでもないところを考える必要がある。</p>
+          <p>人類学が言うところの more-than-human。</p>
+        </div>
+      </div>
+      <div class="note"><span class="arrow">→</span> では、<strong>モア・ザン・ヒューマンのテクノロジー</strong>とはどのようなものか。ここから説明します。</div>
+    </div>
+  </section>
+
+  <!-- 26 -->
+  <section class="slide" data-title="全体の骨格" data-part="3">
+    <div class="kicker">Summary</div>
+    <h2>全体の骨格</h2>
+    <div class="body">
+      <div class="cols c3">
+        <div class="col">
+          <div class="h">Part 1</div>
+          <h3>なぜ技術哲学か</h3>
+          <p>人間は技術と、技術は哲学と不可分である。その2つが、生成AIによって同時にアクチュアルになった。</p>
+        </div>
+        <div class="col">
+          <div class="h">Part 2</div>
+          <h3>どこへ向かうか</h3>
+          <p>技術の背後には世界観がある（技術多様性）。しかし私たちも近代の内側にいる。だから内側から超える。</p>
+        </div>
+        <div class="col">
+          <div class="h">Part 3</div>
+          <h3>どう考えるか</h3>
+          <p>ヒューマニズムでもトランスヒューマニズムでもなく、モア・ザン・ヒューマンのテクノロジーへ。</p>
+        </div>
+      </div>
+      <div class="note">本スライドは、レクチャー音声の文字起こしを構造化したものです。固有名・書名は発話にもとづく暫定表記を含みます。</div>
+    </div>
+  </section>
+
+</div><!-- /stage -->
+<div class="bar" id="bar"></div>
+</div><!-- /deck -->
+
+<div class="ui">
+  <button id="btnToc" type="button">目次 ( O )</button>
+  <button id="btnPrev" type="button">←</button>
+  <button id="btnNext" type="button">→</button>
+</div>
+
+<nav class="toc" id="toc" aria-label="スライド目次">
+  <h4>Contents</h4>
+  <ol id="tocList"></ol>
+</nav>
+
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  var deck = document.getElementById('deck');
+  var bar = document.getElementById('bar');
+  var toc = document.getElementById('toc');
+  var tocList = document.getElementById('tocList');
+  var slides = Array.prototype.slice.call(stage.querySelectorAll('.slide'));
+  var total = slides.length;
+  var i = 0;
+
+  var PART_NAME = {
+    '1': 'PART 1 ／ なぜ、いま技術哲学が必要なのか',
+    '2': 'PART 2 ／ 技術哲学の問いはどこへ向かうべきか',
+    '3': 'PART 3 ／ モア・ザン・ヒューマンのテクノロジーへ'
+  };
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  slides.forEach(function (s, n) {
+    var part = s.getAttribute('data-part') || '';
+
+    var foot = document.createElement('div');
+    foot.className = 'foot';
+    foot.innerHTML = '<span>' + (PART_NAME[part] || '') + '</span><span>' +
+      pad(n + 1) + ' / ' + pad(total) + '</span>';
+    s.appendChild(foot);
+
+    var li = document.createElement('li');
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.innerHTML = '<span class="no">' + pad(n + 1) + '</span><span>' +
+      s.getAttribute('data-title') +
+      (part ? '<span class="pt">PART ' + part + '</span>' : '') + '</span>';
+    b.addEventListener('click', function () { go(n); closeToc(); });
+    li.appendChild(b);
+    tocList.appendChild(li);
+  });
+  var tocBtns = Array.prototype.slice.call(tocList.querySelectorAll('button'));
+
+  function go(n) {
+    i = Math.max(0, Math.min(total - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('is-active', k === i); });
+    tocBtns.forEach(function (b, k) { b.classList.toggle('here', k === i); });
+    bar.style.width = ((i + 1) / total * 100) + '%';
+    if (location.hash !== '#' + (i + 1)) history.replaceState(null, '', '#' + (i + 1));
+  }
+
+  function fit() {
+    var s = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+    stage.style.transform = 'scale(' + s + ')';
+  }
+
+  function closeToc() { toc.classList.remove('open'); }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { go(i + 1); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(i - 1); e.preventDefault(); }
+    else if (e.key === 'Home') { go(0); }
+    else if (e.key === 'End') { go(total - 1); }
+    else if (e.key === 'o' || e.key === 'O') { toc.classList.toggle('open'); }
+    else if (e.key === 'Escape') { closeToc(); }
+  });
+
+  document.getElementById('btnNext').addEventListener('click', function () { go(i + 1); });
+  document.getElementById('btnPrev').addEventListener('click', function () { go(i - 1); });
+  document.getElementById('btnToc').addEventListener('click', function () { toc.classList.toggle('open'); });
+  toc.addEventListener('click', function (e) { if (e.target === toc) closeToc(); });
+
+  var x0 = null;
+  deck.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  deck.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) go(dx < 0 ? i + 1 : i - 1);
+    x0 = null;
+  }, { passive: true });
+
+  var ui = document.querySelector('.ui');
+  var idleTimer;
+  function wake() {
+    ui.classList.remove('idle');
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(function () { ui.classList.add('idle'); }, 2600);
+  }
+  ['mousemove', 'touchstart', 'keydown'].forEach(function (ev) {
+    document.addEventListener(ev, wake, { passive: true });
+  });
+  wake();
+
+  window.addEventListener('resize', fit);
+  fit();
+  var start = parseInt((location.hash || '').slice(1), 10);
+  go(isNaN(start) ? 0 : start - 1);
+})();
+</script>
+</body>
+</html>
