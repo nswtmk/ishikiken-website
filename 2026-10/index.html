@@ -212,6 +212,9 @@
   .arch-list { border-top: 1px solid var(--line); }
   .arch-item { display: flex; justify-content: space-between; align-items: baseline; padding: 30px 0; border-bottom: 1px solid var(--line); font-size: 17px; }
   .arch-item .tag { font-size: 12px; letter-spacing: .18em; color: var(--ink-soft); }
+  a.arch-item { cursor: pointer; transition: background .2s; }
+  a.arch-item:hover { background: rgba(29,227,148,.06); }
+  a.arch-item:hover span:first-child { text-decoration: underline; text-underline-offset: 5px; text-decoration-color: var(--moss); }
 
   /* activities */
   .year-block { display: grid; grid-template-columns: 150px 1fr; gap: 40px; padding: 64px 0; border-top: 1px solid var(--line); }
