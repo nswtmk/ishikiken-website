@@ -174,6 +174,9 @@
   .det .ln { fill: none; stroke: var(--ink); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
   .det .up { stroke: var(--moss); stroke-width: 7; stroke-linecap: round; }
   .det .lbl { font-size: 21px; font-weight: 700; fill: var(--ink); }
+  .det .sub2 { font-size: 15px; fill: var(--ink-soft); }
+  .det .br { fill: none; stroke: var(--moss); stroke-width: 2; stroke-dasharray: 5 7; }
+  .det .fossil { fill: var(--paper); stroke: var(--moss); stroke-width: 2; }
 
   /* ---------- conv: 二極の合流 ---------- */
   .conv { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
@@ -286,7 +289,7 @@
           <span class="n">3</span>
           <div>
             <h3>モア・ザン・ヒューマンのテクノロジーへ</h3>
-            <p>ヒューマニズムの延長でも、トランスヒューマニズムでもない第三の道を考える。</p>
+            <p>ヒューマニズムの延長でも、トランスヒューマニズムでもない第三の道へ。鍵は技術史——実践としての makers Unlearn（mU）まで。</p>
           </div>
         </li>
       </ol>
@@ -849,6 +852,62 @@
     </div>
   </section>
 
+  <!-- mth1 -->
+  <section class="slide" data-title="モア・ザン・ヒューマンに、教科書はない" data-part="3">
+    <div class="kicker">3 — 05</div>
+    <h2>モア・ザン・ヒューマンに、教科書はない</h2>
+    <div class="body">
+      <ul class="pts">
+        <li>モア・ザン・ヒューマンのテクノロジーには、教科書も設計図もない</li>
+        <li>思弁からは出てこない——頭の中で「人間-テクノロジーの外」を考えることはできない</li>
+        <li class="em">手がかりは、実在した「別の技術」にしかない</li>
+      </ul>
+      <div class="note"><span class="arrow">→</span> そして、それが眠っている場所が——<strong>技術史</strong>である。</div>
+    </div>
+  </section>
+
+  <!-- mth2 -->
+  <section class="slide" data-title="だから、技術史が重要だ" data-part="3">
+    <div class="kicker">3 — 06</div>
+    <h2>だから、技術史が重要だ</h2>
+    <div class="body">
+      <div class="det">
+        <svg viewBox="0 0 980 400" aria-label="単線に見える技術史から、掘り起こされていない枝が分かれている図">
+          <defs>
+            <marker id="ai2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#14140f"/>
+            </marker>
+          </defs>
+          <line class="ln" x1="40" y1="300" x2="700" y2="235" marker-end="url(#ai2)"/>
+          <path class="br" d="M170 287 Q 205 210 250 160"/><circle class="fossil" cx="254" cy="155" r="6"/>
+          <path class="br" d="M300 274 Q 340 330 405 352"/><circle class="fossil" cx="411" cy="353" r="6"/>
+          <path class="br" d="M420 262 Q 470 190 545 128"/><circle class="fossil" cx="550" cy="124" r="6"/>
+          <path class="br" d="M470 257 Q 520 300 596 316"/><circle class="fossil" cx="602" cy="317" r="6"/>
+          <path class="br" d="M575 247 Q 620 200 672 176"/><circle class="fossil" cx="677" cy="173" r="6"/>
+          <text class="lbl" x="716" y="240">単線の進歩史</text>
+          <text class="sub2" x="716" y="266">——「書かれた歴史」</text>
+          <text class="sub2" x="560" y="80">掘り起こされていない枝</text>
+          <text class="sub2" x="560" y="102">＝別の世界観の化石</text>
+        </svg>
+      </div>
+      <div class="note">単線の進歩は、現実ではなく「歴史の書き方」の産物。実際の技術史は、枝分かれと傍流と絶滅に満ちている。失われた枝は失敗作ではなく、別の世界観の化石——<strong>神話と風土を道具に、ここを掘り起こす</strong>。技術史は、未来の選択肢が埋まっている鉱脈である。<br>第1部の言い換え：技術によって、人間は世界を知る。<span class="arrow">→</span> <strong>技術史によって、人間は自分たちの別の可能性を知る。</strong></div>
+    </div>
+  </section>
+
+  <!-- mth3 -->
+  <section class="slide" data-title="実践報告：makers Unlearn（mU）" data-part="3">
+    <div class="kicker">3 — 07</div>
+    <h2>実践報告｜<span class="thin">makers Unlearn（mU）</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li class="em">「技術は道具にすぎない」は、学ぶだけでは超えられない——<span class="term">学び落とす（Unlearn）</span>必要がある</li>
+        <li>そのための場として、山梨県立大学 × Technel で「makers Unlearn（mU）」を開講<small>AI時代の「つくる」を根源から問い直す、社会人向けの学習プログラム。2026年7月開講。</small></li>
+        <li>哲学・人類学・デザイン・エンジニアリング・社会実装を横断する、選択制の講座<small>いわば、技術史という鉱脈を掘るための「発掘道具一式」。</small></li>
+      </ul>
+      <div class="note">こういう実践を、始めています——モア・ザン・ヒューマンのテクノロジーへの道を、風土のなかで試すために。</div>
+    </div>
+  </section>
+
   <!-- 26 -->
   <section class="slide" data-title="全体の骨格" data-part="3">
     <div class="kicker">Summary</div>
@@ -868,7 +927,7 @@
         <div class="col">
           <div class="h">Part 3</div>
           <h3>どう考えるか</h3>
-          <p>ヒューマニズムでもトランスヒューマニズムでもなく、モア・ザン・ヒューマンのテクノロジーへ。</p>
+          <p>ヒューマニズムでもトランスヒューマニズムでもなく、モア・ザン・ヒューマンへ。教科書はない——だから技術史を掘る。実践が mU。</p>
         </div>
       </div>
       <div class="note">本スライドは、レクチャー音声の文字起こしを構造化したものです。固有名・書名は発話にもとづく暫定表記を含みます。</div>
