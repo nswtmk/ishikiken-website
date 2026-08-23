@@ -153,6 +153,21 @@
   .statement { font-size: 40px; font-weight: 700; line-height: 1.85; letter-spacing: .03em; }
   .statement small { display: block; max-width: 960px; font-size: 17px; font-weight: 400; color: var(--ink-soft); line-height: 2.1; margin-top: 26px; letter-spacing: 0; }
 
+  /* ---------- quad: テクノロジーの哲学マップ ---------- */
+  .quad { position: relative; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; border: 1px solid var(--line); background: var(--paper); flex: 1; min-height: 0; }
+  .quad::before { content: ""; position: absolute; left: 50%; top: 12px; bottom: 12px; border-left: 1.6px dashed var(--mint); }
+  .quad::after { content: ""; position: absolute; top: 50%; left: 12px; right: 12px; border-top: 1.6px dashed var(--mint); }
+  .q-cell { padding: 24px 30px; }
+  .q-cell h3 { font-size: 19px; font-weight: 700; margin-bottom: 6px; }
+  .q-cell .q-ex { font-size: 11.5px; letter-spacing: .1em; color: var(--moss); font-weight: 600; margin-bottom: 8px; }
+  .q-cell p { font-size: 13.5px; line-height: 1.85; color: var(--ink-soft); max-width: 400px; }
+  .q-cell.b { display: flex; flex-direction: column; justify-content: flex-end; }
+  .q-label { position: absolute; z-index: 2; background: var(--paper); border: 1.4px solid var(--moss); color: var(--moss); border-radius: 999px; font-size: 12px; letter-spacing: .1em; font-weight: 600; padding: 4px 16px; white-space: nowrap; }
+  .q-label.t { top: -13px; left: 50%; transform: translateX(-50%); }
+  .q-label.bt { bottom: -13px; left: 50%; transform: translateX(-50%); }
+  .q-label.l { left: 14px; top: 50%; transform: translateY(-50%); }
+  .q-label.r { right: 14px; top: 50%; transform: translateY(-50%); }
+
   /* ---------- paths ---------- */
   .paths { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
   .path { border: 1px solid var(--line); padding: 26px 24px 30px; }
@@ -251,7 +266,7 @@
           <span class="n">2</span>
           <div>
             <h3>技術哲学の問いはどこへ向かうべきか</h3>
-            <p>ポストヒューマニズムの限界、ユク・ホイの技術多様性、そして「内側から近代を超える」という課題。</p>
+            <p>技術哲学的思考のパターン（哲学マップ）から、ポストヒューマニズムの限界、ユク・ホイの技術多様性、「内側から近代を超える」という課題へ。</p>
           </div>
         </li>
         <li>
@@ -419,9 +434,22 @@
     </div>
   </section>
 
+  <!-- 10b -->
+  <section class="slide" data-title="提起：原初からのサイボーグ性" data-part="1">
+    <div class="kicker">1 — 07</div>
+    <h2>提起｜<span class="thin">原初からのサイボーグ性</span></h2>
+    <div class="body">
+      <ul class="pts">
+        <li class="em">そもそもサピエンスは、道具を手に入れることでサピエンスになった<small>石器を握り、火を使うことが、脳と身体の進化そのものを方向づけた。人間が先にいて、あとから道具を使い始めたのではない。技術とともに、人間になった——<strong>原初からのサイボーグ</strong>である。</small></li>
+        <li>「技術は道具にすぎない」は、常識ではなく<span class="term">近代的人間観</span>の産物<small>世界から独立した自律的主体としての人間——デカルトの主客二分、「自然の主人にして所有者」——を先に立てるからこそ、「まず人間がいて、道具はあとから」という順序が自明に見える。順序は、逆だった。</small></li>
+      </ul>
+      <div class="note"><span class="arrow">→</span> ならば、この「原初からのサイボーグ性」こそが、<strong>技術哲学的思考の原点</strong>になるべきではないか。</div>
+    </div>
+  </section>
+
   <!-- 11 -->
   <section class="slide" data-title="世界の真理を明らかにするのは誰か" data-part="1">
-    <div class="kicker">1 — 07</div>
+    <div class="kicker">1 — 08</div>
     <h2>もう一方の極｜<span class="thin">世界の真理を明らかにするのは、誰か</span></h2>
     <div class="body">
       <ul class="pts tight">
@@ -435,7 +463,7 @@
 
   <!-- 12 -->
   <section class="slide" data-title="逆転——テクノフィロソフィー" data-part="1">
-    <div class="kicker">1 — 08</div>
+    <div class="kicker">1 — 09</div>
     <h2>逆転｜<span class="thin">テクノフィロソフィー <span class="en">Technophilosophy</span></span></h2>
     <div class="body">
       <p class="statement">技術によって、人間ははじめて<br>世界のことがわかる。<small>テクノロジーの発展は、この世界の真理を解き明かすことに直結する。<br>そしてテクノロジーが発展して初めて、「人間とは何か」「世界とは何か」という古典的な哲学の問いが明らかになる（デイヴィッド・チャーマーズ）。</small></p>
@@ -445,7 +473,7 @@
 
   <!-- 13 -->
   <section class="slide" data-title="だから、書き続けている" data-part="1">
-    <div class="kicker">1 — 09</div>
+    <div class="kicker">1 — 10</div>
     <h2>だから、書き続けている</h2>
     <div class="body">
       <ul class="pts">
@@ -459,7 +487,7 @@
 
   <!-- 09 -->
   <section class="slide" data-title="だから、技術哲学が必要だ" data-part="1">
-    <div class="kicker">1 — 10</div>
+    <div class="kicker">1 — 11</div>
     <h2>だから、技術哲学が必要だ</h2>
     <div class="body">
       <ul class="pts tight">
@@ -479,10 +507,45 @@
     <p class="lead">人間中心主義を超える、と言われる。しかし、それは誰にとって可能なのか。</p>
   </section>
 
-  <!-- 15 -->
-  <section class="slide" data-title="技術哲学の系譜が到達した地点" data-part="2">
+  <!-- 16b -->
+  <section class="slide" data-title="技術哲学的思考のパターン——哲学マップ" data-part="2">
     <div class="kicker">2 — 01</div>
-    <h2>技術哲学の系譜が到達した地点</h2>
+    <h2>技術哲学的思考のパターン｜<span class="thin">テクノロジーの哲学マップ</span></h2>
+    <div class="body">
+      <div class="quad">
+        <span class="q-label t">楽観</span>
+        <span class="q-label bt">悲観</span>
+        <span class="q-label l">人間が技術を制御する</span>
+        <span class="q-label r">技術が人間を規定する</span>
+        <div class="q-cell">
+          <h3>楽観的ヒューマニスト</h3>
+          <div class="q-ex">ジョブズ的楽観論／日本の主流</div>
+          <p>技術は便利な道具。使い方次第で、人間がコントロールできる。</p>
+        </div>
+        <div class="q-cell">
+          <h3>楽観的技術決定論者</h3>
+          <div class="q-ex">シンギュラリティ／加速主義</div>
+          <p>技術は自律的に発展し、それが人類を前進させる。</p>
+        </div>
+        <div class="q-cell b">
+          <h3>悲観的ヒューマニスト</h3>
+          <div class="q-ex">ラッダイト／疎外論</div>
+          <p>技術は人間性を蝕む。人間の側を守らなければならない。</p>
+        </div>
+        <div class="q-cell b">
+          <h3>悲観的技術決定論者</h3>
+          <div class="q-ex">ディストピア論／AI実存リスク</div>
+          <p>技術は自律的に発展し、人間は支配され、置き換えられる。</p>
+        </div>
+      </div>
+      <div class="note">連載「技術哲学入門」の〈テクノロジーの哲学マップ〉より。AIをめぐる言説も、だいたいこの四象限に収まる。<br>ただし——4つとも<strong>「人間と技術は分けられる」という前提</strong>を共有している。その前提こそが、次に問われる。</div>
+    </div>
+  </section>
+
+  <!-- 15 -->
+  <section class="slide" data-title="四象限の対立の先で、系譜が到達した地点" data-part="2">
+    <div class="kicker">2 — 02</div>
+    <h2>四象限の対立の先で、<br>系譜が到達した地点</h2>
     <div class="body">
       <ul class="pts">
         <li>技術か人間か、<strong>どちらかが優位というわけではない</strong></li>
@@ -495,7 +558,7 @@
 
   <!-- 16 -->
   <section class="slide" data-title="ポストヒューマニズムとその限界" data-part="2">
-    <div class="kicker">2 — 02</div>
+    <div class="kicker">2 — 03</div>
     <h2>現代の要請｜<span class="thin">ポストヒューマニズム、その限界</span></h2>
     <div class="body">
       <div class="cols c2">
@@ -517,7 +580,7 @@
 
   <!-- 17 -->
   <section class="slide" data-title="ユク・ホイ｜技術多様性" data-part="2">
-    <div class="kicker">2 — 03</div>
+    <div class="kicker">2 — 04</div>
     <h2>ユク・ホイ｜<span class="thin">技術多様性 <span class="en">Technodiversity</span></span></h2>
     <div class="body">
       <ul class="pts tight">
@@ -531,7 +594,7 @@
 
   <!-- 18 -->
   <section class="slide" data-title="『ポストヨーロッパ』——内側から超える" data-part="2">
-    <div class="kicker">2 — 04</div>
+    <div class="kicker">2 — 05</div>
     <h2>『ポストヨーロッパ』｜<span class="thin">内側から超える</span></h2>
     <div class="body">
       <ul class="pts tight">
@@ -544,7 +607,7 @@
 
   <!-- 19 -->
   <section class="slide" data-title="中国の例と、その失われ方" data-part="2">
-    <div class="kicker">2 — 05</div>
+    <div class="kicker">2 — 06</div>
     <h2>中国の例と、その失われ方</h2>
     <div class="body">
       <div class="cols c2">
@@ -567,7 +630,7 @@
 
   <!-- 20 -->
   <section class="slide" data-title="では、日本は" data-part="2">
-    <div class="kicker">2 — 06</div>
+    <div class="kicker">2 — 07</div>
     <h2>では、日本は</h2>
     <div class="body">
       <ul class="pts tight">
