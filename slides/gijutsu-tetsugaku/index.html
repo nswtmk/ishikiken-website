@@ -168,6 +168,19 @@
   .q-label.l { left: 14px; top: 50%; transform: translateY(-50%); }
   .q-label.r { right: 14px; top: 50%; transform: translateY(-50%); }
 
+  /* ---------- det: 技術決定論の階段図 ---------- */
+  .det { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; }
+  .det svg { width: 100%; max-width: 950px; height: auto; }
+  .det .ln { fill: none; stroke: var(--ink); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+  .det .up { stroke: var(--moss); stroke-width: 7; stroke-linecap: round; }
+  .det .lbl { font-size: 21px; font-weight: 700; fill: var(--ink); }
+
+  /* ---------- conv: 二極の合流 ---------- */
+  .conv { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .conv-join { text-align: center; font-size: 26px; line-height: 1; color: var(--moss); margin: 14px 0; }
+  .conv-goal { border: 1.8px solid var(--moss); background: #f4faf6; padding: 18px 26px; text-align: center; font-size: 23px; font-weight: 700; }
+  .conv-goal small { display: block; font-size: 13.5px; font-weight: 400; color: var(--ink-soft); line-height: 1.9; margin-top: 8px; }
+
   /* ---------- paths ---------- */
   .paths { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
   .path { border: 1px solid var(--line); padding: 26px 24px 30px; }
@@ -259,14 +272,14 @@
           <span class="n">1</span>
           <div>
             <h3>なぜ、いま技術哲学が必要なのか</h3>
-            <p>技術哲学がマイナーである理由と、それでも無視できない2つの不可分性。そして生成AIがもたらした「逆転」。</p>
+            <p>技術哲学がマイナーである理由と、それでも無視できない2つの不可分性。生成AIによるアクチュアル化、そして「原初からのサイボーグ性」という提起。</p>
           </div>
         </li>
         <li>
           <span class="n">2</span>
           <div>
             <h3>技術哲学の問いはどこへ向かうべきか</h3>
-            <p>技術哲学的思考のパターン（哲学マップ）から、ポストヒューマニズムの限界、ユク・ホイの技術多様性、「内側から近代を超える」という課題へ。</p>
+            <p>哲学マップの四象限から、技術決定論とAI、二つの極の合流としてのポストヒューマニズム、ユク・ホイの技術多様性、「内側から近代を超える」へ。</p>
           </div>
         </li>
         <li>
@@ -433,61 +446,9 @@
       </ul>
     </div>
   </section>
-
-  <!-- 10b -->
-  <section class="slide" data-title="提起：原初からのサイボーグ性" data-part="1">
-    <div class="kicker">1 — 07</div>
-    <h2>提起｜<span class="thin">原初からのサイボーグ性</span></h2>
-    <div class="body">
-      <ul class="pts">
-        <li class="em">そもそもサピエンスは、道具を手に入れることでサピエンスになった<small>石器を握り、火を使うことが、脳と身体の進化そのものを方向づけた。人間が先にいて、あとから道具を使い始めたのではない。技術とともに、人間になった——<strong>原初からのサイボーグ</strong>である。</small></li>
-        <li>「技術は道具にすぎない」は、常識ではなく<span class="term">近代的人間観</span>の産物<small>世界から独立した自律的主体としての人間——デカルトの主客二分、「自然の主人にして所有者」——を先に立てるからこそ、「まず人間がいて、道具はあとから」という順序が自明に見える。順序は、逆だった。</small></li>
-      </ul>
-      <div class="note"><span class="arrow">→</span> ならば、この「原初からのサイボーグ性」こそが、<strong>技術哲学的思考の原点</strong>になるべきではないか。</div>
-    </div>
-  </section>
-
-  <!-- 11 -->
-  <section class="slide" data-title="世界の真理を明らかにするのは誰か" data-part="1">
-    <div class="kicker">1 — 08</div>
-    <h2>もう一方の極｜<span class="thin">世界の真理を明らかにするのは、誰か</span></h2>
-    <div class="body">
-      <ul class="pts tight">
-        <li>これまで：世界の背後にあるメカニズムを明らかにするのは、<strong>人間</strong>だった</li>
-        <li>これから：人間よりはるかに高度な知能をもつ存在＝<strong>AI</strong>が、それを明らかにしていく</li>
-        <li>その先：世界の背後にシミュレーションがあることを否定できない、という立場<small>シミュレーション仮説（ボストロム／チャーマーズ）</small></li>
-        <li>そこに重なるもの：メシア思想、そしてアメリカのプロテスタンティズムの基層にあるカルヴァン主義＝<span class="term">予定説</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 12 -->
-  <section class="slide" data-title="逆転——テクノフィロソフィー" data-part="1">
-    <div class="kicker">1 — 09</div>
-    <h2>逆転｜<span class="thin">テクノフィロソフィー <span class="en">Technophilosophy</span></span></h2>
-    <div class="body">
-      <p class="statement">技術によって、人間ははじめて<br>世界のことがわかる。<small>テクノロジーの発展は、この世界の真理を解き明かすことに直結する。<br>そしてテクノロジーが発展して初めて、「人間とは何か」「世界とは何か」という古典的な哲学の問いが明らかになる（デイヴィッド・チャーマーズ）。</small></p>
-      <div class="note"><span class="arrow">→</span> 人間と技術の役割が逆転する。私たちはそのただ中にいる。<br>ゆえに技術哲学は、いま極めて重要な学問になっている——にもかかわらず、相変わらず広まっていない。</div>
-    </div>
-  </section>
-
-  <!-- 13 -->
-  <section class="slide" data-title="だから、書き続けている" data-part="1">
-    <div class="kicker">1 — 10</div>
-    <h2>だから、書き続けている</h2>
-    <div class="body">
-      <ul class="pts">
-        <li>この事態は非常に重要なので、技術哲学という学問と、<strong>技術哲学的な思考</strong>を多くの人に知ってほしい</li>
-        <li>そのために『WIRED』でひたすら連載を続けている</li>
-        <li>近作の焦点：<span class="term">テクノロジーの背後にある世界観</span>についての問いを深めていくこと</li>
-      </ul>
-      <div class="note"><span class="arrow">→</span> 最後に、第1部をひとことでまとめます。</div>
-    </div>
-  </section>
-
   <!-- 09 -->
   <section class="slide" data-title="だから、技術哲学が必要だ" data-part="1">
-    <div class="kicker">1 — 11</div>
+    <div class="kicker">1 — 07</div>
     <h2>だから、技術哲学が必要だ</h2>
     <div class="body">
       <ul class="pts tight">
@@ -495,9 +456,26 @@
         <li><strong>世界を問うことも、技術を問うことになった</strong><small>テクノロジーの発展は、世界の背後にある見えない構造——イデアやメカニズム——を明らかにすることに直結する。</small></li>
         <li><strong>技術の側にも、哲学が要る</strong><small>どんな技術を作るかは、どんな世界観に立つかで方向づけられる。「作ってなんぼ」では、方向そのものは決められない。</small></li>
       </ul>
-      <div class="note">ここまでが第1部。<span class="arrow">→</span> では、その技術哲学の問いは、どこへ向かうべきか。</div>
+      <div class="note">この必要性は、もはや原理の話ではなく、現実の話である。</div>
     </div>
   </section>
+  <!-- 10b -->
+  <section class="slide" data-title="提起：原初からのサイボーグ性" data-part="1">
+    <div class="kicker">1 — 08</div>
+    <h2>提起｜<span class="thin">原初からのサイボーグ性</span></h2>
+    <div class="body">
+      <ul class="pts">
+        <li class="em">そもそもサピエンスは、道具を手に入れることでサピエンスになった<small>石器を握り、火を使うことが、脳と身体の進化そのものを方向づけた。人間が先にいて、あとから道具を使い始めたのではない。技術とともに、人間になった——<strong>原初からのサイボーグ</strong>である。</small></li>
+        <li>「技術は道具にすぎない」は、常識ではなく<span class="term">近代的人間観</span>の産物<small>世界から独立した自律的主体としての人間——デカルトの主客二分、「自然の主人にして所有者」——を先に立てるからこそ、「まず人間がいて、道具はあとから」という順序が自明に見える。順序は、逆だった。</small></li>
+      </ul>
+      <div class="note"><span class="arrow">→</span> ならば、この「原初からのサイボーグ性」こそが、<strong>技術哲学的思考の原点</strong>になるべきではないか。<br>ここまでが第1部。この提起を手に、問い2へ。</div>
+    </div>
+  </section>
+
+
+
+
+
 
   <!-- 14 -->
   <section class="slide part" data-title="PART 2｜技術哲学の問いはどこへ向かうべきか" data-part="">
@@ -542,9 +520,101 @@
     </div>
   </section>
 
+  <!-- det -->
+  <section class="slide" data-title="技術決定論の世界観" data-part="2">
+    <div class="kicker">2 — 02</div>
+    <h2>技術決定論の世界観｜<span class="thin">技術が、社会を決めていく</span></h2>
+    <div class="body">
+      <div class="det">
+        <svg viewBox="0 0 980 430" aria-label="技術の直線的進歩が、社会の技術決定を段階的に押し上げていく図">
+          <defs>
+            <marker id="ai" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#14140f"/>
+            </marker>
+            <marker id="am" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.6" markerHeight="4.6" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#0ca568"/>
+            </marker>
+          </defs>
+          <path class="ln" d="M40 270 H165 V225 H290 V180 H415 V135 H540 V90 H690" marker-end="url(#ai)"/>
+          <line class="ln" x1="40" y1="400" x2="690" y2="335" marker-end="url(#ai)" stroke-width="2"/>
+          <line class="up" x1="180" y1="372" x2="180" y2="262" marker-end="url(#am)"/>
+          <line class="up" x1="390" y1="352" x2="390" y2="218" marker-end="url(#am)"/>
+          <line class="up" x1="590" y1="332" x2="590" y2="128" marker-end="url(#am)"/>
+          <text class="lbl" x="712" y="96">社会の技術決定</text>
+          <text class="lbl" x="712" y="340">技術の直線的進歩</text>
+        </svg>
+      </div>
+      <div class="note">技術はそれ自身の論理で、直線的に進歩していく。社会は、その進歩に合わせて段階的に作り替えられていく。<br>蒸気機関 <span class="arrow">→</span> 産業社会。インターネット <span class="arrow">→</span> 情報社会。では、AI <span class="arrow">→</span> ？</div>
+    </div>
+  </section>
+
+  <!-- chain1 -->
+  <section class="slide" data-title="認識の主役は、人間だった" data-part="2">
+    <div class="kicker">2 — 03</div>
+    <h2>認識の主役は、人間だった</h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>世界はロゴス＝メカニズムに従う（イデア論）。技術は、その構造を<span class="term">開示する営み</span></li>
+        <li class="em">この構図には、暗黙の主役がいる——開示するのは、人間である<small>「人間は万物の尺度」（プロタゴラス）から、デカルトの「考える私」、近代の認識論まで。世界の真理は、人間に対して明らかになるものだった。</small></li>
+        <li>これは、ヒューマニズムの<strong>認識論版</strong>である<small>人間と技術を分けたうえで、「明らかにする側」に人間を置く。哲学マップの軸の、いわば原型。</small></li>
+      </ul>
+      <div class="note"><span class="arrow">→</span> その主役の座が、いま交代しつつある。</div>
+    </div>
+  </section>
+  <!-- 11 -->
+  <section class="slide" data-title="AI技術決定論的世界観" data-part="2">
+    <div class="kicker">2 — 04</div>
+    <h2>AI技術決定論的世界観｜<span class="thin">世界の真理を明らかにするのは、誰か</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>これまで：世界の背後にあるメカニズムを明らかにするのは、<strong>人間</strong>だった</li>
+        <li>これから：人間よりはるかに高度な知能をもつ存在＝<strong>AI</strong>が、それを明らかにしていく</li>
+        <li>その先：世界の背後にシミュレーションがあることを否定できない、という立場<small>シミュレーション仮説（ボストロム／チャーマーズ）</small></li>
+        <li>そこに重なるもの：メシア思想、そしてアメリカのプロテスタンティズムの基層にあるカルヴァン主義＝<span class="term">予定説</span></li>
+      </ul>
+    </div>
+  </section>
+  <!-- 12 -->
+  <section class="slide" data-title="逆転——テクノフィロソフィー" data-part="2">
+    <div class="kicker">2 — 05</div>
+    <h2>逆転｜<span class="thin">テクノフィロソフィー <span class="en">Technophilosophy</span></span></h2>
+    <div class="body">
+      <p class="statement">技術によって、人間ははじめて<br>世界のことがわかる。<small>テクノロジーの発展は、この世界の真理を解き明かすことに直結する。<br>そしてテクノロジーが発展して初めて、「人間とは何か」「世界とは何か」という古典的な哲学の問いが明らかになる（デイヴィッド・チャーマーズ）。</small></p>
+      <div class="note"><span class="arrow">→</span> 人間と技術の役割が逆転する。私たちはそのただ中にいる。<br>ゆえに技術哲学は、いま極めて重要な学問になっている——にもかかわらず、相変わらず広まっていない。</div>
+    </div>
+  </section>
+
+  <!-- chain2 -->
+  <section class="slide" data-title="二つの極が、同じ場所に合流する" data-part="2">
+    <div class="kicker">2 — 06</div>
+    <h2>二つの極が、同じ場所に合流する</h2>
+    <div class="body">
+      <div class="conv">
+        <div class="axis">
+          <div class="n">極 1 ｜ 存在論のルート</div>
+          <h3>原初からのサイボーグ性</h3>
+          <ul>
+            <li>人間は、そもそも技術との混成体である</li>
+            <li>「純粋な人間」という中心は、最初から存在しない（第1部の提起）</li>
+          </ul>
+        </div>
+        <div class="axis">
+          <div class="n">極 2 ｜ 認識論のルート</div>
+          <h3>開示する主役の交代</h3>
+          <ul>
+            <li>人間は、真理を映す特権的な鏡ではなくなる</li>
+            <li>人間・計器・AI・制度からなる認識ネットワークの、一結節点になる</li>
+          </ul>
+        </div>
+      </div>
+      <div class="conv-join" aria-hidden="true">↘&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↙</div>
+      <div class="conv-goal">人間中心主義の解除 ＝ ポストヒューマニズム<small>どちらの極から出発しても、同じ場所に着く。ただし極2には、AIを新しい神とするもう一つの出口（テクノ神学）がある——この分岐は第3部で。</small></div>
+    </div>
+  </section>
+
   <!-- 15 -->
   <section class="slide" data-title="四象限の対立の先で、系譜が到達した地点" data-part="2">
-    <div class="kicker">2 — 02</div>
+    <div class="kicker">2 — 07</div>
     <h2>四象限の対立の先で、<br>系譜が到達した地点</h2>
     <div class="body">
       <ul class="pts">
@@ -558,7 +628,7 @@
 
   <!-- 16 -->
   <section class="slide" data-title="ポストヒューマニズムとその限界" data-part="2">
-    <div class="kicker">2 — 03</div>
+    <div class="kicker">2 — 08</div>
     <h2>現代の要請｜<span class="thin">ポストヒューマニズム、その限界</span></h2>
     <div class="body">
       <div class="cols c2">
@@ -578,9 +648,22 @@
     </div>
   </section>
 
+  <!-- 13 -->
+  <section class="slide" data-title="だから、書き続けている" data-part="2">
+    <div class="kicker">2 — 09</div>
+    <h2>だから、書き続けている</h2>
+    <div class="body">
+      <ul class="pts">
+        <li>この事態は非常に重要なので、技術哲学という学問と、<strong>技術哲学的な思考</strong>を多くの人に知ってほしい</li>
+        <li>そのために『WIRED』でひたすら連載を続けている</li>
+        <li>近作の焦点：<span class="term">テクノロジーの背後にある世界観</span>についての問いを深めていくこと</li>
+      </ul>
+      <div class="note"><span class="arrow">→</span> その「テクノロジーの背後にある世界観」への問いを、正面から立てた人がいる。</div>
+    </div>
+  </section>
   <!-- 17 -->
   <section class="slide" data-title="ユク・ホイ｜技術多様性" data-part="2">
-    <div class="kicker">2 — 04</div>
+    <div class="kicker">2 — 10</div>
     <h2>ユク・ホイ｜<span class="thin">技術多様性 <span class="en">Technodiversity</span></span></h2>
     <div class="body">
       <ul class="pts tight">
@@ -594,7 +677,7 @@
 
   <!-- 18 -->
   <section class="slide" data-title="『ポストヨーロッパ』——内側から超える" data-part="2">
-    <div class="kicker">2 — 05</div>
+    <div class="kicker">2 — 11</div>
     <h2>『ポストヨーロッパ』｜<span class="thin">内側から超える</span></h2>
     <div class="body">
       <ul class="pts tight">
@@ -607,7 +690,7 @@
 
   <!-- 19 -->
   <section class="slide" data-title="中国の例と、その失われ方" data-part="2">
-    <div class="kicker">2 — 06</div>
+    <div class="kicker">2 — 12</div>
     <h2>中国の例と、その失われ方</h2>
     <div class="body">
       <div class="cols c2">
@@ -630,7 +713,7 @@
 
   <!-- 20 -->
   <section class="slide" data-title="では、日本は" data-part="2">
-    <div class="kicker">2 — 07</div>
+    <div class="kicker">2 — 13</div>
     <h2>では、日本は</h2>
     <div class="body">
       <ul class="pts tight">
@@ -729,12 +812,12 @@
         <div class="col">
           <div class="h">Part 1</div>
           <h3>なぜ技術哲学か</h3>
-          <p>人間は技術と、技術は哲学と不可分である。その2つが、生成AIによって同時にアクチュアルになった。</p>
+          <p>人間は技術と、技術は哲学と不可分であり、生成AIがそれをアクチュアルにした。原点は、原初からのサイボーグ性。</p>
         </div>
         <div class="col">
           <div class="h">Part 2</div>
           <h3>どこへ向かうか</h3>
-          <p>技術の背後には世界観がある（技術多様性）。しかし私たちも近代の内側にいる。だから内側から超える。</p>
+          <p>二つの極はポストヒューマニズムに合流する。技術の背後には世界観がある。しかし私たちも近代の内側にいる——内側から超える。</p>
         </div>
         <div class="col">
           <div class="h">Part 3</div>
