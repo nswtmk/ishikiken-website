@@ -132,7 +132,7 @@
   }
   .was .was-note { font-size: 14.5px; line-height: 1.9; color: var(--shu); margin-top: 12px; }
   .turn-arrow { position: relative; display: flex; align-items: center; justify-content: center; }
-  .turn-arrow.arrow-row { margin: 14px 0; flex: none; }
+  .turn-arrow.arrow-row { margin: 12px 0; flex: none; }
   .turn-arrow.arrow-row::before { display: none; }
   .turn-arrow.arrow-row span { padding: 0; font-size: 28px; }
   .turn-arrow::before {
@@ -186,7 +186,31 @@
   .conv { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
   .conv-join { text-align: center; font-size: 26px; line-height: 1; color: var(--moss); margin: 14px 0; }
   .conv-goal { border: 1.8px solid var(--moss); background: #f4faf6; padding: 18px 26px; text-align: center; font-size: 23px; font-weight: 700; }
+  .conv-goal { margin-bottom: 6px; }
+  .conv-goal .goal-pts { list-style: none; text-align: left; max-width: 800px; margin: 14px auto 0; }
+  .conv-goal .goal-pts li { position: relative; font-size: 15.5px; font-weight: 400; line-height: 1.9; color: var(--ink-soft); padding-left: 20px; margin-bottom: 6px; }
+  .conv-goal .goal-pts li::before { content: ""; position: absolute; left: 0; top: 13px; width: 7px; height: 1.6px; background: var(--moss); }
   .conv-goal small { display: block; font-size: 13.5px; font-weight: 400; color: var(--ink-soft); line-height: 1.9; margin-top: 8px; }
+
+  /* ---------- ship: 船の比喩 ---------- */
+  .ship-lead { font-size: 17px; margin-top: 12px; }
+  .ship-body { margin-top: 24px; }
+  .ship { display: flex; justify-content: center; }
+  .ship svg { width: 100%; max-width: 1000px; height: auto; }
+  .ship .ln { fill: none; stroke: var(--ink); stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+  .ship .hull { fill: var(--ink); }
+  .ship .wave { fill: none; stroke: var(--line); stroke-width: 1.6; }
+  .ship .route { fill: none; stroke: var(--moss); stroke-width: 2; stroke-dasharray: 6 8; }
+  .ship .beacon { fill: var(--mint); }
+  .ship .isle { fill: none; stroke: var(--ink-soft); stroke-width: 1.6; stroke-dasharray: 4 6; }
+  .ship text { font-family: inherit; }
+  .ship .here { font-size: 14px; fill: var(--ink-soft); text-anchor: middle; letter-spacing: .08em; }
+  .ship .dest { font-size: 30px; font-weight: 700; fill: var(--moss); text-anchor: middle; }
+  .ship-cols { margin-top: 14px; }
+  .ship-cols .col { padding: 20px 26px 22px; }
+  .ship-cols .col .h { margin-bottom: 10px; }
+  .ship-cols .col h3 { font-size: 22px; margin-bottom: 8px; }
+  .ship-cols .col p { font-size: 15.5px; line-height: 1.9; }
 
   /* ---------- paths ---------- */
   .paths { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
@@ -437,18 +461,19 @@
             <div class="n">AXIS 01</div>
             <h3>人間は技術と<br>不可分である</h3>
             <ul>
-              <li><strong>技術の媒介性</strong>——私たちの行為も認識も、技術を媒介にして成り立つ</li>
-              <li><strong>技術は倫理問題に直結する</strong>——何を作るかが、何が善いかを左右する</li>
+              <li>人間は技術的であり、技術は人間である</li>
               <li>プロメテウス神話から、アンディ・クラーク『生まれながらのサイボーグ』まで</li>
+              <li>行為は技術に媒介され、社会は技術によって運用される</li>
+              <li><strong>技術問題＝倫理問題</strong></li>
             </ul>
           </div>
           <div class="axis">
             <div class="n">AXIS 02</div>
             <h3>技術は哲学と<br>不可分である</h3>
             <ul>
-              <li>世界はロゴス＝メカニズムに従う、という発想（プラトン以降のイデア論）</li>
-              <li>ゆえに究極のエンジニアリングとは、世界の構造を模すこと</li>
-              <li><strong>さらに、シミュレーション仮説の台頭</strong>——世界そのものが技術の産物かもしれない</li>
+              <li>思想や世界観が、テクノロジーを方向づけている</li>
+              <li>アメリカにおける、AIとメシア思想の結びつき</li>
+              <li><strong>シミュレーション仮説の台頭</strong>——世界そのものが技術の産物かもしれない</li>
             </ul>
           </div>
         </div>
@@ -472,21 +497,54 @@
         </div>
       </div>
       <p class="turn-arrow arrow-row"><span>↓</span></p>
-      <p class="conv-goal">技術哲学の問いが、アクチュアルになってきた！<small>私たちの存在が技術的に作られていくことは、もはや何の疑いもない。AIによって、スマホによって、あり方が変わる。どんなデバイスが出るか、どんな技術が広まるかで、人間の行動も社会の行動も変わる。</small></p>
+      <div class="conv-goal">技術哲学の問いが、アクチュアルになってきた！
+        <ul class="goal-pts">
+          <li>私たちの存在が技術的に作られていくことは、もはや何の疑いもない</li>
+          <li>AIによって、スマホによって、私たちのあり方が変わる</li>
+          <li>どんなデバイスが出るか、どんな技術が広まるかで、人間の行動も社会の行動も変わる</li>
+        </ul>
+      </div>
       <div class="note">負の側面：AIの登場と同時に防衛テックが台頭し、戦争へと駆り立てられていくことも起きている。</div>
     </div>
   </section>
-  <!-- 09 -->
-  <section class="slide" data-title="だから、技術哲学が必要だ" data-part="1">
+  <!-- 12 -->
+  <section class="slide" data-title="だから、技術哲学が必要だ——船の比喩" data-part="1">
     <div class="kicker">1 — 07</div>
-    <h2>だから、技術哲学が必要だ</h2>
-    <div class="body">
-      <ul class="pts tight">
-        <li><strong>人間を問うことが、技術を問うことになった</strong><small>すべての行為は技術を媒介にし、社会そのものが技術で運営・運用される。人間だけを見ても、人間はわからない。</small></li>
-        <li><strong>世界を問うことも、技術を問うことになった</strong><small>テクノロジーの発展は、世界の背後にある見えない構造——イデアやメカニズム——を明らかにすることに直結する。</small></li>
-        <li><strong>技術の側にも、哲学が要る</strong><small>どんな技術を作るかは、どんな世界観に立つかで方向づけられる。「作ってなんぼ」では、方向そのものは決められない。</small></li>
-      </ul>
-      <div class="note">この必要性は、もはや原理の話ではなく、現実の話である。</div>
+    <h2>だから、技術哲学が必要だ｜<span class="thin">船の比喩</span></h2>
+    <p class="lead ship-lead">船内の計器を調べている間にも、船は高速で進んでいる。</p>
+    <div class="body ship-body">
+      <div class="ship">
+        <svg viewBox="0 0 1000 205" aria-label="航行する船と、その先へ延びる航路を描いた図">
+          <defs>
+            <marker id="rt" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#0ca568"/>
+            </marker>
+          </defs>
+          <path class="wave" d="M10 158 q 30 -9 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0"/>
+          <path class="hull" d="M126 156 L352 156 L330 139 L146 139 Z"/>
+          <path class="ln" d="M176 139 L176 104 L268 104 L268 139"/>
+          <path class="ln" d="M194 104 L194 84 L250 84 L250 104"/>
+          <line class="ln" x1="222" y1="84" x2="222" y2="52"/>
+          <circle class="beacon" cx="222" cy="47" r="6"/>
+          <path class="route" d="M366 148 C 500 140, 620 126, 740 114 S 836 102, 866 98" marker-end="url(#rt)"/>
+          <path class="isle" d="M884 157 L930 108 L976 157"/>
+          <text class="here" x="240" y="190">いま、ここ</text>
+          <text class="dest" x="930" y="88">？</text>
+        </svg>
+      </div>
+      <div class="cols c2 ship-cols">
+        <div class="col">
+          <div class="h">これまでの問い ／ 船内</div>
+          <h3>計器・エンジン・通信装置</h3>
+          <p>AIに意識はあるのか。AIはどう対話するのか。AIは実世界をどう認識するのか。</p>
+        </div>
+        <div class="col">
+          <div class="h">技術哲学の問い ／ 航路</div>
+          <h3>航路・海図・目的地</h3>
+          <p>この船はどこへ向かうのか。誰が航路を描いたのか。その航路は、望ましいのか。</p>
+        </div>
+      </div>
+      <div class="note">AIを分析するだけではなく、<strong>AIが私たちをどこへ向かわせているのか</strong>を問う。それが技術哲学である。</div>
     </div>
   </section>
   <!-- 10b -->
