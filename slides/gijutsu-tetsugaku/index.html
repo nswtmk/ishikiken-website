@@ -112,6 +112,7 @@
   .col { background: var(--paper); padding: 30px 30px 34px; }
   .col .h { font-size: 13px; letter-spacing: .2em; color: var(--moss); font-weight: 600; margin-bottom: 16px; }
   .col h3 { font-size: 25px; font-weight: 700; line-height: 1.6; margin-bottom: 14px; }
+  .col h3:only-child, .col .h + h3:last-child { margin-bottom: 0; }
   .col p { font-size: 16.5px; line-height: 2; color: var(--ink-soft); }
   .col p + p { margin-top: 12px; }
   .col.mid { background: #f3f2ea; border-left: 1.6px dashed var(--mint); border-right: 1.6px dashed var(--mint); }
@@ -131,6 +132,9 @@
   }
   .was .was-note { font-size: 14.5px; line-height: 1.9; color: var(--shu); margin-top: 12px; }
   .turn-arrow { position: relative; display: flex; align-items: center; justify-content: center; }
+  .turn-arrow.arrow-row { margin: 14px 0; flex: none; }
+  .turn-arrow.arrow-row::before { display: none; }
+  .turn-arrow.arrow-row span { padding: 0; font-size: 28px; }
   .turn-arrow::before {
     content: ""; position: absolute; top: 0; bottom: 0; left: 50%;
     border-left: 1.4px dashed var(--line);
@@ -433,18 +437,18 @@
             <div class="n">AXIS 01</div>
             <h3>人間は技術と<br>不可分である</h3>
             <ul>
-              <li>人間は技術的であり、技術は人間である</li>
+              <li><strong>技術の媒介性</strong>——私たちの行為も認識も、技術を媒介にして成り立つ</li>
+              <li><strong>技術は倫理問題に直結する</strong>——何を作るかが、何が善いかを左右する</li>
               <li>プロメテウス神話から、アンディ・クラーク『生まれながらのサイボーグ』まで</li>
-              <li>行為は技術に媒介され、社会は技術によって運用される</li>
             </ul>
           </div>
           <div class="axis">
             <div class="n">AXIS 02</div>
             <h3>技術は哲学と<br>不可分である</h3>
             <ul>
-              <li>哲学者はつねに技術に関心を持ってきた</li>
-              <li>世界はロゴス＝メカニズムに従う、という発想</li>
-              <li>ゆえに究極のエンジニアリングとは、世界の構造を模すこと（プラトン以降のイデア論）</li>
+              <li>世界はロゴス＝メカニズムに従う、という発想（プラトン以降のイデア論）</li>
+              <li>ゆえに究極のエンジニアリングとは、世界の構造を模すこと</li>
+              <li><strong>さらに、シミュレーション仮説の台頭</strong>——世界そのものが技術の産物かもしれない</li>
             </ul>
           </div>
         </div>
@@ -452,17 +456,24 @@
     </div>
   </section>
 
-  <!-- 10 -->
+  <!-- 11 -->
   <section class="slide" data-title="生成AIによって、2つがアクチュアルになった" data-part="1">
     <div class="kicker">1 — 06</div>
-    <h2>いま、この2つが生成AIによって<br>アクチュアルになった</h2>
+    <h2>いま、この2つが生成AIによってアクチュアルになった</h2>
     <div class="body">
-      <ul class="pts tight">
-        <li class="em">私たちの存在が技術的に作られていくことは、もはや何の疑いもない</li>
-        <li>AIによって、私たちのあり方が変わる。スマホによって変わる</li>
-        <li>どんなデバイスが出るか、どんな技術が広まるかで、人間の行動も社会の行動も変わる</li>
-        <li>負の側面：AIの登場と同時に防衛テックが台頭し、戦争へと駆り立てられていくことも起きている</li>
-      </ul>
+      <div class="cols c2">
+        <div class="col">
+          <div class="h">Axis 01</div>
+          <h3>人間と技術の不可分性</h3>
+        </div>
+        <div class="col">
+          <div class="h">Axis 02</div>
+          <h3>技術と哲学の不可分性</h3>
+        </div>
+      </div>
+      <p class="turn-arrow arrow-row"><span>↓</span></p>
+      <p class="conv-goal">この問題が、アクチュアルになってきた。<small>私たちの存在が技術的に作られていくことは、もはや何の疑いもない。AIによって、スマホによって、あり方が変わる。どんなデバイスが出るか、どんな技術が広まるかで、人間の行動も社会の行動も変わる。</small></p>
+      <div class="note">負の側面：AIの登場と同時に防衛テックが台頭し、戦争へと駆り立てられていくことも起きている。</div>
     </div>
   </section>
   <!-- 09 -->
