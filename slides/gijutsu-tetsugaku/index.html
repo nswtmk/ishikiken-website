@@ -264,6 +264,15 @@
   .drv .hd { border-bottom: 1px solid var(--ink); padding-bottom: 6px; }
   .drv .hd .n, .drv .hd .f, .drv .hd .w { font-size: 11.5px; letter-spacing: .12em; color: var(--ink-soft); font-weight: 600; }
 
+  /* ---------- tie: 第1部の理由との紐づけ ---------- */
+  .tie { display: inline-block; font-size: 11px; letter-spacing: .1em; font-weight: 600;
+         border: 1.3px solid var(--moss); color: var(--moss); border-radius: 999px;
+         padding: 2px 10px; margin-right: 10px; line-height: 1.6; vertical-align: 2px; }
+  .tie.base { border-color: var(--line); color: var(--ink-soft); }
+  .tie-chip { margin-top: 14px; }
+  .tie-chip .tie { font-size: 12px; padding: 4px 14px; margin-right: 0; }
+  .tie-chip .cap { font-size: 13.5px; color: var(--ink-soft); margin-left: 12px; }
+
   /* ---------- paths ---------- */
   .paths { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
   .path { border: 1px solid var(--line); padding: 26px 24px 30px; }
@@ -758,14 +767,14 @@
     <h2>「現代の技術哲学」のいくつかの考え方</h2>
     <div class="body">
       <ul class="pts compact six">
-        <li class="em">技術は単なる道具ではない<small>ここは、技術哲学者の全員が同意する出発点。</small></li>
-        <li>両者は相互に絡み合い、相互作用し、<span class="term">ネットワーク</span>を構成する<small>アクターネットワーク理論（ラトゥール）／ポスト現象学（アイディ、フェルベーク）</small></li>
-        <li>関係性から考えなければならない<small>関係論的アプローチ（クーケルバーク）——技術も人間も、関係のなかで初めて何かになる</small></li>
-        <li><span class="term">ゲシュテル</span>（総かり立て体制——テクノロジーが、人間も自然も「用立て可能な資源」としてかり立てる）の問題<small>ハイデガー『技術への問い』——ゆえに、人間が技術を自由にコントロールできるという考えは捨てなければならない</small></li>
-        <li>テクノロジーは、<strong>西洋近代の一つの技術のあり方に過ぎない</strong><small>技術多様性（ユク・ホイ）</small></li>
-        <li>人間中心主義を超えた地点から、技術を考えなければならない<small>ポストヒューマニズム的技術哲学</small></li>
+        <li class="em">技術は単なる道具ではない<small><span class="tie base">大前提</span>ここは、技術哲学者の全員が同意する出発点。</small></li>
+        <li>両者は相互に絡み合い、相互作用し、<span class="term">ネットワーク</span>を構成する<small><span class="tie">理由 1</span>アクターネットワーク理論（ラトゥール）／ポスト現象学（アイディ、フェルベーク）</small></li>
+        <li>関係性から考えなければならない<small><span class="tie">理由 1</span>関係論的アプローチ（クーケルバーク）——技術も人間も、関係のなかで初めて何かになる</small></li>
+        <li><span class="term">ゲシュテル</span>（総かり立て体制——テクノロジーが、人間も自然も「用立て可能な資源」としてかり立てる）の問題<small><span class="tie">理由 2</span>ハイデガー『技術への問い』——人間が技術を自由にコントロールできるという考えは捨てる</small></li>
+        <li>テクノロジーは、<strong>西洋近代の一つの技術のあり方に過ぎない</strong><small><span class="tie">理由 2</span>技術多様性（ユク・ホイ）——いまの技術は、特定の世界観に方向づけられている</small></li>
+        <li>人間中心主義を超えた地点から、技術を考えなければならない<small><span class="tie base">帰結</span>ポストヒューマニズム的技術哲学</small></li>
       </ul>
-      <div class="note">現代の技術哲学は、ここまで来ている。<span class="arrow">→</span> しかし本日の話は、<strong>この地点すら超えなければならない</strong>、というところへ向かう。</div>
+      <div class="note">見てのとおり——②③は第1部の<strong>理由1（2つの不可分性）</strong>から、④⑤は<strong>理由2（実質的な技術決定論）</strong>から出てきている。<span class="arrow">→</span> 一つずつ見ていく。</div>
     </div>
   </section>
 
@@ -773,7 +782,7 @@
   <section class="slide" data-title="①技術は単なる道具ではない" data-part="2">
     <div class="kicker">2 — 02</div>
     <h2>①　技術は単なる道具ではない</h2>
-    <p class="lead ship-lead">全員が同意する出発点。ここから技術哲学が始まる。</p>
+    <p class="tie-chip"><span class="tie base">大前提</span><span class="cap">全員が同意する出発点。ここから技術哲学が始まる。</span></p>
     <div class="body">
       <div class="cols c2">
         <div class="col">
@@ -795,6 +804,7 @@
   <section class="slide" data-title="②ネットワークを構成する" data-part="2">
     <div class="kicker">2 — 03</div>
     <h2>②　相互作用し、ネットワークを構成する<br><span class="thin en">アクターネットワーク理論／ポスト現象学</span></h2>
+    <p class="tie-chip"><span class="tie">理由 1</span><span class="cap">2つの不可分性から</span></p>
     <div class="body">
       <ul class="pts tight">
         <li>技術と人間、どちらかが優位というわけではない。両者は<strong>相互に絡み合っている</strong></li>
@@ -809,6 +819,7 @@
   <section class="slide" data-title="③関係性から考えなければならない" data-part="2">
     <div class="kicker">2 — 04</div>
     <h2>③　関係性から考えなければならない<br><span class="thin en">関係論的アプローチ（クーケルバーク）</span></h2>
+    <p class="tie-chip"><span class="tie">理由 1</span><span class="cap">2つの不可分性から</span></p>
     <div class="body">
       <div class="cols c2">
         <div class="col">
@@ -830,6 +841,7 @@
   <section class="slide" data-title="④ハイデガーの復活——ゲシュテル" data-part="2">
     <div class="kicker">2 — 05</div>
     <h2>④　ハイデガーの復活<br><span class="thin en">ゲシュテル（総かり立て体制）が、いま効いてくる</span></h2>
+    <p class="tie-chip"><span class="tie">理由 2</span><span class="cap">実質的な技術決定論から</span></p>
     <div class="body">
       <ul class="pts compact">
         <li>近代技術のもとで、あらゆるものが<span class="term">用立て可能な資源</span>として現れてくる<small>ライン川は「風景」ではなく発電量になり、森は「木材資源」になり、人は「人材」「人的資本」になる。誰かが選んだ方針ではなく、そう現れてしまうという世界の様式そのもの。</small></li>
@@ -845,6 +857,7 @@
   <section class="slide" data-title="⑤テクノロジーは西洋近代の一つのあり方に過ぎない" data-part="2">
     <div class="kicker">2 — 06</div>
     <h2>⑤　テクノロジーは、西洋近代の<br>一つのあり方に過ぎない<span class="thin en">　技術多様性（ユク・ホイ）</span></h2>
+    <p class="tie-chip"><span class="tie">理由 2</span><span class="cap">実質的な技術決定論から</span></p>
     <div class="body">
       <ul class="pts tight">
         <li>「テクノロジー」は、人類に一つしかない普遍的なものだと思われている</li>
@@ -859,6 +872,7 @@
   <section class="slide" data-title="⑥ポストヒューマニズム的技術哲学" data-part="2">
     <div class="kicker">2 — 07</div>
     <h2>⑥　ポストヒューマニズム的技術哲学<br><span class="thin en">人間中心主義を超えた地点から考える</span></h2>
+    <p class="tie-chip"><span class="tie base">帰結</span><span class="cap">①〜⑤を突き詰めた先に</span></p>
     <div class="body">
       <ul class="pts tight">
         <li>①〜⑤を突き詰めると、ひとつの結論に行き着く——<strong>「人間」を中心に置いたままでは、技術は考えられない</strong></li>
