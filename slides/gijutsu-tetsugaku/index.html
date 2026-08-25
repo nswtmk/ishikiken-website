@@ -130,6 +130,16 @@
   .col.reason .h { margin-bottom: 8px; }
   .col.reason h3 { font-size: 23px; margin-bottom: 6px; }
   .col.reason p { font-size: 15px; }
+  .cols.tight3 .col { padding: 22px 24px 24px; }
+  .cols.tight3 .col h3 { font-size: 22px; margin-bottom: 10px; }
+  .cols.tight3 .col p { font-size: 15px; line-height: 1.9; }
+  .cols.tight3 .col p + p { margin-top: 10px; }
+  .cols.tight3 .col .tagline { margin-top: 14px; font-size: 12px; }
+  .cols.tight3 .col p.but { color: var(--ink); font-weight: 700; border-top: 1px dashed var(--line); padding-top: 10px; }
+  .cols.tight2 .col.reason { padding: 16px 22px 18px; }
+  .cols.tight2 .col h3 { font-size: 21px; margin-bottom: 8px; }
+  .cols.tight2 .col p { font-size: 15px; line-height: 1.85; }
+  .cols.tight2 .col p + p { margin-top: 9px; }
   .col .tagline { display: inline-block; font-size: 12.5px; letter-spacing: .1em; border: 1.4px dashed var(--mint); border-radius: 999px; padding: 5px 15px; margin-top: 18px; line-height: 1.6; }
 
   /* ---------- turn: 取り消される前提 → 立て直す前提 ---------- */
@@ -301,6 +311,35 @@
   .path p { font-size: 15px; line-height: 1.95; color: var(--ink-soft); }
   .path p + p { margin-top: 10px; }
 
+  /* ---------- step4: mU の4STEP ---------- */
+  .step4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .step4 .st { background: var(--paper); padding: 24px 20px 22px; display: flex; flex-direction: column; }
+  .step4 .st.on { background: #f4faf6; box-shadow: inset 0 3px 0 var(--moss); }
+  .axis li.lnk { padding-left: 0; margin-top: 4px; }
+  .axis li.lnk::before { display: none; }
+  .step4 .st .n { font-size: 11.5px; letter-spacing: .18em; color: var(--moss); font-weight: 600; margin-bottom: 12px; }
+  .step4 .st h3 { font-size: 21px; font-weight: 700; line-height: 1.55; margin-bottom: 12px; }
+  .step4 .st p { font-size: 13.5px; line-height: 1.85; color: var(--ink-soft); }
+  .step4 .st .tag { margin-top: auto; padding-top: 16px; font-size: 11.5px; letter-spacing: .08em;
+                    color: var(--moss); font-weight: 600; }
+
+  /* ---------- qed: 論証 ---------- */
+  .qed { border-top: 1px solid var(--line); }
+  .qed-row { display: grid; grid-template-columns: 322px 1fr; gap: 32px; align-items: start;
+             padding: 13px 0 14px; border-bottom: 1px solid var(--line); }
+  .qed-row .p { font-size: 19px; font-weight: 700; line-height: 1.6; }
+  .qed-row .p .n { display: block; font-size: 11px; letter-spacing: .16em; color: var(--moss);
+                   font-weight: 600; margin-bottom: 7px; }
+  .qed-row .p em { display: block; font-style: normal; font-size: 13.5px; font-weight: 600;
+                   color: var(--shu); line-height: 1.75; margin-top: 8px; }
+  .qed-row ul { list-style: none; }
+  .qed-row li { position: relative; font-size: 14.5px; line-height: 1.85; color: var(--ink-soft);
+                padding-left: 18px; margin-bottom: 3px; }
+  .qed-row li::before { content: ""; position: absolute; left: 0; top: 12px; width: 7px; height: 1.6px; background: var(--mint); }
+
+  /* ---------- 出典注記 ---------- */
+  .q-src { display: block; font-size: 12.5px; color: var(--ink-soft); opacity: .8; margin-top: 6px; }
+
   /* ---------- chrome ---------- */
   .foot {
     position: absolute; left: 96px; right: 96px; bottom: 34px;
@@ -382,7 +421,7 @@
           <span class="n">1</span>
           <div>
             <h3>なぜ、いま技術哲学が必要なのか</h3>
-            <p>技術哲学がマイナーである理由と、それでも無視できない2つの不可分性。生成AIによるアクチュアル化、そして「原初からのサイボーグ性」という提起。</p>
+            <p>技術哲学がマイナーである理由と、それでも無視できない2つの不可分性、そして実質的な技術決定論。だから両側の人が、問いの形そのものを変える必要がある。</p>
           </div>
         </li>
         <li>
@@ -396,7 +435,7 @@
           <span class="n">3</span>
           <div>
             <h3>原初の技術から考える</h3>
-            <p>ヒューマニズムの延長でも、トランスヒューマニズムでもない第三の道へ。鍵は技術史——mUと西表島の実践、そして日常の中の異なる技術への気づきまで。</p>
+            <p>西表島での体験から、原初のサイボーグ、そして技術の基層へ。教科書はないから技術史を掘る——その方法と、mU・ジャングル・庭という実践。最後に、はじめの問いに戻って論証する。</p>
           </div>
         </li>
       </ol>
@@ -689,29 +728,32 @@
   </section>
 
   <!-- 11 -->
-  <section class="slide" data-title="技術哲学の問いが、アクチュアルになってきた" data-part="1">
+  <section class="slide" data-title="両側の人が、技術哲学をやるべきでは？" data-part="1">
     <div class="kicker">1 — 11</div>
-    <h2>技術哲学の問いが、<br>アクチュアルになってきた！</h2>
+    <h2>だから——両側の人が、<span class="thin">技術哲学をやるべきでは？</span></h2>
     <div class="body">
-      <div class="cols c2">
-        <div class="col reason">
-          <div class="h">理由 1</div>
-          <h3>2つの不可分性</h3>
-          <p>人間は技術と、技術は哲学と、分けられない。</p>
+      <div class="cols c3 tight3">
+        <div class="col">
+          <div class="h">Philosophy</div>
+          <h3>哲学をやっている人</h3>
+          <p>人間が好き。人間とは何か、人間の悩みを考えたい。技術には興味がない。</p>
+          <p class="but">しかし、人間のあり方はもう技術と分けられない。<strong>技術を問わずに、人間は問えない。</strong></p>
         </div>
-        <div class="col reason">
-          <div class="h">理由 2</div>
-          <h3>実質的な技術決定論</h3>
-          <p>抗えない駆動力によって、現実がそう動いている。</p>
+        <div class="col mid">
+          <div class="h">Between</div>
+          <h3>技術哲学</h3>
+          <p><strong>技術は単なる道具ではなく、人間や社会のあり方を形成する。</strong></p>
+          <p>——この一点が、いま両側にとって<strong>他人事ではなくなった</strong>。</p>
+          <span class="tagline">両側とも、ここをやるべきでは？</span>
+        </div>
+        <div class="col">
+          <div class="h">Technology</div>
+          <h3>技術をやっている人</h3>
+          <p>実際に作ってなんぼ。哲学は付属物にすぎない。人間とは何かは、後から考えればいい。</p>
+          <p class="but">しかし、何をつくるべきかの判断は、<strong>技術の内側からは出てこない。</strong></p>
         </div>
       </div>
-      <p class="turn-arrow arrow-row"><span>↓</span></p>
-      <ul class="pts compact">
-        <li>私たちの存在が技術的に作られていくことは、もはや何の疑いもない</li>
-        <li>どんなデバイスが出るか、どんなAIが広まるかで、行動も価値観も、社会のあり方も変わる</li>
-        <li>テクノロジー開発の背後に、特定の世界観がある</li>
-      </ul>
-      <div class="note">負の側面：AIの登場と同時に防衛テックが台頭し、戦争へと駆り立てられていくことも起きている。</div>
+      <div class="note">二つの不可分性と、実質的な技術決定論。この二つによって、技術哲学の問いは<strong>アクチュアルになった</strong>。<br>私たちはこれまで、船内の計器をきちんと調べてコントロールすれば、どうにかなると思っていた。<span class="arrow">→</span> しかし、そうではなかった。<strong>問いの形そのものを、変える必要がある。</strong></div>
     </div>
   </section>
   <!-- 12 -->
@@ -754,24 +796,6 @@
       <div class="note">AIを分析するだけではなく、<strong>AIが私たちをどこへ向かわせているのか</strong>を問う。それが技術哲学である。</div>
     </div>
   </section>
-  <!-- 10b -->
-  <section class="slide" data-title="提起：原初からのサイボーグ性" data-part="1">
-    <div class="kicker">1 — 13</div>
-    <h2>提起｜<span class="thin">原初からのサイボーグ性</span></h2>
-    <div class="body">
-      <ul class="pts">
-        <li class="em">そもそもサピエンスは、道具を手に入れることでサピエンスになった<small>石器を握り、火を使うことが、脳と身体の進化そのものを方向づけた。人間が先にいて、あとから道具を使い始めたのではない。技術とともに、人間になった——<strong>原初からのサイボーグ</strong>である。</small></li>
-        <li>「技術は道具にすぎない」は、常識ではなく<span class="term">近代的人間観</span>の産物<small>世界から独立した自律的主体としての人間——デカルトの主客二分、「自然の主人にして所有者」——を先に立てるからこそ、「まず人間がいて、道具はあとから」という順序が自明に見える。順序は、逆だった。</small></li>
-      </ul>
-      <div class="note"><span class="arrow">→</span> ならば、この「原初からのサイボーグ性」こそが、<strong>技術哲学的思考の原点</strong>になるべきではないか。<br>ここまでが第1部。この提起を手に、問い2へ。</div>
-    </div>
-  </section>
-
-
-
-
-
-
   <!-- 14 -->
   <section class="slide part" data-title="PART 2｜現代の技術哲学の問い" data-part="">
     <div class="kicker">Part Two</div>
@@ -882,23 +906,33 @@
         <li class="em">しかし、その中身は<strong>西洋近代という特定の世界観</strong>のもとで形づくられたもの<small>世界をメカニズムとして捉え、法則を取り出し、資源として用立てる——その一つのやり方が、いま地球全体を覆っている。</small></li>
         <li>技術の背後には、つねに<span class="term">宇宙観・世界観</span>がある。ならば、別の世界観に根ざした<strong>別の技術のあり方</strong>もありうる</li>
       </ul>
-      <div class="note">この論点は、第2部の後半でユク・ホイとともに詳しく扱う。<span class="arrow">→</span> まずは、いまの私たちがどの枠の中にいるかを見る。</div>
+      <div class="note">この論点は、第3部でユク・ホイとともに詳しく扱う。<span class="arrow">→</span> まずは、いまの私たちがどの枠の中にいるかを見る。</div>
     </div>
   </section>
 
   <!-- id6 -->
-  <section class="slide" data-title="⑥人間中心主義を超えた技術哲学" data-part="2">
+  <section class="slide" data-title="⑥「ヒューマン」と「テクノロジー」を乗り越える" data-part="2">
     <div class="kicker">2 — 07</div>
-    <h2>⑥　人間中心主義を超えた技術哲学</h2>
-    <p class="tie-chip"><span class="tie base">帰結</span><span class="cap">①〜⑤を突き詰めた先に</span></p>
-    <div class="body">
-      <ul class="pts compact">
-        <li>①〜⑤を突き詰めると、ひとつの結論に行き着く——<strong>「人間」を中心に置いたままでは、技術は考えられない</strong></li>
-        <li class="em">ここでいう「人間」とは、<span class="term">西洋近代的人間観</span>のこと<small>世界から独立した自律的な主体。デカルトの主客二分。「自然の主人にして所有者」。——第1部で取り消し線を引いた、あの人間像である。</small></li>
-        <li>その人間を、世界を見渡す特権的な中心から降ろす。それが<strong>ポストヒューマニズム的技術哲学</strong></li>
-        <li class="em shu-li">一方で、現代の欧米のポストヒューマニズム論は<strong>看板ばかりで、人間中心主義を脱しきれていない</strong><small>「人間を超えた」と語っているのは、やはり人間である。言語の構造も、宗教観も、そこから出ていない。</small></li>
-      </ul>
-      <div class="note"><span class="arrow">→</span> だから、<strong>モア・ザン・ヒューマンへ。</strong></div>
+    <h2 style="font-size:36px">⑥　「ヒューマン」と「テクノロジー」を乗り越える</h2>
+    <div class="body" style="margin-top:30px">
+      <div class="cols c2 tight2">
+        <div class="col reason">
+          <div class="h">乗り越える対象 ①</div>
+          <h3>「ヒューマン」</h3>
+          <p>ここでいう人間とは、<span class="term">西洋近代的人間観</span>——世界から独立した自律的な主体。「自然の主人にして所有者」。第1部で取り消し線を引いた、あの人間像。</p>
+          <p>これを中心から降ろすのがポストヒューマニズム。<strong>しかし欧米の議論は看板ばかりで、脱しきれていない。</strong>「人間を超えた」と語っているのは、やはり人間である。</p>
+        </div>
+        <div class="col reason">
+          <div class="h">乗り越える対象 ②</div>
+          <h3>「テクノロジー」</h3>
+          <p>人間を降ろした席に、今度はテクノロジーを座らせる道もある——<strong>トランスヒューマニズム</strong>。能力拡張、脳とAIの接続、そして不死。</p>
+          <p>しかし中心が入れ替わっただけで、<strong>「中心が一つある」という構造はそのまま残る。</strong>近代のテクノロジー観そのものは、無傷である。</p>
+        </div>
+      </div>
+      <div class="conv-goal" style="margin-top:18px;font-size:20px;padding:16px 20px">
+        両方を降りた先にあるのは——<span style="color:var(--shu)">モア・ザン・ヒューマン</span>　と　<span style="color:var(--shu)">プリミティブ・サイボーグ</span>　なのではないか？
+      </div>
+      <div class="note">「ヒューマン」の外へ出る視点が<strong>モア・ザン・ヒューマン</strong>、「テクノロジー」の外へ出る視点が<strong>プリミティブ・サイボーグ</strong>。<span class="arrow">→</span> ここから第3部。ただしこの二つは思弁では手に入らない、<strong>身体から入ります。</strong></div>
     </div>
   </section>
 
@@ -919,11 +953,86 @@
     <div class="kicker">Part Three</div>
     <div class="pnum">3</div>
     <h2>原初の技術から考える</h2>
-    <p class="lead">モア・ザン・ヒューマンのテクノロジーへ。手がかりは、五千年をさかのぼった先にある。</p>
+    <p class="lead">モア・ザン・ヒューマンと、プリミティブ・サイボーグ。まずは理論ではなく、身体から入る。</p>
   </section>
-  <!-- 17 -->
-  <section class="slide" data-title="ユク・ホイ｜技術多様性" data-part="3">
+  <!-- p3-01 iriomote -->
+  <section class="slide" data-title="西表島で——裸の人間は、一日も生きられない" data-part="3">
     <div class="kicker">3 — 01</div>
+    <h2>西表島で｜<span class="thin">裸の人間は、一日も生きられない</span></h2>
+    <p class="tie-chip"><span class="tie">七沢の体験</span><span class="cap">ここから第3部を始めます</span></p>
+    <div class="body">
+      <div class="cols c2">
+        <div class="col reason">
+          <div class="h">やったこと</div>
+          <h3>厳選した道具だけを持って、<br>亜熱帯の原生林へ</h3>
+          <p>京都大学で農学を学んだあと、西表島の奥地へ。インフラもなく、時計もない。島の人に学びながら、狩猟採集をし、火を起こし、塩をつくり、道具をつくる——そういう滞在を、通算で数か月続けた。</p>
+        </div>
+        <div class="col reason">
+          <div class="h">わかったこと</div>
+          <h3>道具なしでは、<br>一日も生きられない</h3>
+          <p>火を起こせなければ、食えない。刃物がなければ、何も加工できない。人間の身体は、裸のままではこの島で一日ももたない。しかし同時に——<strong>本当に必要な道具は、驚くほど少ない</strong>。</p>
+        </div>
+      </div>
+      <div class="note"><span class="arrow">→</span> 身体で確かめて、はっきりした。<strong>人間は、最低限の道具を必要とするサイボーグである。</strong><br>私たちが手放せないと思っているものの大半は、その「最低限」ではない。<span class="q-src">※ 体験の細部は七沢の原稿「未開の未来へ」ほかにもとづく（要確認）。</span></div>
+    </div>
+  </section>
+  <!-- p3-02 cyborg -->
+  <section class="slide" data-title="原初のサイボーグ" data-part="3">
+    <div class="kicker">3 — 02</div>
+    <h2>原初のサイボーグ<span class="thin en">　Primitive Cyborg</span></h2>
+    <p class="tie-chip"><span class="tie">第1部の提起</span><span class="cap">身体で確かめたことが、人類史とつながる</span></p>
+    <div class="body">
+      <ul class="pts tight">
+        <li>サピエンスは、<strong>道具を手に入れることでサピエンスになった</strong>——石器を握り、火を使うことが、脳と身体の進化を方向づけた</li>
+        <li>人間が先にいて、あとから道具を使い始めたのではない。<strong>技術とともに、人間になった</strong></li>
+        <li class="em">島で身体が教えたことは、人類史のスケールでも同じだった——人間とは、<span class="term">最低限の道具を必要とするサイボーグ</span>である</li>
+      </ul>
+      <div class="note">これは比喩ではない。人間は、道具なしでは生きられない身体として進化してきた。<br><span class="arrow">→</span> そしてジャングルでは、もう一つ気づいたことがある。技術を発揮しているのは、人間だけではない。</div>
+    </div>
+  </section>
+  <!-- p3-03 kisou -->
+  <section class="slide" data-title="技術の基層——技術は、生きとし生けるものが発揮する" data-part="3">
+    <div class="kicker">3 — 03</div>
+    <h2>技術の基層｜<span class="thin">技術は、生きとし生けるものが発揮する</span></h2>
+    <div class="body">
+      <ul class="pts compact">
+        <li>ジャングルの中では、道具をつくり、環境に働きかけているのは人間だけではない<small>蔓は他者の幹を足場にして光へ届く。ヤドカリは他者の殻を住居に変える。鳥は巣を編み、シロアリは空調の効いた塔を建て、菌糸は土の中に流通のネットワークを張る。</small></li>
+        <li>それらは「本能」で、人間のものだけが「技術」——と切り分けてきたのは、<strong>人間だけを特別扱いする近代の区別</strong>ではないか</li>
+        <li class="em">技術とは、生きとし生けるものが<strong>環境と応答しながら発揮するはたらき</strong>である。人間の技術は、その長い連続のなかの一つの現れにすぎない</li>
+        <li>ここを<span class="term">技術の基層</span>と呼びたい。技術哲学は、この基層から考え直すべきではないか</li>
+      </ul>
+      <div class="note">ここは<strong>七沢の主張</strong>。「技術＝人間だけのもの」という前提を外すと、人間中心主義は理屈ではなく<strong>実感として</strong>ほどける。<br><span class="arrow">→</span> 島で気づいたのは、この二つ——<strong>プリミティブ・サイボーグ</strong>と、<strong>人間だけのものではない技術</strong>。</div>
+    </div>
+  </section>
+  <!-- p3-04 unlearn -->
+  <section class="slide" data-title="「つくる」をアンラーンする" data-part="3">
+    <div class="kicker">3 — 04</div>
+    <h2>「つくる」をアンラーンする<br><span class="thin en">ハイデガー／インゴルド</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li class="em">技術は、<strong>設計図をもとに作られるわけではない</strong><small>インゴルド：ものは、素材と、手と、環境の応答のなかで形になっていく。頭の中の形を材料に押しつけるのではなく、素材の抵抗と対話しながら「生成する」。</small></li>
+        <li class="em">技術は、<strong>科学に先行する</strong><small>理論があって技術ができたのではない。火も、舟も、発酵も、なぜそうなるかがわかる何千年も前から作られていた。作ることが先で、説明は後から追いつく。</small></li>
+      </ul>
+      <div class="note">近代の「つくる」——設計し、計画し、実装する——は、数ある作り方の<strong>一つ</strong>にすぎない。素材と環境の応答から立ち上がる「つくる」は、基層の側の作り方である。<br><span class="arrow">→</span> だから、私たちが「つくる」だと思っているものを、いったん<strong>学び落とす（Unlearn）</strong>必要がある。</div>
+    </div>
+  </section>
+  <!-- p3-05 mth -->
+  <section class="slide" data-title="モア・ザン・ヒューマンの技術へ" data-part="3">
+    <div class="kicker">3 — 05</div>
+    <h2>モア・ザン・ヒューマンの技術へ<br><span class="thin en">人間-テクノロジーという枠組みの、外へ</span></h2>
+    <div class="body">
+      <ul class="pts compact">
+        <li>人間中心（ヒューマン）でも、テクノロジー中心（トランスヒューマニズム）でもない、<strong>第三の視点</strong></li>
+        <li class="em">人類学が言うところの <span class="term">more-than-human</span><small>人間だけでなく、動物、植物、菌、土、水、道具、そして技術——それらが共に世界を作っているという捉え方。「技術の基層」から見れば、これは主義主張ではなく、単なる事実の記述である。</small></li>
+        <li>中心を別のものに移すのではなく、<strong>「中心が一つある」という考え方そのものを降りる</strong></li>
+        <li class="em shu-li">ただし——<strong>思弁からは出てこない</strong>。頭の中だけで「近代の外」を考えることはできない<small>「人間を超えた」と机の上で語っているのは、やはり近代の人間である。だから欧米のポストヒューマニズムは、宣言のところで止まってしまう。</small></li>
+      </ul>
+      <div class="note"><span class="arrow">→</span> ならば手がかりは、思弁ではなく<strong>実在した「別の技術」</strong>にしかない。そんなものが、本当にあったのか。</div>
+    </div>
+  </section>
+  <!-- p3-06 hui -->
+  <section class="slide" data-title="ユク・ホイ｜技術多様性" data-part="3">
+    <div class="kicker">3 — 06</div>
     <h2>ユク・ホイ｜<span class="thin">技術多様性 <span class="en">Technodiversity</span></span></h2>
     <div class="body">
       <ul class="pts tight">
@@ -946,9 +1055,9 @@
       <div class="note">つまり——別の技術のあり方は「あった」。しかし<strong>もう、そのままでは借りてこられない</strong>。<span class="arrow">→</span> では、どうやって掘り起こすのか。</div>
     </div>
   </section>
-  <!-- myth -->
+  <!-- p3-07 myth -->
   <section class="slide" data-title="神話・風土・技術——技術多様性の掘り起こし" data-part="3">
-    <div class="kicker">3 — 02</div>
+    <div class="kicker">3 — 07</div>
     <h2>神話・風土・技術｜<span class="thin">技術多様性の掘り起こし</span></h2>
     <div class="body">
       <ul class="pts tight">
@@ -960,9 +1069,9 @@
       <div class="note">ここは<strong>七沢の主張</strong>——原稿「神話・風土・技術」ほかで論じたもの。ホイの技術多様性を、神話学と風土論で具体化する試み。</div>
     </div>
   </section>
-  <!-- 20 -->
+  <!-- p3-08 japan -->
   <section class="slide" data-title="では、日本は" data-part="3">
-    <div class="kicker">3 — 03</div>
+    <div class="kicker">3 — 08</div>
     <h2>では、日本は</h2>
     <div class="body">
       <ul class="pts tight">
@@ -974,9 +1083,9 @@
       <div class="note"><span class="arrow">→</span> だからこそ、取り戻すのではなく<strong>内側から超えていく</strong>しかない。</div>
     </div>
   </section>
-  <!-- 18 -->
+  <!-- p3-09 posteurope -->
   <section class="slide" data-title="『ポストヨーロッパ』——内側から超える" data-part="3">
-    <div class="kicker">3 — 04</div>
+    <div class="kicker">3 — 09</div>
     <h2>『ポストヨーロッパ』｜<span class="thin">内側から超える</span></h2>
     <div class="body">
       <ul class="pts tight">
@@ -986,22 +1095,22 @@
       </ul>
     </div>
   </section>
-  <!-- mth1 -->
+  <!-- p3-10 notextbook -->
   <section class="slide" data-title="しかし、教科書はない" data-part="3">
-    <div class="kicker">3 — 15</div>
+    <div class="kicker">3 — 10</div>
     <h2>しかし、教科書はない</h2>
     <div class="body">
       <ul class="pts">
         <li>「内側から超える」と言っても、その<strong>教科書も設計図もない</strong></li>
-        <li>思弁からは出てこない——頭の中だけで「近代の外」を考えることはできない</li>
+        <li>別の世界観に根ざした技術は「あった」。しかし、そのままでは借りてこられない</li>
         <li class="em">手がかりは、実在した「別の技術」にしかない</li>
       </ul>
       <div class="note"><span class="arrow">→</span> そして、それが眠っている場所が——<strong>技術史</strong>である。</div>
     </div>
   </section>
-  <!-- mth2 -->
+  <!-- p3-11 history -->
   <section class="slide" data-title="だから、技術史が重要だ" data-part="3">
-    <div class="kicker">3 — 06</div>
+    <div class="kicker">3 — 11</div>
     <h2>だから、技術史が重要だ</h2>
     <div class="body">
       <div class="det">
@@ -1023,58 +1132,46 @@
           <text class="sub2" x="560" y="102">＝別の世界観の化石</text>
         </svg>
       </div>
-      <div class="note">単線の進歩は、現実ではなく「歴史の書き方」の産物。実際の技術史は、枝分かれと傍流と絶滅に満ちている。失われた枝は失敗作ではなく、別の世界観の化石——<strong>神話と風土を道具に、ここを掘り起こす</strong>。技術史は、未来の選択肢が埋まっている鉱脈である。<br>第1部の言い換え：技術によって、人間は世界を知る。<span class="arrow">→</span> <strong>技術史によって、人間は自分たちの別の可能性を知る。</strong><br>では、その技術史を、どこまでさかのぼるか。<strong>いちばん原初まで。</strong></div>
+      <div class="note">単線の進歩は、現実ではなく「歴史の書き方」の産物。実際の技術史は、枝分かれと傍流と絶滅に満ちている。失われた枝は失敗作ではなく、別の世界観の化石——<strong>神話と風土を道具に、ここを掘り起こす</strong>。技術史は、未来の選択肢が埋まっている鉱脈である。<br>第1部の言い換え：技術によって、人間は世界を知る。<span class="arrow">→</span> <strong>技術史によって、人間は自分たちの別の可能性を知る。</strong><br>では、どうやって掘るのか。その手順を、そのままカリキュラムにした。</div>
     </div>
   </section>
-  <!-- p3b -->
-  <section class="slide" data-title="原初のサイボーグ" data-part="3">
-    <div class="kicker">3 — 07</div>
-    <h2>原初のサイボーグ</h2>
-    <p class="tie-chip"><span class="tie">第1部の提起</span><span class="cap">ここから展開する</span></p>
+  <!-- p3-12 mu4step -->
+  <section class="slide" data-title="mU｜「未開の未来」へ降りる4つのSTEP" data-part="3">
+    <div class="kicker">3 — 12</div>
+    <h2>mU｜<span class="thin">「未開の未来」へ降りる4つのSTEP</span></h2>
     <div class="body">
-      <ul class="pts tight">
-        <li>サピエンスは、<strong>道具を手に入れることでサピエンスになった</strong>——石器を握り、火を使うことが、脳と身体の進化を方向づけた</li>
-        <li>人間が先にいて、あとから道具を使い始めたのではない。<strong>技術とともに、人間になった</strong></li>
-        <li class="em">人間とは、<span class="term">最低限の道具を必要とするサイボーグ</span>である</li>
-      </ul>
-      <div class="note">これは比喩ではない。人間は、道具なしでは生きられない身体として進化してきた。<span class="arrow">→</span> ならば、その「最低限」とはどこまでか。実際に行ってみた。</div>
-    </div>
-  </section>
-  <!-- p3c -->
-  <section class="slide" data-title="西表島で——最低限の道具" data-part="3">
-    <div class="kicker">3 — 08</div>
-    <h2>西表島で｜<span class="thin">最低限の道具とは、どこまでか</span></h2>
-    <div class="body">
-      <div class="cols c2">
-        <div class="col">
-          <div class="h">やったこと</div>
-          <h3>持ち込んだのは、テントと道具と米だけ</h3>
-          <p>西表島の奥地に滞在する。インフラもなく、時計もない。島の人に学びながら、狩猟採集をし、塩をつくり、道具をつくる。</p>
+      <div class="step4">
+        <div class="st">
+          <div class="n">STEP 01</div>
+          <h3>未来を見通す</h3>
+          <p>AIによって「つくる」がどう変わるのかを、まず見晴らす。</p>
+          <div class="tag">いまを知る</div>
         </div>
-        <div class="col">
-          <div class="h">わかったこと</div>
-          <h3>道具なしでは、一日も生きられない</h3>
-          <p>火を起こせなければ、食えない。刃物がなければ、何も加工できない。しかし——<strong>本当に必要な道具は、驚くほど少ない</strong>。</p>
+        <div class="st on">
+          <div class="n">STEP 02</div>
+          <h3>根源にさかのぼる</h3>
+          <p>そもそも、なぜ人はつくるのか。技術哲学・技術史・人類学・身体・道具・環境・手仕事から問い直す。</p>
+          <div class="tag">技術史を掘る</div>
+        </div>
+        <div class="st">
+          <div class="n">STEP 03</div>
+          <h3>現在を再定義する</h3>
+          <p>見落とされてきた技術の可能性を、いまの現実のなかに発見する。</p>
+          <div class="tag">枝を見つける</div>
+        </div>
+        <div class="st">
+          <div class="n">STEP 04</div>
+          <h3>社会実装を構想する</h3>
+          <p>見つけた未来を、試作し、実践する。</p>
+          <div class="tag">つくってみる</div>
         </div>
       </div>
-      <div class="note"><span class="arrow">→</span> 身体で確かめて、はっきりした。<strong>人間は、最低限の道具を必要とするサイボーグなんだ！</strong><br>私たちが手放せないと思っているものの大半は、その「最低限」ではない。</div>
+      <div class="note"><strong>makers Unlearn（mU）2026</strong>｜山梨県立大学 × Technel。全12科目・210時間、50名以上の専門家と学ぶ選択制プログラム（2026年7月開講）。掲げているのは——<strong>「未開の未来へ」</strong>。<br>ここまで話してきた「技術史を掘る」という作業を、そのまま学びの設計にしたものです。<a class="booklink" href="https://makers.yamanashi-ken.ac.jp/mu">makers.yamanashi-ken.ac.jp/mu</a></div>
     </div>
   </section>
-  <!-- p3d -->
-  <section class="slide" data-title="「つくる」をアンラーンする" data-part="3">
-    <div class="kicker">3 — 09</div>
-    <h2>「つくる」をアンラーンする<br><span class="thin en">ハイデガー／インゴルド</span></h2>
-    <div class="body">
-      <ul class="pts tight">
-        <li class="em">技術は、<strong>設計図をもとに作られるわけではない</strong><small>インゴルド：ものは、素材と、手と、環境の応答のなかで形になっていく。頭の中の形を材料に押しつけるのではなく、素材の抵抗と対話しながら「生成する」。</small></li>
-        <li class="em">技術は、<strong>科学に先行する</strong><small>理論があって技術ができたのではない。火も、舟も、発酵も、なぜそうなるかがわかる何千年も前から作られていた。作ることが先で、説明は後から追いつく。</small></li>
-      </ul>
-      <div class="note">近代の「つくる」——設計し、計画し、実装する——は、数ある作り方の<strong>一つ</strong>にすぎない。<br><span class="arrow">→</span> だから、私たちが「つくる」だと思っているものを、いったん<strong>学び落とす（Unlearn）</strong>必要がある。</div>
-    </div>
-  </section>
-  <!-- p3a -->
+  <!-- p3-13 kazenotani -->
   <section class="slide" data-title="五千年の「都市化」を超える——風の谷" data-part="3">
-    <div class="kicker">3 — 10</div>
+    <div class="kicker">3 — 13</div>
     <h2>五千年の「都市化」を超える<br><span class="thin en">安宅和人「風の谷を創る」</span></h2>
     <div class="body">
       <div class="bookrow">
@@ -1098,9 +1195,9 @@
       <div class="note">原初までさかのぼった目で、もう一度いまを見る。<span class="arrow">→</span> 五千年の「都市化」の外に、場所をつくろうとしている人たちがいる。</div>
     </div>
   </section>
-  <!-- p3a2 -->
+  <!-- p3-14 matagi -->
   <section class="slide" data-title="計算機自然の辺縁へ——マタギドライヴ" data-part="3">
-    <div class="kicker">3 — 11</div>
+    <div class="kicker">3 — 14</div>
     <h2>計算機自然の辺縁へ<br><span class="thin en">落合陽一『マタギドライヴ』</span></h2>
     <div class="body">
       <div class="bookrow">
@@ -1121,138 +1218,105 @@
           <a class="booklink" href="https://www.hanmoto.com/bd/isbn/9784911149041">hanmoto.com/bd/isbn/9784911149041</a>
         </div>
       </div>
-      <div class="note">風の谷は<strong>場所</strong>から、マタギドライヴは<strong>心性</strong>から、同じ方向を指している。<br><span class="arrow">→</span> どちらも、都市と計算機の中心ではなく、その<strong>辺縁</strong>に人間の可能性を見ている。</div>
+      <div class="note">風の谷は<strong>場所</strong>から、マタギドライヴは<strong>心性</strong>から、同じ方向を指している。<br><span class="arrow">→</span> では、私たち自身は何をしているのか。二つの実践を並べます。</div>
     </div>
   </section>
-
-
-
-
-
-
-  <!-- 22 -->
-  <section class="slide" data-title="ここまでの前提（3つ）" data-part="3">
-    <div class="kicker">3 — 12</div>
-    <h2>ここまでの前提</h2>
-    <div class="body">
-      <ul class="pts">
-        <li><strong>技術と人間が不可分である</strong>ことが、切実になってきている</li>
-        <li><strong>技術と哲学が不可分である</strong>ことも、切実になってきている</li>
-        <li>日本的な思想・哲学はある。しかし私たちもすでにヨーロッパ化している<small>だから、ヨーロッパの哲学の内側から超えていくほかない。</small></li>
-      </ul>
-    </div>
-  </section>
-  <!-- ph3 -->
-  <section class="slide" data-title="三つの道" data-part="3">
-    <div class="kicker">3 — 13</div>
-    <h2>三つの道｜<span class="thin">技術哲学はどこへ向かうべきか</span></h2>
-    <div class="body">
-      <div class="paths">
-        <div class="path">
-          <div class="n">TYPE 01</div>
-          <h3>トランスヒューマニズム<small>Transhumanism</small></h3>
-          <p><strong>テクノロジー中心主義。</strong></p>
-          <p>人間と技術が不可分なら、いっそ一体化の先へ進もうとする。</p>
-        </div>
-        <div class="path">
-          <div class="n">TYPE 02</div>
-          <h3>ヒューマニズム的<br>ポストヒューマニズム</h3>
-          <p><strong>人間中心を、密かに維持。</strong></p>
-          <p>「超えた」と言いながら、結局は人間から見た視点に戻ってくる。</p>
-        </div>
-        <div class="path on">
-          <div class="n">TYPE 03</div>
-          <h3>モア・ザン・ヒューマン的<br>ポストヒューマニズム</h3>
-          <p><strong>人間-テクノロジーを超える。</strong></p>
-          <p>人間と技術という枠組みそのものの、外へ出ようとする。</p>
-        </div>
-      </div>
-      <div class="note">この分かれ方の背後には、<strong>世界観・宗教観の違い</strong>がある。<span class="arrow">→</span> 一つずつ見ていく。</div>
-    </div>
-  </section>
-
-  <!-- r1 -->
-  <section class="slide" data-title="道①｜トランスヒューマニズム" data-part="3">
-    <div class="kicker">3 — 14</div>
-    <h2>道①　トランスヒューマニズム<br><span class="thin en">実質は、テクノロジー中心主義</span></h2>
-    <div class="body">
-      <ul class="pts tight">
-        <li>人間と技術が不可分なら、<strong>いっそ一体化の先へ進もう</strong>——という道</li>
-        <li>人間と技術の一体、テクノロジーと哲学の一体。<strong>その両方を同時に実現してしまう</strong><small>能力拡張、脳とAIの接続、意識のアップロード、そして不死。</small></li>
-        <li class="em">しかしこれは、人間中心主義の<span class="term">裏返し</span>にすぎない<small>中心が人間からテクノロジーへ移っただけで、「中心が一つある」という構造は、そのまま残っている。</small></li>
-      </ul>
-      <div class="note">第2部で見たAI技術決定論的世界観——メシア思想、予定説——の、実践版でもある。<br><span class="arrow">→</span> ある意味で、西洋の二つの軸からの<strong>必然的な帰結</strong>。</div>
-    </div>
-  </section>
-
-  <!-- r2 -->
-  <section class="slide" data-title="道②｜ポストヒューマニズム" data-part="3">
+  <!-- p3-15 practice-nanasawa -->
+  <section class="slide" data-title="実践①｜七沢智樹——掘るための道具と、身体" data-part="3">
     <div class="kicker">3 — 15</div>
-    <h2>道②　ポストヒューマニズム<br><span class="thin en">人間中心を、密かに維持してしまう</span></h2>
-    <div class="body">
-      <ul class="pts tight">
-        <li>そうではない、と考える人たちは、人間中心主義を超えると宣言する</li>
-        <li>あるいは古き良き人間像に戻り、技術と人間を分けようとする<small>技術は道具にすぎない。人間は独立した中心である。——第1部で取り消し線を引いた、あの前提。</small></li>
-        <li class="em">しかしいずれも、結局は<strong>人間から見た視点</strong>を逃れられない<small>「人間を超えた」と語っているのは、やはり人間である。言語の構造も、宗教観も、そこから出ていない。</small></li>
-      </ul>
-      <div class="note">第2部の「ポストヒューマニズムとその限界」で見たとおり。<span class="arrow">→</span> 宣言と実行のあいだに、埋まらない落差がある。</div>
-    </div>
-  </section>
-
-  <!-- r3 -->
-  <section class="slide" data-title="道③｜モア・ザン・ヒューマン" data-part="3">
-    <div class="kicker">3 — 16</div>
-    <h2>道③　モア・ザン・ヒューマン<br><span class="thin en">人間-テクノロジーという枠組みの、外へ</span></h2>
-    <div class="body">
-      <ul class="pts tight">
-        <li>トランスヒューマニズムでもなく、ポストヒューマニズムの宣言でもない、<strong>第三の道</strong></li>
-        <li class="em">人類学が言うところの <span class="term">more-than-human</span><small>人間だけでなく、動物、植物、菌、土、水、道具、そして技術——それらが共に世界を作っているという捉え方。</small></li>
-        <li>中心を別のものに移すのではなく、<strong>「中心が一つある」という考え方そのものを降りる</strong></li>
-      </ul>
-      <div class="note"><span class="arrow">→</span> では、<strong>モア・ザン・ヒューマンのテクノロジー</strong>とは、どのようなものか。</div>
-    </div>
-  </section>
-
-
-
-
-
-
-  <!-- mth3 -->
-  <section class="slide" data-title="実践報告：技術史の実践として" data-part="3">
-    <div class="kicker">3 — 17</div>
-    <h2>実践報告｜<span class="thin">技術史の実践として</span></h2>
+    <h2>実践①　七沢智樹｜<span class="thin">掘るための道具と、身体</span></h2>
     <div class="body">
       <div class="axes">
         <div class="axis">
-          <div class="n">PRACTICE 01</div>
+          <div class="n">PRACTICE 01 ｜ 場をつくる</div>
           <h3>makers Unlearn（mU）</h3>
           <ul>
             <li>「技術は道具にすぎない」を<strong>学び落とす（Unlearn）</strong>ための場</li>
-            <li>山梨県立大学 × Technel。AI時代の「つくる」を根源から問い直す社会人向け講座（2026年7月開講）</li>
+            <li>山梨県立大学 × Technel。AI時代の「つくる」を根源から問い直す社会人向けプログラム（2026年7月開講）</li>
             <li>哲学・人類学・デザイン・エンジニアリング・社会実装の横断——鉱脈を掘る「発掘道具一式」</li>
           </ul>
         </div>
         <div class="axis">
-          <div class="n">PRACTICE 02</div>
+          <div class="n">PRACTICE 02 ｜ 身体でさかのぼる</div>
           <h3>JUNGLE Gathering（西表島）</h3>
           <ul>
             <li>技術史を、<strong>身体でさかのぼる</strong>試み——「現代人にジャングルを処方する」</li>
-            <li>西表島の奥地に、テントと道具と米だけで滞在。島の人に学びながら、狩猟採集・塩づくり・道具づくり</li>
-            <li>インフラも時計もない世界で、道具を作りながら暮らし、技術の意味を考える</li>
+            <li>西表島の奥地に、厳選した道具だけを持って滞在。島の人に学びながら、狩猟採集・塩づくり・道具づくり</li>
+            <li>インフラも時計もない世界で、道具を作りながら暮らし、技術の意味を身体に取り戻す</li>
           </ul>
         </div>
       </div>
-      <div class="note">こういう実践を、始めています——モア・ザン・ヒューマンのテクノロジーへの道を、風土のなかで試すために。</div>
+      <div class="note">頭で掘る場と、身体で掘る場。どちらも、モア・ザン・ヒューマンの技術へ降りていくための実践です。</div>
     </div>
   </section>
-
-  <!-- close -->
+  <!-- p3-16 practice-uno -->
+  <section class="slide" data-title="実践②｜宇野常寛——庭という形式" data-part="3">
+    <div class="kicker">3 — 16</div>
+    <h2>実践②　宇野常寛｜<span class="thin">庭という形式</span></h2>
+    <div class="body">
+      <div class="axes">
+        <div class="axis">
+          <div class="n">PRACTICE 03 ｜ 場をつくる</div>
+          <h3>庭プロジェクト</h3>
+          <ul>
+            <li>インターネット上の<strong>プラットフォームに対抗しうる実空間</strong>をつくる——正確には、そのためのコンセプトをつくる</li>
+            <li>「庭」＝私有地でありながら、公共に開かれている場所</li>
+            <li>人間が、人間以外の<strong>「事物」とコミュニケーションを取る</strong>場であること。人間が完全には支配できない生成（自然・生態系）を体験できること</li>
+          </ul>
+        </div>
+        <div class="axis">
+          <div class="n">PRACTICE 04 ｜ 概念をつくる</div>
+          <h3>『庭の話』（講談社・2024）</h3>
+          <ul>
+            <li>ケア、民藝、パターン・ランゲージ、中動態、そして<strong>作庭</strong>——一見無関係な知見を総動員する</li>
+            <li>プラットフォームでもコモンズでもない、<strong>「庭」という新しい公共空間のモデル</strong>を構想する</li>
+            <li class="lnk"><a class="booklink" href="https://www.kodansha.co.jp/book/products/0000404327">kodansha.co.jp／庭の話</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="note">人ではなく<strong>モノ</strong>との関わりから、人間を捉え直す。人間が支配しきれない生成の側に、場所をひらく。<br><span class="arrow">→</span> これは、<strong>モア・ザン・ヒューマンの技術</strong>そのものではないか。七沢はジャングルから、宇野さんは都市から、同じ場所を指している。</div>
+    </div>
+  </section>
+  <!-- p3-17 qed -->
+  <section class="slide" data-title="論証｜はじめの問いに戻る" data-part="3">
+    <div class="kicker">3 — 17</div>
+    <h2>論証｜<span class="thin">はじめの問いに戻る</span></h2>
+    <div class="body">
+      <div class="qed">
+        <div class="qed-row">
+          <div class="p"><span class="n">命題 1 ｜ 理由1</span>技術と人間の不可分性は、<br>受容できる<em>∴ 欠陥ではなく、人間の条件である</em></div>
+          <ul>
+            <li>人間は、道具を手にすることで人間になった（原初のサイボーグ）</li>
+            <li>西表島——裸の身体は一日ももたない。しかし必要な道具は驚くほど少ない</li>
+            <li>技術は人間だけのものですらない（技術の基層）。ならば「切り離して守る」という発想自体が要らない</li>
+          </ul>
+        </div>
+        <div class="qed-row">
+          <div class="p"><span class="n">命題 2 ｜ 理由1</span>哲学と技術の不可分性も、<br>受容できる<em>∴ 技術を問うことは、世界観を問うことである</em></div>
+          <ul>
+            <li>技術の背後にはつねに宇宙観・世界観がある（ユク・ホイ／技術多様性）</li>
+            <li>神話と風土が、技術のあり方を方向づけてきた</li>
+            <li>だから技術の設計は、そのまま哲学の実践になる——分けられないのではなく、分ける必要がない</li>
+          </ul>
+        </div>
+        <div class="qed-row">
+          <div class="p"><span class="n">命題 3 ｜ 理由2</span>実質的な技術決定論は、<br>乗り越えられる<em>∴ 一本道に見えるのは、書き方の産物にすぎない</em></div>
+          <ul>
+            <li>単線の進歩史は現実ではなく「歴史の書き方」。技術史には掘り起こされていない枝がある</li>
+            <li>掘るための方法がある（mUの4STEP）。掘っている実践がすでにある（ジャングル・風の谷・マタギ・庭）</li>
+            <li>モア・ザン・ヒューマンの視点に立てば、選択肢は一つではない。<strong>決定論は、運命ではなくなる</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="note">以上を、本日の論証とします。<span class="arrow">→</span> あとは、それをどこで見つけるか。</div>
+    </div>
+  </section>
+  <!-- p3-18 close -->
   <section class="slide" data-title="結び：異なる技術に、気づいていく" data-part="3">
     <div class="kicker">3 — 18</div>
     <h2>結び｜<span class="thin">異なる技術に、気づいていく</span></h2>
     <div class="body">
-      <p class="statement">「異なる技術」は、遠くではなく<br>日常の中に、すでに<br>たくさん埋め込まれている。<small>異なる技術の可能性を、日常の中で、いま、いかに発見するか——その試みこそが大切だ。西表島のジャングルや古文書の中だけの話ではない。台所に、畑に、路地に、言葉づかいに、別の系譜の技術は生きている。</small></p>
+      <p class="statement">「異なる技術」は、遠くではなく<br>日常の中に、すでに<br>たくさん埋め込まれている。<small>異なる技術の可能性を、日常の中で、いま、いかに発見するか——その試みこそが大切だ。西表島のジャングルや古文書の中だけの話ではない。台所に、畑に、路地に、言葉づかいに、別の系譜の技術は生きている。そして庭は、すでにあちこちにある。</small></p>
       <div class="note"><span class="arrow">→</span> その違いに、気づいていく。それを、ここから一緒にやっていきましょう。</div>
     </div>
   </section>
@@ -1266,17 +1330,17 @@
         <div class="col">
           <div class="h">Part 1</div>
           <h3>なぜ技術哲学か</h3>
-          <p>人間は技術と、技術は哲学と不可分であり、生成AIがそれをアクチュアルにした。原点は、原初からのサイボーグ性。</p>
+          <p>人間は技術と、技術は哲学と不可分であり、生成AIがそれをアクチュアルにした。加えて、実質的な技術決定論。だから問いの形を変える必要がある。</p>
         </div>
         <div class="col">
           <div class="h">Part 2</div>
-          <h3>どこへ向かうか</h3>
-          <p>二つの極はポストヒューマニズムに合流する。技術の背後には世界観がある。しかし私たちも近代の内側にいる——内側から超える。</p>
+          <h3>いま何が問われているか</h3>
+          <p>現代の技術哲学の6つの問い。突き詰めると、降ろすべき中心が二つ見えてくる——「ヒューマン」と「テクノロジー」。</p>
         </div>
         <div class="col">
           <div class="h">Part 3</div>
-          <h3>どう考えるか</h3>
-          <p>ヒューマニズムでもトランスヒューマニズムでもなく、モア・ザン・ヒューマンへ。教科書はない——だから技術史を掘る。実践がmUと西表島、着地は日常の中の異なる技術への気づき。</p>
+          <h3>どこへ向かうか</h3>
+          <p>身体から入る。西表島、原初のサイボーグ、技術の基層。教科書はないから技術史を掘る——その方法が4STEP、実践が mU・ジャングル・庭。最後に、はじめの問いに戻って論証する。</p>
         </div>
       </div>
       <div class="note">本スライドは、レクチャー音声の文字起こしを構造化したものです。固有名・書名は発話にもとづく暫定表記を含みます。</div>
@@ -1421,6 +1485,90 @@
       <div class="note">おそらく、言語の構造、そして宗教観そのものがそうなっているからだと思う。</div>
     </div>
   </section>
+  <!-- ax08 -->
+  <section class="slide" data-title="ここまでの前提（3つ）" data-part="x">
+    <div class="kicker">APPENDIX 08</div>
+    <h2>ここまでの前提</h2>
+    <div class="body">
+      <ul class="pts">
+        <li><strong>技術と人間が不可分である</strong>ことが、切実になってきている</li>
+        <li><strong>技術と哲学が不可分である</strong>ことも、切実になってきている</li>
+        <li>日本的な思想・哲学はある。しかし私たちもすでにヨーロッパ化している<small>だから、ヨーロッパの哲学の内側から超えていくほかない。</small></li>
+      </ul>
+    </div>
+  </section>
+  <!-- ax09 -->
+  <section class="slide" data-title="三つの道" data-part="x">
+    <div class="kicker">APPENDIX 09</div>
+    <h2>三つの道｜<span class="thin">技術哲学はどこへ向かうべきか</span></h2>
+    <div class="body">
+      <div class="paths">
+        <div class="path">
+          <div class="n">TYPE 01</div>
+          <h3>トランスヒューマニズム<small>Transhumanism</small></h3>
+          <p><strong>テクノロジー中心主義。</strong></p>
+          <p>人間と技術が不可分なら、いっそ一体化の先へ進もうとする。</p>
+        </div>
+        <div class="path">
+          <div class="n">TYPE 02</div>
+          <h3>ヒューマニズム的<br>ポストヒューマニズム</h3>
+          <p><strong>人間中心を、密かに維持。</strong></p>
+          <p>「超えた」と言いながら、結局は人間から見た視点に戻ってくる。</p>
+        </div>
+        <div class="path on">
+          <div class="n">TYPE 03</div>
+          <h3>モア・ザン・ヒューマン的<br>ポストヒューマニズム</h3>
+          <p><strong>人間-テクノロジーを超える。</strong></p>
+          <p>人間と技術という枠組みそのものの、外へ出ようとする。</p>
+        </div>
+      </div>
+      <div class="note">本編では 2—07 と 3—05 に統合した。3つを丁寧に並べたいときは、この1枚と次の2枚を差し込む。</div>
+    </div>
+  </section>
+  <!-- ax10 -->
+  <section class="slide" data-title="道①｜トランスヒューマニズム" data-part="x">
+    <div class="kicker">APPENDIX 10</div>
+    <h2>道①　トランスヒューマニズム<br><span class="thin en">実質は、テクノロジー中心主義</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>人間と技術が不可分なら、<strong>いっそ一体化の先へ進もう</strong>——という道</li>
+        <li>人間と技術の一体、テクノロジーと哲学の一体。<strong>その両方を同時に実現してしまう</strong><small>能力拡張、脳とAIの接続、意識のアップロード、そして不死。</small></li>
+        <li class="em">しかしこれは、人間中心主義の<span class="term">裏返し</span>にすぎない<small>中心が人間からテクノロジーへ移っただけで、「中心が一つある」という構造は、そのまま残っている。</small></li>
+      </ul>
+      <div class="note">AI技術決定論的世界観——メシア思想、予定説——の、実践版でもある。<br><span class="arrow">→</span> ある意味で、西洋の二つの軸からの<strong>必然的な帰結</strong>。</div>
+    </div>
+  </section>
+  <!-- ax11 -->
+  <section class="slide" data-title="道②｜ポストヒューマニズム" data-part="x">
+    <div class="kicker">APPENDIX 11</div>
+    <h2>道②　ポストヒューマニズム<br><span class="thin en">人間中心を、密かに維持してしまう</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>そうではない、と考える人たちは、人間中心主義を超えると宣言する</li>
+        <li>あるいは古き良き人間像に戻り、技術と人間を分けようとする<small>技術は道具にすぎない。人間は独立した中心である。——第1部で取り消し線を引いた、あの前提。</small></li>
+        <li class="em">しかしいずれも、結局は<strong>人間から見た視点</strong>を逃れられない<small>「人間を超えた」と語っているのは、やはり人間である。言語の構造も、宗教観も、そこから出ていない。</small></li>
+      </ul>
+      <div class="note">宣言と実行のあいだに、埋まらない落差がある。<span class="arrow">→</span> だから、思弁ではなく身体と歴史から入る。</div>
+    </div>
+  </section>
+  <!-- ax12 -->
+  <section class="slide" data-title="提起：原初からのサイボーグ性" data-part="x">
+    <div class="kicker">APPENDIX 12</div>
+    <h2>提起｜<span class="thin">原初からのサイボーグ性</span></h2>
+    <div class="body">
+      <ul class="pts">
+        <li class="em">そもそもサピエンスは、道具を手に入れることでサピエンスになった<small>石器を握り、火を使うことが、脳と身体の進化そのものを方向づけた。人間が先にいて、あとから道具を使い始めたのではない。技術とともに、人間になった——<strong>原初からのサイボーグ</strong>である。</small></li>
+        <li>「技術は道具にすぎない」は、常識ではなく<span class="term">近代的人間観</span>の産物<small>世界から独立した自律的主体としての人間——デカルトの主客二分、「自然の主人にして所有者」——を先に立てるからこそ、「まず人間がいて、道具はあとから」という順序が自明に見える。順序は、逆だった。</small></li>
+      </ul>
+      <div class="note"><span class="arrow">→</span> ならば、この「原初からのサイボーグ性」こそが、<strong>技術哲学的思考の原点</strong>になるべきではないか。<br>本編では第3部の冒頭（3—01〜3—03）で、体験から立ち上げるかたちに移した。</div>
+    </div>
+  </section>
+
+
+
+
+
+
 </div><!-- /stage -->
 <div class="bar" id="bar"></div>
 </div><!-- /deck -->
