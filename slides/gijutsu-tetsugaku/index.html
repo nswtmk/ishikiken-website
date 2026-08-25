@@ -274,6 +274,21 @@
   .tie-chip .tie { font-size: 12px; padding: 4px 14px; margin-right: 0; }
   .tie-chip .cap { font-size: 13.5px; color: var(--ink-soft); margin-left: 12px; }
 
+  /* ---------- book: 書籍カード（書影を差し替え可） ---------- */
+  .bookrow { display: grid; grid-template-columns: 210px 1fr; gap: 44px; align-items: center; }
+  .book { position: relative; width: 210px; height: 296px; background: var(--paper);
+          border: 1px solid var(--line); border-left: 7px solid var(--ink);
+          box-shadow: 4px 5px 0 rgba(20,20,15,.06); padding: 26px 20px 20px 22px;
+          display: flex; flex-direction: column; }
+  .book img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .book .bt { font-size: 21px; font-weight: 700; line-height: 1.45; letter-spacing: .02em; }
+  .book .bs { font-size: 11.5px; line-height: 1.7; color: var(--ink-soft); margin-top: 10px; }
+  .book .ba { margin-top: auto; font-size: 12.5px; font-weight: 600; }
+  .book .bp { font-size: 11px; letter-spacing: .1em; color: var(--ink-soft); margin-top: 4px; }
+  .book .bmark { position: absolute; right: 14px; top: 0; width: 12px; height: 34px; background: var(--mint); }
+  .booklink { display: inline-block; font-size: 12.5px; color: var(--moss); font-weight: 600;
+              border-bottom: 1px solid var(--mint); margin-top: 14px; }
+
   /* ---------- paths ---------- */
   .paths { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
   .path { border: 1px solid var(--line); padding: 26px 24px 30px; }
@@ -1111,22 +1126,62 @@
   </section>
 
   <!-- p3a -->
-  <section class="slide" data-title="五千年を超えて——風の谷のコンセプト" data-part="3">
+  <section class="slide" data-title="五千年の「都市化」を超える——風の谷" data-part="3">
     <div class="kicker">3 — 01</div>
-    <h2>五千年を超えて｜<span class="thin">風の谷のコンセプト</span></h2>
+    <h2>五千年の「都市化」を超える<br><span class="thin en">安宅和人「風の谷を創る」</span></h2>
     <div class="body">
-      <ul class="pts tight">
-        <li>五千年以上にわたって続いてきた、<strong>都市に集中する</strong>という社会のかたち<small>安宅和人「風の谷を創る」——それ以外の道はないのか、という問いから始まった構想。</small></li>
-        <li>数百年、いや千年の単位で、<span class="term">残すに値する未来</span>を考える</li>
-        <li class="em">「鹿が生きていける場所で、人が生きていけないのはおかしい」<small>いま人が住めなくなりつつある土地で、獣たちは平然と生きている。ならば基準は——<strong>鹿を超えられるか</strong>。</small></li>
-      </ul>
+      <div class="bookrow">
+        <!-- 書影を入れる場合：この div の中に <img src="assets/kazenotani.jpg" alt=""> を追加 -->
+        <div class="book">
+          <span class="bmark"></span>
+          <div class="bt">「風の谷」<br>という希望</div>
+          <div class="bs">残すに値する未来をつくる</div>
+          <div class="ba">安宅和人</div>
+          <div class="bp">英治出版</div>
+        </div>
+        <div>
+          <ul class="pts tight">
+            <li class="em">五千年以上にわたって続いてきた<span class="term">「都市化」</span>——人が都市に集中していく流れ<small>それ以外に、人が生きられる場所のかたちはないのか。「都市しか住めない未来」への違和感から始まった構想（2017年〜）。</small></li>
+            <li>森、水系、エネルギー、教育、医療、食と農、土木、データとAI——分野を横断して、数百年先の社会の「かたち」を考える</li>
+            <li>最先端のテクノロジーを使いながら、<strong>その土地の素材で、美しい場所をつくる</strong></li>
+          </ul>
+          <a class="booklink" href="https://eijipress.co.jp/products/2350">eijipress.co.jp/products/2350</a>
+        </div>
+      </div>
       <div class="note">未来を遠くまで考えるには、いったん<strong>時間の尺度を変える</strong>必要がある。<span class="arrow">→</span> 五千年、さかのぼってみる。</div>
+    </div>
+  </section>
+
+  <!-- p3a2 -->
+  <section class="slide" data-title="計算機自然の辺縁へ——マタギドライヴ" data-part="3">
+    <div class="kicker">3 — 02</div>
+    <h2>計算機自然の辺縁へ<br><span class="thin en">落合陽一『マタギドライヴ』</span></h2>
+    <div class="body">
+      <div class="bookrow">
+        <!-- 書影を入れる場合：この div の中に <img src="assets/matagidrive.jpg" alt=""> を追加 -->
+        <div class="book">
+          <span class="bmark"></span>
+          <div class="bt">マタギ<br>ドライヴ</div>
+          <div class="bs">計算機自然の辺縁における<br>脱人間知性的文明論</div>
+          <div class="ba">落合陽一</div>
+          <div class="bp">PLANETS／第二次惑星開発委員会</div>
+        </div>
+        <div>
+          <ul class="pts tight">
+            <li>デジタルネイチャー化した世界で、人間の実存はどこにあるのか——七年の格闘の末の「解」</li>
+            <li class="em">既存の価値体系の<span class="term">周縁</span>にいながら、自然的・「運ゲー」的な環境に身を委ねることで、新たな価値を生む心性＝<strong>「マタギ」的</strong></li>
+            <li>中心を目指すのではなく、辺縁へ。<strong>脱人間知性的</strong>な文明のかたちを構想する</li>
+          </ul>
+          <a class="booklink" href="https://www.hanmoto.com/bd/isbn/9784911149041">hanmoto.com/bd/isbn/9784911149041</a>
+        </div>
+      </div>
+      <div class="note">風の谷は<strong>場所</strong>から、マタギドライヴは<strong>心性</strong>から、同じ方向を指している。<br><span class="arrow">→</span> どちらも、都市と計算機の中心ではなく、その<strong>辺縁</strong>に人間の可能性を見ている。</div>
     </div>
   </section>
 
   <!-- p3b -->
   <section class="slide" data-title="原初のサイボーグ" data-part="3">
-    <div class="kicker">3 — 02</div>
+    <div class="kicker">3 — 03</div>
     <h2>原初のサイボーグ</h2>
     <p class="tie-chip"><span class="tie">第1部の提起</span><span class="cap">ここから展開する</span></p>
     <div class="body">
@@ -1141,7 +1196,7 @@
 
   <!-- p3c -->
   <section class="slide" data-title="西表島で——最低限の道具" data-part="3">
-    <div class="kicker">3 — 03</div>
+    <div class="kicker">3 — 04</div>
     <h2>西表島で｜<span class="thin">最低限の道具とは、どこまでか</span></h2>
     <div class="body">
       <div class="cols c2">
@@ -1162,7 +1217,7 @@
 
   <!-- p3d -->
   <section class="slide" data-title="「つくる」をアンラーンする" data-part="3">
-    <div class="kicker">3 — 04</div>
+    <div class="kicker">3 — 05</div>
     <h2>「つくる」をアンラーンする<br><span class="thin en">ハイデガー／インゴルド</span></h2>
     <div class="body">
       <ul class="pts tight">
@@ -1175,7 +1230,7 @@
 
   <!-- 22 -->
   <section class="slide" data-title="ここまでの前提（3つ）" data-part="3">
-    <div class="kicker">3 — 05</div>
+    <div class="kicker">3 — 06</div>
     <h2>ここまでの前提</h2>
     <div class="body">
       <ul class="pts">
@@ -1187,7 +1242,7 @@
   </section>
   <!-- ph3 -->
   <section class="slide" data-title="三つの道" data-part="3">
-    <div class="kicker">3 — 06</div>
+    <div class="kicker">3 — 07</div>
     <h2>三つの道｜<span class="thin">技術哲学はどこへ向かうべきか</span></h2>
     <div class="body">
       <div class="paths">
@@ -1216,7 +1271,7 @@
 
   <!-- r1 -->
   <section class="slide" data-title="道①｜トランスヒューマニズム" data-part="3">
-    <div class="kicker">3 — 07</div>
+    <div class="kicker">3 — 08</div>
     <h2>道①　トランスヒューマニズム<br><span class="thin en">実質は、テクノロジー中心主義</span></h2>
     <div class="body">
       <ul class="pts tight">
@@ -1230,7 +1285,7 @@
 
   <!-- r2 -->
   <section class="slide" data-title="道②｜ポストヒューマニズム" data-part="3">
-    <div class="kicker">3 — 08</div>
+    <div class="kicker">3 — 09</div>
     <h2>道②　ポストヒューマニズム<br><span class="thin en">人間中心を、密かに維持してしまう</span></h2>
     <div class="body">
       <ul class="pts tight">
@@ -1244,7 +1299,7 @@
 
   <!-- r3 -->
   <section class="slide" data-title="道③｜モア・ザン・ヒューマン" data-part="3">
-    <div class="kicker">3 — 09</div>
+    <div class="kicker">3 — 10</div>
     <h2>道③　モア・ザン・ヒューマン<br><span class="thin en">人間-テクノロジーという枠組みの、外へ</span></h2>
     <div class="body">
       <ul class="pts tight">
@@ -1261,7 +1316,7 @@
 
   <!-- mth1 -->
   <section class="slide" data-title="モア・ザン・ヒューマンに、教科書はない" data-part="3">
-    <div class="kicker">3 — 10</div>
+    <div class="kicker">3 — 11</div>
     <h2>モア・ザン・ヒューマンに、教科書はない</h2>
     <div class="body">
       <ul class="pts">
@@ -1275,7 +1330,7 @@
 
   <!-- mth2 -->
   <section class="slide" data-title="だから、技術史が重要だ" data-part="3">
-    <div class="kicker">3 — 11</div>
+    <div class="kicker">3 — 12</div>
     <h2>だから、技術史が重要だ</h2>
     <div class="body">
       <div class="det">
@@ -1303,7 +1358,7 @@
 
   <!-- mth3 -->
   <section class="slide" data-title="実践報告：技術史の実践として" data-part="3">
-    <div class="kicker">3 — 12</div>
+    <div class="kicker">3 — 13</div>
     <h2>実践報告｜<span class="thin">技術史の実践として</span></h2>
     <div class="body">
       <div class="axes">
@@ -1332,7 +1387,7 @@
 
   <!-- close -->
   <section class="slide" data-title="結び：異なる技術に、気づいていく" data-part="3">
-    <div class="kicker">3 — 13</div>
+    <div class="kicker">3 — 14</div>
     <h2>結び｜<span class="thin">異なる技術に、気づいていく</span></h2>
     <div class="body">
       <p class="statement">「異なる技術」は、遠くではなく<br>日常の中に、すでに<br>たくさん埋め込まれている。<small>異なる技術の可能性を、日常の中で、いま、いかに発見するか——その試みこそが大切だ。西表島のジャングルや古文書の中だけの話ではない。台所に、畑に、路地に、言葉づかいに、別の系譜の技術は生きている。</small></p>
