@@ -388,7 +388,8 @@
   .tmap li p { font-size: 12.5px; line-height: 1.7; color: var(--ink-soft); margin-top: 1px; }
 
   /* ---------- fut: 過去へさかのぼり、未来へ投影する ---------- */
-  .fut { width: 100%; max-width: 960px; align-self: center; margin-bottom: 6px; }
+  .fut { width: 100%; max-width: 452px; align-self: center; margin-bottom: 8px; }
+  .fut img { width: 100%; height: auto; display: block; }
   .fut svg { width: 100%; height: auto; display: block; }
   .fut .tl { stroke: var(--ink); stroke-width: 3; }
   .fut .cone { stroke: #1f5e46; stroke-width: 2.6; }
@@ -404,10 +405,10 @@
   .fut .eye { animation: futslide 9s ease-in-out infinite alternate; }
   @keyframes futslide { from { transform: translate(-230px, 55px); } to { transform: translate(230px, -55px); } }
   @media (prefers-reduced-motion: reduce) { .fut .eye { animation: none !important; } }
-  .step4.mini .st { padding: 15px 16px 16px; }
+  .step4.mini .st { padding: 11px 14px 12px; }
   .step4.mini .st .n { font-size: 10.5px; margin-bottom: 8px; }
-  .step4.mini .st h3 { font-size: 18px; margin-bottom: 8px; }
-  .step4.mini .st p { font-size: 12.5px; line-height: 1.75; }
+  .step4.mini .st h3 { font-size: 17px; margin-bottom: 6px; }
+  .step4.mini .st p { font-size: 12px; line-height: 1.7; }
 
   /* ---------- ex3: 三つの事例 ---------- */
   .ex3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
@@ -1284,43 +1285,9 @@
   <section class="slide" data-title="異なる未来を創造する" data-part="3">
     <div class="kicker">3 — 08</div>
     <h2 style="font-size:34px">異なる未来を創造する｜<span class="thin">過去へさかのぼり、未来へ投影する</span></h2>
-    <div class="body" style="margin-top:24px">
+    <div class="body" style="margin-top:20px;justify-content:flex-start">
       <div class="fut">
-        <!-- 元サイトのGIFに差し替える場合：下の <svg>…</svg> をまるごと消して、代わりに
-             <img src="assets/mu-future.gif" alt="ビッグバンから現在までの時間軸と、そこから開く未来の扇">
-             を置く（assets/ に mu-future.gif を追加）。ここでは同じ図をSVGで再現している。 -->
-        <svg viewBox="0 0 1600 500" aria-label="ビッグバンから現在までの時間軸と、現在から扇形に広がる「予測される未来」、その上端に沿って「見渡せる未来の範囲」が示された図">
-          <defs>
-            <marker id="futA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-              <path d="M0 0 L10 5 L0 10 z" fill="#14140f"/>
-            </marker>
-          </defs>
-          <line class="cone" x1="768" y1="250" x2="1585" y2="55"/>
-          <line class="cone" x1="768" y1="250" x2="1585" y2="445"/>
-          <text class="rg" x="1052" y="172" transform="rotate(-13.4 1052 172)">見渡せる未来の範囲</text>
-          <text class="pf" x="1230" y="300">予測される未来</text>
-
-          <line class="tl" x1="110" y1="250" x2="762" y2="250" marker-end="url(#futA)"/>
-          <text class="tf" x="430" y="226">時間の流れ →</text>
-
-          <g class="tick"><circle cx="110" cy="250" r="9"/><line x1="110" y1="264" x2="110" y2="304"/><text x="110" y="330"><tspan x="110" dy="0">ビ</tspan><tspan x="110" dy="27">ッ</tspan><tspan x="110" dy="27">ク</tspan><tspan x="110" dy="27">バ</tspan><tspan x="110" dy="27">ン</tspan></text></g>
-          <g class="tick"><circle cx="183" cy="250" r="9"/><line x1="183" y1="264" x2="183" y2="304"/><text x="183" y="330"><tspan x="183" dy="0">地</tspan><tspan x="183" dy="27">球</tspan><tspan x="183" dy="27">の</tspan><tspan x="183" dy="27">誕</tspan><tspan x="183" dy="27">生</tspan></text></g>
-          <g class="tick"><circle cx="256" cy="250" r="9"/><line x1="256" y1="264" x2="256" y2="304"/><text x="256" y="330"><tspan x="256" dy="0">生</tspan><tspan x="256" dy="27">命</tspan><tspan x="256" dy="27">の</tspan><tspan x="256" dy="27">誕</tspan><tspan x="256" dy="27">生</tspan></text></g>
-          <g class="tick"><circle cx="329" cy="250" r="9"/><line x1="329" y1="264" x2="329" y2="304"/><text x="329" y="330"><tspan x="329" dy="0">道</tspan><tspan x="329" dy="27">具</tspan><tspan x="329" dy="27">の</tspan><tspan x="329" dy="27">誕</tspan><tspan x="329" dy="27">生</tspan></text></g>
-          <g class="tick"><circle cx="402" cy="250" r="9"/><line x1="402" y1="264" x2="402" y2="304"/><text x="402" y="330"><tspan x="402" dy="0">火</tspan><tspan x="402" dy="27">の</tspan><tspan x="402" dy="27">使</tspan><tspan x="402" dy="27">用</tspan></text></g>
-          <g class="tick"><circle cx="476" cy="250" r="9"/><line x1="476" y1="264" x2="476" y2="304"/><text x="476" y="330"><tspan x="476" dy="0">国</tspan><tspan x="476" dy="27">家</tspan><tspan x="476" dy="27">の</tspan><tspan x="476" dy="27">誕</tspan><tspan x="476" dy="27">生</tspan></text></g>
-          <g class="tick"><circle cx="549" cy="250" r="9"/><line x1="549" y1="264" x2="549" y2="304"/><text x="549" y="330"><tspan x="549" dy="0">印</tspan><tspan x="549" dy="27">刷</tspan><tspan x="549" dy="27">の</tspan><tspan x="549" dy="27">発</tspan><tspan x="549" dy="27">明</tspan></text></g>
-          <g class="tick"><circle cx="622" cy="250" r="9"/><line x1="622" y1="264" x2="622" y2="304"/><text x="622" y="330"><tspan x="622" dy="0">産</tspan><tspan x="622" dy="27">業</tspan><tspan x="622" dy="27">革</tspan><tspan x="622" dy="27">命</tspan></text></g>
-          <g class="tick"><circle cx="695" cy="250" r="9"/><line x1="695" y1="264" x2="695" y2="304"/><text x="695" y="330"><tspan x="695" dy="0">A</tspan><tspan x="695" dy="27">I</tspan><tspan x="695" dy="27">の</tspan><tspan x="695" dy="27">発</tspan><tspan x="695" dy="27">明</tspan></text></g>
-          <g class="tick now"><circle cx="768" cy="250" r="11"/><line x1="768" y1="266" x2="768" y2="304"/><text x="768" y="330"><tspan x="768" dy="0">現</tspan><tspan x="768" dy="27">在</tspan></text></g>
-
-          <g class="eye">
-            <path class="lf" d="M1178 147 Q 1200 127 1222 147 Q 1200 167 1178 147 Z"/>
-            <circle class="pu" cx="1200" cy="147" r="9"/>
-            <path class="lf" d="M1226 136 Q 1248 116 1270 136 Q 1248 156 1226 136 Z"/>
-            <circle class="pu" cx="1248" cy="136" r="9"/>
-          </g>
-        </svg>
+        <img src="assets/mu-future.gif" alt="ビッグバンから現在までの時間軸と、そこから開く「予測される未来」の扇。さかのぼるほど、見渡せる未来の範囲が広がる">
       </div>
       <div class="step4 mini">
         <div class="st">
@@ -1344,7 +1311,7 @@
           <p>見つけた未来を、試作し、実践する。</p>
         </div>
       </div>
-      <div class="note">「見渡せる未来」は、いまの延長線上にしか広がらない。<strong>さかのぼった分だけ、投影できる未来の角度が広がる。</strong><span class="arrow">→</span> では、どこをさかのぼるのか。</div>
+      <div class="note">「見渡せる未来」は、いまの延長線上にしか広がらない。<strong>さかのぼった分だけ、投影できる未来の角度が広がる。</strong><span class="arrow">→</span> では、どこを。</div>
     </div>
   </section>
   <!-- p3-11 history -->
@@ -1424,12 +1391,46 @@
           </ul>
         </div>
       </div>
-      <div class="note">掲げているのは——<strong>「未開の未来へ」</strong>。<span class="arrow">→</span> 同じ方向を指している試みが、ほかにもあります。</div>
+      <div class="note">掲げているのは——<strong>「未開の未来へ」</strong>。<span class="arrow">→</span> ここで、はじめの問いに戻ります。</div>
+    </div>
+  </section>
+  <!-- p3-17 qed -->
+  <section class="slide" data-title="論証｜はじめの問いに戻る" data-part="3">
+    <div class="kicker">3 — 12</div>
+    <h2>論証｜<span class="thin">はじめの問いに戻る</span></h2>
+    <div class="body">
+      <div class="qed">
+        <div class="qed-row">
+          <div class="p"><span class="n">命題 1 ｜ 理由1</span>技術と人間の不可分性は、<br>受容できる<em>∴ 欠陥ではなく、人間の条件である</em></div>
+          <ul>
+            <li>人間は、道具を手にすることで人間になった（原初のサイボーグ）</li>
+            <li>西表島——裸の身体は一日ももたない。しかし必要な道具は驚くほど少ない</li>
+            <li>技術は人間だけのものですらない（技術の基層）。ならば「切り離して守る」という発想自体が要らない</li>
+          </ul>
+        </div>
+        <div class="qed-row">
+          <div class="p"><span class="n">命題 2 ｜ 理由1</span>哲学と技術の不可分性も、<br>受容できる<em>∴ 技術を問うことは、世界観を問うことである</em></div>
+          <ul>
+            <li>技術の背後にはつねに宇宙観・世界観がある（ユク・ホイ／技術多様性）</li>
+            <li>神話と風土が、技術のあり方を方向づけてきた</li>
+            <li>だから技術の設計は、そのまま哲学の実践になる——分けられないのではなく、分ける必要がない</li>
+          </ul>
+        </div>
+        <div class="qed-row">
+          <div class="p"><span class="n">命題 3 ｜ 理由2</span>実質的な技術決定論は、<br>乗り越えられる<em>∴ 一本道に見えるのは、書き方の産物にすぎない</em></div>
+          <ul>
+            <li>単線の進歩史は現実ではなく「歴史の書き方」。技術史には掘り起こされていない枝がある</li>
+            <li>掘るための方法がある（4つのSTEP）。そして掘っている実践がすでにある（ジャングル・風の谷・マタギ・庭）</li>
+            <li>モア・ザン・ヒューマンの視点に立てば、選択肢は一つではない。<strong>決定論は、運命ではなくなる</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="note">以上を、本日の論証とします。<span class="arrow">→</span> そして、同じ方向を指す試みが、すでに始まっています。</div>
     </div>
   </section>
   <!-- p3-10 examples -->
   <section class="slide" data-title="異なる未来の可能性｜三つの事例" data-part="3">
-    <div class="kicker">3 — 12</div>
+    <div class="kicker">3 — 13</div>
     <h2>異なる未来の可能性｜<span class="thin">三つの事例</span></h2>
     <div class="body" style="margin-top:34px">
       <div class="ex3">
@@ -1476,40 +1477,6 @@
       <div class="note">場所から、心性から、公共から。三つとも<strong>中心ではなく辺縁</strong>に、そして<strong>人間だけではないもの</strong>との関わりに未来を見ている。<span class="arrow">→</span> すでに始まっている実例です。では、私たちは日常で何をするか。</div>
     </div>
   </section>
-  <!-- p3-17 qed -->
-  <section class="slide" data-title="論証｜はじめの問いに戻る" data-part="3">
-    <div class="kicker">3 — 13</div>
-    <h2>論証｜<span class="thin">はじめの問いに戻る</span></h2>
-    <div class="body">
-      <div class="qed">
-        <div class="qed-row">
-          <div class="p"><span class="n">命題 1 ｜ 理由1</span>技術と人間の不可分性は、<br>受容できる<em>∴ 欠陥ではなく、人間の条件である</em></div>
-          <ul>
-            <li>人間は、道具を手にすることで人間になった（原初のサイボーグ）</li>
-            <li>西表島——裸の身体は一日ももたない。しかし必要な道具は驚くほど少ない</li>
-            <li>技術は人間だけのものですらない（技術の基層）。ならば「切り離して守る」という発想自体が要らない</li>
-          </ul>
-        </div>
-        <div class="qed-row">
-          <div class="p"><span class="n">命題 2 ｜ 理由1</span>哲学と技術の不可分性も、<br>受容できる<em>∴ 技術を問うことは、世界観を問うことである</em></div>
-          <ul>
-            <li>技術の背後にはつねに宇宙観・世界観がある（ユク・ホイ／技術多様性）</li>
-            <li>神話と風土が、技術のあり方を方向づけてきた</li>
-            <li>だから技術の設計は、そのまま哲学の実践になる——分けられないのではなく、分ける必要がない</li>
-          </ul>
-        </div>
-        <div class="qed-row">
-          <div class="p"><span class="n">命題 3 ｜ 理由2</span>実質的な技術決定論は、<br>乗り越えられる<em>∴ 一本道に見えるのは、書き方の産物にすぎない</em></div>
-          <ul>
-            <li>単線の進歩史は現実ではなく「歴史の書き方」。技術史には掘り起こされていない枝がある</li>
-            <li>掘るための方法がある（4つのSTEP）。そして掘っている実践がすでにある（ジャングル・風の谷・マタギ・庭）</li>
-            <li>モア・ザン・ヒューマンの視点に立てば、選択肢は一つではない。<strong>決定論は、運命ではなくなる</strong></li>
-          </ul>
-        </div>
-      </div>
-      <div class="note">以上を、本日の論証として、結びといたします。ありがとうございました。</div>
-    </div>
-  </section>
   <!-- p3-18 close -->
   <section class="slide" data-title="結び：異なる技術に、気づいていく" data-part="3">
     <div class="kicker">3 — 14</div>
@@ -1521,336 +1488,6 @@
   </section>
 
 
-  <!-- 26 -->
-  <section class="slide" data-title="全体の骨格" data-part="3">
-    <div class="kicker">Summary</div>
-    <h2>全体の骨格</h2>
-    <div class="body">
-      <div class="cols c3">
-        <div class="col">
-          <div class="h">Part 1 ／ 招待</div>
-          <h3>なぜ技術哲学か</h3>
-          <p>人間は技術と、技術は哲学と分けられない。しかも現実は技術決定論のように動き、やめるか続けるかの二択では答えが出ない。だから、問いの形を変える。</p>
-        </div>
-        <div class="col">
-          <div class="h">Part 2 ／ 中身</div>
-          <h3>いま何が問われているか</h3>
-          <p>5つの考え方。方向性は「ヒューマン」と「テクノロジー」を乗り越えること——モア・ザン・ヒューマンと、プリミティブ・サイボーグ。</p>
-        </div>
-        <div class="col">
-          <div class="h">Part 3 ／ 七沢の考え</div>
-          <h3>どこへ向かうか</h3>
-          <p>過去へさかのぼり、未来へ投影する。西表島、技術の基層、技術史。「未開の未来」と3つの事例。最後に、はじめの問いに戻って論証する。</p>
-        </div>
-      </div>
-      <div class="note">本スライドは、レクチャー音声の文字起こしを構造化したものです。固有名・書名は発話にもとづく暫定表記を含みます。</div>
-    </div>
-  </section>
-
-
-  <!-- appendix -->
-  <section class="slide part appendix" data-title="APPENDIX｜使わないかもしれないスライド" data-part="">
-    <div class="kicker">Appendix</div>
-    <div class="pnum">＋</div>
-    <h2>使わないかもしれない<br>スライド</h2>
-    <p class="lead">本編から外した素材。時間と流れしだいで差し込む。</p>
-  </section>
-  <!-- 16b -->
-  <section class="slide" data-title="よくあるテクノロジー観の4パターン" data-part="x">
-    <div class="kicker">APPENDIX 01</div>
-    <h2>よくあるテクノロジー観の4パターン｜<span class="thin">哲学マップ</span></h2>
-    <div class="body">
-      <div class="quad">
-        <span class="q-label t">楽観</span>
-        <span class="q-label bt">悲観</span>
-        <span class="q-label l">人間が技術を制御する</span>
-        <span class="q-label r">技術が人間を規定する</span>
-        <div class="q-cell">
-          <h3>楽観的ヒューマニスト</h3>
-          <div class="q-ex">ジョブズ的楽観論／日本の主流</div>
-          <p>技術は便利な道具。使い方次第で、人間がコントロールできる。</p>
-        </div>
-        <div class="q-cell">
-          <h3>楽観的技術決定論者</h3>
-          <div class="q-ex">シンギュラリティ／加速主義</div>
-          <p>技術は自律的に発展し、それが人類を前進させる。</p>
-        </div>
-        <div class="q-cell b">
-          <h3>悲観的ヒューマニスト</h3>
-          <div class="q-ex">ラッダイト／疎外論</div>
-          <p>技術は人間性を蝕む。人間の側を守らなければならない。</p>
-        </div>
-        <div class="q-cell b">
-          <h3>悲観的技術決定論者</h3>
-          <div class="q-ex">ディストピア論／AI実存リスク</div>
-          <p>技術は自律的に発展し、人間は支配され、置き換えられる。</p>
-        </div>
-      </div>
-      <div class="note">連載「技術哲学入門」の〈テクノロジーの哲学マップ〉より。AIをめぐる言説も、だいたいこの四象限に収まる。<br>ただし——4つとも<strong>「人間と技術は分けられる」という前提</strong>を共有している。<span class="arrow">→</span> この枠の中にいる限り、問いは新しくならない。</div>
-    </div>
-  </section>
-  <!-- chain1 -->
-  <section class="slide" data-title="認識の主役は、人間だった" data-part="x">
-    <div class="kicker">APPENDIX 02</div>
-    <h2>認識の主役は、人間だった</h2>
-    <div class="body">
-      <ul class="pts tight">
-        <li>世界はロゴス＝メカニズムに従う（イデア論）。技術は、その構造を<span class="term">開示する営み</span></li>
-        <li class="em">この構図には、暗黙の主役がいる——開示するのは、人間である<small>「人間は万物の尺度」（プロタゴラス）から、デカルトの「考える私」、近代の認識論まで。世界の真理は、人間に対して明らかになるものだった。</small></li>
-        <li>これは、ヒューマニズムの<strong>認識論版</strong>である<small>人間と技術を分けたうえで、「明らかにする側」に人間を置く。哲学マップの軸の、いわば原型。</small></li>
-      </ul>
-      <div class="note"><span class="arrow">→</span> その主役の座が、いま交代しつつある。</div>
-    </div>
-  </section>
-  <!-- 11 -->
-  <section class="slide" data-title="AI技術決定論的世界観" data-part="x">
-    <div class="kicker">APPENDIX 03</div>
-    <h2>AI技術決定論的世界観｜<span class="thin">世界の真理を明らかにするのは、誰か</span></h2>
-    <div class="body">
-      <ul class="pts tight">
-        <li>これまで：世界の背後にあるメカニズムを明らかにするのは、<strong>人間</strong>だった</li>
-        <li>これから：人間よりはるかに高度な知能をもつ存在＝<strong>AI</strong>が、それを明らかにしていく</li>
-        <li>その先：世界の背後にシミュレーションがあることを否定できない、という立場<small>シミュレーション仮説（ボストロム／チャーマーズ）</small></li>
-        <li>そこに重なるもの：メシア思想、そしてアメリカのプロテスタンティズムの基層にあるカルヴァン主義＝<span class="term">予定説</span></li>
-      </ul>
-    </div>
-  </section>
-  <!-- 12 -->
-  <section class="slide" data-title="逆転——テクノフィロソフィー" data-part="x">
-    <div class="kicker">APPENDIX 04</div>
-    <h2>逆転｜<span class="thin">テクノフィロソフィー <span class="en">Technophilosophy</span></span></h2>
-    <div class="body">
-      <p class="statement">技術によって、人間ははじめて<br>世界のことがわかる。<small>テクノロジーの発展は、この世界の真理を解き明かすことに直結する。<br>そしてテクノロジーが発展して初めて、「人間とは何か」「世界とは何か」という古典的な哲学の問いが明らかになる（デイヴィッド・チャーマーズ）。</small></p>
-      <div class="note"><span class="arrow">→</span> 人間と技術の役割が逆転する。私たちはそのただ中にいる。<br>ゆえに技術哲学は、いま極めて重要な学問になっている——にもかかわらず、相変わらず広まっていない。</div>
-    </div>
-  </section>
-  <!-- 13 -->
-  <section class="slide" data-title="だから、書き続けている" data-part="x">
-    <div class="kicker">APPENDIX 05</div>
-    <h2>だから、書き続けている</h2>
-    <div class="body">
-      <ul class="pts">
-        <li>この事態は非常に重要なので、技術哲学という学問と、<strong>技術哲学的な思考</strong>を多くの人に知ってほしい</li>
-        <li>そのために『WIRED』でひたすら連載を続けている</li>
-        <li>近作の焦点：<span class="term">テクノロジーの背後にある世界観</span>についての問いを深めていくこと</li>
-      </ul>
-      <div class="note"><span class="arrow">→</span> その「テクノロジーの背後にある世界観」という問いが、ここから先の主役になる。</div>
-    </div>
-  </section>
-  <!-- chain2 -->
-  <section class="slide" data-title="二つの極が、同じ場所に合流する" data-part="x">
-    <div class="kicker">APPENDIX 06</div>
-    <h2>二つの極が、同じ場所に合流する</h2>
-    <div class="body">
-      <div class="conv">
-        <div class="axis">
-          <div class="n">極 1 ｜ 存在論のルート</div>
-          <h3>原初からのサイボーグ性</h3>
-          <ul>
-            <li>人間は、そもそも技術との混成体である</li>
-            <li>「純粋な人間」という中心は、最初から存在しない（第1部の提起）</li>
-          </ul>
-        </div>
-        <div class="axis">
-          <div class="n">極 2 ｜ 認識論のルート</div>
-          <h3>開示する主役の交代</h3>
-          <ul>
-            <li>人間は、真理を映す特権的な鏡ではなくなる</li>
-            <li>人間・計器・AI・制度からなる認識ネットワークの、一結節点になる</li>
-          </ul>
-        </div>
-      </div>
-      <div class="conv-join" aria-hidden="true">↘&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↙</div>
-      <div class="conv-goal">人間中心主義の解除 ＝ ポストヒューマニズム<small>どちらの極から出発しても、同じ場所に着く。ただし極2には、AIを新しい神とするもう一つの出口（テクノ神学）がある——この分岐は第3部で。</small></div>
-    </div>
-  </section>
-  <!-- 16 -->
-  <section class="slide" data-title="ポストヒューマニズムとその限界" data-part="x">
-    <div class="kicker">APPENDIX 07</div>
-    <h2>現代の要請｜<span class="thin">ポストヒューマニズム、その限界</span></h2>
-    <div class="body">
-      <div class="cols c2">
-        <div class="col">
-          <div class="h">要請</div>
-          <h3>人間中心主義を超えて</h3>
-          <p>人間中心主義を超えたポストヒューマニズムの観点から、テクノロジーを考えなければならない——というのが現代の到達点。</p>
-        </div>
-        <div class="col">
-          <div class="h">実感</div>
-          <h3>しかし、超えられない</h3>
-          <p>はっきり言えば、ヨーロッパの哲学者は人間中心主義を超えた思考ができない。</p>
-          <p>国際交流ワークショップや、私たちが主催・運営した国際技術哲学会でも強くそう思った。明示的に論じることも少なく、論じていても結局は人間から見た視点を逃れられない。</p>
-        </div>
-      </div>
-      <div class="note">おそらく、言語の構造、そして宗教観そのものがそうなっているからだと思う。</div>
-    </div>
-  </section>
-  <!-- ax08 -->
-  <section class="slide" data-title="ここまでの前提（3つ）" data-part="x">
-    <div class="kicker">APPENDIX 08</div>
-    <h2>ここまでの前提</h2>
-    <div class="body">
-      <ul class="pts">
-        <li><strong>技術と人間が不可分である</strong>ことが、切実になってきている</li>
-        <li><strong>技術と哲学が不可分である</strong>ことも、切実になってきている</li>
-        <li>日本的な思想・哲学はある。しかし私たちもすでにヨーロッパ化している<small>だから、ヨーロッパの哲学の内側から超えていくほかない。</small></li>
-      </ul>
-    </div>
-  </section>
-  <!-- ax09 -->
-  <section class="slide" data-title="三つの道" data-part="x">
-    <div class="kicker">APPENDIX 09</div>
-    <h2>三つの道｜<span class="thin">技術哲学はどこへ向かうべきか</span></h2>
-    <div class="body">
-      <div class="paths">
-        <div class="path">
-          <div class="n">TYPE 01</div>
-          <h3>トランスヒューマニズム<small>Transhumanism</small></h3>
-          <p><strong>テクノロジー中心主義。</strong></p>
-          <p>人間と技術が不可分なら、いっそ一体化の先へ進もうとする。</p>
-        </div>
-        <div class="path">
-          <div class="n">TYPE 02</div>
-          <h3>ヒューマニズム的<br>ポストヒューマニズム</h3>
-          <p><strong>人間中心を、密かに維持。</strong></p>
-          <p>「超えた」と言いながら、結局は人間から見た視点に戻ってくる。</p>
-        </div>
-        <div class="path on">
-          <div class="n">TYPE 03</div>
-          <h3>モア・ザン・ヒューマン的<br>ポストヒューマニズム</h3>
-          <p><strong>人間-テクノロジーを超える。</strong></p>
-          <p>人間と技術という枠組みそのものの、外へ出ようとする。</p>
-        </div>
-      </div>
-      <div class="note">本編では 2—07 と 3—05 に統合した。3つを丁寧に並べたいときは、この1枚と次の2枚を差し込む。</div>
-    </div>
-  </section>
-  <!-- ax10 -->
-  <section class="slide" data-title="道①｜トランスヒューマニズム" data-part="x">
-    <div class="kicker">APPENDIX 10</div>
-    <h2>道①　トランスヒューマニズム<br><span class="thin en">実質は、テクノロジー中心主義</span></h2>
-    <div class="body">
-      <ul class="pts tight">
-        <li>人間と技術が不可分なら、<strong>いっそ一体化の先へ進もう</strong>——という道</li>
-        <li>人間と技術の一体、テクノロジーと哲学の一体。<strong>その両方を同時に実現してしまう</strong><small>能力拡張、脳とAIの接続、意識のアップロード、そして不死。</small></li>
-        <li class="em">しかしこれは、人間中心主義の<span class="term">裏返し</span>にすぎない<small>中心が人間からテクノロジーへ移っただけで、「中心が一つある」という構造は、そのまま残っている。</small></li>
-      </ul>
-      <div class="note">AI技術決定論的世界観——メシア思想、予定説——の、実践版でもある。<br><span class="arrow">→</span> ある意味で、西洋の二つの軸からの<strong>必然的な帰結</strong>。</div>
-    </div>
-  </section>
-  <!-- ax11 -->
-  <section class="slide" data-title="道②｜ポストヒューマニズム" data-part="x">
-    <div class="kicker">APPENDIX 11</div>
-    <h2>道②　ポストヒューマニズム<br><span class="thin en">人間中心を、密かに維持してしまう</span></h2>
-    <div class="body">
-      <ul class="pts tight">
-        <li>そうではない、と考える人たちは、人間中心主義を超えると宣言する</li>
-        <li>あるいは古き良き人間像に戻り、技術と人間を分けようとする<small>技術は道具にすぎない。人間は独立した中心である。——第1部で取り消し線を引いた、あの前提。</small></li>
-        <li class="em">しかしいずれも、結局は<strong>人間から見た視点</strong>を逃れられない<small>「人間を超えた」と語っているのは、やはり人間である。言語の構造も、宗教観も、そこから出ていない。</small></li>
-      </ul>
-      <div class="note">宣言と実行のあいだに、埋まらない落差がある。<span class="arrow">→</span> だから、思弁ではなく身体と歴史から入る。</div>
-    </div>
-  </section>
-  <!-- ax12 -->
-  <section class="slide" data-title="提起：原初からのサイボーグ性" data-part="x">
-    <div class="kicker">APPENDIX 12</div>
-    <h2>提起｜<span class="thin">原初からのサイボーグ性</span></h2>
-    <div class="body">
-      <ul class="pts">
-        <li class="em">そもそもサピエンスは、道具を手に入れることでサピエンスになった<small>石器を握り、火を使うことが、脳と身体の進化そのものを方向づけた。人間が先にいて、あとから道具を使い始めたのではない。技術とともに、人間になった——<strong>原初からのサイボーグ</strong>である。</small></li>
-        <li>「技術は道具にすぎない」は、常識ではなく<span class="term">近代的人間観</span>の産物<small>世界から独立した自律的主体としての人間——デカルトの主客二分、「自然の主人にして所有者」——を先に立てるからこそ、「まず人間がいて、道具はあとから」という順序が自明に見える。順序は、逆だった。</small></li>
-      </ul>
-      <div class="note"><span class="arrow">→</span> ならば、この「原初からのサイボーグ性」こそが、<strong>技術哲学的思考の原点</strong>になるべきではないか。<br>本編では第3部の冒頭（3—01〜3—03）で、体験から立ち上げるかたちに移した。</div>
-    </div>
-  </section>
-
-
-
-
-
-
-  <!-- ax13 -->
-  <section class="slide" data-title="では、日本は" data-part="x">
-    <div class="kicker">APPENDIX 13</div>
-    <h2>では、日本は</h2>
-    <div class="body">
-      <ul class="pts tight">
-        <li>「世界一AIフレンドリーな国」を目指している日本</li>
-        <li>「日本的な世界観がある」とも言われる</li>
-        <li>しかし私たちは十分に欧米化していて、洋服を着て、ヨーロッパの人と変わらない生活をしている</li>
-        <li>もちろん日本的なエッセンスは見られる。だが基本は、すでに近代の内側にある</li>
-      </ul>
-      <div class="note"><span class="arrow">→</span> だからこそ、取り戻すのではなく<strong>内側から超えていく</strong>しかない。</div>
-    </div>
-  </section>
-  <!-- ax14 -->
-  <section class="slide" data-title="『ポストヨーロッパ』——内側から超える" data-part="x">
-    <div class="kicker">APPENDIX 14</div>
-    <h2>『ポストヨーロッパ』｜<span class="thin">内側から超える</span></h2>
-    <div class="body">
-      <ul class="pts tight">
-        <li>ここでの「ヨーロッパ」とは、<strong>現代社会の規範や基本となる信念</strong>のこと。つまり<span class="term">近代</span>である</li>
-        <li>だから、日本もすでにヨーロッパ化している</li>
-        <li class="em">乗り越えるべきは近代であり、それは外から取り替えるのではなく、<strong>内側から</strong>超えなければならない</li>
-      </ul>
-    </div>
-  </section>
-  <!-- ax15 -->
-  <section class="slide" data-title="実践①｜七沢智樹——掘るための道具と、身体" data-part="x">
-    <div class="kicker">APPENDIX 15</div>
-    <h2>実践①　七沢智樹｜<span class="thin">掘るための道具と、身体</span></h2>
-    <div class="body">
-      <div class="axes">
-        <div class="axis">
-          <div class="n">PRACTICE 01 ｜ 場をつくる</div>
-          <h3>makers Unlearn（mU）</h3>
-          <ul>
-            <li>「技術は道具にすぎない」を<strong>学び落とす（Unlearn）</strong>ための場</li>
-            <li>山梨県立大学 × Technel。AI時代の「つくる」を根源から問い直す社会人向けプログラム（2026年7月開講）</li>
-            <li>哲学・人類学・デザイン・エンジニアリング・社会実装の横断——鉱脈を掘る「発掘道具一式」</li>
-          </ul>
-        </div>
-        <div class="axis">
-          <div class="n">PRACTICE 02 ｜ 身体でさかのぼる</div>
-          <h3>JUNGLE Gathering（西表島）</h3>
-          <ul>
-            <li>技術史を、<strong>身体でさかのぼる</strong>試み——「現代人にジャングルを処方する」</li>
-            <li>西表島の奥地に、厳選した道具だけを持って滞在。島の人に学びながら、狩猟採集・塩づくり・道具づくり</li>
-            <li>インフラも時計もない世界で、道具を作りながら暮らし、技術の意味を身体に取り戻す</li>
-          </ul>
-        </div>
-      </div>
-      <div class="note">頭で掘る場と、身体で掘る場。どちらも、モア・ザン・ヒューマンの技術へ降りていくための実践です。</div>
-    </div>
-  </section>
-  <!-- ax16 -->
-  <section class="slide" data-title="実践②｜宇野常寛——庭という形式" data-part="x">
-    <div class="kicker">APPENDIX 16</div>
-    <h2>実践②　宇野常寛｜<span class="thin">庭という形式</span></h2>
-    <div class="body">
-      <div class="axes">
-        <div class="axis">
-          <div class="n">PRACTICE 03 ｜ 場をつくる</div>
-          <h3>庭プロジェクト</h3>
-          <ul>
-            <li>インターネット上の<strong>プラットフォームに対抗しうる実空間</strong>をつくる——正確には、そのためのコンセプトをつくる</li>
-            <li>「庭」＝私有地でありながら、公共に開かれている場所</li>
-            <li>人間が、人間以外の<strong>「事物」とコミュニケーションを取る</strong>場であること。人間が完全には支配できない生成（自然・生態系）を体験できること</li>
-          </ul>
-        </div>
-        <div class="axis">
-          <div class="n">PRACTICE 04 ｜ 概念をつくる</div>
-          <h3>『庭の話』（講談社・2024）</h3>
-          <ul>
-            <li>ケア、民藝、パターン・ランゲージ、中動態、そして<strong>作庭</strong>——一見無関係な知見を総動員する</li>
-            <li>プラットフォームでもコモンズでもない、<strong>「庭」という新しい公共空間のモデル</strong>を構想する</li>
-            <li class="lnk"><a class="booklink" href="https://www.kodansha.co.jp/book/products/0000404327">kodansha.co.jp／庭の話</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="note">人ではなく<strong>モノ</strong>との関わりから、人間を捉え直す。人間が支配しきれない生成の側に、場所をひらく。<br><span class="arrow">→</span> これは、<strong>モア・ザン・ヒューマンの技術</strong>そのものではないか。七沢はジャングルから、宇野さんは都市から、同じ場所を指している。</div>
-    </div>
-  </section>
 </div><!-- /stage -->
 <div class="bar" id="bar"></div>
 </div><!-- /deck -->
