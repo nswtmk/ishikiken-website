@@ -68,6 +68,9 @@
   ul.pts > li.em { font-weight: 700; }
   ul.pts > li small { display: block; font-size: 16px; color: var(--ink-soft); line-height: 1.9; margin-top: 6px; font-weight: 400; }
   ul.pts.tight > li { margin-bottom: 16px; font-size: 22px; }
+  ul.pts.compact > li { margin-bottom: 12px; font-size: 20px; line-height: 1.75; }
+  ul.pts.compact > li::before { top: 17px; }
+  ul.pts.compact > li small { font-size: 14.5px; line-height: 1.8; margin-top: 3px; }
 
   .note {
     margin-top: auto; padding-top: 22px; border-top: 1px solid var(--line);
@@ -343,9 +346,11 @@
     <div class="kicker">Introduction</div>
     <h2>導入｜「現代の技術哲学」のいくつかの考え方</h2>
     <div class="body">
-      <ul class="pts tight">
-        <li>技術は単なる道具ではなく、両者は相互に絡み合い、相互作用し、<span class="term">ネットワーク</span>を構成する。技術か人間か、どちらかが優位というわけでもない<small>アクターネットワーク理論（ラトゥール）／ポスト現象学（アイディ、フェルベーク）</small></li>
-        <li>人間が技術を自由にコントロールできる、という考えを捨てなければならない<small>ハイデガー『技術への問い』——技術は目的のための手段ではなく、世界と人間の現れ方そのものを規定する</small></li>
+      <ul class="pts compact">
+        <li class="em">技術は単なる道具ではない<small>ここは、技術哲学者の全員が同意する出発点。</small></li>
+        <li>両者は相互に絡み合い、相互作用し、<span class="term">ネットワーク</span>を構成する<small>アクターネットワーク理論（ラトゥール）／ポスト現象学（アイディ、フェルベーク）</small></li>
+        <li>関係性から考えなければならない<small>関係論的アプローチ（クーケルバーク）——技術も人間も、関係のなかで初めて何かになる</small></li>
+        <li><span class="term">ゲシュテル</span>（総かり立て体制——テクノロジーが、人間も自然も「用立て可能な資源」としてかり立てる）の問題<small>ハイデガー『技術への問い』——ゆえに、人間が技術を自由にコントロールできるという考えは捨てなければならない</small></li>
         <li>テクノロジーは、<strong>西洋近代の一つの技術のあり方に過ぎない</strong><small>技術多様性（ユク・ホイ）</small></li>
       </ul>
       <div class="note">ただし、先に言っておくと——本日の話は、<strong>この地点すら超えなければならない</strong>、というところへ向かう。</div>
