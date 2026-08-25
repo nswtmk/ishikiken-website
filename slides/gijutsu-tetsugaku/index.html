@@ -247,6 +247,19 @@
   .one-list li { font-size: 16px; line-height: 1.9; color: var(--ink-soft); margin-bottom: 14px; }
   .one-list li strong { color: var(--ink); }
 
+  /* ---------- drv: テクノロジーを発展させる要因 ---------- */
+  .drv-body { margin-top: 6px; }
+  .drv { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 34px; }
+  .drv ol { list-style: none; }
+  .drv li { display: grid; grid-template-columns: 24px 1fr 92px; gap: 8px; align-items: baseline;
+            padding: 7px 0; border-bottom: 1px solid var(--line); }
+  .drv li:last-child { border-bottom: none; }
+  .drv .n { font-size: 11.5px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .drv .f { font-size: 15.5px; line-height: 1.6; }
+  .drv .w { font-size: 12.5px; color: var(--moss); font-weight: 600; text-align: right; line-height: 1.6; }
+  .drv .hd { border-bottom: 1px solid var(--ink); padding-bottom: 6px; }
+  .drv .hd .n, .drv .hd .f, .drv .hd .w { font-size: 11.5px; letter-spacing: .12em; color: var(--ink-soft); font-weight: 600; }
+
   /* ---------- paths ---------- */
   .paths { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
   .path { border: 1px solid var(--line); padding: 26px 24px 30px; }
@@ -600,9 +613,24 @@
       <div class="note">同じ構造が、医療のトリアージにも、採用の選別にも、与信にも、司法の量刑支援にもある。<br><span class="arrow">→</span> <strong>技術問題＝倫理問題</strong>。これが、いま起きていること。</div>
     </div>
   </section>
+
+  <!-- drv -->
+  <section class="slide" data-title="テクノロジーに抗えない" data-part="1">
+    <div class="kicker">1 — 09</div>
+    <h2>テクノロジーに抗えない</h2>
+    <p class="lead ship-lead">何が、テクノロジーを発展させているのか。</p>
+    <div class="body">
+      <div class="drv drv-body">
+        <ol><li class="hd"><span class="n">No.</span><span class="f">発展させている要因</span><span class="w">一言でいうと</span></li><li><span class="n">1</span><span class="f">便利になりたい欲求</span><span class="w">楽したい</span></li><li><span class="n">2</span><span class="f">早くしたい気持ち</span><span class="w">時短したい</span></li><li><span class="n">3</span><span class="f">安全に生きたい</span><span class="w">危険が怖い</span></li><li><span class="n">4</span><span class="f">お金を儲けたい</span><span class="w">ビジネス</span></li><li><span class="n">5</span><span class="f">他国に負けたくない</span><span class="w">国家・軍事競争</span></li></ol>
+        <ol><li class="hd"><span class="n">No.</span><span class="f">発展させている要因</span><span class="w">一言でいうと</span></li><li><span class="n">6</span><span class="f">病気や老いへの恐怖</span><span class="w">医療技術</span></li><li><span class="n">7</span><span class="f">体の弱さを補いたい</span><span class="w">身体の補綴</span></li><li><span class="n">8</span><span class="f">知りたい・試したい</span><span class="w">好奇心</span></li><li><span class="n">9</span><span class="f">つながりたい</span><span class="w">通信・SNS</span></li><li><span class="n">10</span><span class="f">人手が足りない</span><span class="w">自動化</span></li></ol>
+        <ol><li class="hd"><span class="n">No.</span><span class="f">発展させている要因</span><span class="w">一言でいうと</span></li><li><span class="n">11</span><span class="f">災害が怖い</span><span class="w">防災技術</span></li><li><span class="n">12</span><span class="f">取り残されたくない</span><span class="w">流行・同調圧力</span></li><li><span class="n">13</span><span class="f">一度便利になると戻れない</span><span class="w">依存</span></li><li><span class="n">14</span><span class="f">技術が次の技術を生む</span><span class="w">技術の連鎖</span></li><li><span class="n">15</span><span class="f">勝手に最適化され続ける</span><span class="w">AI・自動進化</span></li></ol>
+      </div>
+      <div class="note">どれも、否定しがたい。楽をしたい、安全に生きたい、病気が怖い、取り残されたくない——<strong>これらをやめろとは、誰にも言えない</strong>。<br>しかも最後の2つは、もはや人間の欲求ですらない。技術が次の技術を呼び、勝手に最適化されていく。<span class="arrow">→</span> だから、<strong>私たちはテクノロジーに抗えない。</strong></div>
+    </div>
+  </section>
   <!-- det -->
   <section class="slide" data-title="実質的な技術決定論に陥っている" data-part="1">
-    <div class="kicker">1 — 09</div>
+    <div class="kicker">1 — 10</div>
     <h2>私たちは、<span class="term">実質的な技術決定論</span>に陥っている</h2>
     <p class="lead ship-lead">「技術決定論」は、間違った考えの典型とされている。しかし現実は、そのように動いてしまっているのでは？</p>
     <div class="body det-body">
@@ -631,7 +659,7 @@
 
   <!-- 11 -->
   <section class="slide" data-title="技術哲学の問いが、アクチュアルになってきた" data-part="1">
-    <div class="kicker">1 — 10</div>
+    <div class="kicker">1 — 11</div>
     <h2>技術哲学の問いが、<br>アクチュアルになってきた！</h2>
     <div class="body">
       <div class="cols c2">
@@ -655,7 +683,7 @@
   </section>
   <!-- 12 -->
   <section class="slide" data-title="だから、技術哲学が必要だ——船の比喩" data-part="1">
-    <div class="kicker">1 — 11</div>
+    <div class="kicker">1 — 12</div>
     <h2>だから、技術哲学が必要だ｜<span class="thin">船の比喩</span></h2>
     <p class="lead ship-lead">船内の計器を調べている間にも、船は高速で進んでいる。</p>
     <div class="body ship-body">
@@ -695,7 +723,7 @@
   </section>
   <!-- 10b -->
   <section class="slide" data-title="提起：原初からのサイボーグ性" data-part="1">
-    <div class="kicker">1 — 12</div>
+    <div class="kicker">1 — 13</div>
     <h2>提起｜<span class="thin">原初からのサイボーグ性</span></h2>
     <div class="body">
       <ul class="pts">
