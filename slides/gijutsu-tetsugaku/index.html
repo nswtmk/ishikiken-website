@@ -27,8 +27,8 @@
   }
 
   /* ---------- stage ---------- */
-  .deck { position: fixed; inset: 0; display: grid; place-items: center; overflow: hidden; }
-  .stage {
+  .deck { position: fixed; inset: 0; overflow: hidden; }
+  .stage { position: absolute; left: 50%; top: 50%; transform-origin: 50% 50%;
     position: relative;
     width: 1280px; height: 720px;
     flex: none;
@@ -476,8 +476,8 @@
   @page { size: 1280px 720px; margin: 0; }
   @media print {
     body { overflow: visible; background: #fff; }
-    .deck { position: static; display: block; overflow: visible; }
-    .stage { width: 1280px; height: auto; transform: none !important; box-shadow: none; overflow: visible; }
+    .deck { position: static; overflow: visible; }
+    .stage { position: static; width: 1280px; height: auto; transform: none !important; box-shadow: none; overflow: visible; }
     .slide {
       position: static; opacity: 1 !important; visibility: visible !important;
       width: 1280px; height: 720px; page-break-after: always; break-after: page;
@@ -502,7 +502,7 @@
     <div class="kicker">Philosophy of Technology</div>
     <h1>技術哲学入門</h1>
     <p class="sub">人間と技術、技術と哲学。<br>その不可分性が切実になった時代に</p>
-    <p class="meta">宇野さん レクチャー ／ 全3部構成</p>
+    <p class="meta">2026.08.25 TUE　19:00— ／ ONLINE ／ 宇野さん レクチャー</p>
   </section>
 
   <!-- 01b -->
@@ -1462,8 +1462,10 @@
   }
 
   function fit() {
-    var s = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
-    stage.style.transform = 'scale(' + s + ')';
+    var w = document.documentElement.clientWidth || window.innerWidth;
+    var h = document.documentElement.clientHeight || window.innerHeight;
+    var s = Math.min(w / 1280, h / 720);
+    stage.style.transform = 'translate(-50%, -50%) scale(' + s + ')';
   }
 
   function closeToc() { toc.classList.remove('open'); }
@@ -1504,7 +1506,14 @@
   wake();
 
   window.addEventListener('resize', fit);
+  window.addEventListener('orientationchange', fit);
+  window.addEventListener('pageshow', fit);
+  window.addEventListener('load', fit);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', fit);
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(document.documentElement);
   fit();
+  setTimeout(fit, 120);
+  setTimeout(fit, 600);
   var start = parseInt((location.hash || '').slice(1), 10);
   go(isNaN(start) ? 0 : start - 1);
 })();
