@@ -71,6 +71,9 @@
   ul.pts.compact > li { margin-bottom: 12px; font-size: 20px; line-height: 1.75; }
   ul.pts.compact > li::before { top: 17px; }
   ul.pts.compact > li small { font-size: 14.5px; line-height: 1.8; margin-top: 3px; }
+  ul.pts.compact.six > li { margin-bottom: 8px; font-size: 18.5px; line-height: 1.7; }
+  ul.pts.compact.six > li::before { top: 15px; width: 8px; height: 8px; }
+  ul.pts.compact.six > li small { font-size: 13.5px; line-height: 1.7; margin-top: 2px; }
 
   .note {
     margin-top: auto; padding-top: 22px; border-top: 1px solid var(--line);
@@ -177,6 +180,9 @@
 
   /* ---------- det: 技術決定論の階段図 ---------- */
   .det { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; }
+  .det-body { margin-top: 18px; }
+  .det-body .det { flex: none; height: 280px; margin-bottom: 8px; }
+  .det-body .det svg { height: 100%; width: auto; max-width: 100%; }
   .det svg { width: 100%; max-width: 950px; height: auto; }
   .det .ln { fill: none; stroke: var(--ink); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
   .det .up { stroke: var(--moss); stroke-width: 7; stroke-linecap: round; }
@@ -338,14 +344,14 @@
         <li>
           <span class="n">2</span>
           <div>
-            <h3>技術哲学の問いはどこへ向かうべきか</h3>
-            <p>よくあるテクノロジー観の4パターン（哲学マップ）から技術決定論とAI、二つの極の合流、ポストヒューマニズムの3パターン、そして技術多様性とその神話・風土からの掘り起こし、「内側から近代を超える」へ。</p>
+            <h3>現代の技術哲学の問い</h3>
+            <p>現代の技術哲学の六つの考え方から、よくあるテクノロジー観の4パターン、AI技術決定論、二つの極の合流、そして技術多様性と「内側から近代を超える」へ。</p>
           </div>
         </li>
         <li>
           <span class="n">3</span>
           <div>
-            <h3>モア・ザン・ヒューマンのテクノロジーへ</h3>
+            <h3>技術哲学はどこへ向かうべきか</h3>
             <p>ヒューマニズムの延長でも、トランスヒューマニズムでもない第三の道へ。鍵は技術史——mUと西表島の実践、そして日常の中の異なる技術への気づきまで。</p>
           </div>
         </li>
@@ -367,21 +373,6 @@
     </div>
   </section>
 
-  <!-- 03b -->
-  <section class="slide" data-title="現代の技術哲学のいくつかの考え方" data-part="">
-    <div class="kicker">Introduction</div>
-    <h2>導入｜「現代の技術哲学」のいくつかの考え方</h2>
-    <div class="body">
-      <ul class="pts compact">
-        <li class="em">技術は単なる道具ではない<small>ここは、技術哲学者の全員が同意する出発点。</small></li>
-        <li>両者は相互に絡み合い、相互作用し、<span class="term">ネットワーク</span>を構成する<small>アクターネットワーク理論（ラトゥール）／ポスト現象学（アイディ、フェルベーク）</small></li>
-        <li>関係性から考えなければならない<small>関係論的アプローチ（クーケルバーク）——技術も人間も、関係のなかで初めて何かになる</small></li>
-        <li><span class="term">ゲシュテル</span>（総かり立て体制——テクノロジーが、人間も自然も「用立て可能な資源」としてかり立てる）の問題<small>ハイデガー『技術への問い』——ゆえに、人間が技術を自由にコントロールできるという考えは捨てなければならない</small></li>
-        <li>テクノロジーは、<strong>西洋近代の一つの技術のあり方に過ぎない</strong><small>技術多様性（ユク・ホイ）</small></li>
-      </ul>
-      <div class="note">ただし、先に言っておくと——本日の話は、<strong>この地点すら超えなければならない</strong>、というところへ向かう。</div>
-    </div>
-  </section>
 
   <!-- 03 -->
   <section class="slide part" data-title="PART 1｜なぜ、いま技術哲学が必要なのか" data-part="">
@@ -390,10 +381,45 @@
     <h2>なぜ、いま<br>技術哲学が必要なのか</h2>
     <p class="lead">技術哲学はまったくメジャーではない。それでも、いま最も切実な学問である——その理由から始めます。</p>
   </section>
+  <!-- ex2 -->
+  <section class="slide" data-title="あなたの今日一日" data-part="1">
+    <div class="kicker">1 — 01</div>
+    <h2>あなたの今日一日｜<span class="thin">どこに、技術が挟まっていたか</span></h2>
+    <div class="body">
+      <div class="day">
+        <div class="day-cell">
+          <div class="t">朝</div>
+          <h3>目が覚める</h3>
+          <p>起きる時刻を決めたのは、あなたか、通知か。</p>
+        </div>
+        <div class="day-cell">
+          <div class="t">通勤</div>
+          <h3>世界を知る</h3>
+          <p>今日の「世の中」は、フィードが選んだ順番で届く。</p>
+        </div>
+        <div class="day-cell">
+          <div class="t">仕事</div>
+          <h3>考える・書く</h3>
+          <p>AIに下書きさせる。考えの筋も、言い回しも、少しずつ寄っていく。</p>
+        </div>
+        <div class="day-cell">
+          <div class="t">選ぶ</div>
+          <h3>欲しいと思う</h3>
+          <p>買うもの、観るもの、会う人。候補はレコメンドが並べたもの。</p>
+        </div>
+        <div class="day-cell">
+          <div class="t">夜</div>
+          <h3>迷いを相談する</h3>
+          <p>仕事を辞めるか、別れるか。人ではなく、AIに聞く人が現れている。</p>
+        </div>
+      </div>
+      <div class="note">どれも「便利な道具を使った」だけに見える。しかし、<strong>何を欲しいと思うか、何を正しいと思うか</strong>まで、すでに媒介されている。<br><span class="arrow">→</span> その一日は、本当にあなたが選んだのか。</div>
+    </div>
+  </section>
 
   <!-- 04 -->
   <section class="slide" data-title="出発点：技術に囲まれて生きている" data-part="1">
-    <div class="kicker">1 — 01</div>
+    <div class="kicker">1 — 02</div>
     <h2>出発点｜私たちは、テクノロジーに囲まれて生きている</h2>
     <div class="body">
       <ul class="pts">
@@ -406,7 +432,7 @@
 
   <!-- 05 -->
   <section class="slide" data-title="哲学はいま、どう使われているか" data-part="1">
-    <div class="kicker">1 — 02</div>
+    <div class="kicker">1 — 03</div>
     <h2>哲学はいま、どう使われているか</h2>
     <div class="body">
       <div class="cols c2">
@@ -428,7 +454,7 @@
 
   <!-- 06 -->
   <section class="slide" data-title="現状：技術哲学はメジャーではない" data-part="1">
-    <div class="kicker">1 — 03</div>
+    <div class="kicker">1 — 04</div>
     <h2>現状｜ぶっちゃけ、技術哲学は<br>まったくメジャーではない</h2>
     <div class="body">
       <ul class="pts tight">
@@ -442,7 +468,7 @@
 
   <!-- 07 -->
   <section class="slide" data-title="なぜマイナーなのか——構造的な無視" data-part="1">
-    <div class="kicker">1 — 04</div>
+    <div class="kicker">1 — 05</div>
     <h2>なぜマイナーなのか｜<span class="thin">両側からの、構造的な無視</span></h2>
     <div class="body">
       <div class="cols c3">
@@ -471,7 +497,7 @@
 
   <!-- 08 -->
   <section class="slide" data-title="無視できない理由：2つの不可分性" data-part="1">
-    <div class="kicker">1 — 05</div>
+    <div class="kicker">1 — 06</div>
     <h2>それでも無視できない理由｜<span class="thin">2つの不可分性</span></h2>
     <div class="body">
       <div class="turn">
@@ -512,7 +538,7 @@
 
   <!-- ex1 -->
   <section class="slide" data-title="事例①｜かつては思考実験、いまは仕様書" data-part="1">
-    <div class="kicker">1 — 06</div>
+    <div class="kicker">1 — 07</div>
     <h2>かつては思考実験、いまは仕様書</h2>
     <div class="body">
       <div class="tn">
@@ -556,41 +582,6 @@
     </div>
   </section>
 
-  <!-- ex2 -->
-  <section class="slide" data-title="事例②｜あなたの今日一日" data-part="1">
-    <div class="kicker">1 — 07</div>
-    <h2>あなたの今日一日｜<span class="thin">どこに、技術が挟まっていたか</span></h2>
-    <div class="body">
-      <div class="day">
-        <div class="day-cell">
-          <div class="t">朝</div>
-          <h3>目が覚める</h3>
-          <p>起きる時刻を決めたのは、あなたか、通知か。</p>
-        </div>
-        <div class="day-cell">
-          <div class="t">通勤</div>
-          <h3>世界を知る</h3>
-          <p>今日の「世の中」は、フィードが選んだ順番で届く。</p>
-        </div>
-        <div class="day-cell">
-          <div class="t">仕事</div>
-          <h3>考える・書く</h3>
-          <p>AIに下書きさせる。考えの筋も、言い回しも、少しずつ寄っていく。</p>
-        </div>
-        <div class="day-cell">
-          <div class="t">選ぶ</div>
-          <h3>欲しいと思う</h3>
-          <p>買うもの、観るもの、会う人。候補はレコメンドが並べたもの。</p>
-        </div>
-        <div class="day-cell">
-          <div class="t">夜</div>
-          <h3>迷いを相談する</h3>
-          <p>仕事を辞めるか、別れるか。人ではなく、AIに聞く人が現れている。</p>
-        </div>
-      </div>
-      <div class="note">どれも「便利な道具を使った」だけに見える。しかし、<strong>何を欲しいと思うか、何を正しいと思うか</strong>まで、すでに媒介されている。<br><span class="arrow">→</span> その一日は、本当にあなたが選んだのか。</div>
-    </div>
-  </section>
 
   <!-- ex3 -->
   <section class="slide" data-title="事例③｜技術問題は、そのまま倫理問題になる" data-part="1">
@@ -609,10 +600,38 @@
       <div class="note">同じ構造が、医療のトリアージにも、採用の選別にも、与信にも、司法の量刑支援にもある。<br><span class="arrow">→</span> <strong>技術問題＝倫理問題</strong>。これが、いま起きていること。</div>
     </div>
   </section>
+  <!-- det -->
+  <section class="slide" data-title="実質的な技術決定論に陥っている" data-part="1">
+    <div class="kicker">1 — 09</div>
+    <h2>私たちは、<span class="term">実質的な技術決定論</span>に陥っている</h2>
+    <p class="lead ship-lead">技術決定論は「信じるかどうかの立場」ではない。事実として、すでにそうなっている。</p>
+    <div class="body det-body">
+      <div class="det">
+        <svg viewBox="0 0 980 430" aria-label="技術の直線的進歩が、社会の技術決定を段階的に押し上げていく図">
+          <defs>
+            <marker id="ai" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#14140f"/>
+            </marker>
+            <marker id="am" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.6" markerHeight="4.6" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#0ca568"/>
+            </marker>
+          </defs>
+          <path class="ln" d="M40 270 H165 V225 H290 V180 H415 V135 H540 V90 H690" marker-end="url(#ai)"/>
+          <line class="ln" x1="40" y1="400" x2="690" y2="335" marker-end="url(#ai)" stroke-width="2"/>
+          <line class="up" x1="180" y1="372" x2="180" y2="262" marker-end="url(#am)"/>
+          <line class="up" x1="390" y1="352" x2="390" y2="218" marker-end="url(#am)"/>
+          <line class="up" x1="590" y1="332" x2="590" y2="128" marker-end="url(#am)"/>
+          <text class="lbl" x="712" y="96">社会の技術決定</text>
+          <text class="lbl" x="712" y="340">技術の直線的進歩</text>
+        </svg>
+      </div>
+      <div class="note">技術はそれ自身の論理で直線的に進歩し、社会はその進歩に合わせて段階的に作り替えられていく。蒸気機関 <span class="arrow">→</span> 産業社会。インターネット <span class="arrow">→</span> 情報社会。<strong>では、AI <span class="arrow">→</span> ？</strong><br>産業革命、グローバル化、サイバネティクスを経て、世界は<strong>実質的な技術決定論に陥っている</strong>。誰かがそれを信じているからではなく、事実としてそう動いている。</div>
+    </div>
+  </section>
 
   <!-- 11 -->
   <section class="slide" data-title="生成AIによって、2つがアクチュアルになった" data-part="1">
-    <div class="kicker">1 — 09</div>
+    <div class="kicker">1 — 10</div>
     <h2>いま、この2つが生成AIによってアクチュアルになった</h2>
     <div class="body">
       <div class="cols c2">
@@ -638,7 +657,7 @@
   </section>
   <!-- 12 -->
   <section class="slide" data-title="だから、技術哲学が必要だ——船の比喩" data-part="1">
-    <div class="kicker">1 — 10</div>
+    <div class="kicker">1 — 11</div>
     <h2>だから、技術哲学が必要だ｜<span class="thin">船の比喩</span></h2>
     <p class="lead ship-lead">船内の計器を調べている間にも、船は高速で進んでいる。</p>
     <div class="body ship-body">
@@ -678,7 +697,7 @@
   </section>
   <!-- 10b -->
   <section class="slide" data-title="提起：原初からのサイボーグ性" data-part="1">
-    <div class="kicker">1 — 11</div>
+    <div class="kicker">1 — 12</div>
     <h2>提起｜<span class="thin">原初からのサイボーグ性</span></h2>
     <div class="body">
       <ul class="pts">
@@ -695,16 +714,131 @@
 
 
   <!-- 14 -->
-  <section class="slide part" data-title="PART 2｜技術哲学の問いはどこへ向かうべきか" data-part="">
+  <section class="slide part" data-title="PART 2｜現代の技術哲学の問い" data-part="">
     <div class="kicker">Part Two</div>
     <div class="pnum">2</div>
-    <h2>技術哲学の問いは<br>どこへ向かうべきか</h2>
-    <p class="lead">人間中心主義を超える、と言われる。しかし、それは誰にとって可能なのか。</p>
+    <h2>現代の技術哲学の問い</h2>
+    <p class="lead">いま技術哲学は、何をどう問うているのか。そして、その問いはどこへ向かうべきか。</p>
+  </section>
+  <!-- 03b -->
+  <section class="slide" data-title="現代の技術哲学のいくつかの考え方" data-part="2">
+    <div class="kicker">2 — 01</div>
+    <h2>「現代の技術哲学」のいくつかの考え方</h2>
+    <div class="body">
+      <ul class="pts compact six">
+        <li class="em">技術は単なる道具ではない<small>ここは、技術哲学者の全員が同意する出発点。</small></li>
+        <li>両者は相互に絡み合い、相互作用し、<span class="term">ネットワーク</span>を構成する<small>アクターネットワーク理論（ラトゥール）／ポスト現象学（アイディ、フェルベーク）</small></li>
+        <li>関係性から考えなければならない<small>関係論的アプローチ（クーケルバーク）——技術も人間も、関係のなかで初めて何かになる</small></li>
+        <li><span class="term">ゲシュテル</span>（総かり立て体制——テクノロジーが、人間も自然も「用立て可能な資源」としてかり立てる）の問題<small>ハイデガー『技術への問い』——ゆえに、人間が技術を自由にコントロールできるという考えは捨てなければならない</small></li>
+        <li>テクノロジーは、<strong>西洋近代の一つの技術のあり方に過ぎない</strong><small>技術多様性（ユク・ホイ）</small></li>
+        <li>人間中心主義を超えた地点から、技術を考えなければならない<small>ポストヒューマニズム的技術哲学</small></li>
+      </ul>
+      <div class="note">現代の技術哲学は、ここまで来ている。<span class="arrow">→</span> しかし本日の話は、<strong>この地点すら超えなければならない</strong>、というところへ向かう。</div>
+    </div>
+  </section>
+
+  <!-- id1 -->
+  <section class="slide" data-title="①技術は単なる道具ではない" data-part="2">
+    <div class="kicker">2 — 02</div>
+    <h2>①　技術は単なる道具ではない</h2>
+    <p class="lead ship-lead">全員が同意する出発点。ここから技術哲学が始まる。</p>
+    <div class="body">
+      <div class="cols c2">
+        <div class="col">
+          <div class="h">道具説</div>
+          <h3>技術は中立である</h3>
+          <p>包丁は料理にも凶器にもなる。善悪は使い手の側にあり、技術そのものは価値を持たない——という考え方。</p>
+        </div>
+        <div class="col">
+          <div class="h">技術哲学</div>
+          <h3>技術は世界を作り変える</h3>
+          <p>道路が引かれれば人の流れが変わる。SNSが広まれば「話題」の形が変わる。技術は使われる前から、可能な行為の範囲を決めている。</p>
+        </div>
+      </div>
+      <div class="note">技術は、目的のための手段ではない。<strong>何が目的になりうるか</strong>そのものを、先に形づくっている。</div>
+    </div>
+  </section>
+
+  <!-- id2 -->
+  <section class="slide" data-title="②ネットワークを構成する" data-part="2">
+    <div class="kicker">2 — 03</div>
+    <h2>②　相互作用し、ネットワークを構成する<br><span class="thin en">アクターネットワーク理論／ポスト現象学</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>技術と人間、どちらかが優位というわけではない。両者は<strong>相互に絡み合っている</strong></li>
+        <li class="em">ラトゥール：人もモノも等しく「アクター」として、ネットワークを構成する<small>銃を持った人は、銃なしの人とも、人なしの銃とも違う存在になる。行為の主体は、その都度の結びつきのほうにある。</small></li>
+        <li>アイディ、フェルベーク：技術は、人間と世界のあいだに立って<strong>知覚と行為を媒介する</strong><small>眼鏡、望遠鏡、超音波診断——見え方が変われば、世界の意味も、下される判断も変わる。</small></li>
+      </ul>
+      <div class="note">だから「人間が技術を使う」という一方向の図式では、もう説明がつかない。</div>
+    </div>
+  </section>
+
+  <!-- id3 -->
+  <section class="slide" data-title="③関係性から考えなければならない" data-part="2">
+    <div class="kicker">2 — 04</div>
+    <h2>③　関係性から考えなければならない<br><span class="thin en">関係論的アプローチ（クーケルバーク）</span></h2>
+    <div class="body">
+      <div class="cols c2">
+        <div class="col">
+          <div class="h">これまでの問い方</div>
+          <h3>「それは、何であるか」</h3>
+          <p>AIに意識はあるか。ロボットに権利はあるか。まず対象の性質を確定し、そこから扱い方を決める。</p>
+        </div>
+        <div class="col">
+          <div class="h">関係論的</div>
+          <h3>「私たちは、どう関わっているか」</h3>
+          <p>技術も人間も、あらかじめ何かであるのではない。<strong>関係のなかで、初めて何かになる</strong>。</p>
+        </div>
+      </div>
+      <div class="note">AIに意識があるかを確定できなくても、私たちはすでにAIに相談し、頼り、腹を立てている。<br><span class="arrow">→</span> 問うべきは、対象の内部ではなく、<strong>すでに始まっている関係</strong>のほうである。</div>
+    </div>
+  </section>
+
+  <!-- id4 -->
+  <section class="slide" data-title="④ゲシュテル（総かり立て体制）" data-part="2">
+    <div class="kicker">2 — 05</div>
+    <h2>④　ゲシュテル（総かり立て体制）<br><span class="thin en">ハイデガー『技術への問い』</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li class="em">近代技術のもとで、あらゆるものが<span class="term">用立て可能な資源</span>として現れてくる<small>ライン川は「風景」ではなく発電量になり、森は「木材資源」になり、人は「人材」「人的資本」になる。</small></li>
+        <li>これは誰かが選んだ方針ではない。<strong>そう現れてしまう、という世界の様式そのもの</strong></li>
+        <li>だから技術は、人間が外から操作できる対象ではない——<strong>私たちのほうが、すでにその内側にいる</strong></li>
+      </ul>
+      <div class="note"><span class="arrow">→</span> ゆえに、<strong>人間が技術を自由にコントロールできるという考えは、捨てなければならない</strong>。<br>データも注意も、いまや「用立て可能な資源」である。ゲシュテルは、AIの時代にこそ加速している。</div>
+    </div>
+  </section>
+
+  <!-- id5 -->
+  <section class="slide" data-title="⑤テクノロジーは西洋近代の一つのあり方に過ぎない" data-part="2">
+    <div class="kicker">2 — 06</div>
+    <h2>⑤　テクノロジーは、西洋近代の<br>一つのあり方に過ぎない<span class="thin en">　技術多様性（ユク・ホイ）</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>「テクノロジー」は、人類に一つしかない普遍的なものだと思われている</li>
+        <li class="em">しかし、その中身は<strong>西洋近代という特定の世界観</strong>のもとで形づくられたもの<small>世界をメカニズムとして捉え、法則を取り出し、資源として用立てる——その一つのやり方が、いま地球全体を覆っている。</small></li>
+        <li>技術の背後には、つねに<span class="term">宇宙観・世界観</span>がある。ならば、別の世界観に根ざした<strong>別の技術のあり方</strong>もありうる</li>
+      </ul>
+      <div class="note">この論点は、第2部の後半でユク・ホイとともに詳しく扱う。<span class="arrow">→</span> まずは、いまの私たちがどの枠の中にいるかを見る。</div>
+    </div>
+  </section>
+
+  <!-- id6 -->
+  <section class="slide" data-title="⑥ポストヒューマニズム的技術哲学" data-part="2">
+    <div class="kicker">2 — 07</div>
+    <h2>⑥　ポストヒューマニズム的技術哲学<br><span class="thin en">人間中心主義を超えた地点から考える</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>①〜⑤を突き詰めると、ひとつの結論に行き着く——<strong>「人間」を中心に置いたままでは、技術は考えられない</strong></li>
+        <li class="em">人間を、世界を見渡す特権的な中心から降ろす<small>人間・技術・自然・制度が対等に絡み合うネットワークの、一つの結節点として人間を捉え直す。</small></li>
+        <li>これが、現代の技術哲学の到達点とされている<strong>ポストヒューマニズム的技術哲学</strong></li>
+      </ul>
+      <div class="note">ただし——「超えた」と言うことと、実際に超えることは別である。<span class="arrow">→</span> その落差が、第2部の後半のテーマになる。</div>
+    </div>
   </section>
 
   <!-- 16b -->
   <section class="slide" data-title="よくあるテクノロジー観の4パターン" data-part="2">
-    <div class="kicker">2 — 01</div>
+    <div class="kicker">2 — 08</div>
     <h2>よくあるテクノロジー観の4パターン｜<span class="thin">哲学マップ</span></h2>
     <div class="body">
       <div class="quad">
@@ -733,41 +867,14 @@
           <p>技術は自律的に発展し、人間は支配され、置き換えられる。</p>
         </div>
       </div>
-      <div class="note">連載「技術哲学入門」の〈テクノロジーの哲学マップ〉より。AIをめぐる言説も、だいたいこの四象限に収まる。<br>ただし——4つとも<strong>「人間と技術は分けられる」という前提</strong>を共有している。その前提こそが、次に問われる。</div>
+      <div class="note">連載「技術哲学入門」の〈テクノロジーの哲学マップ〉より。AIをめぐる言説も、だいたいこの四象限に収まる。<br>ただし——4つとも<strong>「人間と技術は分けられる」という前提</strong>を共有している。<span class="arrow">→</span> この枠の中にいる限り、問いは新しくならない。</div>
     </div>
   </section>
 
-  <!-- det -->
-  <section class="slide" data-title="技術決定論の世界観" data-part="2">
-    <div class="kicker">2 — 02</div>
-    <h2>技術決定論の世界観｜<span class="thin">技術が、社会を決めていく</span></h2>
-    <div class="body">
-      <div class="det">
-        <svg viewBox="0 0 980 430" aria-label="技術の直線的進歩が、社会の技術決定を段階的に押し上げていく図">
-          <defs>
-            <marker id="ai" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-              <path d="M0 0 L10 5 L0 10 z" fill="#14140f"/>
-            </marker>
-            <marker id="am" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.6" markerHeight="4.6" orient="auto-start-reverse">
-              <path d="M0 0 L10 5 L0 10 z" fill="#0ca568"/>
-            </marker>
-          </defs>
-          <path class="ln" d="M40 270 H165 V225 H290 V180 H415 V135 H540 V90 H690" marker-end="url(#ai)"/>
-          <line class="ln" x1="40" y1="400" x2="690" y2="335" marker-end="url(#ai)" stroke-width="2"/>
-          <line class="up" x1="180" y1="372" x2="180" y2="262" marker-end="url(#am)"/>
-          <line class="up" x1="390" y1="352" x2="390" y2="218" marker-end="url(#am)"/>
-          <line class="up" x1="590" y1="332" x2="590" y2="128" marker-end="url(#am)"/>
-          <text class="lbl" x="712" y="96">社会の技術決定</text>
-          <text class="lbl" x="712" y="340">技術の直線的進歩</text>
-        </svg>
-      </div>
-      <div class="note">技術はそれ自身の論理で、直線的に進歩していく。社会は、その進歩に合わせて段階的に作り替えられていく。<br>蒸気機関 <span class="arrow">→</span> 産業社会。インターネット <span class="arrow">→</span> 情報社会。では、AI <span class="arrow">→</span> ？</div>
-    </div>
-  </section>
 
   <!-- chain1 -->
   <section class="slide" data-title="認識の主役は、人間だった" data-part="2">
-    <div class="kicker">2 — 03</div>
+    <div class="kicker">2 — 09</div>
     <h2>認識の主役は、人間だった</h2>
     <div class="body">
       <ul class="pts tight">
@@ -780,7 +887,7 @@
   </section>
   <!-- 11 -->
   <section class="slide" data-title="AI技術決定論的世界観" data-part="2">
-    <div class="kicker">2 — 04</div>
+    <div class="kicker">2 — 10</div>
     <h2>AI技術決定論的世界観｜<span class="thin">世界の真理を明らかにするのは、誰か</span></h2>
     <div class="body">
       <ul class="pts tight">
@@ -793,7 +900,7 @@
   </section>
   <!-- 12 -->
   <section class="slide" data-title="逆転——テクノフィロソフィー" data-part="2">
-    <div class="kicker">2 — 05</div>
+    <div class="kicker">2 — 11</div>
     <h2>逆転｜<span class="thin">テクノフィロソフィー <span class="en">Technophilosophy</span></span></h2>
     <div class="body">
       <p class="statement">技術によって、人間ははじめて<br>世界のことがわかる。<small>テクノロジーの発展は、この世界の真理を解き明かすことに直結する。<br>そしてテクノロジーが発展して初めて、「人間とは何か」「世界とは何か」という古典的な哲学の問いが明らかになる（デイヴィッド・チャーマーズ）。</small></p>
@@ -802,7 +909,7 @@
   </section>
   <!-- 13 -->
   <section class="slide" data-title="だから、書き続けている" data-part="2">
-    <div class="kicker">2 — 06</div>
+    <div class="kicker">2 — 12</div>
     <h2>だから、書き続けている</h2>
     <div class="body">
       <ul class="pts">
@@ -816,7 +923,7 @@
 
   <!-- chain2 -->
   <section class="slide" data-title="二つの極が、同じ場所に合流する" data-part="2">
-    <div class="kicker">2 — 07</div>
+    <div class="kicker">2 — 13</div>
     <h2>二つの極が、同じ場所に合流する</h2>
     <div class="body">
       <div class="conv">
@@ -842,39 +949,11 @@
     </div>
   </section>
 
-  <!-- ph3 -->
-  <section class="slide" data-title="ポストヒューマニズム、ざっくり3パターン" data-part="2">
-    <div class="kicker">2 — 08</div>
-    <h2>ポストヒューマニズム、<span class="thin">ざっくり3パターン</span></h2>
-    <div class="body">
-      <div class="paths">
-        <div class="path">
-          <div class="n">TYPE 01</div>
-          <h3>トランスヒューマニズム<small>Transhumanism</small></h3>
-          <p><strong>テクノロジー中心主義。</strong></p>
-          <p>人間と技術が不可分なら、いっそ一体化の先へ進もうとする。</p>
-        </div>
-        <div class="path">
-          <div class="n">TYPE 02</div>
-          <h3>ヒューマニズム的<br>ポストヒューマニズム</h3>
-          <p><strong>人間中心を、密かに維持。</strong></p>
-          <p>「超えた」と言いながら、結局は人間から見た視点に戻ってくる。</p>
-        </div>
-        <div class="path on">
-          <div class="n">TYPE 03</div>
-          <h3>モア・ザン・ヒューマン的<br>ポストヒューマニズム</h3>
-          <p><strong>人間-テクノロジーを超える。</strong></p>
-          <p>人間と技術という枠組みそのものの、外へ出ようとする。</p>
-        </div>
-      </div>
-      <div class="note">この3つは、<strong>第三の問いでもう一度取り上げる</strong>。ここで押さえておくべきは——この分かれ方の背後には、<strong>世界観・宗教観の違い</strong>がある、ということ。</div>
-    </div>
-  </section>
 
 
   <!-- 16 -->
   <section class="slide" data-title="ポストヒューマニズムとその限界" data-part="2">
-    <div class="kicker">2 — 09</div>
+    <div class="kicker">2 — 14</div>
     <h2>現代の要請｜<span class="thin">ポストヒューマニズム、その限界</span></h2>
     <div class="body">
       <div class="cols c2">
@@ -896,7 +975,7 @@
 
   <!-- 17 -->
   <section class="slide" data-title="ユク・ホイ｜技術多様性" data-part="2">
-    <div class="kicker">2 — 10</div>
+    <div class="kicker">2 — 15</div>
     <h2>ユク・ホイ｜<span class="thin">技術多様性 <span class="en">Technodiversity</span></span></h2>
     <div class="body">
       <ul class="pts tight">
@@ -910,7 +989,7 @@
 
   <!-- myth -->
   <section class="slide" data-title="神話・風土・技術——技術多様性の掘り起こし" data-part="2">
-    <div class="kicker">2 — 11</div>
+    <div class="kicker">2 — 16</div>
     <h2>神話・風土・技術｜<span class="thin">技術多様性の掘り起こし</span></h2>
     <div class="body">
       <ul class="pts tight">
@@ -925,7 +1004,7 @@
 
   <!-- 18 -->
   <section class="slide" data-title="『ポストヨーロッパ』——内側から超える" data-part="2">
-    <div class="kicker">2 — 12</div>
+    <div class="kicker">2 — 17</div>
     <h2>『ポストヨーロッパ』｜<span class="thin">内側から超える</span></h2>
     <div class="body">
       <ul class="pts tight">
@@ -938,7 +1017,7 @@
 
   <!-- 19 -->
   <section class="slide" data-title="中国の例と、その失われ方" data-part="2">
-    <div class="kicker">2 — 13</div>
+    <div class="kicker">2 — 18</div>
     <h2>中国の例と、その失われ方</h2>
     <div class="body">
       <div class="cols c2">
@@ -961,7 +1040,7 @@
 
   <!-- 20 -->
   <section class="slide" data-title="では、日本は" data-part="2">
-    <div class="kicker">2 — 14</div>
+    <div class="kicker">2 — 19</div>
     <h2>では、日本は</h2>
     <div class="body">
       <ul class="pts tight">
@@ -975,11 +1054,11 @@
   </section>
 
   <!-- 21 -->
-  <section class="slide part" data-title="PART 3｜モア・ザン・ヒューマンのテクノロジーへ" data-part="">
+  <section class="slide part" data-title="PART 3｜技術哲学はどこへ向かうべきか" data-part="">
     <div class="kicker">Part Three</div>
     <div class="pnum">3</div>
-    <h2>モア・ザン・ヒューマンの<br>テクノロジーへ</h2>
-    <p class="lead">ヒューマニズムの延長でもなく、トランスヒューマニズムでもない場所を考える。</p>
+    <h2>技術哲学は<br>どこへ向かうべきか</h2>
+    <p class="lead">トランスヒューマニズム、ポストヒューマニズム、モア・ザン・ヒューマン——三つの道で整理する。</p>
   </section>
 
   <!-- 22 -->
@@ -994,66 +1073,83 @@
       </ul>
     </div>
   </section>
-
-  <!-- 23 -->
-  <section class="slide" data-title="既存の道①｜トランスヒューマニズム" data-part="3">
+  <!-- ph3 -->
+  <section class="slide" data-title="三つの道" data-part="3">
     <div class="kicker">3 — 02</div>
-    <h2>既存の道 ①｜<span class="thin">トランスヒューマニズム</span></h2>
-    <div class="body">
-      <ul class="pts tight">
-        <li class="em">一体なのだから、いっそ本当に一体になろう——という考え方</li>
-        <li>人間と技術の一体、そしてテクノロジーと哲学の一体。その<strong>両方を同時に実現してしまう</strong></li>
-        <li>ある意味で、西洋の2つの軸からの必然的な帰結である</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 24 -->
-  <section class="slide" data-title="既存の道②｜古典的ヒューマニズムの延長" data-part="3">
-    <div class="kicker">3 — 03</div>
-    <h2>既存の道 ②｜<span class="thin">古典的ヒューマニズムの延長</span></h2>
-    <div class="body">
-      <ul class="pts tight">
-        <li>そうではない、と考える人たちは、古き良き人間像に従う</li>
-        <li>人間と技術を分ける。テクノロジーと哲学を分ける</li>
-        <li>人間は独立した中心であり、技術は<strong>道具にすぎない</strong>と考える</li>
-      </ul>
-      <div class="note"><span class="arrow">→</span> さて、それは本当に実現可能なのか。これが次の問いになる。</div>
-    </div>
-  </section>
-
-  <!-- 25 -->
-  <section class="slide" data-title="第三の道｜モア・ザン・ヒューマン" data-part="3">
-    <div class="kicker">3 — 04</div>
-    <h2>第三の道｜<span class="thin">モア・ザン・ヒューマン</span></h2>
+    <h2>三つの道｜<span class="thin">技術哲学はどこへ向かうべきか</span></h2>
     <div class="body">
       <div class="paths">
         <div class="path">
-          <div class="n">PATH 01</div>
-          <h3>ヒューマニズムの延長<small>Humanism</small></h3>
-          <p>人間は中心。技術は道具。</p>
-          <p>両者は分けられる、という前提に立つ。</p>
+          <div class="n">TYPE 01</div>
+          <h3>トランスヒューマニズム<small>Transhumanism</small></h3>
+          <p><strong>テクノロジー中心主義。</strong></p>
+          <p>人間と技術が不可分なら、いっそ一体化の先へ進もうとする。</p>
         </div>
         <div class="path">
-          <div class="n">PATH 02</div>
-          <h3>トランスヒューマニズム<small>Transhumanism</small></h3>
-          <p>不可分なのだから、一体になる。</p>
-          <p>西洋の2つの軸の帰結。</p>
+          <div class="n">TYPE 02</div>
+          <h3>ヒューマニズム的<br>ポストヒューマニズム</h3>
+          <p><strong>人間中心を、密かに維持。</strong></p>
+          <p>「超えた」と言いながら、結局は人間から見た視点に戻ってくる。</p>
         </div>
         <div class="path on">
-          <div class="n">PATH 03</div>
-          <h3>モア・ザン・ヒューマン<small>More-than-human</small></h3>
-          <p>そのどちらでもないところを考える必要がある。</p>
-          <p>人類学が言うところの more-than-human。</p>
+          <div class="n">TYPE 03</div>
+          <h3>モア・ザン・ヒューマン的<br>ポストヒューマニズム</h3>
+          <p><strong>人間-テクノロジーを超える。</strong></p>
+          <p>人間と技術という枠組みそのものの、外へ出ようとする。</p>
         </div>
       </div>
-      <div class="note"><span class="arrow">→</span> では、<strong>モア・ザン・ヒューマンのテクノロジー</strong>とはどのようなものか。ここから説明します。</div>
+      <div class="note">この分かれ方の背後には、<strong>世界観・宗教観の違い</strong>がある。<span class="arrow">→</span> 一つずつ見ていく。</div>
     </div>
   </section>
 
+  <!-- r1 -->
+  <section class="slide" data-title="道①｜トランスヒューマニズム" data-part="3">
+    <div class="kicker">3 — 03</div>
+    <h2>道①　トランスヒューマニズム<br><span class="thin en">実質は、テクノロジー中心主義</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>人間と技術が不可分なら、<strong>いっそ一体化の先へ進もう</strong>——という道</li>
+        <li>人間と技術の一体、テクノロジーと哲学の一体。<strong>その両方を同時に実現してしまう</strong><small>能力拡張、脳とAIの接続、意識のアップロード、そして不死。</small></li>
+        <li class="em">しかしこれは、人間中心主義の<span class="term">裏返し</span>にすぎない<small>中心が人間からテクノロジーへ移っただけで、「中心が一つある」という構造は、そのまま残っている。</small></li>
+      </ul>
+      <div class="note">第2部で見たAI技術決定論的世界観——メシア思想、予定説——の、実践版でもある。<br><span class="arrow">→</span> ある意味で、西洋の二つの軸からの<strong>必然的な帰結</strong>。</div>
+    </div>
+  </section>
+
+  <!-- r2 -->
+  <section class="slide" data-title="道②｜ポストヒューマニズム" data-part="3">
+    <div class="kicker">3 — 04</div>
+    <h2>道②　ポストヒューマニズム<br><span class="thin en">人間中心を、密かに維持してしまう</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>そうではない、と考える人たちは、人間中心主義を超えると宣言する</li>
+        <li>あるいは古き良き人間像に戻り、技術と人間を分けようとする<small>技術は道具にすぎない。人間は独立した中心である。——第1部で取り消し線を引いた、あの前提。</small></li>
+        <li class="em">しかしいずれも、結局は<strong>人間から見た視点</strong>を逃れられない<small>「人間を超えた」と語っているのは、やはり人間である。言語の構造も、宗教観も、そこから出ていない。</small></li>
+      </ul>
+      <div class="note">第2部の「ポストヒューマニズムとその限界」で見たとおり。<span class="arrow">→</span> 宣言と実行のあいだに、埋まらない落差がある。</div>
+    </div>
+  </section>
+
+  <!-- r3 -->
+  <section class="slide" data-title="道③｜モア・ザン・ヒューマン" data-part="3">
+    <div class="kicker">3 — 05</div>
+    <h2>道③　モア・ザン・ヒューマン<br><span class="thin en">人間-テクノロジーという枠組みの、外へ</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>トランスヒューマニズムでもなく、ポストヒューマニズムの宣言でもない、<strong>第三の道</strong></li>
+        <li class="em">人類学が言うところの <span class="term">more-than-human</span><small>人間だけでなく、動物、植物、菌、土、水、道具、そして技術——それらが共に世界を作っているという捉え方。</small></li>
+        <li>中心を別のものに移すのではなく、<strong>「中心が一つある」という考え方そのものを降りる</strong></li>
+      </ul>
+      <div class="note"><span class="arrow">→</span> では、<strong>モア・ザン・ヒューマンのテクノロジー</strong>とは、どのようなものか。</div>
+    </div>
+  </section>
+
+
+
+
   <!-- mth1 -->
   <section class="slide" data-title="モア・ザン・ヒューマンに、教科書はない" data-part="3">
-    <div class="kicker">3 — 05</div>
+    <div class="kicker">3 — 06</div>
     <h2>モア・ザン・ヒューマンに、教科書はない</h2>
     <div class="body">
       <ul class="pts">
@@ -1067,7 +1163,7 @@
 
   <!-- mth2 -->
   <section class="slide" data-title="だから、技術史が重要だ" data-part="3">
-    <div class="kicker">3 — 06</div>
+    <div class="kicker">3 — 07</div>
     <h2>だから、技術史が重要だ</h2>
     <div class="body">
       <div class="det">
@@ -1095,7 +1191,7 @@
 
   <!-- mth3 -->
   <section class="slide" data-title="実践報告：技術史の実践として" data-part="3">
-    <div class="kicker">3 — 07</div>
+    <div class="kicker">3 — 08</div>
     <h2>実践報告｜<span class="thin">技術史の実践として</span></h2>
     <div class="body">
       <div class="axes">
@@ -1124,7 +1220,7 @@
 
   <!-- close -->
   <section class="slide" data-title="結び：異なる技術に、気づいていく" data-part="3">
-    <div class="kicker">3 — 08</div>
+    <div class="kicker">3 — 09</div>
     <h2>結び｜<span class="thin">異なる技術に、気づいていく</span></h2>
     <div class="body">
       <p class="statement">「異なる技術」は、遠くではなく<br>日常の中に、すでに<br>たくさん埋め込まれている。<small>異なる技術の可能性を、日常の中で、いま、いかに発見するか——その試みこそが大切だ。西表島のジャングルや古文書の中だけの話ではない。台所に、畑に、路地に、言葉づかいに、別の系譜の技術は生きている。</small></p>
@@ -1186,8 +1282,8 @@
 
   var PART_NAME = {
     '1': 'PART 1 ／ なぜ、いま技術哲学が必要なのか',
-    '2': 'PART 2 ／ 技術哲学の問いはどこへ向かうべきか',
-    '3': 'PART 3 ／ モア・ザン・ヒューマンのテクノロジーへ'
+    '2': 'PART 2 ／ 現代の技術哲学の問い',
+    '3': 'PART 3 ／ 技術哲学はどこへ向かうべきか'
   };
 
   function pad(n) { return (n < 10 ? '0' : '') + n; }
