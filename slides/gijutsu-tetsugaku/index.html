@@ -340,6 +340,64 @@
   /* ---------- 出典注記 ---------- */
   .q-src { display: block; font-size: 12.5px; color: var(--ink-soft); opacity: .8; margin-top: 6px; }
 
+  /* ---------- tmap: 技術哲学の問いの見取り図 ---------- */
+  .tmap { display: grid; grid-template-columns: 620px 1fr; gap: 30px; align-items: center; }
+  .tmap-fig { width: 100%; }
+  .tmap-fig svg { width: 100%; height: auto; display: block; }
+  .tmap .fld { fill: #ecebe2; stroke: var(--ink-soft); stroke-width: 3; }
+  .tmap .cyb { fill: none; stroke: var(--moss); stroke-width: 4; stroke-dasharray: 13 9; }
+  .tmap .hum { fill: var(--paper); stroke: var(--ink); stroke-width: 3.5; }
+  .tmap .box { fill: var(--ink); }
+  .tmap .bt { fill: var(--paper); font-size: 33px; text-anchor: middle; }
+  .tmap .hm { fill: var(--ink); font-size: 38px; font-weight: 700; text-anchor: middle; }
+  .tmap .lb { fill: var(--ink); font-size: 39px; font-weight: 700; text-anchor: middle; }
+  .tmap .lb.g { fill: var(--moss); }
+  .tmap .ws { fill: var(--ink-soft); font-size: 33px; text-anchor: middle; letter-spacing: .08em; }
+  .tmap .ar { fill: none; stroke: var(--ink); stroke-width: 4; }
+  .tmap ol { list-style: none; }
+  .tmap li { display: grid; grid-template-columns: 24px 1fr; gap: 8px; align-items: baseline;
+             padding: 5px 0; border-bottom: 1px solid var(--line); }
+  .tmap li:last-child { border-bottom: none; }
+  .tmap li .q { font-size: 15px; font-weight: 700; color: var(--moss); }
+  .tmap li h4 { font-size: 16px; font-weight: 700; line-height: 1.45; }
+  .tmap li p { font-size: 12.5px; line-height: 1.7; color: var(--ink-soft); margin-top: 1px; }
+
+  /* ---------- fut: 過去へさかのぼり、未来へ投影する ---------- */
+  .fut { width: 100%; max-width: 960px; align-self: center; margin-bottom: 6px; }
+  .fut svg { width: 100%; height: auto; display: block; }
+  .fut .tl { stroke: var(--ink); stroke-width: 3; }
+  .fut .cone { stroke: #1f5e46; stroke-width: 2.6; }
+  .fut .tick circle { fill: var(--ink); }
+  .fut .tick line { stroke: var(--ink-soft); stroke-width: 2; stroke-dasharray: 2 7; stroke-linecap: round; }
+  .fut .tick text { font-size: 24px; fill: var(--ink); text-anchor: middle; }
+  .fut .tick.now circle { fill: var(--moss); }
+  .fut .tf { font-size: 25px; fill: var(--ink); text-anchor: middle; }
+  .fut .rg { font-size: 27px; font-weight: 700; fill: var(--ink); text-anchor: middle; }
+  .fut .pf { font-size: 26px; fill: var(--ink-soft); }
+  .fut .lf { fill: none; stroke: var(--ink); stroke-width: 2.4; }
+  .fut .pu { fill: var(--mint); }
+  .fut .eye { animation: futslide 9s ease-in-out infinite alternate; }
+  @keyframes futslide { from { transform: translate(-230px, 55px); } to { transform: translate(230px, -55px); } }
+  @media (prefers-reduced-motion: reduce) { .fut .eye { animation: none !important; } }
+  .step4.mini .st { padding: 15px 16px 16px; }
+  .step4.mini .st .n { font-size: 10.5px; margin-bottom: 8px; }
+  .step4.mini .st h3 { font-size: 18px; margin-bottom: 8px; }
+  .step4.mini .st p { font-size: 12.5px; line-height: 1.75; }
+
+  /* ---------- ex3: 三つの事例 ---------- */
+  .ex3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .ex { display: flex; flex-direction: column; }
+  .ex h3 { font-size: 19px; font-weight: 700; line-height: 1.45; margin: 13px 0 8px; }
+  .ex p { font-size: 13px; line-height: 1.8; color: var(--ink-soft); }
+  .ex .booklink { margin-top: 10px; align-self: flex-start; }
+  .book.sm { width: 132px; height: 186px; padding: 15px 12px 12px 13px; border-left-width: 5px;
+             box-shadow: 3px 4px 0 rgba(20,20,15,.06); }
+  .book.sm .bt { font-size: 14px; line-height: 1.4; }
+  .book.sm .bs { font-size: 9px; line-height: 1.6; margin-top: 7px; }
+  .book.sm .ba { font-size: 10px; }
+  .book.sm .bp { font-size: 8.5px; margin-top: 3px; }
+  .book.sm .bmark { right: 10px; width: 9px; height: 24px; }
+
   /* ---------- chrome ---------- */
   .foot {
     position: absolute; left: 96px; right: 96px; bottom: 34px;
@@ -428,14 +486,14 @@
           <span class="n">2</span>
           <div>
             <h3>現代の技術哲学の問い</h3>
-            <p>技術は単なる道具ではない、という出発点から、ネットワーク、関係性、ゲシュテル、技術多様性、そして人間中心主義を超えた技術哲学へ——六つの考え方。</p>
+            <p>問いの見取り図から出発し、生まれながらのサイボーグ、関係性、ゲシュテル、技術多様性へ。突き詰めると、降ろすべき中心が二つ見えてくる——「ヒューマン」と「テクノロジー」。</p>
           </div>
         </li>
         <li>
           <span class="n">3</span>
           <div>
             <h3>原初の技術から考える</h3>
-            <p>西表島での体験から、原初のサイボーグ、そして技術の基層へ。教科書はないから技術史を掘る——その方法と、mU・ジャングル・庭という実践。最後に、はじめの問いに戻って論証する。</p>
+            <p>西表島での体験から、原初のサイボーグ、技術の基層へ。教科書はないから技術史を掘り、身体で確かめ、未来へ投影する。三つの事例を経て、はじめの問いに戻って論証する。</p>
           </div>
         </li>
       </ol>
@@ -804,18 +862,72 @@
     <h2>現代の技術哲学の問い</h2>
     <p class="lead">いま技術哲学は、何をどう問うているのか。そして、その問いはどこへ向かうべきか。</p>
   </section>
+  <!-- p2-map -->
+  <section class="slide" data-title="技術哲学の問いの見取り図" data-part="2">
+    <div class="kicker">2 — 01</div>
+    <h2>技術哲学の問いは、<span class="thin">どこに置かれているか</span></h2>
+    <div class="body">
+      <div class="tmap">
+        <div class="tmap-fig">
+          <svg viewBox="0 0 1600 950" aria-label="世界／社会という楕円のなかに人間と複数の技術が配置され、六つの問いの立て方がその位置として示された図">
+            <defs>
+              <marker id="tmA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 z" fill="#14140f"/>
+              </marker>
+            </defs>
+            <ellipse class="fld" cx="725" cy="520" rx="570" ry="415"/>
+            <ellipse class="cyb" cx="630" cy="560" rx="235" ry="150" transform="rotate(-28 630 560)"/>
+
+            <line class="ar" x1="725" y1="366" x2="725" y2="430" marker-end="url(#tmA)"/>
+            <line class="ar" x1="812" y1="512" x2="984" y2="512" marker-start="url(#tmA)" marker-end="url(#tmA)"/>
+
+            <circle class="hum" cx="725" cy="512" r="74"/>
+            <text class="hm" x="725" y="525">Human</text>
+
+            <rect class="box" x="620" y="308" width="210" height="52"/>
+            <text class="bt" x="725" y="345">Technology</text>
+            <rect class="box" x="995" y="486" width="212" height="52"/>
+            <text class="bt" x="1101" y="523">Technology</text>
+            <rect class="box" x="420" y="575" width="215" height="52"/>
+            <text class="bt" x="527" y="612">Technology</text>
+            <rect class="box" x="232" y="412" width="215" height="52"/>
+            <text class="bt" x="339" y="449">Technology</text>
+            <rect class="box" x="823" y="715" width="212" height="52"/>
+            <text class="bt" x="929" y="752">Technology</text>
+
+            <text class="lb" x="725" y="62">①　本質論</text>
+            <text class="lb" x="725" y="282">④　権力論</text>
+            <text class="lb" x="339" y="385">⑥　エージェント論</text>
+            <text class="lb" x="1105" y="390">⑤　システム論</text>
+            <text class="lb" x="905" y="580">②　HTR論</text>
+            <text class="lb g" x="400" y="790">③　サイボーグ論</text>
+            <text class="ws" x="725" y="878">World ／ Society</text>
+          </svg>
+        </div>
+        <ol>
+          <li><span class="q">①</span><div><h4>本質論</h4><p>そもそも技術とは何か。図の全体を問う。</p></div></li>
+          <li><span class="q">②</span><div><h4>HTR論</h4><p>人間と技術の<strong>関係</strong>を問う。<span class="thin en">Human-Technology Relations</span></p></div></li>
+          <li><span class="q">③</span><div><h4>サイボーグ論</h4><p>人間と技術は、<strong>すでに混ざっている</strong>。境界のほうを問う。</p></div></li>
+          <li><span class="q">④</span><div><h4>権力論</h4><p>技術が人間を<strong>規定する</strong>。ゲシュテル、監視、アルゴリズム。</p></div></li>
+          <li><span class="q">⑤</span><div><h4>システム論</h4><p>技術は社会システムの一部として動く。個々の道具ではなく、全体。</p></div></li>
+          <li><span class="q">⑥</span><div><h4>エージェント論</h4><p>技術それ自体が<strong>行為者</strong>になる。人間を経由しない。</p></div></li>
+        </ol>
+      </div>
+      <div class="note">〈人間〉〈技術〉〈世界／社会〉——この三者をどう配置するかで、問いの形が決まる。<span class="arrow">→</span> 次から、現代の技術哲学が実際に何をどう問うているかを見ていく。</div>
+    </div>
+  </section>
   <!-- 03b -->
   <section class="slide" data-title="現代の技術哲学のいくつかの考え方" data-part="2">
-    <div class="kicker">2 — 01</div>
+    <div class="kicker">2 — 02</div>
     <h2>「現代の技術哲学」のいくつかの考え方</h2>
     <div class="body">
       <ul class="pts compact six">
         <li class="em">技術は単なる道具ではない<small><span class="tie base">大前提</span>ここは、技術哲学者の全員が同意する出発点。</small></li>
-        <li>両者は相互に絡み合い、相互作用し、<span class="term">ネットワーク</span>を構成する<small><span class="tie">理由 1</span>アクターネットワーク理論（ラトゥール）／ポスト現象学（アイディ、フェルベーク）</small></li>
-        <li>関係性から考えなければならない<small><span class="tie">理由 1</span>関係論的アプローチ（クーケルバーク）——技術も人間も、関係のなかで初めて何かになる</small></li>
+        <li>人間はもともと技術と混ざっている——<span class="term">生まれながらのサイボーグ</span><small><span class="tie">理由 1</span>アンディ・クラーク／拡張された心——心は頭蓋の内側で完結していない</small></li>
+        <li>両者は相互作用し、<strong>関係のなかで初めて何かになる</strong><small><span class="tie">理由 1</span>アクターネットワーク理論（ラトゥール）／ポスト現象学（アイディ、フェルベーク）／関係論（クーケルバーク）／間柄（和辻）</small></li>
         <li><span class="term">ゲシュテル</span>（総かり立て体制——テクノロジーが、人間も自然も「用立て可能な資源」としてかり立てる）の問題<small><span class="tie">理由 2</span>ハイデガー『技術への問い』——人間が技術を自由にコントロールできるという考えは捨てる</small></li>
         <li>テクノロジーは、<strong>西洋近代の一つの技術のあり方に過ぎない</strong><small><span class="tie">理由 2</span>技術多様性（ユク・ホイ）——いまの技術は、特定の世界観に方向づけられている</small></li>
-        <li>人間中心主義を超えた地点から、技術を考えなければならない<small><span class="tie base">帰結</span>ポストヒューマニズム的技術哲学</small></li>
+        <li>そして——人間中心主義を超えた地点から、技術を考えなければならない<small><span class="tie base">方向性</span>ポストヒューマニズム的技術哲学。ここが現代の到達点であり、今日はこの先へ行く。</small></li>
       </ul>
       <div class="note">見てのとおり——②③は第1部の<strong>理由1（2つの不可分性）</strong>から、④⑤は<strong>理由2（実質的な技術決定論）</strong>から出てきている。<span class="arrow">→</span> 一つずつ見ていく。</div>
     </div>
@@ -823,7 +935,7 @@
 
   <!-- id1 -->
   <section class="slide" data-title="①技術は単なる道具ではない" data-part="2">
-    <div class="kicker">2 — 02</div>
+    <div class="kicker">2 — 03</div>
     <h2>①　技術は単なる道具ではない</h2>
     <p class="tie-chip"><span class="tie base">大前提</span><span class="cap">全員が同意する出発点。ここから技術哲学が始まる。</span></p>
     <div class="body">
@@ -844,36 +956,38 @@
   </section>
 
   <!-- id2 -->
-  <section class="slide" data-title="②ネットワークを構成する" data-part="2">
-    <div class="kicker">2 — 03</div>
-    <h2>②　相互作用し、ネットワークを構成する<br><span class="thin en">アクターネットワーク理論／ポスト現象学</span></h2>
-    <p class="tie-chip"><span class="tie">理由 1</span><span class="cap">2つの不可分性から</span></p>
+  <section class="slide" data-title="②生まれながらのサイボーグ" data-part="2">
+    <div class="kicker">2 — 04</div>
+    <h2>②　生まれながらのサイボーグ<br><span class="thin en">アンディ・クラーク『生まれながらのサイボーグ』／拡張された心</span></h2>
+    <p class="tie-chip"><span class="tie">理由 1</span><span class="cap">2つの不可分性から　／　見取り図の③サイボーグ論</span></p>
     <div class="body">
-      <ul class="pts tight">
-        <li>技術と人間、どちらかが優位というわけではない。両者は<strong>相互に絡み合っている</strong></li>
-        <li class="em">ラトゥール：人もモノも等しく「アクター」として、ネットワークを構成する<small>銃を持った人は、銃なしの人とも、人なしの銃とも違う存在になる。行為の主体は、その都度の結びつきのほうにある。</small></li>
-        <li>アイディ、フェルベーク：技術は、人間と世界のあいだに立って<strong>知覚と行為を媒介する</strong><small>眼鏡、望遠鏡、超音波診断——見え方が変われば、世界の意味も、下される判断も変わる。</small></li>
+      <ul class="pts compact">
+        <li class="em">人間の心は、<strong>頭蓋の内側で完結していない</strong><small>クラーク＆チャーマーズ「拡張された心」：手帳に書いた予定、指を折って数えること、そろばん、スマートフォン。外部の道具が、そのまま思考の一部として働いている。</small></li>
+        <li>人間は、外部の道具を<strong>身体と心に組み込んでしまう</strong>生き物である<small>眼鏡は「使う道具」ではなく、かけた瞬間に視覚の一部になる。杖は手の延長になり、車は身体感覚ごと拡張する。</small></li>
+        <li class="em">だから人間は、機械を埋め込むまでもなく——<span class="term">生まれながらのサイボーグ</span>である<small><span class="en">natural-born cyborgs</span>　サイボーグとは、SFの未来像ではなく、人間の常態のこと。</small></li>
       </ul>
-      <div class="note">だから「人間が技術を使う」という一方向の図式では、もう説明がつかない。</div>
+      <div class="note">「まず人間がいて、あとから道具を使う」という順序が、ここで崩れる。<br><span class="arrow">→</span> この線を、第3部でさらに<strong>原初までさかのぼる</strong>——プリミティブ・サイボーグへ。</div>
     </div>
   </section>
 
   <!-- id3 -->
-  <section class="slide" data-title="③関係性から考えなければならない" data-part="2">
-    <div class="kicker">2 — 04</div>
-    <h2>③　関係性から考えなければならない<br><span class="thin en">関係論的アプローチ（クーケルバーク）／間柄（和辻）</span></h2>
-    <p class="tie-chip"><span class="tie">理由 1</span><span class="cap">2つの不可分性から</span></p>
+  <section class="slide" data-title="③相互作用し、関係のなかで何かになる" data-part="2">
+    <div class="kicker">2 — 05</div>
+    <h2>③　相互作用し、関係のなかで何かになる<br><span class="thin en">ANT／ポスト現象学／関係論（クーケルバーク）／間柄（和辻）</span></h2>
+    <p class="tie-chip"><span class="tie">理由 1</span><span class="cap">2つの不可分性から　／　見取り図の②HTR論</span></p>
     <div class="body">
       <div class="cols c3 tight3">
         <div class="col">
-          <div class="h">これまでの問い方</div>
-          <h3>「それは、何であるか」</h3>
-          <p>AIに意識はあるか。ロボットに権利はあるか。まず対象の性質を確定し、そこから扱い方を決める。</p>
+          <div class="h">相互作用｜ラトゥール／アイディ・フェルベーク</div>
+          <h3>ネットワークを構成する</h3>
+          <p>人もモノも等しく「アクター」。<strong>銃を持った人</strong>は、銃なしの人とも、人なしの銃とも違う存在になる。</p>
+          <p>技術は人間と世界のあいだに立ち、<strong>知覚と行為を媒介する</strong>。眼鏡、望遠鏡、超音波診断。</p>
         </div>
         <div class="col mid">
-          <div class="h">関係論的｜クーケルバーク</div>
-          <h3>「私たちは、どう関わっているか」</h3>
-          <p>技術も人間も、あらかじめ何かであるのではない。<strong>関係のなかで、初めて何かになる</strong>。</p>
+          <div class="h">関係論｜クーケルバーク</div>
+          <h3>「何であるか」より<br>「どう関わっているか」</h3>
+          <p>AIに意識はあるか——まず性質を確定してから扱いを決める、という順序をやめる。</p>
+          <p>技術も人間も、<strong>関係のなかで初めて何かになる</strong>。</p>
         </div>
         <div class="col">
           <div class="h">日本の系譜｜和辻哲郎</div>
@@ -882,13 +996,13 @@
           <p class="but">西洋では新しい見方だが、こちらは<strong>もともとそう考えてきた</strong>系譜。</p>
         </div>
       </div>
-      <div class="note">AIに意識があるかを確定できなくても、私たちはすでにAIに相談し、頼っている。問うべきは<strong>すでに始まっている関係</strong>のほうだ。<br><span class="arrow">→</span> 和辻の線は、第3部の<strong>技術多様性</strong>にそのままつながる。</div>
+      <div class="note">「人間が技術を使う」という一方向の図式では、もう説明がつかない。<span class="arrow">→</span> 和辻の線は、第3部の<strong>技術多様性</strong>にそのままつながる。</div>
     </div>
   </section>
 
   <!-- id4 -->
   <section class="slide" data-title="④ハイデガーの復活——ゲシュテル" data-part="2">
-    <div class="kicker">2 — 05</div>
+    <div class="kicker">2 — 06</div>
     <h2>④　ハイデガーの復活<br><span class="thin en">ゲシュテル（総かり立て体制）が、いま効いてくる</span></h2>
     <p class="tie-chip"><span class="tie">理由 2</span><span class="cap">実質的な技術決定論から</span></p>
     <div class="body">
@@ -904,23 +1018,41 @@
 
   <!-- id5 -->
   <section class="slide" data-title="⑤テクノロジーは西洋近代の一つのあり方に過ぎない" data-part="2">
-    <div class="kicker">2 — 06</div>
-    <h2>⑤　テクノロジーは、西洋近代の<br>一つのあり方に過ぎない<span class="thin en">　技術多様性（ユク・ホイ）</span></h2>
-    <p class="tie-chip"><span class="tie">理由 2</span><span class="cap">実質的な技術決定論から</span></p>
-    <div class="body">
-      <ul class="pts tight">
-        <li>「テクノロジー」は、人類に一つしかない普遍的なものだと思われている</li>
-        <li class="em">しかし、その中身は<strong>西洋近代という特定の世界観</strong>のもとで形づくられたもの<small>世界をメカニズムとして捉え、法則を取り出し、資源として用立てる——その一つのやり方が、いま地球全体を覆っている。</small></li>
-        <li>技術の背後には、つねに<span class="term">宇宙観・世界観</span>がある。ならば、別の世界観に根ざした<strong>別の技術のあり方</strong>もありうる</li>
+    <div class="kicker">2 — 07</div>
+    <h2 style="font-size:36px">⑤　テクノロジーは、西洋近代の一つのあり方に過ぎない<br><span class="thin en">技術多様性（ユク・ホイ）／神話・風土からの掘り起こし</span></h2>
+    <div class="body" style="margin-top:22px">
+      <ul class="pts compact" style="margin-bottom:14px">
+        <li>「テクノロジー」は普遍だと思われているが、その中身は<strong>西洋近代という特定の世界観</strong>の産物である</li>
+        <li class="em">技術の背後にはつねに<span class="term">宇宙観・世界観</span>がある。ならば<strong>別の技術のあり方</strong>もありうる——<span class="term">技術多様性</span></li>
       </ul>
-      <div class="note">この論点は、第3部でユク・ホイとともに詳しく扱う。<span class="arrow">→</span> まずは、いまの私たちがどの枠の中にいるかを見る。</div>
+      <div class="cols c3 tight3">
+        <div class="col">
+          <div class="h">実例｜『中国における技術への問い』</div>
+          <h3>道徳と結びついた技術</h3>
+          <p>天——宇宙的な理があり、それに即すことが善い。良い技術とは、その理にそぐう技術である。</p>
+          <p class="but">ただし、いまはほとんど失われている。中国もまた近代化＝ヨーロッパ化した。</p>
+        </div>
+        <div class="col mid">
+          <div class="h">掘り起こす道具 1｜世界神話学説</div>
+          <h3>神話（ヴィツェル）</h3>
+          <p>現代テクノロジーの根は<strong>メソポタミア</strong>まで遡る。「ひとつの秩序で世界を覆う」という方向ごと、私たちはこの系譜の上にいる。</p>
+          <p>神話は<strong>ローラシア型</strong>と、より古層の<strong>ゴンドワナ型</strong>に分かれる。前者を技術に読み込み続けるかぎり、帰結は同じになる。</p>
+        </div>
+        <div class="col">
+          <div class="h">掘り起こす道具 2｜風土論</div>
+          <h3>風土（和辻哲郎）</h3>
+          <p>モンスーン、砂漠、牧場。<strong>風土が、人間と技術のあり方を方向づける</strong>。</p>
+          <p class="but">③で見た「間柄」の線が、ここでつながる。</p>
+        </div>
+      </div>
+      <div class="note">別の技術のあり方は「あった」。しかし<strong>もう、そのままでは借りてこられない</strong>。だから、神話と風土を道具に<strong>掘り起こす</strong>——ここは<strong>七沢の主張</strong>。<span class="arrow">→</span> 実際に掘る作業は、第3部で。</div>
     </div>
   </section>
 
   <!-- id6 -->
-  <section class="slide" data-title="⑥「ヒューマン」と「テクノロジー」を乗り越える" data-part="2">
-    <div class="kicker">2 — 07</div>
-    <h2 style="font-size:36px">⑥　「ヒューマン」と「テクノロジー」を乗り越える</h2>
+  <section class="slide" data-title="現代の技術哲学の方向性" data-part="2">
+    <div class="kicker">2 — 08</div>
+    <h2 style="font-size:34px">現代の技術哲学の方向性｜<span class="thin">「ヒューマン」と「テクノロジー」を乗り越える</span></h2>
     <div class="body" style="margin-top:30px">
       <div class="cols c2 tight2">
         <div class="col reason">
@@ -937,7 +1069,7 @@
         </div>
       </div>
       <div class="conv-goal" style="margin-top:18px;font-size:20px;padding:16px 20px">
-        両方を降りた先にあるのは——<span style="color:var(--shu)">モア・ザン・ヒューマン</span>　と　<span style="color:var(--shu)">プリミティブ・サイボーグ</span>　なのではないか？
+        両方を降りた先にあるのは——<span style="color:var(--shu)">モア・ザン・ヒューマン</span>　と　<span style="color:var(--shu)">プリミティブ・サイボーグ</span>　なのではないか？<small style="font-size:13px;color:var(--ink-soft);font-weight:400;display:block;margin-top:6px">——ここは七沢の考えです。</small>
       </div>
       <div class="note">「ヒューマン」の外へ出る視点が<strong>モア・ザン・ヒューマン</strong>、「テクノロジー」の外へ出る視点が<strong>プリミティブ・サイボーグ</strong>。<span class="arrow">→</span> ここから第3部。ただしこの二つは思弁では手に入らない、<strong>身体から入ります。</strong></div>
     </div>
@@ -998,14 +1130,14 @@
     </div>
   </section>
   <!-- p3-03 kisou -->
-  <section class="slide" data-title="技術の基層——技術は、生きとし生けるものが発揮する" data-part="3">
+  <section class="slide" data-title="技術の基層——技術は、生きとし生けるものが環境に応じることで生じる" data-part="3">
     <div class="kicker">3 — 03</div>
-    <h2>技術の基層｜<span class="thin">技術は、生きとし生けるものが発揮する</span></h2>
+    <h2 style="font-size:36px">技術の基層｜<span class="thin">技術は、生きとし生けるものが環境に応じることで生じる</span></h2>
     <div class="body">
       <ul class="pts compact">
         <li>ジャングルの中では、道具をつくり、環境に働きかけているのは人間だけではない<small>蔓は他者の幹を足場にして光へ届く。ヤドカリは他者の殻を住居に変える。鳥は巣を編み、シロアリは空調の効いた塔を建て、菌糸は土の中に流通のネットワークを張る。</small></li>
         <li>それらは「本能」で、人間のものだけが「技術」——と切り分けてきたのは、<strong>人間だけを特別扱いする近代の区別</strong>ではないか</li>
-        <li class="em">技術とは、生きとし生けるものが<strong>環境と応答しながら発揮するはたらき</strong>である。人間の技術は、その長い連続のなかの一つの現れにすぎない</li>
+        <li class="em">技術とは、生きとし生けるものが<strong>環境に応じることで生じるはたらき</strong>である。人間の技術は、その長い連続のなかの一つの現れにすぎない</li>
         <li>ここを<span class="term">技術の基層</span>と呼びたい。技術哲学は、この基層から考え直すべきではないか</li>
       </ul>
       <div class="note">ここは<strong>七沢の主張</strong>。「技術＝人間だけのもの」という前提を外すと、人間中心主義は理屈ではなく<strong>実感として</strong>ほどける。<br><span class="arrow">→</span> 島で気づいたのは、この二つ——<strong>プリミティブ・サイボーグ</strong>と、<strong>人間だけのものではない技術</strong>。</div>
@@ -1034,81 +1166,16 @@
         <li>中心を別のものに移すのではなく、<strong>「中心が一つある」という考え方そのものを降りる</strong></li>
         <li class="em shu-li">ただし——<strong>思弁からは出てこない</strong>。頭の中だけで「近代の外」を考えることはできない<small>「人間を超えた」と机の上で語っているのは、やはり近代の人間である。だから欧米のポストヒューマニズムは、宣言のところで止まってしまう。</small></li>
       </ul>
-      <div class="note"><span class="arrow">→</span> ならば手がかりは、思弁ではなく<strong>実在した「別の技術」</strong>にしかない。そんなものが、本当にあったのか。</div>
-    </div>
-  </section>
-  <!-- p3-06 hui -->
-  <section class="slide" data-title="ユク・ホイ｜技術多様性" data-part="3">
-    <div class="kicker">3 — 06</div>
-    <h2>ユク・ホイ｜<span class="thin">技術多様性 <span class="en">Technodiversity</span></span></h2>
-    <div class="body">
-      <ul class="pts tight">
-        <li class="em">テクノロジーの背後には、宇宙観・世界観がある</li>
-        <li>そしてそれが、テクノロジーのあり方を方向づけている</li>
-        <li>『中国における技術への問い』：欧米に対して中国はこうなっている、という<strong>相対化</strong>ができる</li>
-      </ul>
-      <div class="cols c2" style="margin-top:18px">
-        <div class="col reason">
-          <div class="h">中国の例 ／ かつて</div>
-          <h3>道徳と結びついた技術</h3>
-          <p>天——宇宙的な理があり、それに即すことが善い。良い技術とは、その理にそぐう技術である。</p>
-        </div>
-        <div class="col reason">
-          <div class="h">中国の例 ／ いま</div>
-          <h3>ほとんど失われている</h3>
-          <p>古文書を探れば出てくるかもしれない。しかし中国もまた、近代化＝ヨーロッパ化した。</p>
-        </div>
-      </div>
-      <div class="note">つまり——別の技術のあり方は「あった」。しかし<strong>もう、そのままでは借りてこられない</strong>。<span class="arrow">→</span> では、どうやって掘り起こすのか。</div>
-    </div>
-  </section>
-  <!-- p3-07 myth -->
-  <section class="slide" data-title="神話・風土・技術——技術多様性の掘り起こし" data-part="3">
-    <div class="kicker">3 — 07</div>
-    <h2>神話・風土・技術｜<span class="thin">技術多様性の掘り起こし</span></h2>
-    <div class="body">
-      <ul class="pts tight">
-        <li>現代テクノロジーの根は、<strong>メソポタミア</strong>まで遡る<small>古代メソポタミア以来、都市と秩序の形成は技術の拡張とともに進んできた。「法＝ひとつの秩序で世界を覆う」という方向ごと、私たちはこの系譜の上にいる。</small></li>
-        <li><span class="term">世界神話学説</span>（ヴィツェル）——神話は大きく二系統に分かれる<small>メソポタミアからエジプト・中国・日本まで広がるローラシア型（宇宙の誕生から終末までを一つの物語で語る）と、より古層のゴンドワナ型。ローラシア型の価値観を技術に読み込み続けるかぎり、「世界を単一の秩序で覆う」という同じ帰結に至る。</small></li>
-        <li><span class="term">風土論</span>（和辻哲郎）——モンスーン・砂漠・牧場。風土が、人間と技術のあり方を方向づける</li>
-        <li class="em">神話と風土から、技術多様性を「掘り起こす」ことができる——別の神話・別の風土に根ざした、別の技術の系譜がありうる</li>
-      </ul>
-      <div class="note">ここは<strong>七沢の主張</strong>——原稿「神話・風土・技術」ほかで論じたもの。ホイの技術多様性を、神話学と風土論で具体化する試み。</div>
-    </div>
-  </section>
-  <!-- p3-08 japan -->
-  <section class="slide" data-title="では、日本は" data-part="3">
-    <div class="kicker">3 — 08</div>
-    <h2>では、日本は</h2>
-    <div class="body">
-      <ul class="pts tight">
-        <li>「世界一AIフレンドリーな国」を目指している日本</li>
-        <li>「日本的な世界観がある」とも言われる</li>
-        <li>しかし私たちは十分に欧米化していて、洋服を着て、ヨーロッパの人と変わらない生活をしている</li>
-        <li>もちろん日本的なエッセンスは見られる。だが基本は、すでに近代の内側にある</li>
-      </ul>
-      <div class="note"><span class="arrow">→</span> だからこそ、取り戻すのではなく<strong>内側から超えていく</strong>しかない。</div>
-    </div>
-  </section>
-  <!-- p3-09 posteurope -->
-  <section class="slide" data-title="『ポストヨーロッパ』——内側から超える" data-part="3">
-    <div class="kicker">3 — 09</div>
-    <h2>『ポストヨーロッパ』｜<span class="thin">内側から超える</span></h2>
-    <div class="body">
-      <ul class="pts tight">
-        <li>ここでの「ヨーロッパ」とは、<strong>現代社会の規範や基本となる信念</strong>のこと。つまり<span class="term">近代</span>である</li>
-        <li>だから、日本もすでにヨーロッパ化している</li>
-        <li class="em">乗り越えるべきは近代であり、それは外から取り替えるのではなく、<strong>内側から</strong>超えなければならない</li>
-      </ul>
+      <div class="note">第2部の⑤で見たとおり、<strong>別の技術のあり方は実在した</strong>。しかし私たちもすでに近代の内側にいる以上、それを外から借りてくることはできない。<span class="arrow">→</span> 内側から超えるしかない。ではどうやって。</div>
     </div>
   </section>
   <!-- p3-10 notextbook -->
   <section class="slide" data-title="しかし、教科書はない" data-part="3">
-    <div class="kicker">3 — 10</div>
+    <div class="kicker">3 — 06</div>
     <h2>しかし、教科書はない</h2>
     <div class="body">
       <ul class="pts">
-        <li>「内側から超える」と言っても、その<strong>教科書も設計図もない</strong></li>
+        <li>「内側から超える」と言っても、その<strong>教科書も設計図もない</strong><small>ホイ『ポストヨーロッパ』——乗り越えるべきは近代であり、それは外から取り替えるのではなく、内側から超えるほかない。</small></li>
         <li>別の世界観に根ざした技術は「あった」。しかし、そのままでは借りてこられない</li>
         <li class="em">手がかりは、実在した「別の技術」にしかない</li>
       </ul>
@@ -1117,7 +1184,7 @@
   </section>
   <!-- p3-11 history -->
   <section class="slide" data-title="だから、技術史が重要だ" data-part="3">
-    <div class="kicker">3 — 11</div>
+    <div class="kicker">3 — 07</div>
     <h2>だから、技術史が重要だ</h2>
     <div class="body">
       <div class="det">
@@ -1139,154 +1206,149 @@
           <text class="sub2" x="560" y="102">＝別の世界観の化石</text>
         </svg>
       </div>
-      <div class="note">単線の進歩は、現実ではなく「歴史の書き方」の産物。実際の技術史は、枝分かれと傍流と絶滅に満ちている。失われた枝は失敗作ではなく、別の世界観の化石——<strong>神話と風土を道具に、ここを掘り起こす</strong>。技術史は、未来の選択肢が埋まっている鉱脈である。<br>第1部の言い換え：技術によって、人間は世界を知る。<span class="arrow">→</span> <strong>技術史によって、人間は自分たちの別の可能性を知る。</strong><br>では、どうやって掘るのか。その手順を、そのままカリキュラムにした。</div>
+      <div class="note">単線の進歩は、現実ではなく「歴史の書き方」の産物。実際の技術史は、枝分かれと傍流と絶滅に満ちている。失われた枝は失敗作ではなく、別の世界観の化石——<strong>神話と風土を道具に、ここを掘り起こす</strong>。技術史は、未来の選択肢が埋まっている鉱脈である。<br>第1部の言い換え：技術によって、人間は世界を知る。<span class="arrow">→</span> <strong>技術史によって、人間は自分たちの別の可能性を知る。</strong><br>では、どうやって掘るのか。そして、掘った先で何をするのか。</div>
     </div>
   </section>
-  <!-- p3-12 mu4step -->
-  <section class="slide" data-title="mU｜「未開の未来」へ降りる4つのSTEP" data-part="3">
-    <div class="kicker">3 — 12</div>
-    <h2>mU｜<span class="thin">「未開の未来」へ降りる4つのSTEP</span></h2>
+  <!-- p3-08 jungle -->
+  <section class="slide" data-title="技術史を、体験的に理解する——JUNGLE Gathering" data-part="3">
+    <div class="kicker">3 — 08</div>
+    <h2>技術史を、体験的に理解する<br><span class="thin en">JUNGLE Gathering（西表島）</span></h2>
     <div class="body">
-      <div class="step4">
+      <div class="cols c2">
+        <div class="col reason">
+          <div class="h">やっていること</div>
+          <h3>「現代人にジャングルを処方する」</h3>
+          <p>西表島の奥地に、厳選した道具だけを持って滞在する。島の人に学びながら、狩猟採集、火起こし、塩づくり、道具づくり。インフラも時計もない世界で、道具を作りながら暮らしてみる。</p>
+          <p>技術史は、読むだけでは身につかない。<strong>手を動かし、身体で確かめる</strong>しかない。</p>
+        </div>
+        <div class="col reason">
+          <div class="h">そこで起きること</div>
+          <h3>三つが、身体で入れ替わる</h3>
+          <p><strong>①</strong> 道具の意味が変わる——何が「最低限」かが、頭ではなく身体でわかる（＝原初のサイボーグ）。</p>
+          <p><strong>②</strong>「つくる」の順序が変わる——設計図からではなく、素材との応答から立ち上がる（＝アンラーン）。</p>
+          <p><strong>③</strong> 技術が人間だけのものではないことが見えてくる（＝技術の基層）。</p>
+        </div>
+      </div>
+      <div class="note">第3部でここまで話してきた三つが、そのまま身体の経験として現れる。<span class="arrow">→</span> 技術史を、身体でさかのぼる。</div>
+    </div>
+  </section>
+  <!-- p3-08 future -->
+  <section class="slide" data-title="異なる未来を創造する" data-part="3">
+    <div class="kicker">3 — 09</div>
+    <h2 style="font-size:34px">異なる未来を創造する｜<span class="thin">過去へさかのぼり、未来へ投影する</span></h2>
+    <div class="body" style="margin-top:24px">
+      <div class="fut">
+        <svg viewBox="0 0 1600 500" aria-label="ビッグバンから現在までの時間軸と、現在から扇形に広がる「予測される未来」、その上端に沿って「見渡せる未来の範囲」が示された図">
+          <defs>
+            <marker id="futA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#14140f"/>
+            </marker>
+          </defs>
+          <line class="cone" x1="768" y1="250" x2="1585" y2="55"/>
+          <line class="cone" x1="768" y1="250" x2="1585" y2="445"/>
+          <text class="rg" x="1052" y="172" transform="rotate(-13.4 1052 172)">見渡せる未来の範囲</text>
+          <text class="pf" x="1230" y="300">予測される未来</text>
+
+          <line class="tl" x1="110" y1="250" x2="762" y2="250" marker-end="url(#futA)"/>
+          <text class="tf" x="430" y="226">時間の流れ →</text>
+
+          <g class="tick"><circle cx="110" cy="250" r="9"/><line x1="110" y1="264" x2="110" y2="304"/><text x="110" y="330"><tspan x="110" dy="0">ビ</tspan><tspan x="110" dy="27">ッ</tspan><tspan x="110" dy="27">ク</tspan><tspan x="110" dy="27">バ</tspan><tspan x="110" dy="27">ン</tspan></text></g>
+          <g class="tick"><circle cx="183" cy="250" r="9"/><line x1="183" y1="264" x2="183" y2="304"/><text x="183" y="330"><tspan x="183" dy="0">地</tspan><tspan x="183" dy="27">球</tspan><tspan x="183" dy="27">の</tspan><tspan x="183" dy="27">誕</tspan><tspan x="183" dy="27">生</tspan></text></g>
+          <g class="tick"><circle cx="256" cy="250" r="9"/><line x1="256" y1="264" x2="256" y2="304"/><text x="256" y="330"><tspan x="256" dy="0">生</tspan><tspan x="256" dy="27">命</tspan><tspan x="256" dy="27">の</tspan><tspan x="256" dy="27">誕</tspan><tspan x="256" dy="27">生</tspan></text></g>
+          <g class="tick"><circle cx="329" cy="250" r="9"/><line x1="329" y1="264" x2="329" y2="304"/><text x="329" y="330"><tspan x="329" dy="0">道</tspan><tspan x="329" dy="27">具</tspan><tspan x="329" dy="27">の</tspan><tspan x="329" dy="27">誕</tspan><tspan x="329" dy="27">生</tspan></text></g>
+          <g class="tick"><circle cx="402" cy="250" r="9"/><line x1="402" y1="264" x2="402" y2="304"/><text x="402" y="330"><tspan x="402" dy="0">火</tspan><tspan x="402" dy="27">の</tspan><tspan x="402" dy="27">使</tspan><tspan x="402" dy="27">用</tspan></text></g>
+          <g class="tick"><circle cx="476" cy="250" r="9"/><line x1="476" y1="264" x2="476" y2="304"/><text x="476" y="330"><tspan x="476" dy="0">国</tspan><tspan x="476" dy="27">家</tspan><tspan x="476" dy="27">の</tspan><tspan x="476" dy="27">誕</tspan><tspan x="476" dy="27">生</tspan></text></g>
+          <g class="tick"><circle cx="549" cy="250" r="9"/><line x1="549" y1="264" x2="549" y2="304"/><text x="549" y="330"><tspan x="549" dy="0">印</tspan><tspan x="549" dy="27">刷</tspan><tspan x="549" dy="27">の</tspan><tspan x="549" dy="27">発</tspan><tspan x="549" dy="27">明</tspan></text></g>
+          <g class="tick"><circle cx="622" cy="250" r="9"/><line x1="622" y1="264" x2="622" y2="304"/><text x="622" y="330"><tspan x="622" dy="0">産</tspan><tspan x="622" dy="27">業</tspan><tspan x="622" dy="27">革</tspan><tspan x="622" dy="27">命</tspan></text></g>
+          <g class="tick"><circle cx="695" cy="250" r="9"/><line x1="695" y1="264" x2="695" y2="304"/><text x="695" y="330"><tspan x="695" dy="0">A</tspan><tspan x="695" dy="27">I</tspan><tspan x="695" dy="27">の</tspan><tspan x="695" dy="27">発</tspan><tspan x="695" dy="27">明</tspan></text></g>
+          <g class="tick now"><circle cx="768" cy="250" r="11"/><line x1="768" y1="266" x2="768" y2="304"/><text x="768" y="330"><tspan x="768" dy="0">現</tspan><tspan x="768" dy="27">在</tspan></text></g>
+
+          <g class="eye">
+            <path class="lf" d="M1178 147 Q 1200 127 1222 147 Q 1200 167 1178 147 Z"/>
+            <circle class="pu" cx="1200" cy="147" r="9"/>
+            <path class="lf" d="M1226 136 Q 1248 116 1270 136 Q 1248 156 1226 136 Z"/>
+            <circle class="pu" cx="1248" cy="136" r="9"/>
+          </g>
+        </svg>
+      </div>
+      <div class="step4 mini">
         <div class="st">
           <div class="n">STEP 01</div>
           <h3>未来を見通す</h3>
-          <p>AIによって「つくる」がどう変わるのかを、まず見晴らす。</p>
-          <div class="tag">いまを知る</div>
+          <p>いまの延長線上に、どこまで見えているのかを確かめる。</p>
         </div>
         <div class="st on">
           <div class="n">STEP 02</div>
           <h3>根源にさかのぼる</h3>
-          <p>そもそも、なぜ人はつくるのか。技術哲学・技術史・人類学・身体・道具・環境・手仕事から問い直す。</p>
-          <div class="tag">技術史を掘る</div>
+          <p>「つくる」の根源へ。技術哲学・技術史・人類学・身体・道具・環境・手仕事。</p>
         </div>
         <div class="st">
           <div class="n">STEP 03</div>
           <h3>現在を再定義する</h3>
           <p>見落とされてきた技術の可能性を、いまの現実のなかに発見する。</p>
-          <div class="tag">枝を見つける</div>
         </div>
         <div class="st">
           <div class="n">STEP 04</div>
           <h3>社会実装を構想する</h3>
           <p>見つけた未来を、試作し、実践する。</p>
-          <div class="tag">つくってみる</div>
         </div>
       </div>
-      <div class="note"><strong>makers Unlearn（mU）2026</strong>｜山梨県立大学 × Technel。全12科目・210時間、50名以上の専門家と学ぶ選択制プログラム（2026年7月開講）。掲げているのは——<strong>「未開の未来へ」</strong>。<br>ここまで話してきた「技術史を掘る」という作業を、そのまま学びの設計にしたものです。<a class="booklink" href="https://makers.yamanashi-ken.ac.jp/mu">makers.yamanashi-ken.ac.jp/mu</a></div>
+      <div class="note">「見渡せる未来」は、いまの延長線上にしか広がらない。<strong>さかのぼった分だけ、投影できる未来の角度が広がる。</strong></div>
     </div>
   </section>
-  <!-- p3-13 kazenotani -->
-  <section class="slide" data-title="五千年の「都市化」を超える——風の谷" data-part="3">
-    <div class="kicker">3 — 13</div>
-    <h2>五千年の「都市化」を超える<br><span class="thin en">安宅和人「風の谷を創る」</span></h2>
-    <div class="body">
-      <div class="bookrow">
-        <!-- 書影を入れる場合：この div の中に <img src="assets/kazenotani.jpg" alt=""> を追加 -->
-        <div class="book">
-          <span class="bmark"></span>
-          <div class="bt">「風の谷」<br>という希望</div>
-          <div class="bs">残すに値する未来をつくる</div>
-          <div class="ba">安宅和人</div>
-          <div class="bp">英治出版</div>
-        </div>
-        <div>
-          <ul class="pts tight">
-            <li class="em">五千年以上にわたって続いてきた<span class="term">「都市化」</span>——人が都市に集中していく流れ<small>それ以外に、人が生きられる場所のかたちはないのか。「都市しか住めない未来」への違和感から始まった構想（2017年〜）。</small></li>
-            <li>森、水系、エネルギー、教育、医療、食と農、土木、データとAI——分野を横断して、数百年先の社会の「かたち」を考える</li>
-            <li>最先端のテクノロジーを使いながら、<strong>その土地の素材で、美しい場所をつくる</strong></li>
-          </ul>
+
+  <!-- p3-10 examples -->
+  <section class="slide" data-title="異なる未来の可能性｜三つの事例" data-part="3">
+    <div class="kicker">3 — 10</div>
+    <h2>異なる未来の可能性｜<span class="thin">三つの事例</span></h2>
+    <div class="body" style="margin-top:34px">
+      <div class="ex3">
+        <div class="ex">
+          <!-- 書影を入れる場合：この div の中に <img src="assets/kazenotani.jpg" alt=""> を追加 -->
+          <div class="book sm">
+            <span class="bmark"></span>
+            <div class="bt">「風の谷」<br>という希望</div>
+            <div class="bs">残すに値する未来をつくる</div>
+            <div class="ba">安宅和人</div>
+            <div class="bp">英治出版</div>
+          </div>
+          <h3>五千年の「都市化」を超える</h3>
+          <p>人が都市に集中していく五千年の流れの外に、人が生きられる場所のかたちはないのか。分野を横断して数百年先を考え、<strong>最先端の技術で、その土地の素材から美しい場所をつくる</strong>。</p>
           <a class="booklink" href="https://eijipress.co.jp/products/2350">eijipress.co.jp/products/2350</a>
         </div>
-      </div>
-      <div class="note">原初までさかのぼった目で、もう一度いまを見る。<span class="arrow">→</span> 五千年の「都市化」の外に、場所をつくろうとしている人たちがいる。</div>
-    </div>
-  </section>
-  <!-- p3-14 matagi -->
-  <section class="slide" data-title="計算機自然の辺縁へ——マタギドライヴ" data-part="3">
-    <div class="kicker">3 — 14</div>
-    <h2>計算機自然の辺縁へ<br><span class="thin en">落合陽一『マタギドライヴ』</span></h2>
-    <div class="body">
-      <div class="bookrow">
-        <!-- 書影を入れる場合：この div の中に <img src="assets/matagidrive.jpg" alt=""> を追加 -->
-        <div class="book">
-          <span class="bmark"></span>
-          <div class="bt">マタギ<br>ドライヴ</div>
-          <div class="bs">計算機自然の辺縁における<br>脱人間知性的文明論</div>
-          <div class="ba">落合陽一</div>
-          <div class="bp">PLANETS／第二次惑星開発委員会</div>
+        <div class="ex">
+          <!-- 書影を入れる場合：この div の中に <img src="assets/matagidrive.jpg" alt=""> を追加 -->
+          <div class="book sm">
+            <span class="bmark"></span>
+            <div class="bt">マタギ<br>ドライヴ</div>
+            <div class="bs">計算機自然の辺縁における<br>脱人間知性的文明論</div>
+            <div class="ba">落合陽一</div>
+            <div class="bp">PLANETS</div>
+          </div>
+          <h3>計算機自然の辺縁へ</h3>
+          <p>デジタルネイチャー化した世界で、人間の実存はどこにあるのか。既存の価値体系の<strong>周縁</strong>で、「運ゲー」的な環境に身を委ねて新たな価値を生む心性＝「マタギ」的。中心ではなく、辺縁へ。</p>
+          <a class="booklink" href="https://www.hanmoto.com/bd/isbn/9784911149041">hanmoto.com／マタギドライヴ</a>
         </div>
-        <div>
-          <ul class="pts tight">
-            <li>デジタルネイチャー化した世界で、人間の実存はどこにあるのか——七年の格闘の末の「解」</li>
-            <li class="em">既存の価値体系の<span class="term">周縁</span>にいながら、自然的・「運ゲー」的な環境に身を委ねることで、新たな価値を生む心性＝<strong>「マタギ」的</strong></li>
-            <li>中心を目指すのではなく、辺縁へ。<strong>脱人間知性的</strong>な文明のかたちを構想する</li>
-          </ul>
-          <a class="booklink" href="https://www.hanmoto.com/bd/isbn/9784911149041">hanmoto.com/bd/isbn/9784911149041</a>
-        </div>
-      </div>
-      <div class="note">風の谷は<strong>場所</strong>から、マタギドライヴは<strong>心性</strong>から、同じ方向を指している。<br><span class="arrow">→</span> では、私たち自身は何をしているのか。二つの実践を並べます。</div>
-    </div>
-  </section>
-  <!-- p3-15 practice-nanasawa -->
-  <section class="slide" data-title="実践①｜七沢智樹——掘るための道具と、身体" data-part="3">
-    <div class="kicker">3 — 15</div>
-    <h2>実践①　七沢智樹｜<span class="thin">掘るための道具と、身体</span></h2>
-    <div class="body">
-      <div class="axes">
-        <div class="axis">
-          <div class="n">PRACTICE 01 ｜ 場をつくる</div>
-          <h3>makers Unlearn（mU）</h3>
-          <ul>
-            <li>「技術は道具にすぎない」を<strong>学び落とす（Unlearn）</strong>ための場</li>
-            <li>山梨県立大学 × Technel。AI時代の「つくる」を根源から問い直す社会人向けプログラム（2026年7月開講）</li>
-            <li>哲学・人類学・デザイン・エンジニアリング・社会実装の横断——鉱脈を掘る「発掘道具一式」</li>
-          </ul>
-        </div>
-        <div class="axis">
-          <div class="n">PRACTICE 02 ｜ 身体でさかのぼる</div>
-          <h3>JUNGLE Gathering（西表島）</h3>
-          <ul>
-            <li>技術史を、<strong>身体でさかのぼる</strong>試み——「現代人にジャングルを処方する」</li>
-            <li>西表島の奥地に、厳選した道具だけを持って滞在。島の人に学びながら、狩猟採集・塩づくり・道具づくり</li>
-            <li>インフラも時計もない世界で、道具を作りながら暮らし、技術の意味を身体に取り戻す</li>
-          </ul>
+        <div class="ex">
+          <!-- 書影を入れる場合：この div の中に <img src="assets/niwanohanashi.jpg" alt=""> を追加 -->
+          <div class="book sm">
+            <span class="bmark"></span>
+            <div class="bt">庭の話</div>
+            <div class="bs">プラットフォームでも<br>コモンズでもない、<br>もうひとつの公共</div>
+            <div class="ba">宇野常寛</div>
+            <div class="bp">講談社</div>
+          </div>
+          <h3>庭という形式</h3>
+          <p>私有地でありながら公共に開かれ、人が<strong>人間以外の「事物」と関わる</strong>場。人間が完全には支配できない生成の側に、場所をひらく。ケア、民藝、中動態、作庭から構想される、もうひとつの公共。</p>
+          <a class="booklink" href="https://www.kodansha.co.jp/book/products/0000404327">kodansha.co.jp／庭の話</a>
         </div>
       </div>
-      <div class="note">頭で掘る場と、身体で掘る場。どちらも、モア・ザン・ヒューマンの技術へ降りていくための実践です。</div>
-    </div>
-  </section>
-  <!-- p3-16 practice-uno -->
-  <section class="slide" data-title="実践②｜宇野常寛——庭という形式" data-part="3">
-    <div class="kicker">3 — 16</div>
-    <h2>実践②　宇野常寛｜<span class="thin">庭という形式</span></h2>
-    <div class="body">
-      <div class="axes">
-        <div class="axis">
-          <div class="n">PRACTICE 03 ｜ 場をつくる</div>
-          <h3>庭プロジェクト</h3>
-          <ul>
-            <li>インターネット上の<strong>プラットフォームに対抗しうる実空間</strong>をつくる——正確には、そのためのコンセプトをつくる</li>
-            <li>「庭」＝私有地でありながら、公共に開かれている場所</li>
-            <li>人間が、人間以外の<strong>「事物」とコミュニケーションを取る</strong>場であること。人間が完全には支配できない生成（自然・生態系）を体験できること</li>
-          </ul>
-        </div>
-        <div class="axis">
-          <div class="n">PRACTICE 04 ｜ 概念をつくる</div>
-          <h3>『庭の話』（講談社・2024）</h3>
-          <ul>
-            <li>ケア、民藝、パターン・ランゲージ、中動態、そして<strong>作庭</strong>——一見無関係な知見を総動員する</li>
-            <li>プラットフォームでもコモンズでもない、<strong>「庭」という新しい公共空間のモデル</strong>を構想する</li>
-            <li class="lnk"><a class="booklink" href="https://www.kodansha.co.jp/book/products/0000404327">kodansha.co.jp／庭の話</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="note">人ではなく<strong>モノ</strong>との関わりから、人間を捉え直す。人間が支配しきれない生成の側に、場所をひらく。<br><span class="arrow">→</span> これは、<strong>モア・ザン・ヒューマンの技術</strong>そのものではないか。七沢はジャングルから、宇野さんは都市から、同じ場所を指している。</div>
+      <div class="note">場所から、心性から、公共から。三つとも<strong>中心ではなく辺縁</strong>に、そして<strong>人間だけではないもの</strong>との関わりに未来を見ている。<span class="arrow">→</span> モア・ザン・ヒューマンの技術の、すでに始まっている実例ではないか。</div>
     </div>
   </section>
   <!-- p3-17 qed -->
   <section class="slide" data-title="論証｜はじめの問いに戻る" data-part="3">
-    <div class="kicker">3 — 17</div>
+    <div class="kicker">3 — 13</div>
     <h2>論証｜<span class="thin">はじめの問いに戻る</span></h2>
     <div class="body">
       <div class="qed">
@@ -1310,7 +1372,7 @@
           <div class="p"><span class="n">命題 3 ｜ 理由2</span>実質的な技術決定論は、<br>乗り越えられる<em>∴ 一本道に見えるのは、書き方の産物にすぎない</em></div>
           <ul>
             <li>単線の進歩史は現実ではなく「歴史の書き方」。技術史には掘り起こされていない枝がある</li>
-            <li>掘るための方法がある（mUの4STEP）。掘っている実践がすでにある（ジャングル・風の谷・マタギ・庭）</li>
+            <li>掘るための方法がある（4つのSTEP）。そして掘っている実践がすでにある（ジャングル・風の谷・マタギ・庭）</li>
             <li>モア・ザン・ヒューマンの視点に立てば、選択肢は一つではない。<strong>決定論は、運命ではなくなる</strong></li>
           </ul>
         </div>
@@ -1320,7 +1382,7 @@
   </section>
   <!-- p3-18 close -->
   <section class="slide" data-title="結び：異なる技術に、気づいていく" data-part="3">
-    <div class="kicker">3 — 18</div>
+    <div class="kicker">3 — 14</div>
     <h2>結び｜<span class="thin">異なる技術に、気づいていく</span></h2>
     <div class="body">
       <p class="statement">「異なる技術」は、遠くではなく<br>日常の中に、すでに<br>たくさん埋め込まれている。<small>異なる技術の可能性を、日常の中で、いま、いかに発見するか——その試みこそが大切だ。西表島のジャングルや古文書の中だけの話ではない。台所に、畑に、路地に、言葉づかいに、別の系譜の技術は生きている。そして庭は、すでにあちこちにある。</small></p>
@@ -1342,12 +1404,12 @@
         <div class="col">
           <div class="h">Part 2</div>
           <h3>いま何が問われているか</h3>
-          <p>現代の技術哲学の6つの問い。突き詰めると、降ろすべき中心が二つ見えてくる——「ヒューマン」と「テクノロジー」。</p>
+          <p>問いの見取り図と、現代の技術哲学の五つの考え方。その先の方向性は、「ヒューマン」と「テクノロジー」の両方を乗り越えることにある。</p>
         </div>
         <div class="col">
           <div class="h">Part 3</div>
           <h3>どこへ向かうか</h3>
-          <p>身体から入る。西表島、原初のサイボーグ、技術の基層。教科書はないから技術史を掘る——その方法が4STEP、実践が mU・ジャングル・庭。最後に、はじめの問いに戻って論証する。</p>
+          <p>身体から入る。西表島、原初のサイボーグ、技術の基層。教科書はないから技術史を掘り、ジャングルで身体に入れ、未来へ投影する。三つの事例のあと、はじめの問いに戻って論証する。</p>
         </div>
       </div>
       <div class="note">本スライドは、レクチャー音声の文字起こしを構造化したものです。固有名・書名は発話にもとづく暫定表記を含みます。</div>
@@ -1576,6 +1638,88 @@
 
 
 
+  <!-- ax13 -->
+  <section class="slide" data-title="では、日本は" data-part="x">
+    <div class="kicker">APPENDIX 13</div>
+    <h2>では、日本は</h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>「世界一AIフレンドリーな国」を目指している日本</li>
+        <li>「日本的な世界観がある」とも言われる</li>
+        <li>しかし私たちは十分に欧米化していて、洋服を着て、ヨーロッパの人と変わらない生活をしている</li>
+        <li>もちろん日本的なエッセンスは見られる。だが基本は、すでに近代の内側にある</li>
+      </ul>
+      <div class="note"><span class="arrow">→</span> だからこそ、取り戻すのではなく<strong>内側から超えていく</strong>しかない。</div>
+    </div>
+  </section>
+  <!-- ax14 -->
+  <section class="slide" data-title="『ポストヨーロッパ』——内側から超える" data-part="x">
+    <div class="kicker">APPENDIX 14</div>
+    <h2>『ポストヨーロッパ』｜<span class="thin">内側から超える</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>ここでの「ヨーロッパ」とは、<strong>現代社会の規範や基本となる信念</strong>のこと。つまり<span class="term">近代</span>である</li>
+        <li>だから、日本もすでにヨーロッパ化している</li>
+        <li class="em">乗り越えるべきは近代であり、それは外から取り替えるのではなく、<strong>内側から</strong>超えなければならない</li>
+      </ul>
+    </div>
+  </section>
+  <!-- ax15 -->
+  <section class="slide" data-title="実践①｜七沢智樹——掘るための道具と、身体" data-part="x">
+    <div class="kicker">3 — 11</div>
+    <h2>実践①　七沢智樹｜<span class="thin">掘るための道具と、身体</span></h2>
+    <div class="body">
+      <div class="axes">
+        <div class="axis">
+          <div class="n">PRACTICE 01 ｜ 場をつくる</div>
+          <h3>makers Unlearn（mU）</h3>
+          <ul>
+            <li>「技術は道具にすぎない」を<strong>学び落とす（Unlearn）</strong>ための場</li>
+            <li>山梨県立大学 × Technel。AI時代の「つくる」を根源から問い直す社会人向けプログラム（2026年7月開講）</li>
+            <li>哲学・人類学・デザイン・エンジニアリング・社会実装の横断——鉱脈を掘る「発掘道具一式」</li>
+          </ul>
+        </div>
+        <div class="axis">
+          <div class="n">PRACTICE 02 ｜ 身体でさかのぼる</div>
+          <h3>JUNGLE Gathering（西表島）</h3>
+          <ul>
+            <li>技術史を、<strong>身体でさかのぼる</strong>試み——「現代人にジャングルを処方する」</li>
+            <li>西表島の奥地に、厳選した道具だけを持って滞在。島の人に学びながら、狩猟採集・塩づくり・道具づくり</li>
+            <li>インフラも時計もない世界で、道具を作りながら暮らし、技術の意味を身体に取り戻す</li>
+          </ul>
+        </div>
+      </div>
+      <div class="note">頭で掘る場と、身体で掘る場。どちらも、モア・ザン・ヒューマンの技術へ降りていくための実践です。</div>
+    </div>
+  </section>
+  <!-- ax16 -->
+  <section class="slide" data-title="実践②｜宇野常寛——庭という形式" data-part="x">
+    <div class="kicker">3 — 12</div>
+    <h2>実践②　宇野常寛｜<span class="thin">庭という形式</span></h2>
+    <div class="body">
+      <div class="axes">
+        <div class="axis">
+          <div class="n">PRACTICE 03 ｜ 場をつくる</div>
+          <h3>庭プロジェクト</h3>
+          <ul>
+            <li>インターネット上の<strong>プラットフォームに対抗しうる実空間</strong>をつくる——正確には、そのためのコンセプトをつくる</li>
+            <li>「庭」＝私有地でありながら、公共に開かれている場所</li>
+            <li>人間が、人間以外の<strong>「事物」とコミュニケーションを取る</strong>場であること。人間が完全には支配できない生成（自然・生態系）を体験できること</li>
+          </ul>
+        </div>
+        <div class="axis">
+          <div class="n">PRACTICE 04 ｜ 概念をつくる</div>
+          <h3>『庭の話』（講談社・2024）</h3>
+          <ul>
+            <li>ケア、民藝、パターン・ランゲージ、中動態、そして<strong>作庭</strong>——一見無関係な知見を総動員する</li>
+            <li>プラットフォームでもコモンズでもない、<strong>「庭」という新しい公共空間のモデル</strong>を構想する</li>
+            <li class="lnk"><a class="booklink" href="https://www.kodansha.co.jp/book/products/0000404327">kodansha.co.jp／庭の話</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="note">人ではなく<strong>モノ</strong>との関わりから、人間を捉え直す。人間が支配しきれない生成の側に、場所をひらく。<br><span class="arrow">→</span> これは、<strong>モア・ザン・ヒューマンの技術</strong>そのものではないか。七沢はジャングルから、宇野さんは都市から、同じ場所を指している。</div>
+    </div>
+  </section>
 </div><!-- /stage -->
 <div class="bar" id="bar"></div>
 </div><!-- /deck -->
