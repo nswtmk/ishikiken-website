@@ -215,6 +215,32 @@
   .ship-cols .col h3 { font-size: 22px; margin-bottom: 8px; }
   .ship-cols .col p { font-size: 15.5px; line-height: 1.9; }
 
+  /* ---------- then/now: 思考実験から現実へ ---------- */
+  .tn { border: 1px solid var(--line); }
+  .tn-row { display: grid; grid-template-columns: 1fr 46px 1.25fr; align-items: stretch; border-top: 1px solid var(--line); }
+  .tn-row:first-child { border-top: none; }
+  .tn-head { background: #f3f2ea; }
+  .tn-head .tn-c { font-size: 12px; letter-spacing: .2em; color: var(--ink-soft); font-weight: 600; padding: 11px 24px; }
+  .tn-c { padding: 13px 24px; font-size: 16px; line-height: 1.7; display: flex; align-items: center; }
+  .tn-c.then { color: var(--ink-soft); }
+  .tn-c.now { font-weight: 700; border-left: 1px solid var(--line); }
+  .tn-c.mid { justify-content: center; color: var(--moss); font-size: 17px; padding: 0; }
+
+  /* ---------- day: 一日の媒介 ---------- */
+  .day { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .day-cell { background: var(--paper); padding: 22px 20px 26px; }
+  .day-cell .t { font-size: 12px; letter-spacing: .16em; color: var(--moss); font-weight: 600; margin-bottom: 12px; }
+  .day-cell h3 { font-size: 18px; font-weight: 700; line-height: 1.6; margin-bottom: 10px; }
+  .day-cell p { font-size: 13.5px; line-height: 1.8; color: var(--ink-soft); }
+
+  /* ---------- one: 一撃の事例 ---------- */
+  .one { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: center; }
+  .one-q { font-size: 34px; font-weight: 700; line-height: 1.8; letter-spacing: .02em; }
+  .one-q .shu { color: var(--shu); }
+  .one-list { list-style: none; border-left: 2px solid var(--shu); padding-left: 26px; }
+  .one-list li { font-size: 16px; line-height: 1.9; color: var(--ink-soft); margin-bottom: 14px; }
+  .one-list li strong { color: var(--ink); }
+
   /* ---------- paths ---------- */
   .paths { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
   .path { border: 1px solid var(--line); padding: 26px 24px 30px; }
@@ -484,9 +510,109 @@
     </div>
   </section>
 
+  <!-- ex1 -->
+  <section class="slide" data-title="事例①｜かつては思考実験、いまは仕様書" data-part="1">
+    <div class="kicker">1 — 06</div>
+    <h2>かつては思考実験、いまは仕様書</h2>
+    <div class="body">
+      <div class="tn">
+        <div class="tn-row tn-head">
+          <div class="tn-c">かつて ／ 哲学の教室の中</div>
+          <div class="tn-c mid"></div>
+          <div class="tn-c now">いま ／ 現実の実務・ニュース</div>
+        </div>
+        <div class="tn-row">
+          <div class="tn-c then">トロッコ問題</div>
+          <div class="tn-c mid">→</div>
+          <div class="tn-c now">自動運転の挙動仕様として、実際に書かれている</div>
+        </div>
+        <div class="tn-row">
+          <div class="tn-c then">戦争における「殺してよい相手」の哲学</div>
+          <div class="tn-c mid">→</div>
+          <div class="tn-c now">誰を撃つかを、標的選定AIが先に絞り込んでいる</div>
+        </div>
+        <div class="tn-row">
+          <div class="tn-c then">中国語の部屋</div>
+          <div class="tn-c mid">→</div>
+          <div class="tn-c now">LLMを前に、毎日「わかっているのか」が問われる</div>
+        </div>
+        <div class="tn-row">
+          <div class="tn-c then">人間とは何か</div>
+          <div class="tn-c mid">→</div>
+          <div class="tn-c now">AIの著作権・責任・人格として、法廷と議会で決められている</div>
+        </div>
+        <div class="tn-row">
+          <div class="tn-c then">世界は実在するか（シミュレーション仮説）</div>
+          <div class="tn-c mid">→</div>
+          <div class="tn-c now">テック業界の一部が本気で信じ、投資判断の背景にある</div>
+        </div>
+        <div class="tn-row">
+          <div class="tn-c then">神は世界を救うのか</div>
+          <div class="tn-c mid">→</div>
+          <div class="tn-c now">AGI待望論として、資金と人材が動いている</div>
+        </div>
+      </div>
+      <div class="note">哲学の問いが、机上から現場へ降りてきた。<span class="arrow">→</span> 答えを出さないという選択肢が、もうない。</div>
+    </div>
+  </section>
+
+  <!-- ex2 -->
+  <section class="slide" data-title="事例②｜あなたの今日一日" data-part="1">
+    <div class="kicker">1 — 07</div>
+    <h2>あなたの今日一日｜<span class="thin">どこに、技術が挟まっていたか</span></h2>
+    <div class="body">
+      <div class="day">
+        <div class="day-cell">
+          <div class="t">朝</div>
+          <h3>目が覚める</h3>
+          <p>起きる時刻を決めたのは、あなたか、通知か。</p>
+        </div>
+        <div class="day-cell">
+          <div class="t">通勤</div>
+          <h3>世界を知る</h3>
+          <p>今日の「世の中」は、フィードが選んだ順番で届く。</p>
+        </div>
+        <div class="day-cell">
+          <div class="t">仕事</div>
+          <h3>考える・書く</h3>
+          <p>AIに下書きさせる。考えの筋も、言い回しも、少しずつ寄っていく。</p>
+        </div>
+        <div class="day-cell">
+          <div class="t">選ぶ</div>
+          <h3>欲しいと思う</h3>
+          <p>買うもの、観るもの、会う人。候補はレコメンドが並べたもの。</p>
+        </div>
+        <div class="day-cell">
+          <div class="t">夜</div>
+          <h3>迷いを相談する</h3>
+          <p>仕事を辞めるか、別れるか。人ではなく、AIに聞く人が現れている。</p>
+        </div>
+      </div>
+      <div class="note">どれも「便利な道具を使った」だけに見える。しかし、<strong>何を欲しいと思うか、何を正しいと思うか</strong>まで、すでに媒介されている。<br><span class="arrow">→</span> その一日は、本当にあなたが選んだのか。</div>
+    </div>
+  </section>
+
+  <!-- ex3 -->
+  <section class="slide" data-title="事例③｜技術問題は、そのまま倫理問題になる" data-part="1">
+    <div class="kicker">1 — 08</div>
+    <h2>技術問題は、そのまま倫理問題になる</h2>
+    <div class="body">
+      <div class="one">
+        <p class="one-q">「誰を撃つか」を、<br><span class="shu">先に絞り込むのは</span><br>アルゴリズムである。</p>
+        <ul class="one-list">
+          <li><strong>これは技術の話か、倫理の話か。</strong>もう分けられない。</li>
+          <li>閾値をどこに置くか、誤検出をどこまで許すか——<strong>設計上のパラメータが、そのまま生死の判断になる</strong></li>
+          <li>その判断は、法廷でも議会でもなく、<strong>開発の現場で先に決まっている</strong></li>
+          <li>だから「作ってから考える」は、もう成り立たない</li>
+        </ul>
+      </div>
+      <div class="note">同じ構造が、医療のトリアージにも、採用の選別にも、与信にも、司法の量刑支援にもある。<br><span class="arrow">→</span> <strong>技術問題＝倫理問題</strong>。これが、いま起きていること。</div>
+    </div>
+  </section>
+
   <!-- 11 -->
   <section class="slide" data-title="生成AIによって、2つがアクチュアルになった" data-part="1">
-    <div class="kicker">1 — 06</div>
+    <div class="kicker">1 — 09</div>
     <h2>いま、この2つが生成AIによってアクチュアルになった</h2>
     <div class="body">
       <div class="cols c2">
@@ -512,7 +638,7 @@
   </section>
   <!-- 12 -->
   <section class="slide" data-title="だから、技術哲学が必要だ——船の比喩" data-part="1">
-    <div class="kicker">1 — 07</div>
+    <div class="kicker">1 — 10</div>
     <h2>だから、技術哲学が必要だ｜<span class="thin">船の比喩</span></h2>
     <p class="lead ship-lead">船内の計器を調べている間にも、船は高速で進んでいる。</p>
     <div class="body ship-body">
@@ -552,7 +678,7 @@
   </section>
   <!-- 10b -->
   <section class="slide" data-title="提起：原初からのサイボーグ性" data-part="1">
-    <div class="kicker">1 — 08</div>
+    <div class="kicker">1 — 11</div>
     <h2>提起｜<span class="thin">原初からのサイボーグ性</span></h2>
     <div class="body">
       <ul class="pts">
