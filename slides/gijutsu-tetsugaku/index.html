@@ -2,10 +2,13 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>技術哲学入門｜宇野さん レクチャー・スライド</title>
 <meta name="description" content="技術哲学がなぜ現代において必要なのか。人間と技術の不可分性、技術と哲学の不可分性、技術多様性、そしてモア・ザン・ヒューマンのテクノロジーへ。全3部構成のレクチャースライド。">
 <style>
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overscroll-behavior: none; touch-action: manipulation; }
+
   :root {
     --paper: #faf9f5;
     --ink: #14140f;
@@ -1464,8 +1467,13 @@
   function fit() {
     var w = document.documentElement.clientWidth || window.innerWidth;
     var h = document.documentElement.clientHeight || window.innerHeight;
-    var s = Math.min(w / 1280, h / 720);
-    stage.style.transform = 'translate(-50%, -50%) scale(' + s + ')';
+    if (h > w && w < 820) {
+      var s = Math.min(h / 1280, w / 720);
+      stage.style.transform = 'translate(-50%, -50%) rotate(90deg) scale(' + s + ')';
+    } else {
+      var s2 = Math.min(w / 1280, h / 720);
+      stage.style.transform = 'translate(-50%, -50%) scale(' + s2 + ')';
+    }
   }
 
   function closeToc() { toc.classList.remove('open'); }
