@@ -308,6 +308,21 @@
   .book .ba { margin-top: auto; font-size: 12.5px; font-weight: 600; }
   .book .bp { font-size: 11px; letter-spacing: .1em; color: var(--ink-soft); margin-top: 4px; }
   .book .bmark { position: absolute; right: 14px; top: 0; width: 12px; height: 34px; background: var(--mint); }
+  .book.dark { background: #101013; border: 1px solid #101013; border-left: 7px solid #060608; color: #f2f1ec; }
+  .book.dark .bt { color: #fff; }
+  .book.dark .bs { color: #9adfd2; }
+  .book.dark .ba { color: #e8e7e1; }
+  .book.dark .bp { color: #8a8a82; }
+  .book.dark .bmark { background: #1de3c4; }
+  .book.dark .wave2 { position: absolute; left: 0; right: 0; bottom: 78px; height: 56px; pointer-events: none; }
+  .book.dark .wave2 path { fill: none; stroke: #1de3c4; stroke-width: 2; opacity: .75; }
+  .book.dark .wave2 path + path { opacity: .3; stroke-width: 4; }
+  .prof { display: grid; grid-template-columns: 320px 1fr; gap: 44px; align-items: start; }
+  .prof .who { border-top: 3px solid var(--moss); padding-top: 20px; }
+  .prof .who .nm { font-size: 40px; font-weight: 700; letter-spacing: .06em; }
+  .prof .who .kana { font-size: 13px; letter-spacing: .22em; color: var(--ink-soft); margin-top: 8px; }
+  .prof .who .role { font-size: 16px; line-height: 2; color: var(--ink-soft); margin-top: 20px; }
+  .prof .who .role strong { color: var(--ink); }
   .booklink { display: inline-block; font-size: 12.5px; color: var(--moss); font-weight: 600;
               border-bottom: 1px solid var(--mint); margin-top: 14px; }
 
@@ -479,6 +494,27 @@
     <p class="meta">宇野さん レクチャー ／ 全3部構成</p>
   </section>
 
+  <!-- 01b -->
+  <section class="slide" data-title="自己紹介" data-part="">
+    <div class="kicker">Profile</div>
+    <h2>七沢智樹｜<span class="thin">技術哲学者</span></h2>
+    <div class="body">
+      <div class="prof">
+        <div class="who">
+          <div class="nm">七沢智樹</div>
+          <div class="kana">NANASAWA TOMOKI</div>
+          <p class="role"><strong>Technel合同会社 代表</strong><br><strong>山梨県立大学 特任教授</strong><br>京都大学で農学を学んだのち、技術開発の現場を経て、技術哲学へ。</p>
+        </div>
+        <ul class="pts compact">
+          <li>『WIRED』で連載「<span class="term">技術哲学入門</span>」（2023年〜）<small>テクノロジーをデザインする人のための技術哲学を、書き続けている。</small></li>
+          <li>訳書：クーケルバーク『<strong>技術哲学講義</strong>』（共訳、丸善出版）</li>
+          <li>国際技術哲学会 <span class="en">SPT2023</span> の運営に参加。日本の技術哲学者が集まる「技哲研」を主宰</li>
+          <li>西表島で <strong>Iriomote JUNGLE CLUB</strong>、山梨で <strong>makers Unlearn（mU）</strong>——考える場と、身体でさかのぼる場の両方をつくっている</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- 02 -->
   <section class="slide" data-title="本日の見取り図" data-part="">
     <div class="kicker">Agenda</div>
@@ -587,11 +623,24 @@
     <div class="kicker">1 — 03</div>
     <h2>現状｜ぶっちゃけ、技術哲学は<br>まったくメジャーではない</h2>
     <div class="body">
-      <ul class="pts tight">
-        <li>2023年から『WIRED』で連載。この数年、かなり力を入れてきた</li>
-        <li>翻訳も出た。関連書も出た。SNSでもそれなりに話題になった<small>——もっとも、「技術哲学をやっている」と言い続けている人間が他にいない、という事情もある</small></li>
-        <li class="em">それでも、圧倒的にマイナーである</li>
-      </ul>
+      <div class="bookrow">
+        <!-- 書影を入れる場合：この div の中に <img src="assets/gijutsu-tetsugaku-kougi.jpg" alt=""> を追加 -->
+        <div class="book dark">
+          <span class="bmark"></span>
+          <svg class="wave2" viewBox="0 0 210 56" aria-hidden="true"><path d="M0 34 C 30 6, 60 50, 100 30 S 170 8, 210 26"/><path d="M0 40 C 35 16, 70 52, 110 34 S 175 16, 210 34"/></svg>
+          <div class="bt">技術哲学講義</div>
+          <div class="bs">Introduction to<br>Philosophy of Technology</div>
+          <div class="ba">M. クーケルバーク 著<br>直江清隆・久木田水生 監訳</div>
+          <div class="bp">丸善出版</div>
+        </div>
+        <div>
+          <ul class="pts tight">
+            <li>2023年から『WIRED』で連載。この数年、かなり力を入れてきた</li>
+            <li>クーケルバーク『技術哲学講義』の翻訳にも参加した。関連書も出て、SNSでもそれなりに話題になった<small>——もっとも、「技術哲学をやっている」と言い続けている人間が他にいない、という事情もある</small></li>
+            <li class="em">それでも、圧倒的にマイナーである</li>
+          </ul>
+        </div>
+      </div>
       <div class="note">たとえば「AIの哲学」は知られている（三宅さんほか）。それでも技術哲学は広まらない。<span class="arrow">→</span> 努力の量ではなく、<strong>構造の問題</strong>である。</div>
     </div>
   </section>
@@ -642,7 +691,7 @@
           <p>＝哲学が重要だということ自体は、それなりに共有されている。</p>
         </div>
       </div>
-      <div class="note">哲学そのものは重要とされ、処方箋としてはむしろ求められている。<strong>それでも技術哲学だけが、広まらない。</strong><br><span class="arrow">→</span> 無視されているのは「哲学」ではなく、<strong>技術と哲学のあいだ</strong>である。</div>
+      <div class="note">哲学そのものは重要とされ、処方箋としてはむしろ求められている。<br><span class="arrow">→</span> 無視されているのは「哲学」ではなく、<strong>技術と哲学のあいだ</strong>である。</div>
     </div>
   </section>
 
