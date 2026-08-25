@@ -169,6 +169,13 @@
 
   /* ---------- two-axis ---------- */
   .axes { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .axis.shu { border-top-color: var(--shu); }
+  .axes.dense { gap: 20px; }
+  .axes.dense .axis { padding: 18px 22px 20px; }
+  .axes.dense .axis .n { margin-bottom: 8px; }
+  .axes.dense .axis h3 { font-size: 22px; margin-bottom: 11px; }
+  .axes.dense .axis li { font-size: 14px; line-height: 1.75; margin-bottom: 5px; padding-left: 16px; }
+  .axes.dense .axis li::before { top: 11px; }
   .axis { border: 1px solid var(--line); border-top: 3px solid var(--moss); padding: 26px 28px 30px; background: var(--paper); }
   .axis .n { font-size: 12.5px; letter-spacing: .2em; color: var(--ink-soft); margin-bottom: 12px; }
   .axis h3 { font-size: 28px; font-weight: 700; line-height: 1.55; margin-bottom: 16px; }
@@ -812,13 +819,50 @@
           <p class="but">しかし、何をつくるべきかの判断は、<strong>技術の内側からは出てこない。</strong></p>
         </div>
       </div>
-      <div class="note">二つの不可分性と、実質的な技術決定論。この二つによって、技術哲学の問いは<strong>アクチュアルになった</strong>。<br>私たちはこれまで、船内の計器をきちんと調べてコントロールすれば、どうにかなると思っていた。<span class="arrow">→</span> しかし、そうではなかった。<strong>問いの形そのものを、変える必要がある。</strong></div>
+      <div class="note">二つの不可分性と、実質的な技術決定論。この二つによって、技術哲学の問いは<strong>アクチュアルになった</strong>。<br>私たちはこれまで、船内の計器をきちんと調べてコントロールすれば、どうにかなると思っていた。<span class="arrow">→</span> しかし、そうではなかった。しかも問題は、もっと厄介な形をしている。</div>
+    </div>
+  </section>
+  <!-- dilemma -->
+  <section class="slide" data-title="テクノロジーのジレンマ" data-part="1">
+    <div class="kicker">1 — 12</div>
+    <h2 style="font-size:34px">テクノロジーのジレンマ｜<span class="thin">これが、いちばん重要な問題では？</span></h2>
+    <div class="body" style="margin-top:26px">
+      <div class="axes dense">
+        <div class="axis shu">
+          <div class="n">一方で</div>
+          <h3>ディストピアをもたらしているのでは？</h3>
+          <ul>
+            <li>世界を<strong>均質化</strong>する——どこへ行っても同じ店、同じ画面、同じ言葉</li>
+            <li>世界から<strong>奥行き</strong>を奪う——すべてが即座に、等価に、検索可能になる</li>
+            <li><strong>環境を破壊する</strong>——採掘、電力、熱、廃棄。地球の限界を超えていく</li>
+            <li><strong>戦争を助長する</strong>——ドローン、標的選定AI、自律兵器</li>
+            <li><strong>注意を収奪する</strong>——時間と集中が、そのまま資源として吸い上げられる</li>
+            <li><strong>格差を広げ、監視を可能にする</strong></li>
+            <li><strong>判断を外部化する</strong>——考える前に、答えが出てきてしまう</li>
+          </ul>
+        </div>
+        <div class="axis">
+          <div class="n">しかし他方で</div>
+          <h3>手放すことは、もはや不可能</h3>
+          <ul>
+            <li><strong>医療</strong>——手放せば、助かる命が助からない</li>
+            <li><strong>食糧と物流</strong>——いまの人口は、技術なしには養えない</li>
+            <li><strong>電力・水道・通信</strong>——止まれば、社会そのものが止まる</li>
+            <li><strong>金融・教育・行政</strong>——すべてが技術の上に載っている</li>
+            <li>そして私たち自身が、<strong>道具なしでは生きられない身体</strong>である（理由1）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="conv-goal" style="margin-top:18px;font-size:21px;padding:15px 20px">
+        「やめる」か「続ける」か——<span style="color:var(--shu)">この二択では、答えが出ない。</span>
+      </div>
+      <div class="note">技術は良いか悪いか、使い方の問題か——そう問うかぎり、この二択から出られない。<strong>問いの形を変えるしかない。</strong><span class="arrow">→</span> だからこそ、技術哲学が必要になる。</div>
     </div>
   </section>
   <!-- 12 -->
-  <section class="slide" data-title="だから、技術哲学が必要だ——船の比喩" data-part="1">
-    <div class="kicker">1 — 12</div>
-    <h2>だから、技術哲学が必要だ｜<span class="thin">船の比喩</span></h2>
+  <section class="slide" data-title="船の比喩" data-part="1">
+    <div class="kicker">1 — 13</div>
+    <h2>船の比喩</h2>
     <p class="lead ship-lead">船内の計器を調べている間にも、船は高速で進んでいる。</p>
     <div class="body ship-body">
       <div class="ship">
@@ -1169,9 +1213,42 @@
       <div class="note">第2部の⑤で見たとおり、<strong>別の技術のあり方は実在した</strong>。しかし私たちもすでに近代の内側にいる以上、それを外から借りてくることはできない。<span class="arrow">→</span> 内側から超えるしかない。ではどうやって。</div>
     </div>
   </section>
+  <!-- p3-06 why -->
+  <section class="slide" data-title="なぜ、モア・ザン・ヒューマンなのか？" data-part="3">
+    <div class="kicker">3 — 06</div>
+    <h2>なぜ、モア・ザン・ヒューマンなのか？</h2>
+    <div class="body" style="margin-top:24px">
+      <div class="axes dense">
+        <div class="axis shu">
+          <div class="n">欧米にとって</div>
+          <h3>大きな飛躍が要る</h3>
+          <ul>
+            <li>人間の<strong>意識</strong>を特別視し、どこかで人間を<strong>特権的な位置</strong>に置き直そうとする</li>
+            <li>例：<span class="term">マシン・コンシャスネス</span>の議論——「機械に意識はあるか」と問うこと自体が、<strong>意識をもつ人間を頂点に置く発想</strong>の裏返しになっている</li>
+            <li>意識、理性、言語、魂。「これがあるから人間は特別だ」という指標が、そのつど立て直される</li>
+            <li>だから「人間を超えた」と宣言しても、宣言のところで止まってしまう</li>
+          </ul>
+        </div>
+        <div class="axis">
+          <div class="n">日本にとって</div>
+          <h3>そもそも「ヒューマン」の<br>なじみが薄い</h3>
+          <ul>
+            <li>人格・人間性としての<span class="term">ヒューマン</span>にあたる強い概念が、もともと薄い</li>
+            <li>八百万、付喪神、道具に宿る心。<strong>生き物・モノ・人が連続している</strong>という感覚</li>
+            <li>和辻の<strong>「間柄」</strong>——個人が先にあるのではなく、関係のなかで人になる</li>
+            <li>つまり、人間だけが特権的だ、という前提が<strong>そもそも弱い</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="conv-goal" style="margin-top:16px;font-size:21px;padding:15px 20px">
+        日本はもともと、<span style="color:var(--shu)">モア・ザン・ヒューマン的思想の国</span>だったのではないか？
+      </div>
+      <div class="note">ここは<strong>七沢の主張</strong>。ただし「もともとあった」から自動的にできる話ではない。<span class="arrow">→</span> だから、<strong>思弁ではなく掘り起こす作業</strong>が要る。</div>
+    </div>
+  </section>
   <!-- p3-10 notextbook -->
   <section class="slide" data-title="しかし、教科書はない" data-part="3">
-    <div class="kicker">3 — 06</div>
+    <div class="kicker">3 — 07</div>
     <h2>しかし、教科書はない</h2>
     <div class="body">
       <ul class="pts">
@@ -1184,7 +1261,7 @@
   </section>
   <!-- p3-11 history -->
   <section class="slide" data-title="だから、技術史が重要だ" data-part="3">
-    <div class="kicker">3 — 07</div>
+    <div class="kicker">3 — 08</div>
     <h2>だから、技術史が重要だ</h2>
     <div class="body">
       <div class="det">
@@ -1211,7 +1288,7 @@
   </section>
   <!-- p3-08 jungle -->
   <section class="slide" data-title="技術史を、体験的に理解する——JUNGLE Gathering" data-part="3">
-    <div class="kicker">3 — 08</div>
+    <div class="kicker">3 — 09</div>
     <h2>技術史を、体験的に理解する<br><span class="thin en">JUNGLE Gathering（西表島）</span></h2>
     <div class="body">
       <div class="cols c2">
@@ -1234,7 +1311,7 @@
   </section>
   <!-- p3-08 future -->
   <section class="slide" data-title="異なる未来を創造する" data-part="3">
-    <div class="kicker">3 — 09</div>
+    <div class="kicker">3 — 10</div>
     <h2 style="font-size:34px">異なる未来を創造する｜<span class="thin">過去へさかのぼり、未来へ投影する</span></h2>
     <div class="body" style="margin-top:24px">
       <div class="fut">
@@ -1299,7 +1376,7 @@
 
   <!-- p3-10 examples -->
   <section class="slide" data-title="異なる未来の可能性｜三つの事例" data-part="3">
-    <div class="kicker">3 — 10</div>
+    <div class="kicker">3 — 11</div>
     <h2>異なる未来の可能性｜<span class="thin">三つの事例</span></h2>
     <div class="body" style="margin-top:34px">
       <div class="ex3">
@@ -1348,7 +1425,7 @@
   </section>
   <!-- p3-17 qed -->
   <section class="slide" data-title="論証｜はじめの問いに戻る" data-part="3">
-    <div class="kicker">3 — 13</div>
+    <div class="kicker">3 — 12</div>
     <h2>論証｜<span class="thin">はじめの問いに戻る</span></h2>
     <div class="body">
       <div class="qed">
@@ -1382,7 +1459,7 @@
   </section>
   <!-- p3-18 close -->
   <section class="slide" data-title="結び：異なる技術に、気づいていく" data-part="3">
-    <div class="kicker">3 — 14</div>
+    <div class="kicker">3 — 13</div>
     <h2>結び｜<span class="thin">異なる技術に、気づいていく</span></h2>
     <div class="body">
       <p class="statement">「異なる技術」は、遠くではなく<br>日常の中に、すでに<br>たくさん埋め込まれている。<small>異なる技術の可能性を、日常の中で、いま、いかに発見するか——その試みこそが大切だ。西表島のジャングルや古文書の中だけの話ではない。台所に、畑に、路地に、言葉づかいに、別の系譜の技術は生きている。そして庭は、すでにあちこちにある。</small></p>
@@ -1666,7 +1743,7 @@
   </section>
   <!-- ax15 -->
   <section class="slide" data-title="実践①｜七沢智樹——掘るための道具と、身体" data-part="x">
-    <div class="kicker">3 — 11</div>
+    <div class="kicker">APPENDIX 15</div>
     <h2>実践①　七沢智樹｜<span class="thin">掘るための道具と、身体</span></h2>
     <div class="body">
       <div class="axes">
@@ -1694,7 +1771,7 @@
   </section>
   <!-- ax16 -->
   <section class="slide" data-title="実践②｜宇野常寛——庭という形式" data-part="x">
-    <div class="kicker">3 — 12</div>
+    <div class="kicker">APPENDIX 16</div>
     <h2>実践②　宇野常寛｜<span class="thin">庭という形式</span></h2>
     <div class="body">
       <div class="axes">
