@@ -144,6 +144,9 @@
   .diagram .sub { font-size: 10.5px; letter-spacing: .22em; fill: var(--ink-soft); }
 
   /* schedule */
+  .sched-tag { display: inline-block; font-size: 11px; letter-spacing: .08em; padding: 3px 12px; border-radius: 999px; margin-left: 12px; vertical-align: 2px; white-space: nowrap; }
+  .sched-tag.open { border: 1.4px dashed var(--mint); color: var(--ink); }
+  .sched-tag.closed { border: 1px solid var(--line); color: var(--ink-soft); }
   .sched-item { display: grid; grid-template-columns: 170px 1fr; gap: 28px; padding: 26px 0; border-bottom: 1px solid var(--line); }
   .sched-item:first-child { border-top: 1px solid var(--line); }
   .sched-item .sd { font-size: 19px; font-weight: 700; letter-spacing: .04em; font-variant-numeric: tabular-nums; }
@@ -666,15 +669,15 @@
       <div class="sched-list reveal">
         <div class="sched-item">
           <div class="sd">9.16<span>–9.17</span><small>水–木</small></div>
-          <div><h4>ベルクソン読書会 合宿</h4><p>山梨・北杜の森 ほか</p></div>
+          <div><h4>ベルクソン読書会 合宿<span class="sched-tag closed">関係者向け</span></h4><p>山梨・北杜の森 ほか</p></div>
         </div>
         <div class="sched-item">
           <div class="sd">10.24<span>–10.25</span><small>土–日</small></div>
-          <div><h4>カンファレンス 2026「マシン・コンシャスネス」</h4><p>ネクセラ本社ホール（東京ミッドタウン）｜オンライン無料配信</p></div>
+          <div><h4>カンファレンス 2026「マシン・コンシャスネス」<span class="sched-tag open">一般公開</span></h4><p>ネクセラ本社ホール（東京ミッドタウン）｜オンライン無料配信</p></div>
         </div>
         <div class="sched-item">
           <div class="sd">10.31<span>–11.1</span><small>土–日</small></div>
-          <div><h4>宮沢賢治読書会 合宿・公開読書会</h4><p>栃木・大田原（花園創）</p></div>
+          <div><h4>宮沢賢治読書会 合宿・公開読書会<span class="sched-tag open">11/1は一般公開</span></h4><p>栃木・大田原（花園創）</p></div>
         </div>
       </div>
       <p class="fin-note">予定は変更になる場合があります。各イベントの詳細・参加方法は順次ご案内します。</p>
