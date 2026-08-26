@@ -146,12 +146,6 @@
   .diagram .sub { font-size: 10.5px; letter-spacing: .22em; fill: var(--ink-soft); }
 
   /* schedule */
-  .cal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 88px; }
-  .cal-m { font-size: 13px; letter-spacing: .22em; color: var(--ink-soft); font-weight: 600; margin-bottom: 14px; }
-  .cal-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; text-align: center; font-size: 12.5px; font-variant-numeric: tabular-nums; }
-  .cal-days .wd { font-size: 10px; letter-spacing: .1em; color: var(--ink-soft); padding-bottom: 6px; }
-  .cal-days .d { padding: 7px 0; line-height: 1; border-radius: 50%; border: 1.4px solid transparent; }
-  .cal-days .d.ev { border-color: var(--mint); border-style: dashed; font-weight: 700; }
   .sched-item { display: grid; grid-template-columns: 170px 1fr; gap: 28px; padding: 26px 0; border-bottom: 1px solid var(--line); }
   .sched-item:first-child { border-top: 1px solid var(--line); }
   .sched-item .sd { font-size: 19px; font-weight: 700; letter-spacing: .04em; font-variant-numeric: tabular-nums; }
@@ -303,7 +297,7 @@
     .tl-dot { display: none; }
     .tl-item { position: relative; }
     .tl-item::before { content: ""; position: absolute; left: 0; top: 44px; width: 9px; height: 9px; border-radius: 50%; background: var(--moss); }
-    .prog-grid, .conf-days, .forest-cols, .fin-highlight, .cal-grid { grid-template-columns: 1fr; }
+    .prog-grid, .conf-days, .forest-cols, .fin-highlight { grid-template-columns: 1fr; }
     .year-block, .about-row { grid-template-columns: 1fr; gap: 16px; }
     .fin-table { display: block; overflow-x: auto; }
     footer .container { flex-direction: column; align-items: flex-start; gap: 32px; }
@@ -673,41 +667,6 @@
     <div class="container">
       <div class="sec-head reveal">
         <h2>活動予定<span class="en">Upcoming</span></h2>
-      </div>
-      <div class="cal-grid reveal">
-        <div class="cal">
-          <div class="cal-m">2026.9</div>
-          <div class="cal-days">
-<span class="wd">日</span><span class="wd">月</span><span class="wd">火</span><span class="wd">水</span><span class="wd">木</span><span class="wd">金</span><span class="wd">土</span>
-<span class="d"></span><span class="d"></span><span class="d">1</span><span class="d">2</span><span class="d">3</span><span class="d">4</span><span class="d">5</span>
-<span class="d">6</span><span class="d">7</span><span class="d">8</span><span class="d">9</span><span class="d">10</span><span class="d">11</span><span class="d">12</span>
-<span class="d">13</span><span class="d">14</span><span class="d">15</span><span class="d ev">16</span><span class="d ev">17</span><span class="d">18</span><span class="d">19</span>
-<span class="d">20</span><span class="d">21</span><span class="d">22</span><span class="d">23</span><span class="d">24</span><span class="d">25</span><span class="d">26</span>
-<span class="d">27</span><span class="d">28</span><span class="d">29</span><span class="d">30</span><span class="d"></span><span class="d"></span><span class="d"></span>
-          </div>
-        </div>
-        <div class="cal">
-          <div class="cal-m">2026.10</div>
-          <div class="cal-days">
-<span class="wd">日</span><span class="wd">月</span><span class="wd">火</span><span class="wd">水</span><span class="wd">木</span><span class="wd">金</span><span class="wd">土</span>
-<span class="d"></span><span class="d"></span><span class="d"></span><span class="d"></span><span class="d">1</span><span class="d">2</span><span class="d">3</span>
-<span class="d">4</span><span class="d">5</span><span class="d">6</span><span class="d">7</span><span class="d">8</span><span class="d">9</span><span class="d">10</span>
-<span class="d">11</span><span class="d">12</span><span class="d">13</span><span class="d">14</span><span class="d">15</span><span class="d">16</span><span class="d">17</span>
-<span class="d">18</span><span class="d">19</span><span class="d">20</span><span class="d">21</span><span class="d">22</span><span class="d">23</span><span class="d ev">24</span>
-<span class="d ev">25</span><span class="d">26</span><span class="d">27</span><span class="d">28</span><span class="d">29</span><span class="d">30</span><span class="d ev">31</span>
-          </div>
-        </div>
-        <div class="cal">
-          <div class="cal-m">2026.11</div>
-          <div class="cal-days">
-<span class="wd">日</span><span class="wd">月</span><span class="wd">火</span><span class="wd">水</span><span class="wd">木</span><span class="wd">金</span><span class="wd">土</span>
-<span class="d ev">1</span><span class="d">2</span><span class="d">3</span><span class="d">4</span><span class="d">5</span><span class="d">6</span><span class="d">7</span>
-<span class="d">8</span><span class="d">9</span><span class="d">10</span><span class="d">11</span><span class="d">12</span><span class="d">13</span><span class="d">14</span>
-<span class="d">15</span><span class="d">16</span><span class="d">17</span><span class="d">18</span><span class="d">19</span><span class="d">20</span><span class="d">21</span>
-<span class="d">22</span><span class="d">23</span><span class="d">24</span><span class="d">25</span><span class="d">26</span><span class="d">27</span><span class="d">28</span>
-<span class="d">29</span><span class="d">30</span><span class="d"></span><span class="d"></span><span class="d"></span><span class="d"></span><span class="d"></span>
-          </div>
-        </div>
       </div>
       <div class="sched-list reveal">
         <div class="sched-item">
