@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技術哲学入門 講義ノート</title>
+<meta name="description" content="七沢智樹によるレクチャー「技術哲学入門」全41枚のスライドを追いながら、三部構成の要点を文章で追えるようにしたまとめレポート。makers Unlearn 受講生向け。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+  /* ---------------- tokens ---------------- */
+  :root {
+    --ground:   #edeae1;
+    --surface:  #faf9f5;
+    --ink:      #14140f;
+    --ink-soft: #4f4f46;
+    --ink-faint:#828275;
+    --line:     #dbd9cf;
+    --line-soft:#e7e5db;
+    --moss:     #0a8f5b;
+    --mint:     #1de394;
+    --shu:      #b8382b;
+    --figframe: #dbd9cf;
+    --shadow:   rgba(20,20,15,.10);
+
+    --serif: "Zen Old Mincho", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+    --sans:  "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:   #100f0c;
+      --surface:  #1a1a15;
+      --ink:      #f3f2ea;
+      --ink-soft: #b0afa2;
+      --ink-faint:#85847a;
+      --line:     #35342c;
+      --line-soft:#2a2923;
+      --moss:     #35d492;
+      --mint:     #1de394;
+      --shu:      #ef7a68;
+      --figframe: #35342c;
+      --shadow:   rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:   #100f0c;
+    --surface:  #1a1a15;
+    --ink:      #f3f2ea;
+    --ink-soft: #b0afa2;
+    --ink-faint:#85847a;
+    --line:     #35342c;
+    --line-soft:#2a2923;
+    --moss:     #35d492;
+    --mint:     #1de394;
+    --shu:      #ef7a68;
+    --figframe: #35342c;
+    --shadow:   rgba(0,0,0,.5);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16.5px;
+    line-height: 2.05;
+    font-feature-settings: "palt";
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible { outline: 2px solid var(--moss); outline-offset: 3px; }
+
+  /* ---------------- layout ---------------- */
+  .page { max-width: 1020px; margin: 0 auto; padding: 0 22px 96px; }
+  .txt  { max-width: 690px; margin-inline: auto; }
+  .txt > * + * { margin-top: 1.35em; }
+
+  /* ---------------- masthead ---------------- */
+  .mast {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding: 62px 22px 54px;
+    margin-bottom: 56px;
+  }
+  .mast-in { max-width: 1020px; margin: 0 auto; }
+  .eyebrow {
+    font-family: var(--sans); font-size: 11.5px; font-weight: 700;
+    letter-spacing: .24em; color: var(--moss); text-transform: uppercase;
+  }
+  .mast h1 {
+    font-family: var(--serif); font-weight: 900;
+    font-size: clamp(38px, 7vw, 66px); line-height: 1.32; letter-spacing: .04em;
+    margin-top: 18px; text-wrap: balance;
+  }
+  .mast h1 .k { display: block; font-size: .42em; font-weight: 400; letter-spacing: .18em; color: var(--ink-soft); margin-top: 16px; }
+  .mast .deck-lead {
+    font-family: var(--serif); font-size: clamp(17px, 2.2vw, 20px); line-height: 2.1;
+    color: var(--ink-soft); margin-top: 30px; max-width: 700px;
+  }
+  .credits {
+    display: flex; flex-wrap: wrap; gap: 10px 34px;
+    margin-top: 34px; padding-top: 24px; border-top: 1px solid var(--line);
+    font-size: 13px; line-height: 1.85;
+  }
+  .credits div { min-width: 0; }
+  .credits .cl { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: .18em; color: var(--ink-faint); text-transform: uppercase; }
+  .credits strong { font-weight: 700; }
+  .aibadge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11.5px; font-weight: 700; letter-spacing: .12em;
+    border: 1.3px solid var(--moss); color: var(--moss);
+    border-radius: 999px; padding: 5px 15px; margin-top: 26px;
+  }
+
+  /* ---------------- toc ---------------- */
+  .toc {
+    border: 1px solid var(--line); background: var(--surface);
+    padding: 26px 30px 30px; margin-bottom: 64px;
+  }
+  .toc h2 { font-family: var(--sans); font-size: 11.5px; font-weight: 700; letter-spacing: .24em; color: var(--moss); text-transform: uppercase; }
+  .toc ol { list-style: none; margin-top: 16px; display: grid; gap: 2px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .toc li { border-top: 1px solid var(--line-soft); }
+  .toc a {
+    display: grid; grid-template-columns: 30px 1fr; gap: 12px; align-items: baseline;
+    padding: 11px 0; color: var(--ink); text-decoration: none; font-size: 15px;
+  }
+  .toc a:hover { color: var(--moss); }
+  .toc .n { font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: .1em; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+
+  /* ---------------- part heads ---------------- */
+  .part { margin: 96px 0 44px; }
+  .part .pn {
+    font-family: var(--serif); font-size: 13px; font-weight: 700; letter-spacing: .3em;
+    color: var(--moss); text-transform: uppercase;
+  }
+  .part h2 {
+    font-family: var(--serif); font-weight: 900;
+    font-size: clamp(28px, 4.4vw, 40px); line-height: 1.45; letter-spacing: .03em;
+    margin-top: 12px; text-wrap: balance;
+  }
+  .part .sub { font-family: var(--serif); font-size: 17px; line-height: 2.05; color: var(--ink-soft); margin-top: 18px; max-width: 690px; }
+  .part::after { content: ""; display: block; width: 74px; height: 3px; background: var(--moss); margin-top: 26px; }
+
+  h3, .txt > h3 {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(21px, 3vw, 26px); line-height: 1.62; letter-spacing: .02em;
+    margin-top: 58px; margin-bottom: 20px; text-wrap: balance;
+  }
+  .txt > h3:first-child { margin-top: 8px; }
+  h3 .no {
+    display: block; font-family: var(--sans); font-size: 10.5px; font-weight: 700;
+    letter-spacing: .2em; color: var(--ink-faint); margin-bottom: 9px;
+  }
+  h4 { font-family: var(--sans); font-size: 15px; font-weight: 700; letter-spacing: .04em; margin-bottom: 6px; }
+
+  p { font-size: 16.5px; line-height: 2.1; }
+  p .em { font-weight: 700; }
+  p .t { border-bottom: 1.5px solid var(--mint); padding-bottom: 1px; }
+  .red { color: var(--shu); font-weight: 700; }
+  a.lnk { color: var(--moss); text-decoration: none; border-bottom: 1px solid var(--mint); }
+  a.lnk:hover { background: color-mix(in srgb, var(--mint) 18%, transparent); }
+
+  /* ---------------- figures ---------------- */
+  .fig { margin: 34px 0 38px; }
+  .fig img {
+    display: block; width: 100%; height: auto;
+    border: 1px solid var(--figframe);
+    box-shadow: 0 10px 30px var(--shadow);
+    cursor: zoom-in; background: #faf9f5;
+  }
+  .fig figcaption {
+    display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline;
+    margin-top: 12px; font-size: 12.5px; line-height: 1.8; color: var(--ink-faint);
+  }
+  .fig .sn { font-weight: 700; letter-spacing: .16em; color: var(--moss); font-variant-numeric: tabular-nums; }
+
+  /* ---------------- pull quote ---------------- */
+  .pq {
+    margin: 52px auto; max-width: 760px;
+    border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink);
+    padding: 32px 8px;
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(22px, 3.6vw, 31px); line-height: 1.85; letter-spacing: .04em;
+    text-align: center; text-wrap: balance;
+  }
+  .pq .src { display: block; font-family: var(--sans); font-size: 11.5px; font-weight: 700; letter-spacing: .18em; color: var(--ink-faint); margin-top: 18px; }
+
+  /* ---------------- callout ---------------- */
+  .note {
+    border-left: 3px solid var(--moss); background: var(--surface);
+    padding: 20px 24px; margin: 30px 0;
+    font-size: 14.5px; line-height: 1.95; color: var(--ink-soft);
+  }
+  .note.warn { border-left-color: var(--shu); }
+  .note strong { color: var(--ink); }
+  .note .h { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: .2em; color: var(--moss); text-transform: uppercase; margin-bottom: 8px; }
+  .note.warn .h { color: var(--shu); }
+
+  /* ---------------- lists ---------------- */
+  ul.pts { list-style: none; margin: 22px 0; }
+  ul.pts li { position: relative; padding-left: 24px; margin-bottom: 12px; font-size: 16px; line-height: 2.0; }
+  ul.pts li::before { content: ""; position: absolute; left: 1px; top: 15px; width: 9px; height: 1.8px; background: var(--mint); }
+  ol.num { list-style: none; counter-reset: n; margin: 22px 0; }
+  ol.num li { counter-increment: n; position: relative; padding-left: 34px; margin-bottom: 14px; font-size: 16px; line-height: 2.0; }
+  ol.num li::before {
+    content: counter(n); position: absolute; left: 0; top: 8px;
+    font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--moss);
+    border: 1.4px solid var(--moss); border-radius: 50%; width: 21px; height: 21px;
+    display: grid; place-items: center; line-height: 1;
+  }
+
+  /* ---------------- glossary ---------------- */
+  .gloss { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 30px; }
+  .gitem { background: var(--surface); padding: 22px 26px 24px; }
+  .gitem dt { font-family: var(--serif); font-size: 19px; font-weight: 700; letter-spacing: .02em; }
+  .gitem dt .en { display: block; font-family: var(--sans); font-size: 10.5px; font-weight: 500; letter-spacing: .14em; color: var(--ink-faint); margin-top: 5px; }
+  .gitem dd { font-size: 14.5px; line-height: 1.95; color: var(--ink-soft); margin-top: 11px; }
+  @media (min-width: 720px) { .gloss { grid-template-columns: 1fr 1fr; } }
+
+  /* ---------------- books ---------------- */
+  .books { list-style: none; margin-top: 26px; border-top: 1px solid var(--line); }
+  .books li { border-bottom: 1px solid var(--line); padding: 16px 0; display: grid; gap: 3px; }
+  .books .bt { font-family: var(--serif); font-size: 18px; font-weight: 700; letter-spacing: .02em; }
+  .books .ba { font-size: 13px; color: var(--ink-faint); }
+  .books .bw { font-size: 14px; color: var(--ink-soft); line-height: 1.9; }
+
+  /* ---------------- closing ---------------- */
+  .closing { margin-top: 90px; border: 1px solid var(--line); background: var(--surface); padding: 42px 34px 46px; }
+  .closing h2 { font-family: var(--serif); font-size: clamp(24px, 3.6vw, 32px); font-weight: 900; line-height: 1.5; letter-spacing: .03em; text-wrap: balance; }
+  .closing p { margin-top: 18px; }
+  .steps { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 30px; }
+  @media (min-width: 760px) { .steps { grid-template-columns: repeat(4, 1fr); } }
+  .step { background: var(--surface); padding: 20px 20px 22px; }
+  .step .sn2 { font-size: 10.5px; font-weight: 700; letter-spacing: .18em; color: var(--moss); }
+  .step h4 { margin-top: 10px; font-size: 16px; }
+  .step p { font-size: 13.5px; line-height: 1.85; color: var(--ink-soft); margin-top: 6px; }
+
+  .foot { margin-top: 64px; padding-top: 26px; border-top: 1px solid var(--line); font-size: 12.5px; line-height: 2; color: var(--ink-faint); }
+
+  /* ---------------- lightbox ---------------- */
+  .lb { position: fixed; inset: 0; z-index: 60; background: rgba(12,12,9,.94); display: none; place-items: center; padding: 3vw; cursor: zoom-out; }
+  .lb.open { display: grid; }
+  .lb img { max-width: 100%; max-height: 94vh; width: auto; height: auto; border: 1px solid #33332c; }
+  .lb .hint { position: fixed; bottom: 18px; left: 0; right: 0; text-align: center; color: #9a998d; font-size: 11.5px; letter-spacing: .16em; }
+
+  @media print {
+    body { background: #fff; }
+    .lb, .toc { display: none !important; }
+    .fig img { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="mast-in">
+    <div class="eyebrow">Lecture Note ／ makers Unlearn 受講生特典</div>
+    <h1>技術哲学入門<span class="k">講義ノート — 全41枚のスライドで読む</span></h1>
+    <p class="deck-lead">テクノロジーは、もはや私たちが「使う道具」ではありません。何を欲しいと思うかまで、すでに技術に方向づけられている。ならば、そもそもテクノロジーとは何なのか。この講義は、その問いをまっすぐ立て、原初の技術まで降りていって考え直すための、三部構成の見取り図です。</p>
+    <div class="credits">
+      <div><span class="cl">Lecture</span><strong>技術哲学入門</strong></div>
+      <div><span class="cl">Speaker</span><strong>七沢智樹</strong>（Technel合同会社 代表／山梨県立大学 特任教授）</div>
+      <div><span class="cl">Slides</span>全41枚・三部構成（ver.2）</div>
+      <div><span class="cl">Note by</span>Claude（Anthropic）</div>
+    </div>
+    <div class="aibadge">AIによるまとめレポート</div>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="txt">
+    <div class="note">
+      <span class="h">この記事について</span>
+      これは、七沢智樹によるレクチャー「技術哲学入門」を、<strong>講義スライドと読み上げ原稿をもとにAIが再構成した読み物</strong>です。スライドを順に追いながら、その場で語られた筋を文章で追えるようにしてあります。図版はすべて実際の講義スライドです。<strong>画像はクリックすると拡大</strong>できます。
+    </div>
+  </div>
+
+  <nav class="toc" aria-label="目次">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#intro"><span class="n">00</span><span>導入｜そもそも、技術哲学とは</span></a></li>
+      <li><a href="#p1"><span class="n">01</span><span>第1部｜なぜ、いま技術哲学が必要なのか</span></a></li>
+      <li><a href="#p2"><span class="n">02</span><span>第2部｜現代の技術哲学の問い</span></a></li>
+      <li><a href="#p3"><span class="n">03</span><span>第3部｜原初の技術から考える</span></a></li>
+      <li><a href="#gloss"><span class="n">04</span><span>用語ミニ辞典</span></a></li>
+      <li><a href="#books"><span class="n">05</span><span>登場した本・連載</span></a></li>
+      <li><a href="#mu"><span class="n">06</span><span>mU 受講生へ</span></a></li>
+    </ol>
+  </nav>
+
+  <!-- ============================ INTRO ============================ -->
+  <section id="intro">
+    <div class="part">
+      <div class="pn">Introduction</div>
+      <h2>そもそも、技術哲学とは</h2>
+      <p class="sub">哲学が「人間とは何か」「世界とは何か」を問うてきたのに対して、技術哲学が問うのは、技術と人間・世界との<em>あいだ</em>である。</p>
+    </div>
+
+    <div class="txt">
+      <p>技術哲学とは、技術そのもの——テクノロジーそのものを、哲学の問いとして扱う学問です。技術とは何か。技術は人間や社会に何をするのか。良い技術とは何か。位置づけとしては哲学の一分野ですが、相手にするのは、いま実際に作られ、使われ、社会を動かしている現実の技術です。</p>
+      <p>講義は三部構成でした。第1部が「なぜ、いま技術哲学が必要なのか」という招待。第2部が「現代の技術哲学が、何をどう問うているのか」というカタログ。そして第3部が、七沢自身の考え——原初の技術から考える、という提案です。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s04.jpg" alt="スライド：導入｜そもそも、技術哲学とは？　技術そのものを哲学の問いとして扱う学問であることを説明している">
+      <figcaption><span class="sn">SLIDE 04</span> 導入｜そもそも、技術哲学とは？</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================ PART 1 ============================ -->
+  <section id="p1">
+    <div class="part">
+      <div class="pn">Part One</div>
+      <h2>なぜ、いま技術哲学が必要なのか</h2>
+      <p class="sub">まったくメジャーではないこの学問が、なぜいま切実なのか。二つの不可分性、実質的な技術決定論、そしてジレンマ——問いの形を変えるしかない、という地点まで。</p>
+    </div>
+
+    <div class="txt">
+      <h3><span class="no">1 — 01</span>あなたの今日一日</h3>
+      <p>講義は、身近なところから始まりました。今日一日、テクノロジーはどこにあったのか。</p>
+      <p>朝、目が覚める。起きる時刻を決めたのは、あなたか、通知か。そもそも時計も、作られたものです。通勤中、今日の「世の中」はフィードが選んだ順番で届く。仕事ではAIに下書きをさせ、考えの筋も言い回しも少しずつ寄っていく。買うもの、観るもの、会う人。候補はレコメンドが並べたもの。そして夜、仕事を辞めるか、別れるか——人ではなくAIに相談する人が現れています。</p>
+      <p>ここで押さえるべきは、<span class="em">ほとんどのテクノロジーは気づかれない</span>ということです。そして私たちは、次々に「便利な道具」を追加していく。現代では、もはや<span class="t">何を欲しいと思うか</span>まで、すでに技術に方向づけられている。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s06.jpg" alt="スライド：あなたの今日一日｜朝・通勤・仕事・選ぶ・夜の五つの場面でテクノロジーがどう介在しているかを並べた表">
+      <figcaption><span class="sn">SLIDE 06</span> あなたの今日一日｜テクノロジーはどこにあるのか？</figcaption>
+    </figure>
+
+    <div class="pq">その一日は、本当にあなたが選んだのか。<span class="src">SLIDE 06</span></div>
+
+    <div class="txt">
+      <h3><span class="no">1 — 02 / 03</span>出発点と、構造的な無視</h3>
+      <p>人類はその誕生以来、技術によって生存を確保してきました。産業革命以後に生まれた技術——テクノロジー——は生活のインフラとなり、巨大な機構になった。そしてAIが出てきて、思考や感性にまで入り込むようになった。「人間とは何か」「AIとは何か」はしきりに問われている。ならば、<span class="em">そもそもテクノロジーとは何かを問うべきではないか</span>。これが出発点です。</p>
+      <p>ところが、と七沢は続けます。ぶっちゃけ、技術哲学はまったくメジャーではない。連載も翻訳もしてきたが、他の分野と比べれば圧倒的にマイナーである。しかもこれは、努力の量の問題ではなく<span class="em">構造の問題</span>だ、と。</p>
+      <p>哲学をやっている人は、どうも人間が好きなのです。人間とは何か、人間の悩みを考えたい。反対側にある技術には興味がない。逆に技術をやっている人にとって、哲学は付属物にすぎない。作ってなんぼで、人間とは何かは後から考えればいい。その間を取った学問である技術哲学は、<span class="em">両側から構造的に無視される</span>。</p>
+      <p>ここが重要なところです。無視されているのは「哲学」ではありません。哲学そのものは、むしろ生きるための処方箋として求められてさえいる。無視されているのは、<span class="t">技術と哲学のあいだ</span>なのです。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s08.jpg" alt="スライド：ぶっちゃけ、まったくメジャーではない。哲学をやっている人／技術哲学／技術をやっている人という三つの箱で、両側から無視される構造を示した図">
+      <figcaption><span class="sn">SLIDE 08</span> ぶっちゃけ、まったくメジャーではない——両側からの、構造的な無視</figcaption>
+    </figure>
+
+    <div class="txt">
+      <h3><span class="no">1 — 04</span>理由 1｜二つの不可分性</h3>
+      <p>それでも七沢がここを無視できないのは、これまでの前提が二つとも成り立たなくなっているからです。「技術は単なる道具である」「技術に哲学は不要だ」——この二つ。代わりに立てるべき前提が、二つあります。</p>
+      <ol class="num">
+        <li><span class="em">人間は技術と不可分である。</span>プロメテウス神話（人間は生まれつき欠けていて、技術で補うという<span class="t">補綴性</span>の神話）から、ホモ・ファーベル、アンディ・クラーク『生まれながらのサイボーグ』まで、ずっと言われてきたこと。行為は技術に媒介され、社会は技術によって運用されている。</li>
+        <li><span class="em">技術は哲学と不可分である。</span>サイバネティクスによる哲学の終焉（ハイデガー）、アメリカにおけるAIとメシア思想の結びつき、そしてシミュレーション仮説の台頭——世界そのものが技術の産物かもしれない、というところまで来ている。</li>
+      </ol>
+      <p>思想や世界観がテクノロジーを方向づけ、その逆もまた起きている。だから<span class="em">技術問題は、そのまま倫理問題になる</span>のです。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s09.jpg" alt="スライド：技術哲学が重要な理由1。取り消された二つの前提から、人間は技術と不可分・技術は哲学と不可分という二つの軸へ">
+      <figcaption><span class="sn">SLIDE 09</span> 技術哲学が重要な理由 1｜2つの不可分性</figcaption>
+    </figure>
+
+    <div class="txt">
+      <p>その具体例として挙げられたのが、標的選定のアルゴリズムでした。「誰を撃つか」を先に絞り込むのはアルゴリズムである。同じように、誰を生かし、誰を採用し、誰を信用するかを決めるのは、テクノロジーである。</p>
+      <p>これは技術の話か、倫理の話か。もう分けられません。閾値をどこに置くか、誤検出をどこまで許すか——<span class="em">設計上のパラメータが、そのまま生死の判断になる</span>。医療のトリアージにも、採用の選別にも、与信にも、量刑支援にも当てはまります。そしてその判断は、法廷でも議会でもなく、<span class="red">開発の現場で先に決まってしまっている</span>。だから「作ってから考える」は、もう成り立たない。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s10.jpg" alt="スライド：技術問題は、そのまま倫理問題になる。標的選定アルゴリズムを例に、設計上のパラメータが生死の判断になることを示している">
+      <figcaption><span class="sn">SLIDE 10</span> 技術問題は、そのまま倫理問題になる</figcaption>
+    </figure>
+
+    <div class="txt">
+      <h3><span class="no">1 — 06 / 07</span>理由 2｜実質的な技術決定論</h3>
+      <p>二つ目の理由に入る前に、テクノロジーを発展させている駆動力が15並べられます。便利になりたい。早くしたい。安全に生きたい。儲けたい。他国に負けたくない。病気や老いが怖い。体の弱さを補いたい。知りたい。つながりたい。人手が足りない。災害が怖い。取り残されたくない。一度便利になると戻れない。</p>
+      <p>そして最後の二つは、<span class="em">もはや人間の欲求ですらありません</span>。技術が次の技術を生む「技術の連鎖」と、勝手に最適化され続ける「AI・自動進化」です。</p>
+      <p>ここで問いが立ちます。<span class="red">これらを、やめることはできますか。</span>——どれも、やめろとは誰にも言えない。だから私たちは、テクノロジーに抗えない。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s11.jpg" alt="スライド：テクノロジーを発展させている15の要因を三列に並べた表。最後にこれらをやめることはできますか、という問い">
+      <figcaption><span class="sn">SLIDE 11</span> 技術哲学が重要な理由 2｜実質的な技術決定論</figcaption>
+    </figure>
+
+    <div class="txt">
+      <p>技術決定論は、技術哲学の世界では「間違った考えの典型」とされてきました。素朴すぎる、単純すぎる、と。けれども現実のほうは、そのように動いてしまっているのではないか——これが<span class="t">実質的な技術決定論</span>という言い方の意味です。</p>
+      <p>技術は技術自身の論理で直線的に進歩し、社会はその進歩に合わせて階段を上るように作り替えられていく。蒸気機関が産業社会を作り、インターネットが情報社会を作った。<span class="em">では、AIは何を作るのか。</span>誰かがそれを信じているからではなく、事実としてそう動いている、というのがポイントです。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s12.jpg" alt="スライド：実質的な技術決定論。技術の直線的進歩の矢印が、社会の技術決定を段階的に押し上げていく階段状の図">
+      <figcaption><span class="sn">SLIDE 12</span> 実質的な技術決定論</figcaption>
+    </figure>
+
+    <div class="txt">
+      <h3><span class="no">1 — 08 / 09</span>ジレンマと、見えない負の側面</h3>
+      <p>ここでテクノロジーのジレンマが提示されます。負の側面は、いくらでも挙がる。世界を均質化する。奥行きを奪う。環境を破壊する。戦争を助長する。注意を収奪する。格差を広げ、監視を可能にする。判断を外部化する。</p>
+      <p>しかし同時に、私たちはテクノロジーと分離不可能です。医療を手放せば助かる命が助からない。いまの人口は技術なしには養えない。電力・水道・通信が止まれば社会が止まる。むしろ、そうして作られた安全性や医療技術を前提として初めて生きられる人生を、私たちは生きている。手放すことは、ときに死を意味する。</p>
+      <p>つまり<span class="em">「やめる」か「続ける」かという二択では、答えが出ない</span>。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s13.jpg" alt="スライド：テクノロジーのジレンマ。負の側面の列と、手放すことは不可能という列を並べ、この二択では答えが出ないと結論している">
+      <figcaption><span class="sn">SLIDE 13</span> テクノロジーのジレンマ</figcaption>
+    </figure>
+
+    <div class="txt">
+      <p>ここで、この講義でもっとも鋭かった一枚が来ます。「じゃあ負の側面だけ取り除けばいいじゃないか」と思うでしょう。ところが、それができない。なぜなら——<span class="em">テクノロジーの負の側面は、そもそも見えない</span>からです。</p>
+      <ul class="pts">
+        <li>いまこの瞬間も背後で電力と通信のインフラが動いているが、当然それは見えない。AIに一度質問すると「60ワットの電球を何分つけたぶん」と言われるが、数字を聞いても実感はできない。感じられないものに危機意識を持つのは、とても難しい。</li>
+        <li>影響は<span class="em">時間がずれて</span>やってくる。気がついたら温暖化していた。気がついたら、世界中で子どものスクリーンタイムが問題になっていた。</li>
+        <li>害は<span class="em">遠くで、小さく分散して</span>起きる。採掘も、製造も、廃棄も、労働も。一人あたりは微小、合計すると巨大、そして誰の責任にもならない。</li>
+        <li>便益は具体的で、害は抽象的。「便利になった」は今日わかるが、「奥行きが失われた」は誰にも計測できない。</li>
+      </ul>
+      <p>同じことが、AIでも起きるはずです。何が問題になるかも、いつ出てくるかも、まだわからない。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s14.jpg" alt="スライド：負の側面は、なぜ見えないのか。不可視性の四つの理由を列挙し、同じことがAIでも起きると結んでいる">
+      <figcaption><span class="sn">SLIDE 14</span> 負の側面は、なぜ見えないのか</figcaption>
+    </figure>
+
+    <div class="pq">ジレンマは、天秤にかける問題ですらない。<br>片方の皿が、そもそも見えていない。<span class="src">SLIDE 14</span></div>
+
+    <div class="txt">
+      <h3><span class="no">1 — 10 / 11</span>だから、すべての人が——そして船の比喩</h3>
+      <p>ここで、さきほどの「両側から無視される」図が反転します。哲学の側の人へ——人間のあり方はもう技術と分けられない。<span class="em">技術を問わずに、人間は問えない</span>。技術の側の人へ——何をつくるべきかという判断は、<span class="em">技術の内側からは出てこない</span>。まん中にある「技術は単なる道具ではなく、人間や社会のあり方を形成する」という一点が、いま両側にとって他人事ではなくなった。</p>
+      <p>だから、すべての人がこの厄介な問題に向き合うべきだ、と七沢は言います。そして、<span class="em">問いの形そのものを変える必要がある</span>。</p>
+      <p>第1部のまとめは、船の比喩でした。船内の計器を調べている間にも、船は高速で進んでいる。これまでの問いは船内の問い——「AIとは何か」「人間はどうあるべきか」。どれも重要です。けれども技術哲学が問うのは、<span class="t">航路</span>のほうです。〈人間＋テクノロジー〉のこの船は、どこへ向かうのか。誰が航路を描いたのか。その航路は、望ましいのか。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s16.jpg" alt="スライド：船の比喩。人間＋テクノロジーの船と、その先へ点線で延びていく航路と、目的地を示す疑問符">
+      <figcaption><span class="sn">SLIDE 16</span> 船の比喩</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================ PART 2 ============================ -->
+  <section id="p2">
+    <div class="part">
+      <div class="pn">Part Two</div>
+      <h2>現代の技術哲学の問い</h2>
+      <p class="sub">〈人間〉〈技術〉〈世界／社会〉——この三つの配置をめぐって、現代の技術哲学は何をどう問うているのか。五つの考え方のカタログ。</p>
+    </div>
+
+    <div class="txt">
+      <p>第2部は駆け足のカタログです。大前提は「技術は単なる道具ではない」——技術哲学者なら全員が同意する出発点。そのうえで五つ。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s18.jpg" alt="スライド：現代の技術哲学のいくつかの考え方。五つの考え方の一覧と、世界／社会という楕円のなかに人間と複数の技術が置かれた図">
+      <figcaption><span class="sn">SLIDE 18</span> 「現代の技術哲学」のいくつかの考え方</figcaption>
+    </figure>
+
+    <div class="txt">
+      <h3><span class="no">2 — 02</span>① 技術は単なる道具ではない</h3>
+      <p>道具説はこう言います。包丁は料理にも凶器にもなる。善悪は使い手の側にあって、技術そのものは中立である。技術哲学はそうは考えません。道路が引かれれば人の流れが変わる。SNSが広まれば「話題」というものの形そのものが変わる。技術は使われる前から、可能な行為の範囲を決めている。</p>
+      <p>つまり技術は目的のための手段ではなく、<span class="em">何が目的になりうるかそのものを、先に形づくっている</span>のです。</p>
+
+      <h3><span class="no">2 — 03</span>② 生まれながらのサイボーグ</h3>
+      <p>アンディ・クラークとチャーマーズの「拡張された心」。心は頭蓋の内側で完結していません。手帳に書いた予定、指を折って数えること、そろばん、スマートフォン。外部の道具が、そのまま思考の一部として働いている。眼鏡は「使う道具」ではなく、かけた瞬間に視覚の一部になる。杖は手の延長になる。</p>
+      <p>これは脳のレベルでも確かめられています。脳科学者・入來篤史のサル実験——棒を持たせて先端で物に触れさせると、<span class="em">棒の先までを自分の身体として扱う</span>ような脳の反応が現れる。道具を持つと、認識の範囲そのものが広がるのです。</p>
+      <p>だから人間は、機械を埋め込むまでもなく<span class="t">生まれながらのサイボーグ</span>である。サイボーグとはSFの未来像ではなく、人間の常態のことです。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s20.jpg" alt="スライド：②生まれながらのサイボーグ。拡張された心、道具の身体化、入來篤史のサル実験を挙げている">
+      <figcaption><span class="sn">SLIDE 20</span> ② 生まれながらのサイボーグ</figcaption>
+    </figure>
+
+    <div class="txt">
+      <h3><span class="no">2 — 04</span>道具は、内側であり外側である</h3>
+      <p>ここで一枚、独立したスライドが置かれます。第1部のジレンマと、この第2部をつなぐ蝶番です。</p>
+      <p>車を運転しているとき。うまくバックして停めて、降りたら壁まで10センチだった——あれは車の外形が身体の側に組み込まれているということです。運転している間、人は「車＋人間」というすごく大きな身体になっている。</p>
+      <p>ところが車から降りた瞬間、それは対象に戻ります。かっこいいな、汚れてるな、と眺めるものになる。<span class="em">さっきまで一体だったものが、外側の物体になる。</span></p>
+      <p>つまり道具は、内側であり、同時に外側でもあるという矛盾した状態で成立している。そしてこの矛盾が、第1部のジレンマの根にあります。<span class="red">内側にいる者には、外側で起きていることが見えない。</span></p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s21.jpg" alt="スライド：道具は、内側であり外側である。内側＝身体になっている／外側＝対象に戻る、を二列で対比している">
+      <figcaption><span class="sn">SLIDE 21</span> 道具は、内側であり、外側である</figcaption>
+    </figure>
+
+    <div class="txt">
+      <h3><span class="no">2 — 05 / 06 / 07</span>③ 関係　④ ゲシュテル　⑤ 技術多様性</h3>
+      <p><span class="em">③ 関係のなかで何かになる。</span>ラトゥールのアクターネットワーク理論では、人もモノも等しくアクターです。銃を持った人は、銃なしの人とも、人なしの銃とも違う存在になる。しかも銃は、それを作る会社、工場、規制する法律、射撃場があって初めて成立している。技術は絡み合うネットワークとして成立しているわけです。アイディやフェルベークのポスト現象学は、技術が人間と世界のあいだに立って知覚と行為を<span class="em">媒介する</span>と言います。そしてクーケルバークの関係論——「AIに意識はあるか」をまず確定してから扱いを決める、という順序をやめる。技術も人間も、関係のなかで初めて何かになる。</p>
+      <p><span class="em">④ ゲシュテル（総かり立て体制）。</span>ハイデガー『技術への問い』です。近代技術のもとでは、あらゆるものが<span class="t">用立て可能な資源</span>として現れてくる。ライン川は風景ではなく発電量になり、森は木材資源になり、人は「人材」になる。誰かが選んだ方針ではなく、そう現れてしまうという世界の様式そのものです。長らく古い・悲観的すぎるとされてきたこの技術論は、原発事故のあと読み直されました（國分功一郎『原子力時代における哲学』）。そしてAIの時代、データも、注意も、人の判断そのものも用立て可能な資源になる。ゆえに<span class="em">人間が技術を自由にコントロールできるという考えは、捨てなければならない</span>。私たちのほうが、すでにその内側にいるのです。</p>
+      <p><span class="em">⑤ テクノロジーは西洋近代の一つのあり方に過ぎない。</span>テクノロジーは普遍だと思われていますが、その中身は西洋近代という特定の世界観の産物です。世界をメカニズムとして捉え、法則を取り出し、資源として用立てる。技術の背後には、つねに宇宙観・世界観がある。ならば、別の世界観に根ざした別の技術のあり方もありうる——ユク・ホイの言う<span class="t">技術多様性</span>です。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s23.jpg" alt="スライド：④ハイデガーの復活。ゲシュテル＝総かり立て体制がAIの時代に効いてくることを説明している">
+      <figcaption><span class="sn">SLIDE 23</span> ④ ハイデガーの復活——ゲシュテル</figcaption>
+    </figure>
+
+    <div class="txt">
+      <h3><span class="no">2 — 08</span>降ろすべき「中心」は、二つある</h3>
+      <p>五つを突き詰めると、降ろすべき中心が二つ見えてきます。</p>
+      <p>一つ目が<span class="em">「ヒューマン」</span>。西洋近代的人間観——世界から独立した自律的な主体、自然の主人にして所有者としての人間です。これを特権的な中心から降ろすのがポストヒューマニズム。ただし七沢は、<span class="em">現代の欧米のポストヒューマニズム論は看板ばかりで脱しきれていない</span>と言います。「人間を超えた」と語っているのは、やはり人間なのだ、と。</p>
+      <p>二つ目が<span class="em">「テクノロジー」</span>。人間を降ろした席に、今度はテクノロジーを座らせる道もある。トランスヒューマニズムです。けれどもこれは中心が入れ替わっただけで、「中心が一つある」という構造はそのまま残る。</p>
+      <p>では、両方を降りた先には何があるのか。ここから先が、七沢自身の考えです——<span class="t">モア・ザン・ヒューマン</span>と、<span class="t">プリミティブ・サイボーグ</span>。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s25.jpg" alt="スライド：現代の技術哲学の方向性。乗り越える対象としてのヒューマンとテクノロジーを二列で示し、その先にモア・ザン・ヒューマンとプリミティブ・サイボーグを置いている">
+      <figcaption><span class="sn">SLIDE 25</span> 現代の技術哲学の方向性｜「ヒューマン」と「テクノロジー」を乗り越える</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================ PART 3 ============================ -->
+  <section id="p3">
+    <div class="part">
+      <div class="pn">Part Three</div>
+      <h2>原初の技術から考える</h2>
+      <p class="sub">ここからは七沢の考え。理論からではなく、身体から入る——そして最後に、第1部の問いへ戻ってくる。</p>
+    </div>
+
+    <div class="txt">
+      <h3><span class="no">3 — 01</span>なぜ、この二つなのか</h3>
+      <p><span class="em">「ヒューマン」の外へ。</span>欧米の議論は、どうしても人間の意識を特別視して、人間を特権的な位置に置き直そうとします。わかりやすいのがマシン・コンシャスネス——「機械に意識はあるか」と問うこと自体が、意識をもつ人間を頂点に置く発想の裏返しになっている。だから「人間を超えた」という宣言は、宣言のところで止まってしまう。</p>
+      <p>一方、日本はどうか。人格としての「ヒューマン」にあたる強い概念が、もともと薄い。人とモノの境界も曖昧で、日本語では人にも物にも同じように「もの」と言う。<span class="em">日本はもともとモア・ザン・ヒューマン的思想の国だったのではないか</span>——ここは七沢自身の主張です。</p>
+      <p>さらに、その日本という枠も相対化されます。『WEIRD「現代人」の奇妙な心理』は、西洋化した現代人の心理は歴史上のどんな社会の人々とも全く異なっている、と論じる本です。人間が特別で、意識をもっていて、という発想のほうが歴史的には非常に特殊だ、と。そうすると、日本がそうだったというより——<span class="em">西洋化した国以外は、みなモア・ザン・ヒューマン的だったのではないか</span>。（この点は本人が「リサーチ不足」と留保をつけていました。）</p>
+      <p><span class="em">「テクノロジー」の外へ。</span>サピエンスは、道具を手に入れることでサピエンスになりました。石器を握り、火を使うことが、脳と身体の進化を方向づけた。人間が先にいて、あとから道具を使い始めたのではない。<span class="em">技術とともに、人間になった</span>のです。</p>
+      <p>一方で、わずか五世代前まで電気も車もなかった。火を起こして暮らしていた時点で、じゅうぶんプリミティブです。しかもプリミティブな技術は技術革新が起きないので、何万年も暮らしが変わらない。縄文の頃とあまり変わらない生活を、日本の田舎も明治初期まで続けていたし、いまも石器の暮らしをしている地域が世界にはある。<span class="em">いまのテクノロジーは、ごく最近の表層にすぎない。</span></p>
+      <p>ただし、どちらも思弁では手に入りません。だから、実際に降りていって確かめる——ここから、七沢自身の体験に入ります。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s28.jpg" alt="スライド：なぜ、モア・ザン・ヒューマンとプリミティブ・サイボーグなのか。ヒューマンの外へ／テクノロジーの外へ、を二列で説明している">
+      <figcaption><span class="sn">SLIDE 28</span> なぜ、モア・ザン・ヒューマンとプリミティブ・サイボーグなのか</figcaption>
+    </figure>
+
+    <div class="txt">
+      <h3><span class="no">3 — 02</span>鳥取から、西表島へ</h3>
+      <p>七沢は子どものころ、父の仕事の関係で鳥取の田舎に住んでいました。野山を駆け巡って毎日遊び、小学校の校区には信号がない。海があり、湖があり、テレビもあまり見なかった。</p>
+      <p>そういう中で育って、あるとき、現代社会というもの、大人の世界というものが、どうも嫌だと感じた。いま言葉にすれば——人工物に覆われていて、規則があらかじめ決まっていて、機械的に何かが決められていく。そこには自由がない。十歳ごろのことです。</p>
+      <p>つまり七沢は、<span class="em">ハイデガー的な問い——テクノロジーが人間のもともと持っていた感性を歪ませているのではないか——を、十歳のころから抱えていた</span>わけです。</p>
+      <p>その後、大学で農学を学び、就職もせず、京都でフリーターをしながら音楽をやっていた。けれど自然への思いは消えなかった。西表島は九十パーセントが原生林らしい、ジャングルらしい——それを聞いて、ずっと行きたかった。そして音楽が芽を出さず、やめて、片道切符で島へ渡ります。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s29.jpg" alt="スライド：なぜ、そこへ行ったのか。鳥取の田舎、十歳の違和感、音楽をやっていた時期、片道切符でジャングルへ、という四つの時期を並べた図">
+      <figcaption><span class="sn">SLIDE 29</span> なぜ、そこへ行ったのか｜鳥取から、西表島へ</figcaption>
+    </figure>
+
+    <div class="txt">
+      <h3><span class="no">3 — 03</span>台風の夜——「最低限の人工空間」</h3>
+      <p>ヘッドライトも持たず、道の終わりからずっと歩いた先の、浜辺の横のジャングル。針と釣り糸だけで潜って魚を獲る。あまり獲れない。ライトがないのは、まあどうにかなる。寝ればいいからです。</p>
+      <p>ところが、台風が来た。テントが壊れ、火もつかない。もうだめだと退散した。</p>
+      <p>その退散した先、道の近くにもう一人キャンプしている人がいました。達人みたいな人で、台風の中でも平然としていて、薪もちゃんと用意してある。ジャングルの中なのに、三メートル四方くらいの空間にテントがびしっと張られ、<span class="em">そこだけが人間の空間になっていた</span>。</p>
+      <p>ああ、人間には最低でもこういう<span class="t">最低限の人工空間</span>がいるんだ——ここで、大きな気づきを得た。そして、<span class="em">それが拡張していったものが都市なのだ</span>、と理解した。</p>
+      <p>道具なしでは一日ももたない。しかし同時に、本当に必要な道具は驚くほど少ない。<span class="em">人間は、最低限の道具を必要とするサイボーグである。</span></p>
+      <p>七沢はここで、いちばん引いた地点を見たと言います。いちばん引いたところまで行ったのだから、あとは引いたうえで、ちょうどいいところを探ればいい。二十年前の出来事ですが、これがそのまま、いまの方針になっています。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s30.jpg" alt="スライド：台風の夜。人間には最低限の人工空間がいる、という言葉と、台風でテントが壊れ達人に出会うまでの経緯を並べている">
+      <figcaption><span class="sn">SLIDE 30</span> 台風の夜｜「最低限の人工空間」</figcaption>
+    </figure>
+
+    <div class="pq">人間には、最低限の人工空間がいる。<br>そして、それが拡張していったものが、都市なのだ。<span class="src">SLIDE 30</span></div>
+
+    <div class="txt">
+      <h3><span class="no">3 — 04</span>技術の基層</h3>
+      <p>ジャングルでは、もう一つ気づいたことがあります。<span class="em">技術を発揮しているのは、人間だけではない。</span></p>
+      <p>蔓は他者の幹を足場にして光へ届く。ヤドカリは他者の殻を住居に変える。鳥は巣を編み、シロアリは空調の効いた塔を建て、菌糸は土の中に流通のネットワークを張る。島の漁師は、イノシシのことを「あいつ」と呼びます。あいつを捕まえた、あいつにやられた、いつやられるかわからないけど俺はやり返す——同じ生き物として語られている。チーターは狩りの技術を兄弟のあいだで発達させ、チンパンジーは道具を使う。</p>
+      <p>これまで私たちは、それらは「本能」であって、人間のものだけが「技術」だと切り分けてきました。<span class="em">けれども、その切り分けこそが、人間だけを特別扱いする近代の区別なのではないか。</span></p>
+      <p>技術とは、生きとし生けるものが環境に応じることで生じるはたらきである。森の中で、高いところに食べものがある。棒があるから、それで落とす。<span class="em">環境に引き出されて、技術が発揮される</span>。七沢はここを<span class="t">技術の基層</span>と呼びます。人間の技術は、その長い連続のなかの一つの現れにすぎない。</p>
+      <p>「技術は人間だけのものだ」という前提を外すと、人間中心主義は理屈ではなく<span class="em">実感として</span>ほどけていきます。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s31.jpg" alt="スライド：技術の基層。技術は生きとし生けるものが環境に応じることで生じる、という主張を蔓・ヤドカリ・鳥・シロアリ・菌糸やイノシシ、チーターの例で示している">
+      <figcaption><span class="sn">SLIDE 31</span> 技術の基層</figcaption>
+    </figure>
+
+    <div class="txt">
+      <h3><span class="no">3 — 05 / 06</span>「つくる」をアンラーンする——しかし、教科書はない</h3>
+      <p>原初の技術から見えてくることが、もう一つあります。「つくる」ということそのものを、学び落とす必要がある。</p>
+      <p>一つ目。<span class="em">技術は、設計図をもとに作られるわけではない。</span>人類学者インゴルドが言うように、ものは素材と、手と、環境の応答のなかで形になっていく。頭の中の形を材料に押しつけるのではなく、素材の抵抗と対話しながら生成していく。</p>
+      <p>二つ目。<span class="em">技術は、科学に先行する。</span>理論があって技術ができたのではない。火も、舟も、発酵も、なぜそうなるのかがわかる何千年も前から作られていた。作ることが先で、説明は後から追いつく。</p>
+      <p>近代的な「つくる」——設計し、計画し、実装する——は、数ある作り方の一つにすぎません。だから、私たちが「つくる」だと思っているものを、いったん<span class="t">学び落とす（Unlearn）</span>必要がある。</p>
+      <p>そのうえで、モア・ザン・ヒューマンの技術へ。人間だけでなく、動物、植物、菌、土、水、道具、そして技術。それらが共に世界を作っているという捉え方です。技術の基層から見れば、これは主義主張ではなく<span class="em">単なる事実の記述</span>です。中心を別のものに移すのではなく、「中心が一つある」という考え方そのものを降りる。</p>
+      <p>ただし、ここが肝心です。<span class="red">これは思弁からは出てこないし、教科書も設計図もない。</span>ユク・ホイは『ポストヨーロッパ』で、乗り越えるべきは近代であり、外から取り替えるのではなく内側から超えるほかない、と言います。けれども、その手順書はない。手がかりは、実在した「別の技術」にしかないのです。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s33.jpg" alt="スライド：モア・ザン・ヒューマンの技術へ——しかし、教科書はない。思弁からは出てこず、手がかりは実在した別の技術にしかない、と述べている">
+      <figcaption><span class="sn">SLIDE 33</span> モア・ザン・ヒューマンの技術へ——しかし、教科書はない</figcaption>
+    </figure>
+
+    <div class="txt">
+      <h3><span class="no">3 — 07</span>これは、ロマン主義ではない</h3>
+      <p>ここで、必ず来る誤解に先回りして答える一枚が置かれます。この講義でいちばん重要な自己弁明であり、同時にいちばん強い主張でもあります。</p>
+      <p><span class="em">誤解① 「先住民の暮らしは素晴らしい」という賛美なのでは？</span><br>賛美はしない。実践して、確かめる。先住民の暮らしが素晴らしいと言いながら、自分はスーパーで買い、ネット通販で頼み、自分が大嫌いなはずの資本主義にどっぷり浸かって暮らしているなら、その主張には意味がない。素晴らしいと思ったら、取り入れて、実践して、それでどうなのかをやらないと、<span class="em">現代においては何も動かさない</span>。</p>
+      <p><span class="em">誤解② 近代を捨てて、過去に戻れということなのでは？</span><br>戻れない。そう暮らしていた人々は、近代のことも人権のことも知らずにそこにいた。もう少しさかのぼれば、意識というものがあったかどうかも怪しい。「個人」という概念だってデカルト以降のものです。そして<span class="em">私たちは、意識や個人という概念を失うことができない</span>。だから「戻る」は最初から選択肢にない。</p>
+      <p><span class="em">誤解③ プリミティブに戻れば、不自由になるのでは？</span><br>それは、まだ誰も知らない。近代的な意識、自律性、主体を持ったまま、過去のそういう実践をしてみるとどうなるのか。<span class="em">そこは、まだ開かれている。</span>プリミティブライフを実践したら男尊女卑になるとは限らないし、近代的な価値や自律性が失われるとも限らない。そこを行かなければいけない。</p>
+      <p>だから、脱近代でも自然回帰でもありません。むしろ<span class="red">その二項対立自体が、近代の発想</span>なのです。技術はいくらでも枝分かれしてきていて、私たちがたまたま——確率的に——採用しなかった技術の可能性がある。それを、いま手にすることができるかもしれない。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s34.jpg" alt="スライド：これは、ロマン主義ではない。よくある三つの誤解とその応答を三列で示し、脱近代でも自然回帰でもないと結論している">
+      <figcaption><span class="sn">SLIDE 34</span> これは、ロマン主義ではない｜よくある三つの誤解に答える</figcaption>
+    </figure>
+
+    <div class="pq">アンチ（反）ではなく、<br>アズ・イフ（そうあり得たかもしれない）。<span class="src">SLIDE 34</span></div>
+
+    <div class="txt">
+      <h3><span class="no">3 — 08</span>異なる未来を創造する</h3>
+      <p>では、どうしたらいいのか。ここで考え方の枠が一つ出されます。</p>
+      <p>左に、ビッグバンから現在までの時間の流れ。地球の誕生、生命の誕生、道具の誕生、火の使用、国家の誕生、印刷の発明、産業革命、AIの発明、そして現在。現在から右へ、扇形が開いていく。これが「予測される未来」です。</p>
+      <p>大事なのは、この<span class="em">扇の角度</span>です。「見渡せる未来」は、いまの延長線上にしか広がらない。だから——<span class="t">さかのぼった分だけ、投影できる未来の角度が広がる</span>。</p>
+      <p>これはSFが描く未来とも違います。現代社会を営んでいる身体から想像するかぎり、想像力のフォーカスは閉じている。過去にさかのぼるというのは<span class="em">身体的な実践</span>です。実際にプリミティブな暮らしをすることで、異なる感性、異なる技術の捉え方が身体から引き出されてくる。そこからの投影をすると、SFで描かれるものとは異なる未来が見えてくる。<span class="em">異なる身体を獲得することで、異なる未来が見える。</span></p>
+      <p>この考え方が、mUのカリキュラムの骨格でもある四つのSTEP——未来を見通す／根源にさかのぼる／現在を再定義する／社会実装を構想する——になっています。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s35.jpg" alt="スライド：異なる未来を創造する。時間軸とそこから開く未来の扇の図とともに、さかのぼった分だけ投影できる未来の角度が広がると説明している">
+      <figcaption><span class="sn">SLIDE 35</span> 異なる未来を創造する</figcaption>
+    </figure>
+
+    <div class="txt">
+      <h3><span class="no">3 — 09</span>技術史｜どこまで、さかのぼるか</h3>
+      <p>では、どこをさかのぼるのか。技術史です。</p>
+      <p>第1部で見た「直線的に進歩する階段」は、現実ではありません。<span class="em">歴史の書き方の産物</span>です。実際の技術史は、枝分かれと傍流と絶滅に満ちている。失われた枝は失敗作ではなく、<span class="t">別の世界観の化石</span>です。</p>
+      <p>そのうえで大事な問いがあります。<span class="em">どこまで、さかのぼるのか。</span></p>
+      <ul class="pts">
+        <li><span class="em">現代のテクノロジー</span>——わずか五世代。掘るまでもなく表層。</li>
+        <li><span class="em">里山・農村</span>——だいたいここで止まりがち。けれども里山は、実は古代国家が開拓した産物である。田んぼの時点でもう始まっている。単一品目を一気に植えるからリスクも大きいし、雑草を刈れという共同体の規範も生まれる。<span class="red">つまり里山は、それ自体まったくプリミティブではない。</span>ここで止めれば、掘り出されるのは国家と農耕のシステムです。</li>
+        <li><span class="em">狩猟採集</span>——技術革新が起きないぶん、何万年も暮らしが変わらない層。</li>
+        <li><span class="em">道具の誕生</span>——技術とともに人間になった地点。ここまで下げると、投影できる未来の角度は最大になる。</li>
+      </ul>
+      <p>なお、柳田国男が「民俗学の限界は室町までだ」と言っています。伝承の記録がそこまでしか残っていないからです。その先は考古学になるしかない。逆に言えば、いまのテックの広がりが、そこに別の領域を開きつつあるのかもしれません。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s36.jpg" alt="スライド：技術の根源から捉え直す、どこまでさかのぼるか。単線の進歩史から分かれる枝の図と、現代・里山農村・狩猟採集・道具の誕生という四つの層">
+      <figcaption><span class="sn">SLIDE 36</span> 技術の根源から捉え直す｜どこまで、さかのぼるか</figcaption>
+    </figure>
+
+    <div class="txt">
+      <h3><span class="no">3 — 10</span>身体で掘る——JUNGLE Gathering</h3>
+      <p>技術史は、読むだけでは身につきません。そのための試みが JUNGLE Gathering です。「現代人にジャングルを処方する」と銘打って、五年ほど前から年に三回、西表島の奥地に入っている。</p>
+      <p>移動する狩猟キャンプのようなスタイルで、厳選した道具だけを持って入り、竹から道具を作り、拾ってきた古い鉄を打ってナイフにし、塩を作る。長いときで三週間。時計も見ないし、スマホも基本的に見ない。それでも暮らせる。<span class="em">現代人は、意外とできる。</span>最低限まで引き算して、そこから少しずつ足していくことで、生活は成立するのです。</p>
+      <p>そこで、忘れられない出来事がありました。<span class="em">八重山の博物館に行ったら、自分たちが工夫して作ったのとまったく同じたわしが展示されていた。</span>発明したつもりのものが、すでにそこにあった。</p>
+      <p>身体が、同じ答えにたどり着く。これが、技術史を掘るということの、いちばん確かな手ごたえだった——と七沢は言います。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s37.jpg" alt="スライド：身体で掘る、Iriomote JUNGLE Gathering。やっていることと、博物館に同じ道具があったという出来事を二列で紹介している">
+      <figcaption><span class="sn">SLIDE 37</span> 身体で掘る｜Iriomote JUNGLE Gathering</figcaption>
+    </figure>
+
+    <div class="pq">技術によって、人間は世界を知る。<br>同じように——技術史によって、<br>人間は自分たちの別の可能性を知る。<span class="src">SLIDE 37</span></div>
+
+    <div class="txt">
+      <h3><span class="no">3 — 11</span>「未開の未来」へ</h3>
+      <p>立場は、はっきりしています。近代的人間観も、近代技術も、<span class="em">捨てるわけではない</span>。モア・ザン・ヒューマンとプリミティブ・サイボーグという観点から、それらを<span class="t">捉え直す</span>。そこから、異なる未来が見えてこないか。</p>
+      <p>それが<span class="em">「未開の未来」</span>という発想であり、そのための場としてつくられたのが makers Unlearn（mU）です。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s38.jpg" alt="スライド：「未開の未来」へ、makers Unlearn。捨てるのではなく捉え直すという立場と、mUというプログラムの概要を二列で示している">
+      <figcaption><span class="sn">SLIDE 38</span> 「未開の未来」へ｜makers Unlearn（mU）</figcaption>
+    </figure>
+
+    <div class="txt">
+      <h3><span class="no">3 — 12</span>はじめの問いに戻る——三つの命題</h3>
+      <p>そして講義は、第1部の問いに戻ります。第3部で検討してきたことをもとにすれば、三つのことが言える、と。</p>
+      <ol class="num">
+        <li><span class="em">技術と人間の不可分性は、受容できる。</span>人間は道具を手にすることで人間になった。西表島では裸の身体は一日ももたないが、必要な道具は驚くほど少ない。さらに、技術は人間だけのものですらない（技術の基層）。ならば、技術と人間を切り離して人間を守る、という発想自体が要らなくなる。<span class="em">不可分性は、欠陥ではなく人間の条件である。</span></li>
+        <li><span class="em">技術と哲学の不可分性も、受容できる。</span>技術の背後にはつねに宇宙観・世界観があり、神話と風土が技術のあり方を方向づけてきた。だからこそ、技術の背後にあるものに気づくことが重要になる。</li>
+        <li><span class="em">実質的な技術決定論は、乗り越えられる。</span>単線の進歩史は現実ではなく、歴史の書き方にすぎなかった。技術史には掘り起こされていない枝があり、掘るための方法がある。モア・ザン・ヒューマンの視点に立てば選択肢は一つではない。<span class="em">決定論は、運命ではなくなる。</span></li>
+      </ol>
+      <p>——以上を、本日の答えとします。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s39.jpg" alt="スライド：はじめの問いに戻る。三つの命題とそれぞれの根拠を並べた表">
+      <figcaption><span class="sn">SLIDE 39</span> はじめの問いに戻る</figcaption>
+    </figure>
+
+    <div class="txt">
+      <h3><span class="no">3 — 14</span>結び｜異なる技術に、気づいていく</h3>
+      <p>最後のメッセージは、意外なほど身近なところに着地します。</p>
+      <p>異なる技術の可能性を、日常の中で、いま、いかに発見するか。その試みこそが大切だ——と。西表島のジャングルや古文書の中だけの話ではありません。<span class="em">日常の中には、異なる技術がすでにたくさん埋め込まれている。</span>台所に、畑に、路地に、言葉づかいに、別の系譜の技術は生きている。</p>
+      <p>その違いに、気づいていく。</p>
+    </div>
+
+    <figure class="fig">
+      <img src="shots/s41.jpg" alt="スライド：結び。異なる技術は遠くではなく日常の中にすでにたくさん埋め込まれている、というメッセージ">
+      <figcaption><span class="sn">SLIDE 41</span> 結び｜異なる技術に、気づいていく</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================ GLOSSARY ============================ -->
+  <section id="gloss">
+    <div class="part">
+      <div class="pn">Glossary</div>
+      <h2>用語ミニ辞典</h2>
+      <p class="sub">講義に出てきた鍵になる言葉を、この講義での使われ方に即して。</p>
+    </div>
+
+    <dl class="gloss">
+      <div class="gitem">
+        <dt>補綴性<span class="en">prostheticity</span></dt>
+        <dd>人間は生まれつき何かが欠けていて、それを技術で補うことで人間になった、という見方。プロメテウス神話に由来し、「技術は後から付け足された道具ではない」という主張の古典的な形。</dd>
+      </div>
+      <div class="gitem">
+        <dt>拡張された心<span class="en">the extended mind</span></dt>
+        <dd>クラーク＆チャーマーズ。心は頭蓋の内側で完結しておらず、手帳・そろばん・スマートフォンといった外部の道具が、そのまま思考の一部として働いている、という考え方。</dd>
+      </div>
+      <div class="gitem">
+        <dt>生まれながらのサイボーグ<span class="en">natural-born cyborgs</span></dt>
+        <dd>機械を身体に埋め込むまでもなく、人間はすでに道具と混ざった存在である、というアンディ・クラークの主張。サイボーグはSFの未来像ではなく、人間の常態を指す言葉になる。</dd>
+      </div>
+      <div class="gitem">
+        <dt>ゲシュテル（総かり立て体制）<span class="en">Gestell</span></dt>
+        <dd>ハイデガー。近代技術のもとで、あらゆるものが「用立て可能な資源」として現れてしまう世界の様式。川は発電量に、森は木材資源に、人は「人材」になる。誰かの方針ではなく、そう見えてしまうこと自体を指す。</dd>
+      </div>
+      <div class="gitem">
+        <dt>技術多様性<span class="en">technodiversity</span></dt>
+        <dd>ユク・ホイ。技術の背後にはつねに宇宙観・世界観があり、いまのテクノロジーは西洋近代という一つの世界観に根ざした一つのあり方にすぎない。ならば別の技術のあり方もありうる、という主張。</dd>
+      </div>
+      <div class="gitem">
+        <dt>モア・ザン・ヒューマン<span class="en">more-than-human</span></dt>
+        <dd>人間だけでなく、動物・植物・菌・土・水・道具・技術が共に世界を作っているという捉え方。中心を人間から別のものへ移すのではなく、「中心が一つある」という考え方そのものを降りる点が肝。</dd>
+      </div>
+      <div class="gitem">
+        <dt>プリミティブ・サイボーグ<span class="en">primitive cyborg</span></dt>
+        <dd>七沢の造語。人間は最低限の道具を必要とするサイボーグであり、そのサイボーグ性は最新技術ではなく原初にこそ本質がある、という視点。「テクノロジー」の外へ出るための足場。</dd>
+      </div>
+      <div class="gitem">
+        <dt>技術の基層</dt>
+        <dd>七沢の用語。技術とは、生きとし生けるものが環境に応じることで生じるはたらきである、という層。人間の技術はその長い連続のなかの一つの現れにすぎない、と位置づけ直す。</dd>
+      </div>
+      <div class="gitem">
+        <dt>アンラーン<span class="en">unlearn</span></dt>
+        <dd>「つくる」＝設計し、計画し、実装すること、という近代的な理解をいったん学び落とすこと。素材と手と環境の応答から立ち上がる「つくる」を取り戻すための前提作業。</dd>
+      </div>
+      <div class="gitem">
+        <dt>未開の未来</dt>
+        <dd>掘り起こされていない技術史の枝から投影される未来。過去へさかのぼった分だけ、投影できる未来の角度が広がる——という発想を一語にしたもの。makers Unlearn の掲げる言葉。</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- ============================ BOOKS ============================ -->
+  <section id="books">
+    <div class="part">
+      <div class="pn">Reading</div>
+      <h2>登場した本・連載</h2>
+      <p class="sub">講義中に言及された主なもの。関心のある層から入るのがおすすめです。</p>
+    </div>
+
+    <div class="txt">
+      <ul class="books">
+        <li>
+          <span class="bt">技術哲学講義</span>
+          <span class="ba">M. クーケルバーク／直江清隆・久木田水生 監訳／丸善出版</span>
+          <span class="bw">技術哲学の教科書。七沢も翻訳に参加。分野全体の地図がほしいならここから。</span>
+        </li>
+        <li>
+          <span class="bt">生まれながらのサイボーグ</span>
+          <span class="ba">アンディ・クラーク</span>
+          <span class="bw">第2部②の出典。「拡張された心」を人間観のレベルまで押し広げた本。</span>
+        </li>
+        <li>
+          <span class="bt">技術への問い</span>
+          <span class="ba">M. ハイデガー</span>
+          <span class="bw">ゲシュテルの出典。AIの時代になって、むしろ効いてきた古典。</span>
+        </li>
+        <li>
+          <span class="bt">原子力時代における哲学</span>
+          <span class="ba">國分功一郎</span>
+          <span class="bw">ハイデガーの技術論が原発事故のあとに読み直された、その現場。</span>
+        </li>
+        <li>
+          <span class="bt">ポストヨーロッパ／技術多様性の議論</span>
+          <span class="ba">ユク・ホイ</span>
+          <span class="bw">乗り越えるべきは近代であり、外から取り替えるのではなく内側から超えるほかない——ただし手順書はない。第3部の出発点。</span>
+        </li>
+        <li>
+          <span class="bt">WEIRD「現代人」の奇妙な心理</span>
+          <span class="ba">ジョセフ・ヘンリック</span>
+          <span class="bw">西洋化した現代人の心理は歴史上のどんな社会とも異なる、と論じる本。「日本＝モア・ザン・ヒューマン的」という主張を、さらに広げる補助線として言及された。</span>
+        </li>
+        <li>
+          <span class="bt">WIRED 連載「技術哲学入門」</span>
+          <span class="ba">七沢智樹</span>
+          <span class="bw">2023年から継続中。テクノロジーをデザインする人のための技術哲学。<a class="lnk" href="https://wired.jp/author/tomoki-nanasawa/">wired.jp/author/tomoki-nanasawa</a></span>
+        </li>
+      </ul>
+      <p style="font-size:13.5px;color:var(--ink-faint);margin-top:20px">このほか、人類学者ティム・インゴルド（「つくる」の生成的な理解）、脳科学者・入來篤史（道具使用と身体図式のサル実験）、柳田国男（民俗学がさかのぼれる範囲）などが言及されました。</p>
+    </div>
+  </section>
+
+  <!-- ============================ mU ============================ -->
+  <section id="mu">
+    <div class="closing">
+      <div class="eyebrow">For mU</div>
+      <h2>この講義は、mU のどこにつながるか</h2>
+      <div class="txt" style="margin-left:0">
+        <p>この講義の第3部で出てきた「過去へさかのぼり、未来へ投影する」という枠は、そのまま makers Unlearn のカリキュラムの骨格です。四つのSTEPは、講義で語られたことの実行手順だと思ってください。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="sn2">STEP 01</div>
+          <h4>未来を見通す</h4>
+          <p>いまの延長線上に、どこまで見えているのかを確かめる。扇の角度を測るところから。</p>
+        </div>
+        <div class="step">
+          <div class="sn2">STEP 02</div>
+          <h4>根源にさかのぼる</h4>
+          <p>「つくる」の根源へ。技術哲学、技術史、人類学、身体、道具、環境、手仕事。今日の話の中心。</p>
+        </div>
+        <div class="step">
+          <div class="sn2">STEP 03</div>
+          <h4>現在を再定義する</h4>
+          <p>掘り起こした目で、見落とされてきた技術の可能性を、いまの現実のなかに発見する。</p>
+        </div>
+        <div class="step">
+          <div class="sn2">STEP 04</div>
+          <h4>社会実装を構想する</h4>
+          <p>見つけた未来を、試作し、実践する。思弁で終わらせないための最後の一段。</p>
+        </div>
+      </div>
+      <div class="txt" style="margin-left:0">
+        <p>講義の最後のメッセージを、もう一度。異なる技術は、西表島のジャングルや古文書の中にあるのではありません。台所に、畑に、路地に、言葉づかいに、すでに埋め込まれている。<span class="em">その違いに気づいていくこと</span>——mUでやろうとしているのは、そのための目と身体をつくることです。</p>
+      </div>
+    </div>
+
+    <div class="txt">
+      <div class="foot">
+        <p>スライド全41枚は <a class="lnk" href="https://nswtmk.github.io/ishikiken-website/slides/gijutsu-tetsugaku/v2/">こちらから通しで見られます</a>（キーボードの ← → で移動、O で目次）。<br>
+        本レポートは、講義スライドと読み上げ原稿をもとに Claude（Anthropic）が構成・執筆したものです。要約・言い換えの責任はAI側にあり、講義の意図と異なる箇所があれば原典のスライドを優先してください。</p>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page -->
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="スライド拡大表示">
+  <img id="lbimg" src="" alt="">
+  <div class="hint">クリック、または Esc で閉じる</div>
+</div>
+
+<script>
+(function () {
+  var lb = document.getElementById('lb');
+  var lbimg = document.getElementById('lbimg');
+  var last = null;
+  document.querySelectorAll('.fig img').forEach(function (im) {
+    im.tabIndex = 0;
+    function open() {
+      last = im;
+      lbimg.src = im.currentSrc || im.src;
+      lbimg.alt = im.alt;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    im.addEventListener('click', open);
+    im.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+    });
+  });
+  function close() {
+    lb.classList.remove('open');
+    lbimg.src = '';
+    document.body.style.overflow = '';
+    if (last) last.focus();
+  }
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+})();
+</script>
+</body>
+</html>
