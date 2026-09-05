@@ -293,9 +293,14 @@
   @media (max-width: 1100px) {
     :root { --sidebar-w: 0px; }
     .sidebar {
-      position: static; width: auto; flex-direction: row; align-items: center;
-      padding: 24px 28px; border-bottom: 1px solid var(--line);
+      position: sticky; top: 0; z-index: 100; width: auto; flex-direction: row; align-items: center;
+      padding: 18px 28px; border-bottom: 1px solid var(--line);
+      mix-blend-mode: normal; color: var(--ink); background: var(--paper);
     }
+    .sidebar .brand-name { color: var(--ink); }
+    .sidebar .brand-name small, .sidebar .brand-name .brand-tag { color: var(--ink-soft); }
+    .menu-btn span { background: var(--ink); }
+    section { scroll-margin-top: 72px; }
     .toc, .sidebar-cta, .sidebar-foot { display: none; }
     main { margin-left: 0; }
     .container { padding: 0 28px; }
