@@ -83,6 +83,18 @@
   }
   .sidebar-foot { margin-top: 18px; font-size: 12px; color: rgba(255,255,255,.62); letter-spacing: .06em; }
 
+  /* mobile menu */
+  .menu-btn { display: none; }
+  .m-menu { position: fixed; inset: 0; background: var(--paper); z-index: 300; display: none; flex-direction: column; padding: 24px 28px 48px; overflow-y: auto; }
+  .m-menu.open { display: flex; }
+  .m-menu .m-close { align-self: flex-end; background: none; border: none; font-size: 30px; line-height: 1; color: var(--ink); padding: 10px; cursor: pointer; }
+  .m-menu a { font-size: 20px; font-weight: 600; color: var(--ink); padding: 15px 4px; border-bottom: 1px solid var(--line); }
+  .m-menu a small { font-size: 11px; font-weight: 400; letter-spacing: .18em; color: var(--ink-soft); margin-left: 10px; }
+  @media (max-width: 1100px) {
+    .menu-btn { display: flex; flex-direction: column; justify-content: center; gap: 5.5px; margin-left: auto; background: none; border: none; padding: 10px 6px; cursor: pointer; }
+    .menu-btn span { display: block; width: 26px; height: 1.7px; background: #fff; }
+  }
+
   /* ---------- main ---------- */
   main { margin-left: var(--sidebar-w); }
   .container { padding: 0 96px 0 64px; max-width: 1040px; }
@@ -294,6 +306,7 @@
     .hero h1, .hero .lead, .hero .lead-en { text-align: left; }
     .hero h1 { font-size: clamp(26px, 8vw, 40px); }
     .hero .lead { font-size: 15px; }
+    .hero-veil { background: rgba(250,249,245,.84); }
     .hero { align-items: flex-start; }
     section { padding: 90px 0; }
     .sec-head { flex-direction: column; gap: 10px; margin-bottom: 56px; }
@@ -321,6 +334,8 @@
     <span class="brand-name">意識研究財団<small class="brand-tag">— AIに回答不能な究極の問いを今問う</small></span>
   </a>
 
+  <button class="menu-btn" aria-label="メニューを開く" onclick="document.getElementById('mmenu').classList.add('open')"><span></span><span></span><span></span></button>
+
   <nav>
     <ul class="toc">
       <li><a href="#concept"><span>Concept</span></a></li>
@@ -344,6 +359,22 @@
     <p class="sidebar-foot">根源に遡り、新たなパラダイムを開く</p>
   </div>
 </aside>
+
+<div class="m-menu" id="mmenu">
+  <button class="m-close" aria-label="メニューを閉じる" onclick="document.getElementById('mmenu').classList.remove('open')">×</button>
+  <a href="#concept" onclick="document.getElementById('mmenu').classList.remove('open')">Concept<small>理念</small></a>
+  <a href="#domains" onclick="document.getElementById('mmenu').classList.remove('open')">二つの軸</a>
+  <a href="#research" onclick="document.getElementById('mmenu').classList.remove('open')">研究プロジェクト</a>
+  <a href="#programs" onclick="document.getElementById('mmenu').classList.remove('open')">4つのプログラム</a>
+  <a href="#forest" onclick="document.getElementById('mmenu').classList.remove('open')">森</a>
+  <a href="#conference" onclick="document.getElementById('mmenu').classList.remove('open')">Conference 2026</a>
+  <a href="#schedule" onclick="document.getElementById('mmenu').classList.remove('open')">活動予定</a>
+  <a href="#activities" onclick="document.getElementById('mmenu').classList.remove('open')">活動報告</a>
+  <a href="#reports" onclick="document.getElementById('mmenu').classList.remove('open')">事業報告・財務</a>
+  <a href="#about" onclick="document.getElementById('mmenu').classList.remove('open')">法人概要</a>
+</div>
+
+
 
 <main id="top">
 
