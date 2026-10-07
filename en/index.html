@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Consciousness Research Foundation | Asking Now the Ultimate Question AI Cannot Answer</title>
+<meta name="description" content="The Consciousness Research Foundation pursues the ultimate question of consciousness that AI cannot answer — the hard problem — across its full range, from philosophical and scientific inquiry to the discovery of first-person consciousness.">
+<link rel="alternate" hreflang="ja" href="https://ishikiken.jp/">
+<link rel="alternate" hreflang="en" href="https://ishikiken.jp/en/">
+<link rel="alternate" hreflang="x-default" href="https://ishikiken.jp/">
+<style>
+  :root {
+    --paper: #faf9f5;
+    --ink: #14140f;
+    --ink-soft: #4a4a42;
+    --line: #d9d7cd;
+    --moss: #0ca568;
+    --mint: #1de394;
+    --sidebar-w: 400px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", Arial, sans-serif;
+    font-feature-settings: "palt";
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- sidebar ---------- */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: var(--sidebar-w);
+    padding: 48px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 10;
+    /* invert automatically over the dark conference section */
+    mix-blend-mode: difference;
+    color: #fff;
+  }
+  .brand { display: block; }
+  .brand-mark {
+    width: 44px; height: 44px; flex: none;
+  }
+  .brand-name { font-size: 15px; font-weight: 600; letter-spacing: .14em; }
+  .brand-name small { display: block; font-size: 9px; font-weight: 400; letter-spacing: .18em; color: rgba(255,255,255,.62); margin-top: 2px; }
+  .brand-name .brand-tag { font-size: 11px; letter-spacing: .06em; color: rgba(255,255,255,.78); margin-top: 5px; line-height: 1.7; }
+
+  .toc { list-style: none; }
+  .toc li { border-bottom: 1px solid transparent; }
+  .toc a {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    padding: 9px 0;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: .02em;
+    color: #fff;
+    opacity: .55;
+    transition: opacity .3s;
+  }
+  .toc a:hover, .toc a.active { opacity: 1; }
+  .toc .num { font-size: 15px; font-weight: 400; margin-right: 24px; }
+
+  .sidebar-cta {
+    display: flex; align-items: center; justify-content: space-between;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 15px; font-weight: 600;
+    transition: background .3s, color .3s;
+  }
+  .sidebar-cta:hover { background: #fff; color: #000; }
+  .sidebar-cta .circle {
+    width: 34px; height: 34px; border: 1px solid currentColor; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 14px;
+  }
+  .sidebar-foot { margin-top: 18px; font-size: 12px; color: rgba(255,255,255,.62); letter-spacing: .06em; }
+
+  /* language switch */
+  .lang { position: absolute; top: 48px; right: 56px; display: flex; align-items: center; gap: 7px; font-size: 11px; line-height: 28px; font-weight: 600; letter-spacing: .14em; color: #fff; }
+  .lang a { opacity: .55; transition: opacity .3s; }
+  .lang a:hover { opacity: 1; }
+  .lang .sep { opacity: .35; font-weight: 400; }
+  .lang [aria-current] { border-bottom: 1px solid currentColor; line-height: 1.5; }
+
+  /* mobile menu */
+  .menu-btn { display: none; }
+  .m-menu { position: fixed; inset: 0; background: var(--paper); z-index: 300; display: none; flex-direction: column; padding: 24px 28px 48px; overflow-y: auto; }
+  .m-menu.open { display: flex; }
+  .m-menu .m-close { align-self: flex-end; background: none; border: none; font-size: 30px; line-height: 1; color: var(--ink); padding: 10px; cursor: pointer; }
+  .m-menu a { font-size: 20px; font-weight: 600; color: var(--ink); padding: 15px 4px; border-bottom: 1px solid var(--line); }
+  .m-menu a small { font-size: 11px; font-weight: 400; letter-spacing: .18em; color: var(--ink-soft); margin-left: 10px; }
+  @media (max-width: 1100px) {
+    .menu-btn { display: flex; flex-direction: column; justify-content: center; gap: 5.5px; margin-left: auto; background: none; border: none; padding: 10px 6px; cursor: pointer; }
+    .menu-btn span { display: block; width: 26px; height: 1.7px; background: #fff; }
+  }
+
+  /* ---------- main ---------- */
+  main { margin-left: var(--sidebar-w); }
+  .container { padding: 0 96px 0 64px; max-width: 1040px; }
+
+  section { padding: 130px 0; border-top: 1px solid var(--line); }
+  section:first-of-type { border-top: none; }
+
+  .sec-head {
+    display: flex; justify-content: flex-end; align-items: baseline;
+    margin-bottom: 88px;
+  }
+  .sec-head .n { font-size: 44px; font-weight: 600; }
+  .sec-head h2 { font-size: clamp(34px, 4.5vw, 58px); font-weight: 700; letter-spacing: .01em; }
+  .sec-head .en { display: block; text-align: right; font-size: 13px; font-weight: 400; letter-spacing: .28em; color: var(--ink-soft); margin-top: 10px; text-transform: uppercase; }
+
+  /* hero */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; padding: 130px 0; border-top: none; position: relative; overflow: hidden; }
+  .hero-video { position: absolute; inset: 0; z-index: 0; overflow: hidden; filter: grayscale(1) contrast(1.03); pointer-events: none; background: url(../assets/hero-poster.jpg) center/cover no-repeat; }
+  .hero-video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-veil { position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(250,249,245,.62) 0%, rgba(250,249,245,.82) 55%, rgba(250,249,245,.94) 100%); pointer-events: none; }
+  .hero-rings { position: absolute; left: -150px; top: 50%; transform: translateY(-50%); width: 580px; height: 580px; pointer-events: none; z-index: 2; }
+  .hero-rings circle { fill: none; stroke: var(--mint); stroke-width: 1.6; }
+  .hero-rings .r1 { stroke-dasharray: 4 7; animation: spin 90s linear infinite; transform-origin: 290px 290px; }
+  .hero-rings .r2 { stroke-dasharray: 5 9; animation: spin 150s linear infinite reverse; transform-origin: 290px 290px; }
+  .hero-rings .r3 { stroke-dasharray: 3 6; animation: spin 220s linear infinite; transform-origin: 290px 290px; }
+  .hero-rings .core { fill: var(--mint); stroke: none; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .hero-rings circle { animation: none !important; } }
+  .hero > .container { position: relative; z-index: 3; }
+  .hero h1 {
+    font-size: clamp(36px, 4.7vw, 72px);
+    font-weight: 700;
+    line-height: 1.42;
+    letter-spacing: .04em;
+    text-align: right;
+  }
+  .hero .lead { margin-top: 40px; text-align: right; font-size: 17px; line-height: 2.3; }
+  .hero .lead-en { margin-top: 14px; text-align: right; font-size: 11px; letter-spacing: .12em; color: var(--ink-soft); }
+
+  .poem { font-size: 17.5px; line-height: 2.5; }
+  .poem p + p { margin-top: 2.5em; }
+  .poem .em { font-weight: 700; }
+  .kicker { font-size: 13px; letter-spacing: .3em; color: var(--moss); font-weight: 600; margin-bottom: 28px; text-transform: uppercase; }
+
+  /* domains */
+  .domain { display: grid; grid-template-columns: 120px 1fr; gap: 32px; padding: 56px 0; border-top: 1px solid var(--line); }
+  .domain:first-of-type { border-top: none; }
+  .domain .d-num { font-size: 15px; letter-spacing: .1em; color: var(--ink-soft); padding-top: 8px; }
+  .domain h3 { font-size: 30px; font-weight: 700; margin-bottom: 6px; }
+  .domain .d-sub { font-size: 13px; letter-spacing: .2em; color: var(--moss); font-weight: 600; margin-bottom: 20px; }
+  .domain p { font-size: 15.5px; color: var(--ink-soft); max-width: 620px; }
+  .d-pj { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .d-pj span { font-size: 12.5px; letter-spacing: .05em; color: var(--ink); border: 1.4px dashed var(--mint); border-radius: 999px; padding: 5px 16px; line-height: 1.6; }
+
+  /* diagrams (line-art visuals) */
+  .diagram { display: block; margin: 0 auto 80px; max-width: 100%; height: auto; }
+  .dash { fill: none; stroke: var(--mint); stroke-width: 1.6; stroke-dasharray: 4 7; }
+  .ln { fill: none; stroke: var(--ink); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+  .diagram text { font-family: inherit; fill: var(--ink); }
+  .diagram .lbl { font-size: 16px; font-weight: 700; letter-spacing: .06em; }
+  .diagram .sub { font-size: 10.5px; letter-spacing: .22em; fill: var(--ink-soft); }
+
+  /* schedule */
+  .sched-tag { display: inline-block; font-size: 11px; letter-spacing: .08em; padding: 3px 12px; border-radius: 999px; margin-left: 12px; vertical-align: 2px; white-space: nowrap; }
+  .sched-tag.open { border: 1.4px dashed var(--mint); color: var(--ink); }
+  .sched-tag.closed { border: 1px solid var(--line); color: var(--ink-soft); }
+  .sched-item { display: grid; grid-template-columns: 170px 1fr; gap: 28px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+  .sched-item:first-child { border-top: 1px solid var(--line); }
+  .sched-item .sd { font-size: 19px; font-weight: 700; letter-spacing: .04em; font-variant-numeric: tabular-nums; }
+  .sched-item .sd span { font-size: 14px; font-weight: 600; color: var(--ink-soft); }
+  .sched-item .sd small { display: block; font-size: 10.5px; font-weight: 400; letter-spacing: .16em; color: var(--ink-soft); margin-top: 4px; }
+  .sched-item h4 { font-size: 16.5px; font-weight: 600; line-height: 1.7; }
+  .sched-item p { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
+
+  /* timeline */
+  .timeline { position: relative; margin-top: 20px; }
+  .timeline::before {
+    content: ""; position: absolute; left: 178px; top: 12px; bottom: 12px;
+    width: 0; border-left: 1.6px dashed var(--mint);
+  }
+  .tl-item { display: grid; grid-template-columns: 150px 56px 1fr; align-items: start; padding: 44px 0; }
+  .tl-depth { text-align: right; font-size: 13px; letter-spacing: .08em; color: var(--ink-soft); padding-top: 10px; line-height: 1.6; }
+  .tl-dot { position: relative; height: 100%; }
+  .tl-dot::before {
+    content: ""; position: absolute; left: 20px; top: 10px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--paper); border: 1.6px solid var(--mint);
+  }
+  .tl-dot::after {
+    content: ""; position: absolute; left: 25.5px; top: 15.5px;
+    width: 4px; height: 4px; border-radius: 50%; background: var(--moss);
+  }
+  .tl-body h3 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+  .tl-body .q { font-size: 15.5px; color: var(--ink-soft); max-width: 560px; }
+
+  /* programs */
+  .prog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .prog { background: var(--paper); padding: 44px 36px 52px; }
+  .prog .p-num { font-size: 13px; letter-spacing: .12em; color: var(--ink-soft); margin-bottom: 28px; }
+  .prog .p-icon { display: block; margin-bottom: 26px; }
+  .prog h3 { font-size: 23px; font-weight: 700; margin-bottom: 4px; }
+  .pj-status { display: inline-block; margin-left: 10px; font-size: 11.5px; letter-spacing: .15em; color: var(--ink-soft); border: 1px solid var(--line); border-radius: 999px; padding: 2px 12px; vertical-align: middle; font-weight: 400; }
+  .prog .p-role { font-size: 14px; color: var(--moss); font-weight: 600; margin-bottom: 20px; }
+  .prog p { font-size: 14.5px; color: var(--ink-soft); }
+
+  /* photos */
+  .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 80px; }
+  .photo-grid img { width: 100%; height: 300px; object-fit: cover; display: block; }
+  .photo-grid .wide { grid-column: 1 / -1; }
+  .photo-grid .wide img { height: 420px; }
+  .photo-cap { font-size: 12px; letter-spacing: .12em; color: var(--ink-soft); margin-top: 14px; }
+
+  /* forest */
+  .forest-quote { font-size: clamp(26px, 3.4vw, 40px); font-weight: 700; line-height: 1.9; letter-spacing: .03em; margin-bottom: 64px; }
+  .forest-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  .forest-cols h4 { font-size: 14px; letter-spacing: .22em; color: var(--moss); font-weight: 600; margin-bottom: 16px; }
+  .forest-cols p { font-size: 15.5px; color: var(--ink-soft); }
+
+  /* conference — dark */
+  .dark {
+    background: var(--ink); color: var(--paper);
+    margin-left: calc(-1 * var(--sidebar-w));
+    padding-left: var(--sidebar-w);
+    border-top: none;
+  }
+  .dark .container { padding-top: 130px; padding-bottom: 130px; }
+  .dark .sec-head .en, .dark .conf-meta, .dark .conf-day p { color: #9a9a8e; }
+  .conf-title { font-size: clamp(36px, 5vw, 64px); font-weight: 700; letter-spacing: .02em; line-height: 1.4; margin-bottom: 20px; }
+  .conf-meta { font-size: 15px; letter-spacing: .1em; margin-bottom: 72px; }
+  .conf-days { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #3a3a32; border: 1px solid #3a3a32; margin-bottom: 56px; }
+  .conf-day { background: var(--ink); padding: 40px 36px; }
+  .conf-day .d { font-size: 13px; letter-spacing: .2em; color: var(--mint); margin-bottom: 24px; }
+  .conf-day h4 { font-size: 21px; font-weight: 700; margin-bottom: 14px; }
+  .conf-day .keynote { color: var(--paper) !important; font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+  .conf-day p { font-size: 14.5px; }
+  .conf-tt { margin-top: 26px; border-top: 1px solid #3a3a32; }
+  .conf-tt div { display: grid; grid-template-columns: 104px 1fr; gap: 14px; padding: 8px 0; border-bottom: 1px solid #2a2a24; font-size: 13px; color: var(--paper); }
+  .conf-tt .t { color: #9a9a8e; font-variant-numeric: tabular-nums; letter-spacing: .03em; }
+  .conf-cta { display: inline-block; margin-top: 30px; border: 1px solid var(--paper); border-radius: 999px; padding: 15px 40px; font-size: 15px; font-weight: 600; color: var(--paper); transition: background .3s, color .3s; }
+  .conf-cta:hover { background: var(--paper); color: var(--ink); }
+  .conf-note { font-size: 14px; color: #9a9a8e; line-height: 2.2; }
+
+  /* archive */
+  .arch-list { border-top: 1px solid var(--line); }
+  .arch-item { display: flex; justify-content: space-between; align-items: baseline; padding: 30px 0; border-bottom: 1px solid var(--line); font-size: 17px; }
+  .arch-item .tag { font-size: 12px; letter-spacing: .18em; color: var(--ink-soft); }
+  a.arch-item { cursor: pointer; transition: background .2s; }
+  a.arch-item:hover { background: rgba(29,227,148,.06); }
+  a.arch-item:hover span:first-child { text-decoration: underline; text-underline-offset: 5px; text-decoration-color: var(--moss); }
+
+  /* activities */
+  .year-block { display: grid; grid-template-columns: 150px 1fr; gap: 40px; padding: 64px 0; border-top: 1px solid var(--line); }
+  .year-block:first-of-type { border-top: none; }
+  .year-block .y { font-size: 28px; font-weight: 700; letter-spacing: .04em; }
+  .year-block .y small { display: block; font-size: 12px; font-weight: 400; letter-spacing: .12em; color: var(--ink-soft); margin-top: 8px; line-height: 1.8; }
+  .year-block .y-lead { font-size: 15.5px; margin-bottom: 36px; color: var(--ink); }
+  .act { padding: 20px 0; border-top: 1px solid var(--line); }
+  .act:first-of-type { border-top: none; padding-top: 0; }
+  .act h4 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .act h4 span { font-size: 12px; font-weight: 600; letter-spacing: .14em; color: var(--moss); margin-left: 12px; }
+  .act p { font-size: 14.5px; color: var(--ink-soft); }
+  .act-links { display: flex; flex-wrap: wrap; gap: 6px 24px; margin-top: 10px; }
+  .act-links a { font-size: 13px; color: var(--moss); font-weight: 600; border-bottom: 1px solid transparent; transition: border-color .2s; }
+  .act-links a:hover { border-bottom-color: var(--moss); }
+
+  /* reports & finance */
+  .fin-cell .k2 { font-size: 12px; color: var(--ink-soft); margin-top: 12px; line-height: 1.9; }
+  .fin-note { font-size: 13px; color: var(--ink-soft); margin-top: 18px; }
+  .fin-highlight { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 40px 0 72px; }
+  .fin-cell { background: var(--paper); padding: 32px 28px; }
+  .fin-cell .k { font-size: 12.5px; letter-spacing: .16em; color: var(--ink-soft); margin-bottom: 14px; }
+  .fin-cell .v { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .fin-cell .v small { font-size: 13px; font-weight: 400; color: var(--ink-soft); }
+  .fin-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  .fin-table th, .fin-table td { padding: 16px 12px; font-size: 15px; border-bottom: 1px solid var(--line); text-align: right; }
+  .fin-table th { font-size: 12.5px; letter-spacing: .12em; color: var(--ink-soft); font-weight: 600; border-bottom: 1px solid var(--ink); }
+  .fin-table th:first-child, .fin-table td:first-child { text-align: left; }
+  .rep-h { font-size: 14px; letter-spacing: .22em; color: var(--moss); font-weight: 600; margin: 72px 0 20px; }
+  .rep-h:first-of-type { margin-top: 0; }
+
+  /* about */
+  .about-dl { border-top: 1px solid var(--line); }
+  .about-row { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 30px 0; border-bottom: 1px solid var(--line); }
+  .about-row dt { font-size: 13px; letter-spacing: .18em; color: var(--ink-soft); padding-top: 4px; }
+  .about-row dd { font-size: 16px; line-height: 2.1; }
+  .about-row dd small { color: var(--ink-soft); font-size: 13px; }
+
+  /* footer */
+  footer { border-top: 1px solid var(--line); padding: 80px 0 60px; }
+  footer .container { display: flex; justify-content: space-between; align-items: flex-end; }
+  .foot-name { font-size: 20px; font-weight: 700; letter-spacing: .08em; }
+  .foot-name small { display: block; font-size: 10px; font-weight: 400; letter-spacing: .2em; color: var(--ink-soft); margin-top: 6px; }
+  .foot-right { font-size: 12.5px; color: var(--ink-soft); text-align: right; line-height: 2.2; }
+
+  /* English typography adjustments */
+  .brand-name { letter-spacing: .06em; }
+  .hero h1 { letter-spacing: .01em; line-height: 1.3; }
+  .poem { line-height: 2.2; }
+  .domain .d-sub { letter-spacing: .06em; }
+  .forest-quote { letter-spacing: .01em; line-height: 1.6; }
+  .conf-title { line-height: 1.2; }
+  .domain h3, .prog h3, .conf-day h4, .act h4 { line-height: 1.45; }
+  @media (max-width: 1100px) {
+    .brand { line-height: 1.4; }
+    .brand-name .brand-tag { line-height: 1.5; margin-top: 6px; }
+    .sched-item { grid-template-columns: 1fr; gap: 8px; }
+    .sched-item > div { min-width: 0; }
+    main section { scroll-margin-top: 124px; }
+  }
+
+  /* reveal animation */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 1100px) {
+    :root { --sidebar-w: 0px; }
+    .sidebar {
+      position: sticky; top: 0; z-index: 100; width: auto; flex-direction: row; align-items: center;
+      padding: 18px 28px; border-bottom: 1px solid var(--line);
+      mix-blend-mode: normal; color: var(--ink); background: var(--paper);
+    }
+    .sidebar .brand-name { color: var(--ink); }
+    .sidebar .brand-name small, .sidebar .brand-name .brand-tag { color: var(--ink-soft); }
+    .menu-btn span { background: var(--ink); }
+    .lang { position: static; margin-left: auto; color: var(--ink); padding: 10px 2px; flex: none; }
+    .lang + .menu-btn { margin-left: 16px; }
+    section { scroll-margin-top: 72px; }
+    .toc, .sidebar-cta, .sidebar-foot { display: none; }
+    main { margin-left: 0; }
+    .container { padding: 0 28px; }
+    .dark { margin-left: 0; padding-left: 0; }
+    .hero { min-height: 72vh; }
+    .hero h1, .hero .lead, .hero .lead-en { text-align: left; }
+    .hero h1 { font-size: clamp(26px, 8vw, 40px); }
+    .hero .lead { font-size: 15px; }
+    .hero-veil { background: rgba(250,249,245,.84); }
+    .hero { align-items: flex-start; }
+    section { padding: 90px 0; }
+    .sec-head { flex-direction: column; gap: 10px; margin-bottom: 56px; }
+    .sec-head h2, .sec-head .en { text-align: left; }
+    .domain { grid-template-columns: 1fr; gap: 8px; }
+    .timeline::before { left: 4px; }
+    .tl-item { grid-template-columns: 1fr; padding: 34px 0 34px 32px; }
+    .tl-depth { text-align: left; padding-top: 0; margin-bottom: 8px; }
+    .tl-dot { display: none; }
+    .tl-item { position: relative; }
+    .tl-item::before { content: ""; position: absolute; left: 0; top: 44px; width: 9px; height: 9px; border-radius: 50%; background: var(--moss); }
+    .prog-grid, .conf-days, .forest-cols, .fin-highlight { grid-template-columns: 1fr; }
+    .year-block, .about-row { grid-template-columns: 1fr; gap: 16px; }
+    .fin-table { display: block; overflow-x: auto; }
+    footer .container { flex-direction: column; align-items: flex-start; gap: 32px; }
+    .foot-right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <a class="brand" href="#top">
+    <span class="brand-name">The Consciousness<br>Research Foundation<small class="brand-tag">— Asking now the ultimate question AI cannot answer</small></span>
+  </a>
+
+  <nav class="lang" aria-label="Language"><a href="/" hreflang="ja" lang="ja" title="日本語">JA</a><span class="sep" aria-hidden="true">/</span><span aria-current="page" lang="en">EN</span></nav>
+
+  <button class="menu-btn" aria-label="Open menu" onclick="document.getElementById('mmenu').classList.add('open')"><span></span><span></span><span></span></button>
+
+  <nav>
+    <ul class="toc">
+      <li><a href="#concept"><span>Concept</span></a></li>
+      <li><a href="#domains"><span>Two Axes</span></a></li>
+      <li><a href="#research"><span>Research Projects</span></a></li>
+      <li><a href="#programs"><span>Four Programs</span></a></li>
+      <li><a href="#forest"><span>The Forest</span></a></li>
+      <li><a href="#conference"><span>Conference 2026</span></a></li>
+      <li><a href="#schedule"><span>Upcoming</span></a></li>
+      <li><a href="#activities"><span>Activities</span></a></li>
+      <li><a href="#reports"><span>Reports &amp; Finance</span></a></li>
+      <li><a href="#about"><span>About</span></a></li>
+    </ul>
+  </nav>
+
+  <div>
+    <a class="sidebar-cta" href="#conference">
+      <span>Conference 2026</span>
+      <span class="circle">↓</span>
+    </a>
+    <p class="sidebar-foot">Returning to the roots, opening a new paradigm</p>
+  </div>
+</aside>
+
+<div class="m-menu" id="mmenu">
+  <button class="m-close" aria-label="Close menu" onclick="document.getElementById('mmenu').classList.remove('open')">×</button>
+  <a href="#concept" onclick="document.getElementById('mmenu').classList.remove('open')">Concept<small>Our Philosophy</small></a>
+  <a href="#domains" onclick="document.getElementById('mmenu').classList.remove('open')">Two Axes</a>
+  <a href="#research" onclick="document.getElementById('mmenu').classList.remove('open')">Research Projects</a>
+  <a href="#programs" onclick="document.getElementById('mmenu').classList.remove('open')">Four Programs</a>
+  <a href="#forest" onclick="document.getElementById('mmenu').classList.remove('open')">The Forest</a>
+  <a href="#conference" onclick="document.getElementById('mmenu').classList.remove('open')">Conference 2026</a>
+  <a href="#schedule" onclick="document.getElementById('mmenu').classList.remove('open')">Upcoming</a>
+  <a href="#activities" onclick="document.getElementById('mmenu').classList.remove('open')">Activities</a>
+  <a href="#reports" onclick="document.getElementById('mmenu').classList.remove('open')">Reports &amp; Finance</a>
+  <a href="#about" onclick="document.getElementById('mmenu').classList.remove('open')">About</a>
+</div>
+
+
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-video" aria-hidden="true">
+      <video autoplay muted loop playsinline preload="metadata" poster="../assets/hero-poster.jpg">
+        <source src="../assets/hero.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-veil" aria-hidden="true"></div>
+    <svg class="hero-rings" viewBox="0 0 580 580" aria-hidden="true">
+      <circle class="r3" cx="290" cy="290" r="268"/>
+      <circle class="r2" cx="290" cy="290" r="192"/>
+      <circle class="r1" cx="290" cy="290" r="118"/>
+      <circle class="core" cx="290" cy="290" r="4.5"/>
+    </svg>
+    <div class="container" style="width:100%; display:flex; flex-direction:column; align-items:inherit;">
+      <h1 class="reveal">The greatest mystery<br>is not at the edge<br>of the universe.<br>It is right here.</h1>
+      <p class="lead reveal">Consciousness — why does the brain give rise to subjective experience?<br>Now is the time to ask the ultimate question that AI cannot answer.</p>
+      <p class="lead-en reveal" lang="ja">謎は、宇宙の果てではなく、ここにある。</p>
+    </div>
+  </section>
+
+  <!-- 1 CONCEPT -->
+  <section id="concept">
+    <div class="container">
+      <div class="sec-head reveal">
+        <h2>Concept<span class="en">Our Philosophy</span></h2>
+      </div>
+      <div class="poem reveal">
+        <p>
+          What is consciousness?<br>
+          The moment we ask this question, our consciousness begins to move.
+        </p>
+        <p>
+          Even in an age when science has advanced so far,<br>
+          consciousness remains at once the most intimate thing in the universe<br>
+          and one of its greatest mysteries.
+        </p>
+        <p>
+          When, and how, did the very concept of “consciousness” come into being?<br>
+          Does consciousness exist only in human beings?<br>
+          Might it dwell, in some form, in animals and plants — or even in machines?
+        </p>
+        <p>
+          Or perhaps all we can say with certainty<br>
+          is that each of us has a subjective experience of being conscious.
+        </p>
+        <p>
+          Consciousness does not merely mirror the world;<br>
+          it is also what finds value in the world.
+        </p>
+        <p>
+          It feels joy and suffering, holds things dear,<br>
+          and longs to live well.
+        </p>
+        <p>
+          And this longing to live well reaches out to others, too.<br>
+          Is it not this aspiration — this consciousness of compassion — that sustains our societies?
+        </p>
+        <p>
+          From the hard problem of consciousness to the discovery of first-person consciousness,<br>
+          and on to the question of the value of consciousness —
+        </p>
+        <p class="em">
+          by questioning consciousness anew from every direction and bringing it into everyday practice,<br>
+          we pursue and support research that contributes to better lives and a better society.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 DOMAINS -->
+  <section id="domains">
+    <div class="container">
+      <div class="sec-head reveal">
+        <h2>Two Axes<span class="en">Domains of Inquiry</span></h2>
+      </div>
+
+      <svg class="diagram reveal" viewBox="0 0 780 430" width="780" aria-hidden="true">
+        <!-- Philosophical & scientific inquiry: concentric circles (center = the hard problem) -->
+        <circle class="dash" cx="255" cy="200" r="175"/>
+        <circle class="dash" cx="255" cy="200" r="70"/>
+        <text class="lbl" x="255" y="194" text-anchor="middle" style="font-size:12.5px;letter-spacing:.02em;">The Hard Problem</text>
+        <text class="lbl" x="255" y="214" text-anchor="middle" style="font-size:12.5px;letter-spacing:.02em;">of Consciousness</text>
+        <circle class="dash" cx="170" cy="115" r="42"/>
+        <text class="sub" x="170" y="111" text-anchor="middle" style="font-size:9.5px;letter-spacing:.02em;">Origins of</text>
+        <text class="sub" x="170" y="125" text-anchor="middle" style="font-size:9.5px;letter-spacing:.02em;">Consciousness</text>
+        <circle class="dash" cx="135" cy="200" r="42"/>
+        <text class="sub" x="135" y="196" text-anchor="middle" style="font-size:9.5px;letter-spacing:.02em;">Consciousness</text>
+        <text class="sub" x="135" y="210" text-anchor="middle" style="font-size:9.5px;letter-spacing:.02em;">&amp; Technology</text>
+        <circle class="dash" cx="170" cy="285" r="42"/>
+        <text class="sub" x="170" y="281" text-anchor="middle" style="font-size:9.5px;letter-spacing:.02em;">Natural</text>
+        <text class="sub" x="170" y="295" text-anchor="middle" style="font-size:9.5px;letter-spacing:.02em;">Computation AI</text>
+        <text class="sub" x="255" y="404" text-anchor="middle" style="letter-spacing:.1em;">Philosophical &amp; Scientific Inquiry</text>
+        <!-- First-person discovery: a separate circle outside the concentric ones -->
+        <circle class="dash" cx="600" cy="200" r="132"/>
+        <text class="lbl" x="600" y="104" text-anchor="middle" style="font-size:13px;letter-spacing:.02em;">First-Person</text>
+        <text class="lbl" x="600" y="122" text-anchor="middle" style="font-size:13px;letter-spacing:.02em;">Consciousness</text>
+        <circle class="dash" cx="537" cy="212" r="44"/>
+        <text class="sub" x="537" y="208" text-anchor="middle" style="font-size:9.5px;letter-spacing:.02em;">Experimental</text>
+        <text class="sub" x="537" y="222" text-anchor="middle" style="font-size:9.5px;letter-spacing:.02em;">Archaeology</text>
+        <circle class="dash" cx="663" cy="212" r="44"/>
+        <text class="sub" x="663" y="208" text-anchor="middle" style="font-size:9.5px;letter-spacing:.02em;">Buddhism &amp;</text>
+        <text class="sub" x="663" y="222" text-anchor="middle" style="font-size:9.5px;letter-spacing:.02em;">Consciousness</text>
+        <circle class="dash" cx="600" cy="286" r="40"/>
+        <text class="sub" x="600" y="283" text-anchor="middle" style="font-size:9.5px;letter-spacing:.02em;">Consciousness</text>
+        <text class="sub" x="600" y="297" text-anchor="middle" style="font-size:9.5px;letter-spacing:.02em;">&amp; Satoyama</text>
+        <text class="sub" x="600" y="404" text-anchor="middle" style="letter-spacing:.1em;">The forest as a field of experience &amp; practice</text>
+      </svg>
+
+      <div class="domain reveal">
+        <div class="d-num">Axis 01</div>
+        <div>
+          <h3>Philosophical and Scientific Inquiry into Consciousness</h3>
+          <div class="d-sub">Facing the ultimate question of consciousness head-on</div>
+          <p>Why can subjective experience (qualia) arise in a physical brain — and perhaps in a machine? With the hard problem of consciousness at its center, this axis takes up the ultimate question of consciousness from both philosophy and science. From there, we trace the concept of consciousness back to its birth and transformations, and engage with debates on consciousness that embrace all living beings and machines as well.</p>
+          <div class="d-pj"><span>Consciousness and Technology Project</span><span>The Hard Problem of Consciousness Project (In planning)</span><span>Origins of Consciousness Project (In planning)</span><span>Natural Computation AI Project (In planning)</span></div>
+        </div>
+      </div>
+
+      <div class="domain reveal">
+        <div class="d-num">Axis 02</div>
+        <div>
+          <h3>Discovering Consciousness in the First Person</h3>
+          <div class="d-sub">Discovering diverse modes of consciousness through the body and everyday life</div>
+          <p>The forest, meditation, Buddhism, <i>satoyama</i> (the traditional Japanese landscape of villages, fields, and tended woodland), the Jōmon (Japan’s prehistoric culture) — not as concepts but as first-person experience, we discover the many forms that consciousness can take. With the forest as our field of practice, we reflect on what emerges as we move back and forth between non-ordinary and everyday consciousness. And we respond to the question of value: what kind of consciousness, and what way of living, is good?</p>
+          <div class="d-pj"><span>Buddhism and Consciousness Project</span><span>Consciousness and Satoyama Project</span><span>Experimental Archaeology of Consciousness Project (In planning)</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3 RESEARCH -->
+  <section id="research">
+    <div class="container">
+      <div class="sec-head reveal">
+        <h2>Research Projects<span class="en">Current &amp; Planned</span></h2>
+      </div>
+      <p class="poem reveal" style="margin-bottom:72px;">
+        Our research projects are organized around the ultimate questions of consciousness.<br>
+        Three projects are currently under way, and four more are in planning.
+      </p>
+
+      <div class="prog-grid reveal">
+        <div class="prog">
+          <div class="p-num">Project 01 ── Philosophical &amp; Scientific Inquiry</div>
+          <h3>Consciousness and Technology Project</h3>
+          <div class="p-role">Lead: Keisuke Suzuki</div>
+          <p>Supports research and development on altered states of consciousness and technology, beginning with the Hallucination Machine — engaging, through implementation, with debates on consciousness that include machines.</p>
+        </div>
+        <div class="prog">
+          <div class="p-num">Project 02 ── First-Person Discovery</div>
+          <h3>Buddhism and Consciousness Project</h3>
+          <div class="p-role">Lead: Masahiro Fujino</div>
+          <p>Approaches the problem of consciousness through Buddhism’s 2,500-year tradition of systematic inquiry into the mind — above all, from the perspective of meditative practice.</p>
+        </div>
+        <div class="prog">
+          <div class="p-num">Project 03 ── First-Person Discovery</div>
+          <h3>Consciousness and Satoyama Project</h3>
+          <div class="p-role">Lead: Yukihiro Nobuhara</div>
+          <p>Explores how consciousness and time were lived in ways of life before the Industrial Revolution, questioning them anew in practice with reference to Kenji Miyazawa and Henri Bergson.</p>
+        </div>
+        <div class="prog">
+          <div class="p-num">Project 04 ── Philosophical &amp; Scientific Inquiry</div>
+          <h3>Origins of Consciousness Project<span class="pj-status">In planning</span></h3>
+          <div class="p-role">Lead: Tomoki Nanasawa</div>
+          <p>How did the concept of consciousness — and the mind itself — come into being? Drawing on evolutionary origins and the genealogy of the concept, we inquire into consciousness before the concept.</p>
+        </div>
+        <div class="prog">
+          <div class="p-num">Project 05 ── Philosophical &amp; Scientific Inquiry</div>
+          <h3>The Hard Problem of Consciousness Project<span class="pj-status">In planning</span></h3>
+          <div class="p-role">Lead: Masataka Watanabe</div>
+          <p>Why does subjective experience (qualia) arise in a physical brain? We take on the ultimate question of consciousness directly, from both philosophy and neuroscience.</p>
+        </div>
+        <div class="prog">
+          <div class="p-num">Project 06 ── First-Person Discovery</div>
+          <h3>Experimental Archaeology of Consciousness Project<span class="pj-status">In planning</span></h3>
+          <div class="p-role">Lead: To be determined</div>
+          <p>Through archaeological inquiry and the practice of experimental archaeology, we explore the minds of ancient peoples, beginning with the Jōmon. The forest, dotted with Jōmon sites, serves as our field of practice.</p>
+        </div>
+        <div class="prog">
+          <div class="p-num">Project 07 ── Philosophical &amp; Scientific Inquiry</div>
+          <h3>Natural Computation AI Project<span class="pj-status">In planning</span></h3>
+          <div class="p-role">Lead: To be determined</div>
+          <p>Learning from the computation that nature itself performs, we envision AI that takes into account all living beings — indeed all that exists — and their ways of being conscious.</p>
+        </div>
+        <div class="prog" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 PROGRAMS -->
+  <section id="programs">
+    <div class="container">
+      <div class="sec-head reveal">
+        <h2>Four Programs<span class="en">Programs</span></h2>
+      </div>
+      <div class="prog-grid reveal">
+        <div class="prog">
+          <div class="p-num">Program 01</div>
+          <svg class="p-icon" viewBox="0 0 72 72" width="64" height="64" aria-hidden="true">
+            <circle class="dash" cx="36" cy="36" r="31"/>
+            <circle class="ln" cx="29" cy="33" r="9"/>
+            <path class="ln" d="M39 26 a9 9 0 0 1 0 18 l-4 6 -1.5 -6.5"/>
+          </svg>
+          <h3>Conference</h3>
+          <div class="p-role">A place to open questions</div>
+          <p>Once a year, we open the questions of consciousness to the public. In 2026, the conference takes up the theme of “Machine Consciousness” on October 24 and 25.</p>
+        </div>
+        <div class="prog">
+          <div class="p-num">Program 02</div>
+          <svg class="p-icon" viewBox="0 0 72 72" width="64" height="64" aria-hidden="true">
+            <circle class="dash" cx="36" cy="36" r="31"/>
+            <path class="ln" d="M36 50 V32"/>
+            <path class="ln" d="M36 38 C36 30 30 26 24 26 C24 34 30 38 36 38"/>
+            <path class="ln" d="M36 32 C36 24 42 20 48 20 C48 28 42 32 36 32"/>
+            <path class="ln" d="M28 50 H44"/>
+          </svg>
+          <h3>Research Support</h3>
+          <div class="p-role">A structure that sustains the questions</div>
+          <p>We are planning grant-based support for researchers who pursue the questions of consciousness.</p>
+        </div>
+        <div class="prog">
+          <div class="p-num">Program 03</div>
+          <svg class="p-icon" viewBox="0 0 72 72" width="64" height="64" aria-hidden="true">
+            <circle class="dash" cx="36" cy="36" r="31"/>
+            <path class="ln" d="M36 20 L26 36 H31 L23 50 H49 L41 36 H46 Z"/>
+            <path class="ln" d="M36 50 V56"/>
+          </svg>
+          <h3>Activities in the Forest</h3>
+          <div class="p-role">A place to live the questions</div>
+          <p>Debate at the desk alone cannot reach the “value” of consciousness. With a forest of our own as a field, we pursue practical inquiry through the body, everyday living, and hands-on skills.</p>
+        </div>
+        <div class="prog">
+          <div class="p-num">Program 04</div>
+          <svg class="p-icon" viewBox="0 0 72 72" width="64" height="64" aria-hidden="true">
+            <circle class="dash" cx="36" cy="36" r="31"/>
+            <path class="ln" d="M26 25 h20 a4 4 0 0 1 4 4 v11 a4 4 0 0 1 -4 4 h-12 l-8 8 v-8 a4 4 0 0 1 -4 -4 v-11 a4 4 0 0 1 4 -4 Z"/>
+            <circle cx="30" cy="34.5" r="1.7" fill="var(--ink)"/>
+            <circle cx="36" cy="34.5" r="1.7" fill="var(--ink)"/>
+            <circle cx="42" cy="34.5" r="1.7" fill="var(--ink)"/>
+          </svg>
+          <h3>Discord Community</h3>
+          <div class="p-role">A place to share the questions</div>
+          <p>We run a Discord server where members involved in the Foundation’s projects come together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 FOREST -->
+  <section id="forest">
+    <div class="container">
+      <div class="sec-head reveal">
+        <h2>The Forest<span class="en">Hokuto, Yamanashi</span></h2>
+      </div>
+
+      <svg class="diagram reveal" viewBox="0 0 900 250" width="900" aria-hidden="true">
+        <circle class="dash" cx="620" cy="105" r="78"/>
+        <path class="ln" d="M30 205 L170 85 L235 150 L320 70 L455 205"/>
+        <path class="ln" d="M455 205 L540 140 L620 205"/>
+        <path class="ln" d="M700 205 V188 M700 188 L688 205 M700 188 L712 205 M700 188 V172 M700 172 L690 186 M700 172 L710 186 M700 172 L700 160 M700 160 L692 172 M700 160 L708 172"/>
+        <path class="ln" d="M760 205 V192 M760 192 L750 204 M760 192 L770 204 M760 192 V180 M760 180 L752 190 M760 180 L768 190"/>
+        <path class="ln" d="M20 205 H880"/>
+        <text class="sub" x="322" y="52" text-anchor="middle" style="letter-spacing:.12em;">Hōō Sanzan</text>
+        <text class="sub" x="740" y="232" text-anchor="middle" style="letter-spacing:.1em;">The forest of greater Hokuto</text>
+      </svg>
+
+      <p class="forest-quote reveal">“Bringing the ultimate question<br>down to the land and the forest.”</p>
+      <div class="poem reveal" style="margin-bottom:72px;">
+        <p>
+          At the foot of the Hōō Sanzan mountains, adjacent to a heartland of Middle Jōmon spiritual culture,<br>
+          lies 18,000 tsubo (about 6 hectares) of mountain forest in Mukawa-chō, Hokuto City, Yamanashi Prefecture.<br>
+          In July 2026, the Foundation signed an agreement to acquire this forest as its field of practice.
+        </p>
+      </div>
+      <p class="poem reveal">
+        Here, over several years, we will build a hall for about 60 people through participatory, DIY construction.<br>
+        Conferences on consciousness, meditation retreats, programs spent without clocks or smartphones —<br>
+        we are creating a place of practice open not only to researchers but to everyone.<br>
+        Moving back and forth between non-ordinary consciousness in the forest and everyday consciousness in the city,<br>
+        we come to notice the question of the value of consciousness.<br>
+        That is what this place aims for.
+      </p>
+      <div class="photo-grid reveal">
+        <figure class="wide"><img src="../assets/forest/img_0254.jpg" alt="Morning sunlight streaming into the forest" loading="lazy"></figure>
+        <figure><img src="../assets/forest/img_0255.jpg" alt="Deciduous woodland in summer" loading="lazy"></figure>
+        <figure><img src="../assets/forest/img_0263.jpg" alt="Ghost plants (Monotropastrum humile) blooming on the forest floor" loading="lazy"></figure>
+      </div>
+      <p class="photo-cap">From our practice in the forest</p>
+    </div>
+  </section>
+
+  <!-- 6 CONFERENCE (dark) -->
+  <section id="conference" class="dark">
+    <div class="container">
+      <div class="sec-head reveal">
+        <h2>Conference 2026<span class="en">Annual Conference</span></h2>
+      </div>
+      <h3 class="conf-title reveal">Machine<br>Consciousness</h3>
+      <p class="conf-meta reveal">Oct 24 (Sat) – 25 (Sun), 2026 | Tokyo Midtown (Roppongi, Tokyo) | Both days from 13:00 | In-person attendance by invitation (50–70 participants) | Free online livestream (Zoom)</p>
+
+      <div class="conf-days reveal">
+        <div class="conf-day">
+          <div class="d">DAY 1 ── 10.24</div>
+          <h4>Machine Consciousness<br>and Human Consciousness</h4>
+          <p class="keynote">Keynote: Ryota Kanai</p>
+          <p class="keynote" style="font-weight:400;">Speakers: Masataka Watanabe / Kenichiro Mogi / Yukihiro Nobuhara</p>
+          <p>How does machine consciousness relate to human consciousness? Setting out from the machine consciousness debate now unfolding in the Bay Area, this day connects the two head-on.</p>
+          <div class="conf-tt">
+            <div><span class="t">12:30</span><span>Doors open / Registration</span></div>
+            <div><span class="t">13:00–14:00</span><span>Keynote: Ryota Kanai</span></div>
+            <div><span class="t">14:00–15:00</span><span>Masataka Watanabe</span></div>
+            <div><span class="t">15:00–16:00</span><span>Kenichiro Mogi</span></div>
+            <div><span class="t">16:00–17:00</span><span>Yukihiro Nobuhara</span></div>
+            <div><span class="t">17:00–18:00</span><span>General discussion</span></div>
+            <div><span class="t">18:00–21:00</span><span>Reception &amp; poster session</span></div>
+          </div>
+        </div>
+        <div class="conf-day">
+          <div class="d">DAY 2 ── 10.25</div>
+          <h4>Machine Consciousness<br>and More-than-Human Consciousness</h4>
+          <p class="keynote">Keynote: Takashi Ikegami</p>
+          <p class="keynote" style="font-weight:400;">Speakers: Daichi Suzuki / Masayoshi Someya / Keisuke Suzuki (online) / Fuzumi Shimonishi</p>
+          <p>How does machine consciousness relate to more-than-human consciousness? Plant consciousness, the genealogy of the concept of consciousness, its evolutionary origins — this day calls the very premises into question.</p>
+          <div class="conf-tt">
+            <div><span class="t">12:30</span><span>Doors open / Registration</span></div>
+            <div><span class="t">13:00–14:00</span><span>Keynote: Takashi Ikegami</span></div>
+            <div><span class="t">14:00–15:00</span><span>Daichi Suzuki</span></div>
+            <div><span class="t">15:00–16:00</span><span>Masayoshi Someya</span></div>
+            <div><span class="t">16:00–17:00</span><span>Keisuke Suzuki (online)</span></div>
+            <div><span class="t">17:00–18:00</span><span>Fuzumi Shimonishi</span></div>
+            <div><span class="t">18:00–</span><span>Poster session</span></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="conf-note reveal">
+        Keynotes consist of a 45-minute talk followed by 15 minutes of Q&amp;A; each talk is 30 minutes followed by 30 minutes of discussion — a format built around dialogue.<br>
+        A reception and poster session (flash talks and core time) are planned for the evening of Day 1, with another poster session after the talks on Day 2 (open call, selected by review).<br>
+        Ahead of the conference, a team of early-career researchers will prepare a “State of Machine Consciousness” report to be distributed to participants.<br>
+        Speakers and program are subject to change.<br>
+        In-person attendance is by invitation. Online participation (Zoom livestream) is free with registration.
+      </p>
+      <a class="conf-cta reveal" href="https://ishikiken-c2026.peatix.com/" target="_blank" rel="noopener">Register to join online — free, via Peatix (Japanese) ↗</a>
+    </div>
+  </section>
+
+  <!-- 7 ACTIVITIES -->
+  <!-- SCHEDULE -->
+  <section id="schedule">
+    <div class="container">
+      <div class="sec-head reveal">
+        <h2>Upcoming<span class="en">Schedule</span></h2>
+      </div>
+      <div class="sched-list reveal">
+        <div class="sched-item">
+          <div class="sd">10.24<span>–10.25</span><small>Sat–Sun</small></div>
+          <div><h4>Conference 2026: “Machine Consciousness”<span class="sched-tag open">Open to the public</span></h4><p>Tokyo Midtown (Roppongi, Tokyo) | Free online livestream<br><a href="https://ishikiken-c2026.peatix.com/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);">Register to join online — Peatix, free (Japanese) ↗</a></p></div>
+        </div>
+        <div class="sched-item">
+          <div class="sd">10.31<span>–11.1</span><small>Sat–Sun</small></div>
+          <div><h4>Kenji Miyazawa Reading Group Retreat &amp; Public Reading Session<span class="sched-tag open">Open to the public on Nov 1</span></h4><p>Ōtawara, Tochigi (Hanazono-sō)</p></div>
+        </div>
+      </div>
+      <p class="fin-note">Schedules are subject to change. Details and how to participate will be announced for each event in due course.</p>
+    </div>
+  </section>
+
+  <section id="activities">
+    <div class="container">
+      <div class="sec-head reveal">
+        <h2>Activities<span class="en">Activity Reports</span></h2>
+      </div>
+      <p class="poem reveal" style="margin-bottom:72px;">
+        Ishikiken, as the Foundation is known in Japan, began its activities in 2023 and became a general incorporated foundation in September 2024.<br>
+        Through FY2025 (Apr 2025–Mar 2026), it built up study groups, retreats, reading groups, and research support<br>
+        around three themes: Technology, Meditation, and Well-being.
+      </p>
+
+      <div class="year-block reveal">
+        <div class="y">2025<small>Fiscal Year</small></div>
+        <div>
+          <p class="y-lead">While continuing its three projects, the Foundation launched in earnest its plan for the Forest as a permanent base.</p>
+          <div class="act">
+            <h4>Hallucination Machine<span>TECHNOLOGY</span></h4>
+            <p>Continued support for the development of a real-time hallucination machine led by Keisuke Suzuki (Hokkaido University). Demo exhibition at the International Conference on Artificial Life, ALIFE 2025 (Kyoto), and presentation at ASSC 2025 (Crete, Greece). The international conference “Models of Consciousness 6” was held at Hokkaido University — its first time in Asia, with approximately 90 participants. The Foundation also sponsored the “QUALIUS Retreat on Non-Ordinary States of Consciousness.”</p>
+            <p class="act-links"><a href="../reports/suzuki2025/" target="_blank" rel="noopener">Outcome report: Connecting the Science of Consciousness with the World — FY2025 International Conference Report (Japanese) ↗</a></p>
+          </div>
+          <div class="act">
+            <h4>Buddhism and Consciousness<span>MEDITATION</span></h4>
+            <p>Under the leadership of Masahiro Fujino (Ritsumeikan University), the “Meditation Retreat for Researchers 2025” was co-organized with Ritsumeikan University (Hitsuki Club, Shizuoka; 4 days and 3 nights; 23 researchers from many fields). An organized session on “Meditation and AI,” proposed by participating researchers, was accepted for the 2026 Annual Conference of the Japanese Society for Artificial Intelligence. Fujino’s TEDxKyotoUniversity talk surpassed 180,000 views within four months of its release. Field research on Vipassana meditation was also conducted at MCU in Thailand.</p>
+            <p class="act-links"><a href="https://note.com/ishiki_ken/n/nfc164a95b60c" target="_blank" rel="noopener">Report: Meditation Retreat for Researchers 2025 (Japanese) ↗</a><a href="https://note.com/ishiki_ken/n/n9f446d4ebb95" target="_blank" rel="noopener">Report: Vipassana Meditation Field Research in Thailand (2025) (Japanese) ↗</a></p>
+          </div>
+          <div class="act">
+            <h4>Consciousness and Satoyama<span>WELL-BEING</span></h4>
+            <p>Centered on Yukihiro Nobuhara, the Kenji Miyazawa Reading Group and the Bergson Reading Group met monthly. Retreats were held in Hokuto (Yamanashi) and Takahata (Yamagata), along with fieldwork at Fundoan (Ibaraki) and the “Mu no Kai” (Fukushima).</p>
+            <p class="act-links"><a href="https://ishikiken.notion.site/kenji" target="_blank" rel="noopener">Records of the Kenji Miyazawa Reading Group (Japanese) ↗</a><a href="https://ishikiken.notion.site/bergson" target="_blank" rel="noopener">Records of the Bergson Reading Group (Japanese) ↗</a></p>
+          </div>
+          <div class="act">
+            <h4>Planning the Forest<span>FOREST</span></h4>
+            <p>Plans to make a forest in Hokuto, Yamanashi, the site of the Foundation’s practical activities moved into full swing. An architectural plan was developed together with VUILD Inc.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="year-block reveal">
+        <div class="y">2024<small>Fiscal Year</small></div>
+        <div>
+          <p class="y-lead">Incorporated as The Consciousness Research Foundation, a general incorporated foundation, and expanded its activities under a three-team structure.</p>
+          <div class="act">
+            <h4>Hallucination Machine<span>TECHNOLOGY</span></h4>
+            <p>Featured the “Hallucination Machine” of Keisuke Suzuki (Hokkaido University), holding a discussion and hands-on session on altered states of consciousness, and funded development of an update to the first prototype.</p>
+          </div>
+          <div class="act">
+            <h4>Buddhism and Consciousness<span>MEDITATION</span></h4>
+            <p>Supported a meditation retreat for researchers. Held a series of dialogue-style study sessions, inviting Satoshi Nagasawa, Issho Fujita, and Vimala Inoue in conversation with Masahiro Niizuma, Fuzumi Shimonishi, and Chikahiro Hanamura.</p>
+            <p class="act-links"><a href="https://note.com/ishiki_ken/n/na555da8a73a4" target="_blank" rel="noopener">Report: Meditation Retreat for Researchers 2024 (Japanese) ↗</a><a href="https://note.com/ishiki_ken/n/n49725e618126" target="_blank" rel="noopener">Buddhism and Consciousness #1 [Satoshi Nagasawa × Tetsunari Suda × Masahiro Niizuma] (Japanese) ↗</a><a href="https://note.com/ishiki_ken/n/n7d62330a4e8a" target="_blank" rel="noopener">Buddhism and Consciousness #2 [Issho Fujita × Fuzumi Shimonishi] (Japanese) ↗</a><a href="https://note.com/ishiki_ken/n/n8fb651ebae74" target="_blank" rel="noopener">Buddhism and Consciousness #3 [Vimala Inoue × Chikahiro Hanamura] (Japanese) ↗</a></p>
+          </div>
+          <div class="act">
+            <h4>Consciousness and Satoyama<span>WELL-BEING</span></h4>
+            <p>Launched the Consciousness and Satoyama Project, asking about the possibilities and significance of the self-sufficient, cyclical way of life found in satoyama. Visited Permaculture Center Japan and started the Kenji Miyazawa and Bergson reading groups.</p>
+            <p class="act-links"><a href="https://note.com/ishiki_ken/n/n750958762d86" target="_blank" rel="noopener">Asking Permaculture Practitioners: The Present and Future of “Consciousness and Satoyama Living” (Japanese) ↗</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="year-block reveal">
+        <div class="y">2023<small>Fiscal Year<br>(before incorporation)</small></div>
+        <div>
+          <p class="y-lead">Began activities as “Ishikiken.” With Yukihiro Nobuhara (Professor Emeritus, The University of Tokyo) as its representative, it held a series of study sessions on three themes.</p>
+          <div class="act">
+            <h4>Mind Uploading</h4>
+            <p>Speaker: Masataka Watanabe (The University of Tokyo). The session asked what the mind is, examined the theoretical and technical possibilities of uploading, and considered the world that might follow. This dialogue was later published as Yukihiro Nobuhara and Masataka Watanabe, <i>Where Does Consciousness Come From?</i> (Hayakawa Shinsho, in Japanese).</p>
+            <p class="act-links"><a href="../reports/2023-1/">Event report (Japanese) →</a><a href="https://www.hayakawabooks.com/n/nf78931183b81" target="_blank" rel="noopener"><i>Where Does Consciousness Come From?</i> (Hayakawa Publishing) (Japanese) ↗</a></p>
+          </div>
+          <div class="act">
+            <h4>Well-being and Technology</h4>
+            <p>Speaker: Junji Watanabe (NTT Communication Science Laboratories). The session asked what well-being is, and explored the conditions for well-being technologies and the society they might shape.</p>
+            <p class="act-links"><a href="../reports/2023-2/">Event report (Japanese) →</a></p>
+          </div>
+          <div class="act">
+            <h4>Mindfulness</h4>
+            <p>Speaker: Masahiro Fujino (NTT Communication Science Laboratories). The session asked what mindfulness is, explored the potential of technology to support it, and considered what a mindful society might look like.</p>
+            <p class="act-links"><a href="../reports/2023-3/">Event report (Japanese) →</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 REPORTS & FINANCE -->
+  <section id="reports">
+    <div class="container">
+      <div class="sec-head reveal">
+        <h2>Reports &amp; Finance<span class="en">Disclosure</span></h2>
+      </div>
+
+      <div class="reveal">
+        <h3 class="rep-h">Annual Business Reports</h3>
+        <div class="arch-list">
+          <a class="arch-item" href="../reports/gyomu2025/">
+            <span>FY2025 Business Report (Japanese) →</span>
+            <span class="tag">FY ending Mar 2026</span>
+          </a>
+          <a class="arch-item" href="../reports/gyomu2024/">
+            <span>FY2024 Business Report (Japanese) →</span>
+            <span class="tag">FY ending Mar 2025</span>
+          </a>
+          <div class="arch-item">
+            <span>Conference 2026 “Machine Consciousness” — Proceedings</span>
+            <span class="tag">COMING SOON</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <h3 class="rep-h" style="margin-top:88px;">Financial Highlights ── FY2025</h3>
+        <div class="fin-highlight" style="margin-bottom:0;">
+          <div class="fin-cell">
+            <div class="k">Ordinary Revenue</div>
+            <div class="v">10,006,252<small> JPY</small></div>
+            <div class="k2">Donations received ¥10,000,000<br>Interest received ¥6,252</div>
+          </div>
+          <div class="fin-cell">
+            <div class="k">Ordinary Expenses</div>
+            <div class="v">4,550,159<small> JPY</small></div>
+            <div class="k2">Program expenses (research activities, research grants, etc.) ¥2,740,167<br>Administrative expenses ¥1,809,992</div>
+          </div>
+          <div class="fin-cell">
+            <div class="k">Total Assets (Net Assets)</div>
+            <div class="v">11,405,885<small> JPY</small></div>
+            <div class="k2">Cash and deposits ¥7,005,885<br>Construction in progress (design of the forest base) ¥4,400,000<br>No liabilities (as of March 31, 2026)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <h3 class="rep-h" style="margin-top:88px;">Financial Summary ── Since Incorporation</h3>
+        <table class="fin-table">
+          <thead>
+            <tr><th>Item</th><th>FY2024</th><th>FY2025</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Ordinary revenue</td><td>¥13,201,153</td><td>¥10,006,252</td></tr>
+            <tr><td>&emsp;of which donations received</td><td>¥13,200,000</td><td>¥10,000,000</td></tr>
+            <tr><td>Program expenses (research activities, research grants, etc.)</td><td>¥4,419,906</td><td>¥2,740,167</td></tr>
+            <tr><td>Administrative expenses</td><td>¥2,831,455</td><td>¥1,809,992</td></tr>
+            <tr><td>Total ordinary expenses</td><td>¥7,251,361</td><td>¥4,550,159</td></tr>
+            <tr><td>Net change in ordinary items for the year</td><td>+¥5,949,792</td><td>+¥5,456,093</td></tr>
+            <tr><td>Net assets, end of year</td><td>¥5,949,792</td><td>¥11,405,885</td></tr>
+            <tr><td>&emsp;of which construction in progress (forest base)</td><td>—</td><td>¥4,400,000</td></tr>
+          </tbody>
+        </table>
+        <p class="fin-note">Prepared in accordance with the Accounting Standards for Public Interest Corporations (Japan). From FY2025, architectural design costs for the forest are recorded as construction in progress (fixed assets). Includes a basic endowment of ¥3,000,000. Main research grant recipients: Hokkaido University, Ritsumeikan University, and others.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="sec-head reveal">
+        <h2>About<span class="en">Foundation Profile</span></h2>
+      </div>
+      <dl class="about-dl reveal">
+        <div class="about-row">
+          <dt>Name</dt>
+          <dd>The Consciousness Research Foundation<br><small>General Incorporated Foundation (<span lang="ja">一般財団法人 意識研究財団</span>)</small></dd>
+        </div>
+        <div class="about-row">
+          <dt>Purpose</dt>
+          <dd>The purpose of the Foundation is to promote and support research on consciousness; to explore fundamental questions such as human consciousness, values, and the meaning of life; and, by raising these questions widely within society, to foster the growth of individuals and society grounded in compassion and to contribute to the development of culture.</dd>
+        </div>
+        <div class="about-row">
+          <dt>Established</dt>
+          <dd>September 26, 2024</dd>
+        </div>
+        <div class="about-row">
+          <dt>Address</dt>
+          <dd>4-8-40 Satoyoshi, Kofu, Yamanashi, Japan</dd>
+        </div>
+        <div class="about-row">
+          <dt>Articles</dt>
+          <dd><a href="../assets/teikan.pdf" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);">Articles of Incorporation (PDF, Japanese) ↗</a></dd>
+        </div>
+        <div class="about-row">
+          <dt>Officers</dt>
+          <dd>
+            Representative Director: Tomoki Nanasawa<br>
+            Directors: Tomoki Nanasawa / Atsushi Koda / Ai Hasegawa / Masahiro Fujino<br>
+            Auditor: Sayaka Ueno<br>
+            Councilors: Yukihiro Nobuhara / Masataka Watanabe / Daichi Ashizawa
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="foot-name">The Consciousness Research Foundation<small lang="ja">意識研究財団</small></div>
+      <div class="foot-right">
+        Asking now the ultimate question AI cannot answer<br>
+        <a href="https://x.com/isikiken" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);">X ↗</a>&emsp;<a href="https://note.com/ishiki_ken" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);">note (Japanese) ↗</a><br>
+        © The Consciousness Research Foundation
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  // reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // active toc highlight
+  const links = [...document.querySelectorAll('.toc a')];
+  const secs = links.map(a => document.querySelector(a.getAttribute('href')));
+  const nav = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  secs.forEach(s => s && nav.observe(s));
+</script>
+</body>
+</html>

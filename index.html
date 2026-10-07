@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>意識研究財団｜AIに回答不能な究極の問いを、今問う</title>
 <meta name="description" content="意識研究財団は、AIに回答不能な意識の究極の問い（ハードプロブレム）を、哲学的・科学的探求から一人称の意識の発見まで、全域で問う研究財団です。">
+<link rel="alternate" hreflang="ja" href="https://ishikiken.jp/">
+<link rel="alternate" hreflang="en" href="https://ishikiken.jp/en/">
+<link rel="alternate" hreflang="x-default" href="https://ishikiken.jp/">
 <style>
   :root {
     --paper: #faf9f5;
@@ -80,6 +83,13 @@
     display: flex; align-items: center; justify-content: center; font-size: 14px;
   }
   .sidebar-foot { margin-top: 18px; font-size: 12px; color: rgba(255,255,255,.62); letter-spacing: .06em; }
+
+  /* language switch */
+  .lang { position: absolute; top: 48px; right: 56px; display: flex; align-items: center; gap: 7px; font-size: 11px; line-height: 28px; font-weight: 600; letter-spacing: .14em; color: #fff; }
+  .lang a { opacity: .55; transition: opacity .3s; }
+  .lang a:hover { opacity: 1; }
+  .lang .sep { opacity: .35; font-weight: 400; }
+  .lang [aria-current] { border-bottom: 1px solid currentColor; line-height: 1.5; }
 
   /* mobile menu */
   .menu-btn { display: none; }
@@ -302,6 +312,8 @@
     .sidebar .brand-name { color: var(--ink); }
     .sidebar .brand-name small, .sidebar .brand-name .brand-tag { color: var(--ink-soft); }
     .menu-btn span { background: var(--ink); }
+    .lang { position: static; margin-left: auto; color: var(--ink); padding: 10px 2px; flex: none; }
+    .lang + .menu-btn { margin-left: 16px; }
     section { scroll-margin-top: 72px; }
     .toc, .sidebar-cta, .sidebar-foot { display: none; }
     main { margin-left: 0; }
@@ -337,6 +349,8 @@
   <a class="brand" href="#top">
     <span class="brand-name">意識研究財団<small class="brand-tag">— AIに回答不能な究極の問いを今問う</small></span>
   </a>
+
+  <nav class="lang" aria-label="Language"><span aria-current="page" lang="ja">JA</span><span class="sep" aria-hidden="true">/</span><a href="/en/" hreflang="en" lang="en" title="English">EN</a></nav>
 
   <button class="menu-btn" aria-label="メニューを開く" onclick="document.getElementById('mmenu').classList.add('open')"><span></span><span></span><span></span></button>
 
@@ -652,7 +666,7 @@
         <p>
           鳳凰三山の麓、縄文中期の精神文化圏の中心地に隣接する、<br>
           山梨県北杜市武川町の1.8万坪の山林。<br>
-          2026年7月、この森を財団の実践フィールドとして取得しました。
+          2026年7月、この森を財団の実践フィールドとする売買契約を結びました。
         </p>
       </div>
       <p class="poem reveal">
@@ -689,12 +703,13 @@
           <p class="keynote" style="font-weight:400;">登壇：渡邉正峰／茂木健一郎／信原幸弘</p>
           <p>マシンの意識は、ヒューマンの意識とどう関わるのか。ベイエリアで現に起きているマシン・コンシャスネス議論の文脈から出発し、正面から接続する一日。</p>
           <div class="conf-tt">
-            <div><span class="t">13:00</span><span>開場・開会挨拶</span></div>
+            <div><span class="t">12:30</span><span>開場・受付</span></div>
             <div><span class="t">13:00–14:00</span><span>基調講演　金井良太</span></div>
             <div><span class="t">14:00–15:00</span><span>渡邉正峰</span></div>
             <div><span class="t">15:00–16:00</span><span>茂木健一郎</span></div>
             <div><span class="t">16:00–17:00</span><span>信原幸弘</span></div>
-            <div><span class="t">17:15–20:15</span><span>懇親会・若手ポスター発表</span></div>
+            <div><span class="t">17:00–18:00</span><span>総合ディスカッション</span></div>
+            <div><span class="t">18:00–21:00</span><span>懇親会・ポスター発表</span></div>
           </div>
         </div>
         <div class="conf-day">
@@ -704,20 +719,20 @@
           <p class="keynote" style="font-weight:400;">登壇：鈴木大地／染谷昌義／鈴木啓介（オンライン）／下西風澄</p>
           <p>マシンの意識は、モア・ザン・ヒューマンの意識とどう関わるのか。植物の意識、意識概念の系譜、意識の進化的起源——前提そのものを問いに付します。</p>
           <div class="conf-tt">
-            <div><span class="t">13:00</span><span>開場・開会挨拶</span></div>
+            <div><span class="t">12:30</span><span>開場・受付</span></div>
             <div><span class="t">13:00–14:00</span><span>基調講演　池上高志</span></div>
             <div><span class="t">14:00–15:00</span><span>鈴木大地</span></div>
             <div><span class="t">15:00–16:00</span><span>染谷昌義</span></div>
             <div><span class="t">16:00–17:00</span><span>鈴木啓介（オンライン）</span></div>
             <div><span class="t">17:00–18:00</span><span>下西風澄</span></div>
-            <div><span class="t">18:00–</span><span>若手ポスター発表</span></div>
+            <div><span class="t">18:00–</span><span>ポスター発表</span></div>
           </div>
         </div>
       </div>
 
       <p class="conf-note reveal">
         基調講演は講演45分＋質疑15分、各講演は講演30分＋討論30分の、議論を中心に据えた形式で行います。<br>
-        Day1の夜には懇親会と若手ポスター発表を、Day2の講演終了後にもポスター発表を予定しています（公募・審査制）。<br>
+        Day1の夜には懇親会とポスター発表（フラッシュトーク・コアタイム）を、Day2の講演終了後にもポスター発表を予定しています（公募・審査制）。<br>
         開催に先立ち、若手研究チームによる「マシン・コンシャスネス現状レポート」を作成し、参加者に配布します。<br>
         登壇者・プログラムは変更になる場合があります。<br>
         会場参加は招待制です。オンライン参加（Zoom配信）は無料でお申し込みいただけます。
@@ -734,18 +749,6 @@
         <h2>活動予定<span class="en">Upcoming</span></h2>
       </div>
       <div class="sched-list reveal">
-        <div class="sched-item">
-          <div class="sd">9.4<span>–9.15</span><small>全4回・金火</small></div>
-          <div><h4>ヴィジュアライゼーションを理解するための仏教認識論（後期・全4回）<span class="sched-tag open">一般公開・無料</span></h4><p>オンライン（Zoom）20:00–22:00｜講師：ケンポ・カルチュン教授（英語・日本語通訳付き）｜瞑想心理学研究プロジェクト主催・意識研究財団協力<br><a href="https://www.kokuchpro.com/event/d8f2d3e8a8406a490ac51ed8b3b31d07/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);">参加申込（こくちーずプロ・9/3締切） ↗</a></p></div>
-        </div>
-        <div class="sched-item">
-          <div class="sd">9.16<span>–9.17</span><small>水–木</small></div>
-          <div><h4>ベルクソン読書会 合宿<span class="sched-tag closed">関係者向け</span></h4><p>山梨・北杜の森 ほか</p></div>
-        </div>
-        <div class="sched-item">
-          <div class="sd">9.25<span>–9.28</span><small>金–月</small></div>
-          <div><h4>研究者のための瞑想リトリート 2026<span class="sched-tag closed">募集終了</span></h4><p>ホリスティックリトリート 穂高養生園（長野・安曇野）｜講師：藤田一照｜瞑想心理学研究プロジェクト主催・意識研究財団協力</p></div>
-        </div>
         <div class="sched-item">
           <div class="sd">10.24<span>–10.25</span><small>土–日</small></div>
           <div><h4>カンファレンス 2026「マシン・コンシャスネス」<span class="sched-tag open">一般公開</span></h4><p>東京ミッドタウン（東京・六本木）｜オンライン無料配信<br><a href="https://ishikiken-c2026.peatix.com/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);">オンライン参加申込（Peatix・無料） ↗</a></p></div>
