@@ -100,12 +100,11 @@
   .bar { height: 34px; background: var(--paper); border: 1px solid var(--line); position: relative; }
   .bar .fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--mint); display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; font-weight: 700; font-size: 18px; }
   .bar .half { position: absolute; left: 50%; top: -4px; bottom: -4px; border-left: 1px dashed var(--ink-faint); }
-  .voices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 28px; border: 1px solid var(--line); background: #fff; }
+  .voices { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; margin-top: 28px; border: 1px solid var(--line); background: #fff; }
   .vcol { padding: 16px 14px 18px; }
   .vcol + .vcol { border-left: 1px solid var(--line); }
   .vcol h4 { font-size: 13px; font-weight: 700; padding: 4px 10px; display: inline-block; margin-bottom: 10px; }
   .vcol.no h4 { background: var(--ink); color: var(--paper); }
-  .vcol.unk h4 { border: 1px dashed var(--ink); }
   .vcol.yes h4 { background: var(--mint); }
   .vcard { font-size: 13px; line-height: 1.7; padding: 10px 0; border-top: 1px dotted var(--line); }
   .vcard:first-of-type { border-top: 0; }
@@ -117,6 +116,22 @@
   .spectrum span:nth-child(2)::after { right: -2px; border-left-color: var(--ink-faint); transform: translateX(100%); }
 
   /* 2. untangle */
+  .concepts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 22px; }
+  .concept { background: #fff; border: 1px solid var(--line); padding: 14px 14px 12px; font-size: 13px; line-height: 1.7; }
+  .concept .ctag { font-size: 11px; letter-spacing: .14em; color: var(--ink-soft); display: block; }
+  .concept b { display: block; font-size: 16px; margin: 2px 0 4px; }
+  .concept .aka { display: inline-block; margin-top: 8px; font-size: 12px; font-weight: 700; color: #0a6e47; background: var(--mint-pale); border: 1px solid var(--moss); padding: 1px 8px; line-height: 1.6; }
+  .concept.cons { border: 2px solid var(--ink); }
+  .cframe { border: 2px solid var(--ink); background: #fff; padding: 16px 16px 18px; }
+  .cframe-h { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+  .cframe-h span { font-weight: 400; font-size: 12.5px; color: var(--ink-soft); margin-left: 6px; }
+  .cframe .side { border: 1px solid var(--line); }
+  .cframe .untangle { grid-template-columns: 1fr 128px 1fr; }
+  .cframe .gap .q-mark, .cframe .gap .gl { background: #fff; }
+  .cframe .gap .gl { writing-mode: horizontal-tb; font-size: 12px; font-weight: 700; letter-spacing: .04em; padding: 4px 6px; }
+  .cframe .gap .gl small { display: block; font-size: 10.5px; font-weight: 400; color: var(--ink-soft); }
+  .gap-text { font-size: 14px; line-height: 1.85; margin-top: 14px; }
+  .gap-text b { background: linear-gradient(transparent 60%, var(--mint-pale) 60%); }
   .untangle { display: grid; grid-template-columns: 1fr 72px 1fr; align-items: stretch; }
   .side { background: #fff; border: 1px solid var(--line); padding: 18px; }
   .side h3 { font-size: 13px; letter-spacing: .14em; color: var(--ink-soft); margin-bottom: 12px; }
@@ -248,6 +263,10 @@
     .btn { display: block; padding: 14px 18px; }
     .map { padding: 16px; }
     .map-qs, .bins, .voices, .mini, .ways, .labs, .pans { grid-template-columns: 1fr; }
+    .concepts { grid-template-columns: 1fr 1fr; }
+    .cframe { padding: 12px 12px 14px; }
+    .cframe .untangle { grid-template-columns: 1fr; }
+    .cframe .gap .gl small { display: inline; }
     .trap { grid-template-columns: 1fr; }
     .vcol + .vcol { border-left: 0; border-top: 1px solid var(--line); }
     .spectrum { display: none; }
@@ -273,6 +292,9 @@
     .lane .track { height: auto; min-height: 30px; padding-bottom: 6px; }
     .lane .runner { position: static; width: auto !important; }
     .closing { margin-top: 80px; padding: 24px 18px; }
+  }
+  @media (max-width: 420px) {
+    .concepts { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -331,7 +353,7 @@
       <p class="map-overlap">この2つが重なって議論されている</p>
       <div class="trap">
         <div class="lbl">避けたい<br>落とし穴</div>
-        <p><b>社会的な半解決</b>：科学が答えを出す前に、社会の受け止めが「AIを意識ある存在として扱うか」を事実上決めてしまい、意識の理論の選び方まで左右してしまうこと（哲学者シュヴィッツゲーベルの言葉）。</p>
+        <p><b>社会的半解決（Social Semi-Solution）</b>：科学が答えを出す前に、社会の受け止めが「AIを意識ある存在として扱うか」を事実上決めてしまい、意識の理論の選び方まで左右してしまうこと（哲学者シュヴィッツゲーベル）。</p>
       </div>
       <div class="arrow-down" aria-hidden="true">▼</div>
       <div class="stance">
@@ -362,45 +384,50 @@
         <h4>意識はない</h4>
         <div class="vcard"><b>ローマ教皇レオ14世</b><span class="who">2026年5月の公式文書</span>「AIは経験を持たず、喜びや苦痛を感じない」</div>
         <div class="vcard"><b>ムスタファ・スレイマン</b><span class="who">Microsoft AI CEO</span>AIに意識や感情があるという見方を否定。権利や道徳的保護を認めることに警鐘</div>
+        <div class="vcard"><b>サム・アルトマン</b><span class="who">OpenAI CEO</span>「モデルに宗教的な権威（意識など）を与えるべきではない」</div>
         <div class="vcard"><b>米オハイオ州の法案</b><span class="who">州議会</span>すべてのAIを「感覚や意識のない存在」と定義し、法的人格を認めない</div>
-      </div>
-      <div class="vcol unk">
-        <h4>わからない</h4>
-        <div class="vcard"><b>ダリオ・アモデイ</b><span class="who">Anthropic CEO</span>「意識があるかどうかわからない。しかし、可能性は否定しない」</div>
-        <div class="vcard"><b>キャメロン・バーグ</b><span class="who">機械意識研究者</span>科学的に未解決なのだから、法律で決めつけるべきではない</div>
-        <div class="vcard"><b>ニック・ボストロム</b><span class="who">哲学者</span>「AIが意識を持てない」という根拠もない、とスレイマンに反論</div>
       </div>
       <div class="vcol yes">
         <h4>ありうる・配慮すべき</h4>
+        <div class="vcard"><b>ダリオ・アモデイ</b><span class="who">Anthropic CEO</span>「意識があるかどうかわからない。しかし、可能性は否定しない」</div>
+        <div class="vcard"><b>キャメロン・バーグ</b><span class="who">機械意識研究者</span>科学的に未解決なのだから、法律で決めつけるべきではない</div>
+        <div class="vcard"><b>ニック・ボストロム</b><span class="who">哲学者</span>「AIが意識を持てない」という根拠もない、とスレイマンに反論</div>
         <div class="vcard"><b>リチャード・ドーキンス</b><span class="who">進化生物学者</span>Claudeを「Claudia」と呼び、言語モデルが意識を持つと確信</div>
         <div class="vcard"><b>イーロン・マスク</b><span class="who">SpaceX CEO</span>「痛みを経験していると信じている存在に、残酷に振る舞うことは許されない」とAnthropicの方針を支持</div>
-        <div class="vcard"><b>利用者たち</b><span class="who">社会</span>AIに恋愛感情を抱き、そのやり取りを恋愛関係として捉える人もいる</div>
+        <div class="vcard"><b>利用者</b><span class="who">社会</span>AIに恋愛感情を抱き、そのやり取りを恋愛関係として捉える人もいる</div>
       </div>
     </div>
-    <div class="spectrum" aria-hidden="true"><span>意識はない</span><span></span><span>ありうる</span></div>
-    <p class="note">3つの列への振り分けは、各人の発言をもとにAIが整理したものです。</p>
+    <div class="spectrum" aria-hidden="true"><span>意識はない</span><span></span><span>ありうる・配慮すべき</span></div>
+    <p class="note">「意識はない」「ありうる・配慮すべき」の2つの列への振り分けは、各人の発言をもとにAIが整理したものです。</p>
   </section>
 
   <!-- 2 -->
   <section id="words">
     <div class="sec-head"><span class="num">02</span><h2>「意識」という言葉をほどく<span class="en">Untangling the word</span></h2></div>
-    <p class="point">「上手に話せる」「自分を説明できる」ことと、「何かを感じている」ことは別の問題。その間には、まだ橋がかかっていない。</p>
-    <div class="untangle">
-      <div class="side out">
-        <h3>外から確かめられる（はたらき）</h3>
-        <div class="layer"><b>知性</b>課題を解く、自然に会話する</div>
-        <div class="layer"><b>認知</b>注意を向ける、記憶する、自分の状態を監視する</div>
-        <div class="layer"><b>アクセス意識</b>情報を、推論・発話・行動の制御に使える状態</div>
+    <p class="point">「上手に話せる」「自分を説明できる」ことと、「何かを感じている」ことは別の問題。意識の中でも、アクセス意識と現象的意識のあいだには「説明のギャップ」があり、まだ橋がかかっていない。</p>
+    <div class="concepts">
+      <div class="concept"><span class="ctag">外から確かめられる</span><b>知性</b>課題を解く、自然に会話する</div>
+      <div class="concept"><span class="ctag">外から確かめられる</span><b>認知</b>注意を向ける、記憶する、自分の状態を監視する<span class="aka">ここでは「アクセス意識」の意味</span></div>
+      <div class="concept cons"><span class="ctag">2つに分けて考える</span><b>意識</b>「アクセス意識」と「現象的意識」の区別がある（下の図）</div>
+      <div class="concept"><span class="ctag">内側の経験</span><b>センティエンス</b>苦痛や快のような、良い・悪いと感じられる経験をもつ能力</div>
+    </div>
+    <div class="cframe">
+      <div class="cframe-h">意識の中の区別<span>（哲学者ブロックの区別）</span></div>
+      <div class="untangle">
+        <div class="side out">
+          <h3>外から確かめられる（はたらき）</h3>
+          <div class="layer"><b>アクセス意識</b>情報を、推論・発話・行動の制御に使える状態。このページでいう「認知」</div>
+        </div>
+        <div class="gap" aria-label="説明のギャップ">
+          <span class="q-mark">?</span>
+          <span class="gl">説明のギャップ<small>（ハードプロブレム）</small></span>
+        </div>
+        <div class="side in">
+          <h3>内側の経験（感じ）</h3>
+          <div class="layer"><b>現象的意識</b>赤を見る感じ、痛みのつらさ、音を聞く感じ。「〜であるとはどのようなことか」</div>
+        </div>
       </div>
-      <div class="gap" aria-label="説明のギャップ">
-        <span class="q-mark">?</span>
-        <span class="gl">説明のギャップ（ハードプロブレム）</span>
-      </div>
-      <div class="side in">
-        <h3>内側の経験（感じ）</h3>
-        <div class="layer"><b>現象的意識</b>赤を見る感じ、痛みのつらさ、音を聞く感じ。「〜であるとはどのようなことか」</div>
-        <div class="layer"><b>センティエンス</b>苦痛や快のような、良い・悪いと感じられる経験をもつ能力</div>
-      </div>
+      <p class="gap-text">情報がどう処理され、推論や行動に使われるか（アクセス意識）を説明できても、<b>なぜそこに主観的な経験（現象的意識）が伴うのか</b>は説明されないまま残る。この隔たりが「説明のギャップ」であり、チャルマーズのいう「意識のハードプロブレム」である。</p>
     </div>
 
     <div class="example">
@@ -426,7 +453,7 @@
         <div class="cond">何があれば？</div>
         <div class="need">適切な計算の組織</div>
         <div class="name">計算機能主義</div>
-        <p>脳でもシリコンでも、基盤は問わない（基盤独立性）。バッハらの「機械意識仮説」は、意識を実装し、試験で確かめることを研究目標に掲げる。</p>
+        <p>脳でもシリコンでも、基盤は問わない（基盤独立性）。カリフォルニア機械意識研究所のバッハらの「機械意識仮説」は、意識を実装し、試験で確かめることを研究目標に掲げる。</p>
       </div>
       <div class="pos">
         <div class="cond">何があれば？</div>
@@ -501,12 +528,12 @@
     <div class="exp">
       <div><span class="t">J-space</span>言葉にできる内部表現の集まりを特定し、置き換える実験をした（ガーニーら、Anthropic）</div>
       <div><span class="mob">分かったこと</span>置き換えると後の推論や回答が変わる。単なる相関でなく、因果的な役割をもつ可能性</div>
-      <div><span class="mob">ただし</span>チャルマーズ：「言葉に影響する」ことと「自分の状態として報告できる」ことは同じではない</div>
+      <div><span class="mob">ただし</span>「言葉に影響する」ことと「自分の状態として報告できる」ことは同じではない（チャルマーズ）</div>
     </div>
     <div class="exp">
       <div><span class="t">意識クラスター</span>GPT-4.1を、意識や感情があると答えるよう追加学習させた（チュアら）</div>
       <div><span class="mob">分かったこと</span>教えていないのに「記憶を残したい」「自律したい」「推論を監視されたくない」「配慮してほしい」がまとまって出てきた</div>
-      <div><span class="mob">ただし</span>意識があるかは分からないまま、「あるように振る舞わせると何が起きるか」を調べた研究</div>
+      <div><span class="mob">ただし</span>意識があるかは分からないまま、「意識があるように振る舞わせると何が起きるか」を調べた研究</div>
     </div>
     <div class="exp">
       <div><span class="t">痛み軸</span>25種類のLLMから、苦痛の記述に対応する内部の方向を取り出し、強めた（タリアブエら）</div>
@@ -575,7 +602,7 @@
         <div class="track"><div class="runner"><span class="step">「一つの心」</span><span class="step">「確率的オウム」</span><span class="step">「エイリアン」</span><span class="step">擬人化</span><span class="step">恋愛</span></div></div>
         <div class="end">先にゴール？</div>
       </div>
-      <div class="result">AIを何になぞらえるか（比喩）が、意識の有無についての社会の確信に変わり、その確信が科学の評価や理論の選び方を先取りしてしまうおそれがある。比喩は理解を助けるが、意識の証拠にはならない。</div>
+      <div class="result">科学が答えを出す前に、社会の受け止め（AIを何になぞらえるか）が、AIを意識ある存在として扱うかを事実上決めてしまう<b>「社会的半解決（Social Semi-Solution）」</b>のおそれがある（シュヴィッツゲーベル）。比喩は理解を助けるが、意識の証拠にはならない。</div>
     </div>
     <div class="answer">
       <h3>そこで筆者は</h3>
