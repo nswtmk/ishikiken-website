@@ -96,6 +96,24 @@ h1 {
 }
 .btn::after { content: "  →"; }
 .btn:active { opacity: .85; }
+.btn.sec {
+  margin-top: 14px;
+  background: transparent;
+  color: #fff;
+  border: 2px solid var(--mint);
+  font-size: 17px;
+  padding: 13px 20px;
+}
+.sub2 { margin-top: 26px; font-size: 15px; line-height: 1.8; color: rgba(255,255,255,.82); }
+.contact {
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,.22);
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(255,255,255,.82);
+}
+.contact a { color: var(--mint); border-bottom: 1px solid var(--mint); white-space: nowrap; }
 .soon {
   font-size: 16px; font-weight: 700;
   border: 2px dashed var(--mint);

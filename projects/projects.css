@@ -63,6 +63,10 @@ tr.done td { opacity:.5; }
 .join .sub { margin-top:10px; font-size:14.5px; line-height:1.85; color:rgba(255,255,255,.82); }
 .join .btn { margin-top:24px; }
 .join .alt { display:inline-block; margin-top:16px; font-size:14px; color:var(--mint); border-bottom:1px solid var(--mint); line-height:1.5; }
+.join .sub2 { margin-top:26px; font-size:14.5px; line-height:1.85; color:rgba(255,255,255,.82); }
+.join .btn.sec { margin-top:14px; background:transparent; color:#fff; border:2px solid var(--mint); padding:13px 20px; }
+.join .contact { margin-top:26px; padding-top:18px; border-top:1px solid rgba(255,255,255,.22); font-size:14.5px; line-height:1.85; color:rgba(255,255,255,.82); }
+.join .contact a { color:var(--mint); border-bottom:1px solid var(--mint); white-space:nowrap; }
 .others { margin-top:72px; }
 .others .k { font-size:12px; letter-spacing:.2em; color:var(--ink-soft); margin-bottom:10px; }
 .chips { display:flex; flex-wrap:wrap; gap:8px; }
@@ -74,7 +78,8 @@ tr.done td { opacity:.5; }
 .axis .k { font-size:12px; letter-spacing:.2em; color:var(--moss); font-weight:700; }
 .axis .t { font-size:clamp(20px,5vw,26px); font-weight:800; margin-top:4px; line-height:1.5; }
 .axis .d { font-size:14.5px; color:var(--ink-soft); margin-top:4px; }
-.pj-grid { display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:20px; }
+.axis .chips { margin-top:12px; }
+.pj-grid { display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:44px; }
 .pj { display:block; background:var(--paper); padding:24px 20px 26px; }
 .pj:hover { background:#fff; }
 .pj .no { font-size:12px; letter-spacing:.14em; color:var(--ink-soft); }
