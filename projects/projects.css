@@ -51,6 +51,14 @@ tr.done td { opacity:.5; }
 .btn::after { content:"  →"; }
 .btn:hover { opacity:.88; }
 .entry { margin-top:20px; }
+/* 募集中バナー（パネルの .recruit と同じ：ミント地に太字で大きく） */
+.recruit { background:var(--mint); color:var(--ink); padding:22px 20px 20px; border-radius:4px; }
+.recruit .rt { font-size:clamp(26px,7.2vw,42px); font-weight:900; letter-spacing:.02em; line-height:1.3; }
+.recruit .rt span { display:inline-block; margin-right:.35em; }
+.recruit .rn { font-size:clamp(15px,4.2vw,18px); font-weight:700; margin-top:8px; line-height:1.6; }
+.recruit-blk h2 { margin-top:28px; }
+ul.next.rec li { font-size:16px; font-weight:600; }
+.recruit-blk .entry { margin-top:22px; }
 .cards { display:grid; grid-template-columns:1fr; gap:12px; }
 .card { display:block; padding:16px 18px; border:1px solid var(--line); background:#fff; }
 .card:hover { border-color:var(--moss); }
@@ -107,6 +115,7 @@ tr.done td { opacity:.5; }
   .cards { grid-template-columns:1fr 1fr; }
   .join { padding:44px 48px 48px; }
   .btn { display:inline-block; min-width:340px; }
+  .recruit { padding:30px 34px 28px; }
   .pj-grid { grid-template-columns:1fr 1fr; }
   .pj { padding:32px 30px 34px; }
 }
