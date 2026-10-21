@@ -116,12 +116,6 @@
   .spectrum span:nth-child(2)::after { right: -2px; border-left-color: var(--ink-faint); transform: translateX(100%); }
 
   /* 2. untangle */
-  .concepts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 22px; }
-  .concept { background: #fff; border: 1px solid var(--line); padding: 14px 14px 12px; font-size: 13px; line-height: 1.7; }
-  .concept .ctag { font-size: 11px; letter-spacing: .14em; color: var(--ink-soft); display: block; }
-  .concept b { display: block; font-size: 16px; margin: 2px 0 4px; }
-  .concept .aka { display: inline-block; margin-top: 8px; font-size: 12px; font-weight: 700; color: #0a6e47; background: var(--mint-pale); border: 1px solid var(--moss); padding: 1px 8px; line-height: 1.6; }
-  .concept.cons { border: 2px solid var(--ink); }
   .cframe { border: 2px solid var(--ink); background: #fff; padding: 16px 16px 18px; }
   .cframe-h { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
   .cframe-h span { font-weight: 400; font-size: 12.5px; color: var(--ink-soft); margin-left: 6px; }
@@ -130,8 +124,12 @@
   .cframe .gap .q-mark, .cframe .gap .gl { background: #fff; }
   .cframe .gap .gl { writing-mode: horizontal-tb; font-size: 12px; font-weight: 700; letter-spacing: .04em; padding: 4px 6px; }
   .cframe .gap .gl small { display: block; font-size: 10.5px; font-weight: 400; color: var(--ink-soft); }
-  .gap-text { font-size: 14px; line-height: 1.85; margin-top: 14px; }
-  .gap-text b { background: linear-gradient(transparent 60%, var(--mint-pale) 60%); }
+  .cframe .gap .gl small { max-width: 112px; margin-top: 4px; line-height: 1.5; letter-spacing: 0; }
+  .layer .lnote { display: block; margin-top: 4px; font-size: 12px; color: var(--ink-soft); }
+  .gap-list { list-style: none; margin-top: 16px; padding: 0; }
+  .gap-list li { position: relative; padding-left: 16px; font-size: 14px; line-height: 1.85; margin-top: 6px; }
+  .gap-list li::before { content: ""; position: absolute; left: 2px; top: .75em; width: 7px; height: 7px; border-radius: 50%; background: var(--mint); }
+  .gap-list b { background: linear-gradient(transparent 60%, var(--mint-pale) 60%); }
   .untangle { display: grid; grid-template-columns: 1fr 72px 1fr; align-items: stretch; }
   .side { background: #fff; border: 1px solid var(--line); padding: 18px; }
   .side h3 { font-size: 13px; letter-spacing: .14em; color: var(--ink-soft); margin-bottom: 12px; }
@@ -263,10 +261,9 @@
     .btn { display: block; padding: 14px 18px; }
     .map { padding: 16px; }
     .map-qs, .bins, .voices, .mini, .ways, .labs, .pans { grid-template-columns: 1fr; }
-    .concepts { grid-template-columns: 1fr 1fr; }
     .cframe { padding: 12px 12px 14px; }
     .cframe .untangle { grid-template-columns: 1fr; }
-    .cframe .gap .gl small { display: inline; }
+    .cframe .gap .gl small { display: block; max-width: none; }
     .trap { grid-template-columns: 1fr; }
     .vcol + .vcol { border-left: 0; border-top: 1px solid var(--line); }
     .spectrum { display: none; }
@@ -292,9 +289,6 @@
     .lane .track { height: auto; min-height: 30px; padding-bottom: 6px; }
     .lane .runner { position: static; width: auto !important; }
     .closing { margin-top: 80px; padding: 24px 18px; }
-  }
-  @media (max-width: 420px) {
-    .concepts { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -404,30 +398,30 @@
   <!-- 2 -->
   <section id="words">
     <div class="sec-head"><span class="num">02</span><h2>「意識」という言葉をほどく<span class="en">Untangling the word</span></h2></div>
-    <p class="point">「上手に話せる」「自分を説明できる」ことと、「何かを感じている」ことは別の問題。意識の中でも、アクセス意識と現象的意識のあいだには「説明のギャップ」があり、まだ橋がかかっていない。</p>
-    <div class="concepts">
-      <div class="concept"><span class="ctag">外から確かめられる</span><b>知性</b>課題を解く、自然に会話する</div>
-      <div class="concept"><span class="ctag">外から確かめられる</span><b>認知</b>注意を向ける、記憶する、自分の状態を監視する<span class="aka">ここでは「アクセス意識」の意味</span></div>
-      <div class="concept cons"><span class="ctag">2つに分けて考える</span><b>意識</b>「アクセス意識」と「現象的意識」の区別がある（下の図）</div>
-      <div class="concept"><span class="ctag">内側の経験</span><b>センティエンス</b>苦痛や快のような、良い・悪いと感じられる経験をもつ能力</div>
-    </div>
+    <p class="point">「上手に話せる」「自分を説明できる」ことと、「何かを感じている」ことは別の問題。機能を外から評価することと、主観的な経験があるかを判断することは、分けて考える必要がある。</p>
     <div class="cframe">
-      <div class="cframe-h">意識の中の区別<span>（哲学者ブロックの区別）</span></div>
+      <div class="cframe-h">機能の評価と、経験の有無の判断<span>（アクセス意識と現象的意識の区別は、哲学者ブロックによる）</span></div>
       <div class="untangle">
         <div class="side out">
-          <h3>外から確かめられる（はたらき）</h3>
-          <div class="layer"><b>アクセス意識</b>情報を、推論・発話・行動の制御に使える状態。このページでいう「認知」</div>
+          <h3>外から機能を評価する</h3>
+          <div class="layer"><b>知性</b>課題を解く、学ぶ、柔軟に対応する能力</div>
+          <div class="layer"><b>認知</b>知覚・注意・記憶・学習・推論などの情報処理。無意識の処理も含む</div>
+          <div class="layer"><b>アクセス意識</b>情報の内容が、推論・報告・行動制御に利用可能な状態<span class="lnote">※課題や行動から間接的に評価する</span></div>
         </div>
         <div class="gap" aria-label="説明のギャップ">
           <span class="q-mark">?</span>
-          <span class="gl">説明のギャップ<small>（ハードプロブレム）</small></span>
+          <span class="gl">説明のギャップ<small>情報処理に、なぜ・どのように経験が伴うのか？</small></span>
         </div>
         <div class="side in">
           <h3>内側の経験（感じ）</h3>
-          <div class="layer"><b>現象的意識</b>赤を見る感じ、痛みのつらさ、音を聞く感じ。「〜であるとはどのようなことか」</div>
+          <div class="layer"><b>現象的意識</b>赤を見る感じ、痛みのつらさなど、主観的な経験があること</div>
+          <div class="layer"><b>センティエンス</b>感じる能力。とくに、快・苦などの経験をもつ能力を指すことが多い</div>
         </div>
       </div>
-      <p class="gap-text">情報がどう処理され、推論や行動に使われるか（アクセス意識）を説明できても、<b>なぜそこに主観的な経験（現象的意識）が伴うのか</b>は説明されないまま残る。この隔たりが「説明のギャップ」であり、チャルマーズのいう「意識のハードプロブレム」である。</p>
+      <ul class="gap-list">
+        <li><b>認知</b>と<b>アクセス意識</b>は同義ではない。認知には無意識の処理も含まれる。アクセス意識は、情報の内容が推論・報告・行動制御に利用可能であることを指す。</li>
+        <li>情報を利用できることや、チューリングテストへの合格、報酬学習・刺激回避だけでは、主観的な経験や快・苦の存在は確定できない。</li>
+      </ul>
     </div>
 
     <div class="example">
@@ -447,7 +441,7 @@
   <!-- 3 -->
   <section id="positions">
     <div class="sec-head"><span class="num">03</span><h2>機械に意識は宿りうるのか<span class="en">Can machines be conscious?</span></h2></div>
-    <p class="point">「何があれば意識が宿るのか」の答え方で、立場が分かれる。どれも確立した結論ではない。</p>
+    <p class="point">「何があれば意識が宿るのか」の答え方で、立場が分かれる。機械の意識に必要な条件をめぐり、議論と検証が進められている。</p>
     <div class="positions">
       <div class="pos">
         <div class="cond">何があれば？</div>
