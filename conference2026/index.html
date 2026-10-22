@@ -91,6 +91,27 @@
   figcaption b { color: var(--ink); font-weight: 700; }
   .photo-wide { margin-top: 32px; max-width: 620px; }
 
+  /* B1 map */
+  .indoor { margin-top: 18px; padding: 12px 16px; border-left: 4px solid var(--mint); background: #fff; }
+  .map { margin-top: 32px; max-width: 620px; }
+  .b1map { width: 100%; height: auto; display: block; border: 1px solid var(--line); background: var(--paper); font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", Arial, sans-serif; }
+  .b1map .m-blk { fill: #fff; stroke: var(--ink); stroke-width: 1.5; }
+  .b1map .m-hall { fill: none; stroke: var(--ink-soft); stroke-width: 1; stroke-dasharray: 4 4; }
+  .b1map .m-shop { fill: #e9e7de; stroke: var(--ink); stroke-width: 1.2; }
+  .b1map .m-shopl { font-size: 18px; font-weight: 700; fill: var(--ink); }
+  .b1map .m-big { font-size: 26px; font-weight: 700; letter-spacing: .06em; fill: var(--ink); }
+  .b1map .m-plaza { font-size: 21px; font-weight: 700; letter-spacing: .06em; fill: var(--ink); }
+  .b1map .m-lbl { font-size: 16px; font-weight: 700; fill: var(--ink); }
+  .b1map .m-lbl2 { font-size: 15px; font-weight: 700; fill: var(--ink); }
+  .b1map .m-small { font-size: 14px; fill: var(--ink-soft); }
+  .b1map .m-hl { font-size: 13px; fill: var(--ink-soft); }
+  .b1map .m-floor { font-size: 30px; font-weight: 700; fill: var(--ink); }
+  .b1map .m-n { font-size: 13px; font-weight: 700; fill: var(--ink); }
+  .b1map .m-i { font-size: 14px; font-weight: 700; font-style: italic; fill: var(--ink); }
+  .b1map .m-meet { font-size: 19px; font-weight: 700; fill: var(--mint); letter-spacing: .12em; }
+  .b1map .m-meet2 { font-size: 15px; font-weight: 700; fill: #fff; }
+  .map figcaption a { text-decoration: underline; text-decoration-color: var(--mint); text-underline-offset: 3px; }
+
   .callout { margin-top: 28px; border: 1px dashed var(--moss); padding: 20px 22px; background: #fff; font-size: 15px; }
   .callout p { font-size: 15px; }
   .callout a.tel { display: inline-block; margin-top: 4px; font-size: 26px; font-weight: 700; letter-spacing: .04em; text-decoration: none; border-bottom: 2px solid var(--mint); line-height: 1.5; font-variant-numeric: tabular-nums; }
@@ -197,7 +218,83 @@
   <!-- 集合場所 -->
   <section id="meeting">
     <div class="sec-head"><span class="must">必ずお読みください</span><h2>集合場所</h2><span class="en">Meeting Point</span></div>
-    <p>東京ミッドタウン<strong>地下1階</strong>、ショッピングエリア「<strong>GALLERIA（ガレリア）</strong>」入口の向かい側にある「<strong class="mark">MIDTOWN EAST</strong>」の入口にお集まりください。</p>
+    <p>東京ミッドタウン<strong>地下1階（B1）</strong>の「<strong>PLAZA（プラザ）</strong>」にある、「<strong class="mark">MIDTOWN EAST（ミッドタウン・イースト）</strong>」の入口にお集まりください。公式フロアマップで「F」と「G」と表示されている2つの店舗の間です。ショッピングエリア「<strong>GALLERIA（ガレリア）</strong>」の入口の向かい側にあたります。</p>
+    <p class="indoor"><strong>集合場所は地下1階の屋内です。屋外ではありません。</strong></p>
+    <p>都営大江戸線・東京メトロ日比谷線の「六本木駅」からは、地下通路でそのまま地下1階に入れます（下の図の右下）。</p>
+
+    <figure class="map">
+      <svg class="b1map" viewBox="0 0 480 520" role="img" aria-labelledby="b1map-title b1map-desc" xmlns="http://www.w3.org/2000/svg">
+        <title id="b1map-title">東京ミッドタウン地下1階の案内図（略図）</title>
+        <desc id="b1map-desc">左上にショッピングエリアGALLERIA（ガレリア）、左下にミッドタウン・ウェスト、中央を南北にPLAZA（プラザ）の通路、右にミッドタウン・イーストと東京ミッドタウン・ホール。プラザに面した店舗FとGの間がミッドタウン・イーストの入口で、ここが集合場所です。ガレリアの入口はこの向かい側。プラザの南端にインフォメーション、右下から大江戸線・日比谷線の六本木駅へ地下通路が続きます。</desc>
+        <!-- 歩行エリア -->
+        <rect x="0" y="0" width="480" height="520" fill="#faf9f5"/>
+        <!-- 見出し -->
+        <text x="16" y="34" class="m-floor">B1</text>
+        <text x="62" y="34" class="m-small">地下1階・屋内</text>
+        <!-- 方位（公式図と同じ向き：北は左上） -->
+        <g transform="translate(44 76) rotate(-30)">
+          <circle r="17" fill="none" stroke="#14140f" stroke-width="1.2" stroke-dasharray="3 3"/>
+          <path d="M0 -14 L6 6 L0 2 L-6 6 Z" fill="#14140f"/>
+          <text y="-22" text-anchor="middle" class="m-n">N</text>
+        </g>
+        <!-- GALLERIA -->
+        <rect x="16" y="112" width="232" height="132" class="m-blk"/>
+        <text x="132" y="170" text-anchor="middle" class="m-big">GALLERIA</text>
+        <text x="132" y="194" text-anchor="middle" class="m-lbl">ガレリア</text>
+        <!-- ガレリア入口（プラザ側の開口） -->
+        <line x1="248" y1="196" x2="248" y2="236" stroke="#faf9f5" stroke-width="4"/>
+        <text x="236" y="230" text-anchor="end" class="m-small">ガレリア入口</text>
+        <path d="M240 216 h14" stroke="#14140f" stroke-width="1.4" fill="none" marker-end="url(#m-arr)"/>
+        <!-- ミッドタウン・ウェスト -->
+        <rect x="56" y="282" width="192" height="138" class="m-blk"/>
+        <text x="152" y="346" text-anchor="middle" class="m-lbl">ミッドタウン・</text>
+        <text x="152" y="368" text-anchor="middle" class="m-lbl">ウェスト</text>
+        <!-- PLAZA -->
+        <text x="296" y="346" text-anchor="middle" class="m-plaza">PLAZA</text>
+        <text x="296" y="366" text-anchor="middle" class="m-small">プラザ</text>
+        <!-- ミッドタウン・イースト -->
+        <rect x="344" y="96" width="120" height="324" class="m-blk"/>
+        <text x="404" y="122" text-anchor="middle" class="m-lbl">ミッドタウン・</text>
+        <text x="404" y="142" text-anchor="middle" class="m-lbl">イースト</text>
+        <rect x="378" y="292" width="80" height="116" class="m-hall"/>
+        <text x="418" y="334" text-anchor="middle" class="m-hl">東京</text>
+        <text x="418" y="352" text-anchor="middle" class="m-hl">ミッドタウン</text>
+        <text x="418" y="370" text-anchor="middle" class="m-hl">・ホール</text>
+        <!-- 店舗 E・F・G -->
+        <rect x="344" y="160" width="30" height="34" class="m-shop"/><text x="359" y="183" text-anchor="middle" class="m-shopl">E</text>
+        <rect x="344" y="200" width="30" height="40" class="m-shop"/><text x="359" y="226" text-anchor="middle" class="m-shopl">F</text>
+        <rect x="344" y="280" width="30" height="40" class="m-shop"/><text x="359" y="306" text-anchor="middle" class="m-shopl">G</text>
+        <!-- 入口（FとGの間） -->
+        <line x1="344" y1="240" x2="344" y2="280" stroke="#faf9f5" stroke-width="4"/>
+        <!-- 集合場所の印 -->
+        <circle cx="336" cy="260" r="30" fill="none" stroke="#1de394" stroke-width="2" stroke-dasharray="4 5"/>
+        <circle cx="336" cy="260" r="19" fill="none" stroke="#1de394" stroke-width="2" stroke-dasharray="3 4"/>
+        <circle cx="336" cy="260" r="10" fill="#1de394" stroke="#14140f" stroke-width="1.5"/>
+        <path d="M322 260 h24" stroke="#14140f" stroke-width="1.6" fill="none" marker-end="url(#m-arr)"/>
+        <!-- 集合場所ラベル -->
+        <path d="M326 92 V230" stroke="#14140f" stroke-width="1.4"/>
+        <rect x="186" y="16" width="278" height="76" rx="4" fill="#14140f"/>
+        <text x="325" y="44" text-anchor="middle" class="m-meet">集合場所</text>
+        <text x="325" y="64" text-anchor="middle" class="m-meet2">MIDTOWN EAST 入口</text>
+        <text x="325" y="82" text-anchor="middle" class="m-meet2">地下1階・屋内（FとGの間）</text>
+        <!-- インフォメーション -->
+        <circle cx="300" cy="440" r="10" fill="#fff" stroke="#14140f" stroke-width="1.4"/>
+        <text x="300" y="445" text-anchor="middle" class="m-i">i</text>
+        <text x="284" y="445" text-anchor="end" class="m-small">インフォメーション</text>
+        <!-- 六本木駅への地下通路 -->
+        <path d="M330 474 H462" stroke="#14140f" stroke-width="1.6" stroke-dasharray="6 5" fill="none" marker-end="url(#m-arr)"/>
+        <path d="M300 452 V474 H330" stroke="#14140f" stroke-width="1.6" stroke-dasharray="6 5" fill="none"/>
+        <text x="464" y="494" text-anchor="end" class="m-small">大江戸線・日比谷線</text>
+        <text x="464" y="512" text-anchor="end" class="m-lbl2">六本木駅 方面（地下通路）</text>
+        <defs>
+          <marker id="m-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 Z" fill="#14140f"/>
+          </marker>
+        </defs>
+      </svg>
+      <figcaption><b>地下1階の案内図</b>　位置関係を大まかに示した略図です（縮尺は正確ではありません）。詳しくは東京ミッドタウンの<a href="https://www.tokyo-midtown.com/jp/floor/b1/" target="_blank" rel="noopener">公式フロアマップ（地下1階）</a>をご覧ください。</figcaption>
+    </figure>
+
     <div class="photos">
       <figure>
         <img src="../assets/conference2026/meeting-point-midtown-east-b1.jpg" width="1024" height="768" alt="地下1階の「MIDTOWN EAST」入口。ガラス扉の上に白い照明天井があります" loading="lazy">
