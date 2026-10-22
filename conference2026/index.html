@@ -98,7 +98,9 @@
   .b1map .m-blk { fill: #fff; stroke: var(--ink); stroke-width: 1.5; }
   .b1map .m-hall { fill: none; stroke: var(--ink-soft); stroke-width: 1; stroke-dasharray: 4 4; }
   .b1map .m-shop { fill: #e9e7de; stroke: var(--ink); stroke-width: 1.2; }
-  .b1map .m-shopl { font-size: 18px; font-weight: 700; fill: var(--ink); }
+  .b1map .m-shopk { fill: #14140f; stroke: var(--ink); stroke-width: 1.2; }
+  .b1map .m-shopl { font-size: 17px; font-weight: 700; fill: #fff; }
+  .b1map .m-shopn { font-size: 15px; font-weight: 700; fill: var(--ink); letter-spacing: -.02em; }
   .b1map .m-big { font-size: 26px; font-weight: 700; letter-spacing: .06em; fill: var(--ink); }
   .b1map .m-plaza { font-size: 21px; font-weight: 700; letter-spacing: .06em; fill: var(--ink); }
   .b1map .m-lbl { font-size: 16px; font-weight: 700; fill: var(--ink); }
@@ -218,16 +220,16 @@
   <!-- 集合場所 -->
   <section id="meeting">
     <div class="sec-head"><span class="must">必ずお読みください</span><h2>集合場所</h2><span class="en">Meeting Point</span></div>
-    <p>東京ミッドタウン<strong>地下1階（B1）</strong>の「<strong>PLAZA（プラザ）</strong>」にある、「<strong class="mark">MIDTOWN EAST（ミッドタウン・イースト）</strong>」の入口にお集まりください。公式フロアマップで「F」と「G」と表示されている2つの店舗の間です。ショッピングエリア「<strong>GALLERIA（ガレリア）</strong>」の入口の向かい側にあたります。</p>
+    <p>東京ミッドタウン<strong>地下1階（B1）</strong>の「<strong>PLAZA（プラザ）</strong>」にある、「<strong class="mark">MIDTOWN EAST（ミッドタウン・イースト）</strong>」の入口にお集まりください。プラザに面して<strong>セブン-イレブン（E）</strong>、<strong>Dr.ストレッチ（F）</strong>と店舗が並び、その先の、<strong>Dr.ストレッチ（F）とトモズ（G）の間</strong>が入口です。（　）内の記号は下の案内図の記号です。ショッピングエリア「<strong>GALLERIA（ガレリア）</strong>」の入口の向かい側にあたります。</p>
     <p class="indoor"><strong>集合場所は地下1階の屋内です。屋外ではありません。</strong></p>
     <p>都営大江戸線・東京メトロ日比谷線の「六本木駅」からは、地下通路でそのまま地下1階に入れます（下の図の右下）。</p>
 
     <figure class="map">
-      <svg class="b1map" viewBox="0 0 480 520" role="img" aria-labelledby="b1map-title b1map-desc" xmlns="http://www.w3.org/2000/svg">
+      <svg class="b1map" viewBox="0 0 500 520" role="img" aria-labelledby="b1map-title b1map-desc" xmlns="http://www.w3.org/2000/svg">
         <title id="b1map-title">東京ミッドタウン地下1階の案内図（略図）</title>
-        <desc id="b1map-desc">左上にショッピングエリアGALLERIA（ガレリア）、左下にミッドタウン・ウェスト、中央を南北にPLAZA（プラザ）の通路、右にミッドタウン・イーストと東京ミッドタウン・ホール。プラザに面した店舗FとGの間がミッドタウン・イーストの入口で、ここが集合場所です。ガレリアの入口はこの向かい側。プラザの南端にインフォメーション、右下から大江戸線・日比谷線の六本木駅へ地下通路が続きます。</desc>
+        <desc id="b1map-desc">左上にショッピングエリアGALLERIA（ガレリア）、左下にミッドタウン・ウェスト、中央を南北にPLAZA（プラザ）の通路、右にミッドタウン・イーストと東京ミッドタウン・ホール。プラザに面した店舗FとGの間がミッドタウン・イーストの入口で、ここが集合場所です。ガレリアの入口はこの向かい側。プラザの南端にインフォメーション、右下から大江戸線・日比谷線の六本木駅へ地下通路が続きます。店舗Eはセブン-イレブン、Fは Dr.ストレッチ、Gはトモズ。プラザの北側・南側、インフォメーションの上、駅への通路の入口付近にエスカレーターがあります。</desc>
         <!-- 歩行エリア -->
-        <rect x="0" y="0" width="480" height="520" fill="#faf9f5"/>
+        <rect x="0" y="0" width="500" height="520" fill="#faf9f5"/>
         <!-- 見出し -->
         <text x="16" y="34" class="m-floor">B1</text>
         <text x="62" y="34" class="m-small">地下1階・屋内</text>
@@ -253,17 +255,18 @@
         <text x="296" y="346" text-anchor="middle" class="m-plaza">PLAZA</text>
         <text x="296" y="366" text-anchor="middle" class="m-small">プラザ</text>
         <!-- ミッドタウン・イースト -->
-        <rect x="344" y="96" width="120" height="324" class="m-blk"/>
-        <text x="404" y="122" text-anchor="middle" class="m-lbl">ミッドタウン・</text>
-        <text x="404" y="142" text-anchor="middle" class="m-lbl">イースト</text>
-        <rect x="378" y="292" width="80" height="116" class="m-hall"/>
-        <text x="418" y="334" text-anchor="middle" class="m-hl">東京</text>
-        <text x="418" y="352" text-anchor="middle" class="m-hl">ミッドタウン</text>
-        <text x="418" y="370" text-anchor="middle" class="m-hl">・ホール</text>
+        <rect x="344" y="96" width="142" height="324" class="m-blk"/>
+        <text x="415" y="122" text-anchor="middle" class="m-lbl">ミッドタウン・</text>
+        <text x="415" y="142" text-anchor="middle" class="m-lbl">イースト</text>
+        <rect x="388" y="334" width="90" height="76" class="m-hall"/>
+        <text x="433" y="358" text-anchor="middle" class="m-hl">東京</text>
+        <text x="433" y="375" text-anchor="middle" class="m-hl">ミッドタウン</text>
+        <text x="433" y="392" text-anchor="middle" class="m-hl">・ホール</text>
         <!-- 店舗 E・F・G -->
-        <rect x="344" y="160" width="30" height="34" class="m-shop"/><text x="359" y="183" text-anchor="middle" class="m-shopl">E</text>
-        <rect x="344" y="200" width="30" height="40" class="m-shop"/><text x="359" y="226" text-anchor="middle" class="m-shopl">F</text>
-        <rect x="344" y="280" width="30" height="40" class="m-shop"/><text x="359" y="306" text-anchor="middle" class="m-shopl">G</text>
+        <rect x="344" y="160" width="142" height="36" class="m-shop"/><rect x="344" y="160" width="26" height="36" class="m-shopk"/><text x="357" y="184" text-anchor="middle" class="m-shopl">E</text><text x="376" y="183" class="m-shopn">セブン-イレブン</text>
+        <rect x="344" y="200" width="142" height="40" class="m-shop"/><rect x="344" y="200" width="26" height="40" class="m-shopk"/><text x="357" y="226" text-anchor="middle" class="m-shopl">F</text><text x="376" y="225" class="m-shopn">Dr.ストレッチ</text>
+        <rect x="344" y="280" width="142" height="40" class="m-shop"/><rect x="344" y="280" width="26" height="40" class="m-shopk"/><text x="357" y="306" text-anchor="middle" class="m-shopl">G</text><text x="376" y="305" class="m-shopn">トモズ</text>
+        <text x="380" y="265" class="m-small">← 入口</text>
         <!-- 入口（FとGの間） -->
         <line x1="344" y1="240" x2="344" y2="280" stroke="#faf9f5" stroke-width="4"/>
         <!-- 集合場所の印 -->
@@ -273,20 +276,33 @@
         <path d="M322 260 h24" stroke="#14140f" stroke-width="1.6" fill="none" marker-end="url(#m-arr)"/>
         <!-- 集合場所ラベル -->
         <path d="M326 92 V230" stroke="#14140f" stroke-width="1.4"/>
-        <rect x="186" y="16" width="278" height="76" rx="4" fill="#14140f"/>
-        <text x="325" y="44" text-anchor="middle" class="m-meet">集合場所</text>
-        <text x="325" y="64" text-anchor="middle" class="m-meet2">MIDTOWN EAST 入口</text>
-        <text x="325" y="82" text-anchor="middle" class="m-meet2">地下1階・屋内（FとGの間）</text>
+        <rect x="186" y="16" width="300" height="76" rx="4" fill="#14140f"/>
+        <text x="336" y="44" text-anchor="middle" class="m-meet">集合場所</text>
+        <text x="336" y="64" text-anchor="middle" class="m-meet2">MIDTOWN EAST 入口</text>
+        <text x="336" y="82" text-anchor="middle" class="m-meet2">地下1階・屋内（FとGの間）</text>
         <!-- インフォメーション -->
         <circle cx="300" cy="440" r="10" fill="#fff" stroke="#14140f" stroke-width="1.4"/>
         <text x="300" y="445" text-anchor="middle" class="m-i">i</text>
         <text x="284" y="445" text-anchor="end" class="m-small">インフォメーション</text>
         <!-- 六本木駅への地下通路 -->
-        <path d="M330 474 H462" stroke="#14140f" stroke-width="1.6" stroke-dasharray="6 5" fill="none" marker-end="url(#m-arr)"/>
+        <path d="M330 474 H482" stroke="#14140f" stroke-width="1.6" stroke-dasharray="6 5" fill="none" marker-end="url(#m-arr)"/>
         <path d="M300 452 V474 H330" stroke="#14140f" stroke-width="1.6" stroke-dasharray="6 5" fill="none"/>
-        <text x="464" y="494" text-anchor="end" class="m-small">大江戸線・日比谷線</text>
-        <text x="464" y="512" text-anchor="end" class="m-lbl2">六本木駅 方面（地下通路）</text>
+        <text x="484" y="494" text-anchor="end" class="m-small">大江戸線・日比谷線</text>
+        <text x="484" y="512" text-anchor="end" class="m-lbl2">六本木駅 方面（地下通路）</text>
+        <!-- エスカレーター（公式フロアマップの記号の位置をもとにした概略） -->
+        <use href="#m-esc" x="268" y="166"/>
+        <use href="#m-esc" x="266" y="292"/>
+        <use href="#m-esc" x="286" y="396"/>
+        <use href="#m-esc" x="350" y="380"/>
+        <use href="#m-esc" x="420" y="440"/>
+        <!-- 凡例 -->
+        <use href="#m-esc" x="16" y="482"/>
+        <text x="48" y="500" class="m-small">エスカレーター</text>
         <defs>
+          <symbol id="m-esc" viewBox="0 0 26 26" width="26" height="26">
+            <rect x="1" y="1" width="24" height="24" rx="4" fill="#fff" stroke="#14140f" stroke-width="1.4"/>
+            <path d="M5 19 H9 L17 8 H21" fill="none" stroke="#14140f" stroke-width="2.2" stroke-linejoin="round"/>
+          </symbol>
           <marker id="m-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M0 0 L10 5 L0 10 Z" fill="#14140f"/>
           </marker>
