@@ -119,3 +119,33 @@ ul.next.rec li { font-size:16px; font-weight:600; }
   .pj-grid { grid-template-columns:1fr 1fr; }
   .pj { padding:32px 30px 34px; }
 }
+/* hard-problem: AIまとめリンク・エントリー注記 */
+.ailink { margin-top:18px; font-size:15px; line-height:1.7; }
+.ailink a { font-weight:800; border-bottom:2px solid var(--mint); }
+.ailink a::after { content:" →"; }
+.ailink a:hover { background:var(--mint); }
+.ailink span { display:inline-block; margin-left:10px; font-size:13px; color:var(--ink-soft); }
+.entry-note { margin-top:16px; padding:16px 18px; background:var(--card); border-left:4px solid var(--mint); font-size:14.5px; line-height:1.85; }
+.entry-note p + p { margin-top:8px; }
+ul.next.after-entry { margin-top:22px; }
+/* report（AIまとめページ） */
+.rmeta { margin-top:30px; display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px 24px; text-align:left; border-top:1px solid var(--line); padding-top:16px; font-size:14px; line-height:1.6; }
+.rmeta dt { font-size:11px; letter-spacing:.14em; color:var(--ink-soft); }
+.rmeta dd { font-weight:700; }
+.rnote { margin-top:40px; padding:14px 18px; background:var(--card); border-left:4px solid var(--mint); font-size:14px; line-height:1.85; }
+.report p { font-size:16px; line-height:2; margin-top:14px; }
+.report p.lead { font-size:16.5px; }
+.report h3 { font-size:17px; font-weight:800; line-height:1.6; margin-top:44px; padding-left:14px; border-left:4px solid var(--mint); }
+.report ul.dots { list-style:none; margin-top:14px; }
+.report ul.dots li { font-size:15.5px; line-height:1.9; padding:6px 0 6px 22px; position:relative; }
+.report ul.dots li::before { content:""; position:absolute; left:2px; top:1em; width:9px; height:9px; border-radius:50%; background:var(--mint); }
+.report figure { margin:26px 0 28px; }
+.report figure img { width:100%; border:1px solid var(--line); }
+.report figcaption { font-size:12.5px; color:var(--ink-soft); margin-top:8px; line-height:1.7; }
+.report .qa { margin:20px 0; padding:14px 18px; background:#fff; border:1px solid var(--line); border-left:4px solid var(--moss); }
+.report .qa p { margin-top:0; font-size:15px; line-height:1.85; }
+.report .qa p.q { font-weight:700; }
+.report .qa p.a { margin-top:8px; font-size:14.5px; }
+.report .nextbox { margin-top:28px; padding:16px 18px; border:2px dashed var(--mint); font-size:14.5px; line-height:1.9; }
+.report .rfoot { margin-top:40px; font-size:13px; color:var(--ink-soft); line-height:1.85; }
+.backlink { display:inline-block; margin-top:28px; font-size:14px; font-weight:700; border-bottom:2px solid var(--mint); }
