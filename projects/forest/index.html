@@ -1,22 +1,168 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="forest-html">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>意識研の森｜意識研究財団</title>
-<meta name="description" content="究極の問いを、土地と森に降ろす。">
+<meta name="description" content="究極の問いを、土地と森に降ろす。山梨県北杜市（武川町）の約1.8万坪の森で、非日常の意識と日常の意識を行き来しながら、意識の価値を問う。">
 <link rel="canonical" href="https://ishikiken.jp/projects/forest/">
 <meta property="og:title" content="意識研の森｜意識研究財団">
 <meta property="og:description" content="究極の問いを、土地と森に降ろす。">
 <meta property="og:url" content="https://ishikiken.jp/projects/forest/">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://ishikiken.jp/assets/projects/img_0254.jpg">
 <link rel="stylesheet" href="../projects.css?v=4">
+<style>
+/* ===== 意識研の森：背景（静止画＋YouTube動画）と暗めの重ね ===== */
+html.forest-html, html.forest-html body { background:#0e110c; }
+body.forest { color:#fff; }
+.fbg { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; background:#0e110c url("/assets/projects/img_0254.jpg") center 35% / cover no-repeat; }
+.fbg .yt { position:absolute; top:50%; left:50%; width:max(100vw, 177.78vh); height:max(56.25vw, 100vh); transform:translate(-50%,-50%) scale(1.18); opacity:0; transition:opacity 1.8s ease; }
+.fbg .yt.on { opacity:1; }
+.fbg .yt iframe, .fbg .yt > div { display:block; width:100%; height:100%; border:0; }
+.fshade { position:fixed; inset:0; z-index:0; pointer-events:none; background:rgba(8,10,6,.62); }
+body.forest .decowrap { z-index:1; }
+body.forest .wrap { z-index:2; }
+/* 文字色を暗い背景用に */
+body.forest .top .brand span, body.forest .en, body.forest figure.photo figcaption, body.forest .quotes .src, body.forest .others .k, body.forest .foot { color:rgba(255,255,255,.74); }
+body.forest .top .nav { color:rgba(255,255,255,.8); border-color:rgba(255,255,255,.4); }
+body.forest .top .nav:hover { color:#fff; border-color:#fff; }
+body.forest .head { min-height:68vh; display:flex; flex-direction:column; justify-content:flex-end; align-items:flex-end; padding-bottom:12px; }
+body.forest .head h1, body.forest .head .catch { text-shadow:0 2px 18px rgba(0,0,0,.45); }
+body.forest h2 { border-bottom-color:#fff; }
+body.forest ul.tl, body.forest ul.tl li { border-color:rgba(255,255,255,.22); }
+body.forest ul.tl .y { color:var(--mint); }
+body.forest .join { background:rgba(0,0,0,.55); border:1px solid rgba(29,227,148,.55); }
+body.forest .chips a { color:#fff; }
+body.forest .chips a:hover { color:var(--ink); }
+body.forest .foot { border-top-color:rgba(255,255,255,.22); }
+body.forest .lead a, body.forest .tl a, body.forest .use a { color:var(--mint); border-bottom:1px solid var(--mint); }
+/* 概要 */
+.facts { display:grid; grid-template-columns:1fr; border-top:1px solid rgba(255,255,255,.22); }
+.facts div { display:grid; grid-template-columns:1fr; gap:2px; padding:12px 2px; border-bottom:1px solid rgba(255,255,255,.22); }
+.facts dt { font-size:12.5px; font-weight:700; letter-spacing:.14em; color:var(--mint); }
+.facts dd { font-size:15.5px; line-height:1.8; }
+/* 森の使い方 */
+.uses { display:grid; grid-template-columns:1fr; gap:12px; }
+.use { padding:18px 18px 20px; border:1px solid rgba(255,255,255,.24); background:rgba(0,0,0,.28); }
+.use .k { font-size:11.5px; font-weight:800; letter-spacing:.18em; color:var(--mint); }
+.use b { display:block; font-size:17.5px; line-height:1.55; margin-top:6px; }
+.use p { font-size:14.5px; line-height:1.85; margin-top:8px; color:rgba(255,255,255,.86); }
+/* 写真 */
+.pgrid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.pgrid figure { margin:0; overflow:hidden; }
+.pgrid figure.w { grid-column:1 / -1; }
+.pgrid img { width:100%; height:100%; aspect-ratio:3 / 2; object-fit:cover; }
+.pcap { font-size:12px; letter-spacing:.08em; color:rgba(255,255,255,.74); margin-top:10px; text-align:right; }
+@media (min-width:720px) {
+  .facts div { grid-template-columns:8.5em 1fr; gap:16px; }
+  .uses { grid-template-columns:1fr 1fr 1fr; }
+  .pgrid { grid-template-columns:2fr 1fr 1fr; gap:10px; }
+  .pgrid figure.w { grid-column:auto; grid-row:span 2; }
+  .pgrid figure.w img { aspect-ratio:auto; }
+}
+@media (prefers-reduced-motion: reduce) { .fbg .yt { display:none; } }
+</style>
 </head>
-<body>
+<body class="forest">
+<!--
+  ▼ 背景動画の設定（ここ1か所だけ）
+  data-youtube-id に YouTube の動画ID（例：https://youtu.be/XXXXXXXXXXX の XXXXXXXXXXX）を入れると、
+  背景で ミュート・自動再生・ループ 再生されます。空のあいだは森の写真（静止画）のまま表示されます。
+-->
+<div class="fbg" id="forest-bg" data-youtube-id="" aria-hidden="true"></div>
+<div class="fshade" aria-hidden="true"></div>
 <div class="decowrap"><svg class="deco" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="190" fill="none" stroke="#1de394" stroke-width="4" stroke-dasharray="9 6.5"/></svg></div>
 <div class="wrap">
-<header class="top"><a class="brand" href="https://ishikiken.jp/">意識研究財団<span>Consciousness Research Foundation</span></a><a class="nav" href="https://ishikiken.jp/projects/">研究プロジェクト一覧</a></header><section class="head"><div class="label">THE FOREST</div><h1>意識研の森</h1><div class="en">The Forest of Consciousness</div><p class="catch">究極の問いを、土地と森に降ろす。</p></section><figure class="photo"><img src="/assets/projects/img_0254.jpg" width="1600" height="1066" alt="山梨県北杜市武川町の森" loading="lazy"><figcaption>山梨県北杜市武川町の森</figcaption></figure><section class="blk"><p class="lead">鳳凰三山の麓、縄文中期の精神文化圏に近い、山梨県北杜市武川町の約1.8万坪の山林。2026年7月に財団の実践の場として取得しました。森での非日常の意識と、都市での日常の意識の往復を通して、意識の価値を問う場となります。今後、約60名が入るホールを参加型プロジェクトを通して建築予定（VUILD社との共同事業）。各研究プロジェクトの実践、カンファレンスや瞑想リトリート、また、山梨県立大学メイカーズ工学科（仮称）と共同し、意識とテクノロジーの実践・教育の場として活用していきます。すでにいくつかの先行プログラムが行われました。</p></section><section class="blk quotes"><h2>学生の声</h2><p class="src">山梨県立大学 創発デザインコース必修授業「Techキャンプ」参加学生のレポートから</p><blockquote>「時間を気にせず過ごすことで、普段よりもゆっくりと周りの自然や自分自身に意識を向けられる」</blockquote><blockquote>「一瞬一瞬の密度が濃くて、全て体験を通して体から記憶に刻まれているような感覚がする」</blockquote><blockquote>「作品が初めて完成したとき、目に見える全てがマテリアルのように見えるようになった」</blockquote></section><section class="blk"><h2>これまで</h2><ul class="tl"><li><span class="y">2025年度</span><span>VUILD社とともに森の構想計画（建築プラン）を策定</span></li><li><span class="y">2026年7月</span><span>森の正式な取得手続きを開始</span></li><li><span class="y">2026年9月</span><span>山梨県立大学の授業「Techキャンプ」（学生17名・スマホも時計も手放し、つくりながら暮らす3日間）、ベルクソン読書会の合宿、makers Unlearnの森の講座</span></li></ul></section><section class="blk"><h2>今後</h2><ul class="next"><li>2027年冬：瞑想用テラスや採水システム、風呂設備などを設置予定</li><li>2027年春：研究者向けリトリート開催予定</li><li>2027年夏以降：VUILD社との参加型建築プロジェクト開始予定</li></ul></section><section class="join"><div class="tag">JOIN</div><p class="msg">意識研の森の案内を受け取りたい方は、<br>メールアドレスを登録してください。</p><p class="sub">森での活動の案内を、メールでお送りします。</p><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScUHY0SSqIPbBJUO-qxCPmI967KxkgwJCxOVqA1v1CDMaO2MA/viewform?usp=pp_url&amp;entry.221341683=%E6%84%8F%E8%AD%98%E7%A0%94%E3%81%AE%E6%A3%AE" rel="noopener">案内メールを登録する</a><p class="contact">森の活動に参加したい方は、事務局（<a href="mailto:info@technel.world">info@technel.world</a>）までご連絡ください。</p></section><nav class="others"><div class="k">ほかのプロジェクト</div><div class="chips"><a href="/projects/hard-problem/">意識のハードプロブレム</a><a href="/projects/origins/">意識の根源探求</a><a href="/projects/buddhism/">仏教と意識</a><a href="/projects/satoyama/">意識と里山</a><a href="/projects/technology/">意識とテクノロジー</a></div></nav>
+<header class="top"><a class="brand" href="https://ishikiken.jp/">意識研究財団<span>Consciousness Research Foundation</span></a><a class="nav" href="https://ishikiken.jp/projects/">研究プロジェクト一覧</a></header>
+
+<section class="head"><div class="label">THE FOREST</div><h1>意識研の森</h1><div class="en">The Forest of Consciousness</div><p class="catch">究極の問いを、土地と森に降ろす。</p></section>
+
+<section class="blk"><h2>どんな場所か</h2>
+<p class="lead">鳳凰三山の麓、縄文中期の精神文化圏に近い、山梨県北杜市（武川町）の約1.8万坪の山林。財団の実践の場となる森です。<!-- 【要確認】旧文面「2026年7月に財団の実践の場として取得しました」は、土地の取得状況を書かない方針のため外した。戻すかどうか --></p>
+<dl class="facts" style="margin-top:24px;">
+<div><dt>場所</dt><dd>山梨県北杜市（武川町）。鳳凰三山の麓</dd></div>
+<div><dt>広さ</dt><dd>約1.8万坪（約6.1ha）の山林</dd></div>
+<div><dt>使い方</dt><dd>研究者のリトリート、各研究プロジェクトの実践の場（予定）</dd></div>
+</dl>
+</section>
+
+<section class="blk"><h2>森と都市を行き来する</h2>
+<p class="lead">森での非日常の意識と、都市での日常の意識。その二つを行き来しながら、意識の価値を問う場です。</p>
+<p class="lead" style="margin-top:14px;">今後、約60名が入るホールを参加型プロジェクトを通して建築予定（VUILD社との共同事業）。各研究プロジェクトの実践、カンファレンスや瞑想リトリート、また、山梨県立大学メイカーズ工学科（仮称）と共同し、意識とテクノロジーの実践・教育の場として活用していきます。すでにいくつかの先行プログラムが行われました。</p>
+</section>
+
+<section class="blk"><h2>森の使い方</h2>
+<div class="uses">
+<div class="use"><div class="k">RETREAT</div><b>研究者のリトリート</b><p>研究者が森に滞在し、日常から離れた時間のなかで、意識について考え、語り合う場として使っていく予定です。</p></div>
+<div class="use"><div class="k">PRACTICE</div><b>研究プロジェクトの実践</b><p>各研究プロジェクトの実践の場として使います。森での「<a href="/projects/origins/">意識の根源探求</a>」のワークや、「<a href="/projects/satoyama/">意識と里山</a>」の合宿など。</p></div>
+<div class="use"><div class="k">GATHERING</div><b>森での催し</b><p>今後、カンファレンスのような催しを、森で開くことも考えています。</p></div>
+</div>
+</section>
+
+<section class="blk"><h2>森のようす</h2>
+<div class="pgrid">
+<figure class="w"><img src="/assets/forest/L1940887.jpg" width="1600" height="1066" alt="苔むした岩が点在する冬の雑木林" loading="lazy"></figure>
+<figure><img src="/assets/forest/img_0255.jpg" width="1600" height="1066" alt="夏の雑木林" loading="lazy"></figure>
+<figure><img src="/assets/forest/L1940881.jpg" width="1600" height="1066" alt="落ち葉の積もった冬の林" loading="lazy"></figure>
+<figure><img src="/assets/forest/img_0263.jpg" width="1600" height="1066" alt="森の地面に咲くギンリョウソウ" loading="lazy"></figure>
+<figure><img src="/assets/forest/img_0273.jpg" width="1600" height="1066" alt="たき火で湯をわかす" loading="lazy"></figure>
+</div>
+<p class="pcap">意識研の森</p>
+</section>
+
+<section class="blk quotes"><h2>学生の声</h2><p class="src">山梨県立大学 創発デザインコース必修授業「Techキャンプ」参加学生のレポートから</p><blockquote>「時間を気にせず過ごすことで、普段よりもゆっくりと周りの自然や自分自身に意識を向けられる」</blockquote><blockquote>「一瞬一瞬の密度が濃くて、全て体験を通して体から記憶に刻まれているような感覚がする」</blockquote><blockquote>「作品が初めて完成したとき、目に見える全てがマテリアルのように見えるようになった」</blockquote></section>
+
+<section class="blk"><h2>これまで</h2><ul class="tl">
+<li><span class="y">2025年度</span><span>VUILD社とともに森の構想計画（建築プラン）を策定</span></li>
+<!-- 【要確認】旧項目「2026年7月 森の正式な取得手続きを開始」は、土地の取得状況を書かない方針のため外した -->
+<li><span class="y">2026年8月</span><span>FOREST Gathering を開催<!-- 【要確認】内容の説明（どんな会か・参加人数など）を足すか --></span></li>
+<li><span class="y">2026年9月</span><span>山梨県立大学の授業「Techキャンプ」（学生17名・スマホも時計も手放し、つくりながら暮らす3日間）、ベルクソン読書会の合宿、makers Unlearnの森の講座</span></li>
+<li><span class="y">2026年10月</span><span>カンファレンス「マシン・コンシャスネス」（10/24・25、東京ミッドタウン）の会場で、森の動画と森のパネルを展示</span></li>
+</ul></section>
+
+<section class="blk"><h2>今後</h2><ul class="next"><li>2027年冬：瞑想用テラスや採水システム、風呂設備などを設置予定</li><li>2027年春：研究者向けリトリート開催予定</li><li>2027年夏以降：VUILD社との参加型建築プロジェクト開始予定</li></ul></section>
+
+<section class="join"><div class="tag">JOIN</div><p class="msg">森で、一緒に問いませんか。</p><p class="sub">意識研の森の案内を受け取りたい方は、メールアドレスを登録してください。<br>森での活動の案内を、メールでお送りします。</p><a class="btn" href="https://ishikiken.jp/join/forest/" rel="noopener">案内メールを登録する</a><p class="contact">森の活動に参加したい方は、事務局（<a href="mailto:info@technel.world">info@technel.world</a>）までご連絡ください。</p></section>
+
+<nav class="others"><div class="k">ほかのプロジェクト</div><div class="chips"><a href="/projects/hard-problem/">意識のハードプロブレム</a><a href="/projects/origins/">意識の根源探求</a><a href="/projects/buddhism/">仏教と意識</a><a href="/projects/satoyama/">意識と里山</a><a href="/projects/technology/">意識とテクノロジー</a></div></nav>
 <footer class="foot"><a href="https://ishikiken.jp/">一般財団法人 意識研究財団</a><a href="https://ishikiken.jp/projects/">研究プロジェクト一覧</a><a href="https://ishikiken.jp/">ishikiken.jp</a></footer>
 </div>
+<script>
+/* 背景のYouTube動画。#forest-bg の data-youtube-id が空なら何もしない（静止画のまま） */
+(function () {
+  var bg = document.getElementById('forest-bg');
+  var id = (bg && bg.getAttribute('data-youtube-id') || '').trim();
+  if (!id) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (navigator.connection && navigator.connection.saveData) return;
+  var box = document.createElement('div');
+  box.className = 'yt';
+  var slot = document.createElement('div');
+  slot.id = 'forest-yt';
+  box.appendChild(slot);
+  bg.appendChild(box);
+  var shown = false;
+  function show() { if (shown) return; shown = true; setTimeout(function () { box.classList.add('on'); }, 700); }
+  window.onYouTubeIframeAPIReady = function () {
+    new YT.Player('forest-yt', {
+      host: 'https://www.youtube-nocookie.com',
+      videoId: id,
+      playerVars: { autoplay: 1, mute: 1, controls: 0, loop: 1, playlist: id, playsinline: 1, rel: 0, modestbranding: 1, disablekb: 1, iv_load_policy: 3, fs: 0, cc_load_policy: 0 },
+      events: {
+        onReady: function (e) { e.target.mute(); e.target.playVideo(); },
+        onStateChange: function (e) {
+          if (e.data === 1) show();                      /* 再生が始まったら写真から動画へフェード */
+          if (e.data === 0) { e.target.seekTo(0); e.target.playVideo(); } /* 念のためのループ */
+        },
+        onError: function () { box.remove(); }          /* 再生できなければ写真のまま */
+      }
+    });
+  };
+  var s = document.createElement('script');
+  s.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(s);
+})();
+</script>
 </body>
 </html>
