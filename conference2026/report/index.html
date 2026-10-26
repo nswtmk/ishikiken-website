@@ -42,11 +42,14 @@
 .ses .lk a { font-weight:700; border-bottom:1.5px solid var(--mint); }
 .ses .lk a:hover { background:var(--mint); }
 .after { margin-top:14px; font-size:14px; color:var(--ink-soft); line-height:1.85; }
-/* 写真枠（あとで当日のキャプチャを入れる） */
+/* 当日の写真 */
 .shots { display:grid; grid-template-columns:1fr; gap:8px; margin-top:22px; }
 .shots figure { margin:0; }
 .shots img { width:100%; aspect-ratio:16 / 9; object-fit:cover; }
 .shots figcaption { font-size:12px; color:var(--ink-soft); margin-top:6px; line-height:1.6; }
+.shots img { height:auto; }
+.shots.three { grid-template-columns:repeat(3,1fr); gap:6px; margin-top:16px; }
+.shots.three figcaption { font-size:11px; line-height:1.5; }
 /* 登壇者 */
 .sp-list { display:grid; grid-template-columns:1fr; gap:12px; }
 .sp { padding:18px 18px 20px; border:1px solid var(--line); background:#fff; }
@@ -79,9 +82,7 @@
 
 <section class="head"><div class="label">CONFERENCE 2026 REPORT</div><h1>マシン・<br>コンシャスネス</h1><div class="en">Machine Consciousness — Conference Report</div><p class="catch">開催レポート</p></section>
 
-<!-- ▼写真枠（ヒーロー）：当日の会場全体のキャプチャを1枚入れるときは、下のコメントを外して src と alt を書き換える。
-<figure class="photo"><img src="/assets/conference2026/hero.jpg" alt="カンファレンス会場のようす"><figcaption>DAY1 会場のようす</figcaption></figure>
--->
+<figure class="photo"><img src="/assets/conference2026/hero.jpg" alt="DAY1 満席の会場" width="1600" height="900"><figcaption>DAY1 会場のようす</figcaption></figure>
 
 <p class="thanks">2026年10月24日・25日、カンファレンス『マシン・コンシャスネス』を無事開催できました。ご参加いただいた皆さま、ありがとうございました。</p>
 
@@ -111,13 +112,11 @@
 <section class="blk" id="day1">
 <h2>DAY1　10.24 Sat</h2>
 <div class="dayhead"><div class="d">DAY 1</div><div class="t">マシンの意識とヒューマンの意識</div><div class="m">13:00–18:10ごろ｜司会：吉澤駿</div></div>
-<!-- ▼写真枠（DAY1）：キャプチャを入れるときは、下のコメントを外して画像を差し替える（1枚目は横いっぱい、2枚目以降は2列）。
 <div class="shots">
-  <figure class="w"><img src="/assets/conference2026/day1_01.jpg" alt="DAY1 会場のようす" loading="lazy"><figcaption>DAY1 会場のようす</figcaption></figure>
-  <figure><img src="/assets/conference2026/day1_02.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
-  <figure><img src="/assets/conference2026/day1_03.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+  <figure class="w"><img src="/assets/conference2026/day1_01.jpg" alt="DAY1 金井良太さんの基調講演" width="1600" height="900" loading="lazy"><figcaption>基調講演「AIの中に、誰かいるのか？」金井良太さん</figcaption></figure>
+  <figure><img src="/assets/conference2026/day1_02.jpg" alt="DAY1 会場でのVR体験" width="1600" height="900" loading="lazy"><figcaption>会場でのVR体験</figcaption></figure>
+  <figure><img src="/assets/conference2026/day1_03.jpg" alt="DAY1 意識研の森の映像の前で" width="1600" height="900" loading="lazy"><figcaption>意識研の森の映像の前で</figcaption></figure>
 </div>
--->
 <p class="lead" style="margin-top:18px;">AIは意識をもちうるのかという問いに、4人の登壇者がそれぞれの立場から迫りました。金井さん・渡邉さん・信原さんは、いずれも機能主義を出発点にしながら、それぞれ異なる道筋を示し、茂木さんは計算と意識の関係そのものを問い直しました。<small style="color:var(--ink-soft);">（AIまとめ）</small></p>
 <div class="ses-list">
   <div class="ses">
@@ -168,18 +167,19 @@
   </div>
 </div>
 <p class="after">講演のあとは、同じ会場で懇親会と、若手研究者によるポスター発表（フラッシュトーク）を行いました。</p>
+<div class="shots three">
+  <figure><img src="/assets/conference2026/venue_01.jpg" alt="研究プロジェクトのパネル展示" width="1000" height="562" loading="lazy"><figcaption>プロジェクトの展示</figcaption></figure>
+  <figure><img src="/assets/conference2026/venue_02.jpg" alt="意識研の森のパネル" width="1000" height="562" loading="lazy"><figcaption>意識研の森の展示</figcaption></figure>
+  <figure><img src="/assets/conference2026/venue_03.jpg" alt="会場に並んだ登壇者の著書" width="1000" height="562" loading="lazy"><figcaption>登壇者の著書</figcaption></figure>
+</div>
 </section>
 
 <section class="blk" id="day2">
 <h2>DAY2　10.25 Sun</h2>
 <div class="dayhead"><div class="d">DAY 2</div><div class="t">マシンの意識とモア・ザン・ヒューマンの意識</div><div class="m">13:00–19:23ごろ｜司会：堀部和也｜進行は約25分押し、最後に総合ディスカッションを加えました</div></div>
-<!-- ▼写真枠（DAY2）：キャプチャを入れるときは、下のコメントを外して画像を差し替える（1枚目は横いっぱい、2枚目以降は2列）。
 <div class="shots">
-  <figure class="w"><img src="/assets/conference2026/day2_01.jpg" alt="DAY2 会場のようす" loading="lazy"><figcaption>DAY2 会場のようす</figcaption></figure>
-  <figure><img src="/assets/conference2026/day2_02.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
-  <figure><img src="/assets/conference2026/day2_03.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+  <figure class="w"><img src="/assets/conference2026/day2_01.jpg" alt="DAY2 総合ディスカッション" width="1080" height="608" loading="lazy"><figcaption>DAY2 総合ディスカッション</figcaption></figure>
 </div>
--->
 <p class="lead" style="margin-top:18px;">「機械に意識はあるか」という問いを、生命・身体・社会の側から捉え直す議論が続きました。最後の総合ディスカッションでは、AIが社会に入ってくる中で、何に、どのような配慮を向けるべきかが議論されました。<small style="color:var(--ink-soft);">（AIまとめ）</small></p>
 <div class="ses-list">
   <div class="ses">
