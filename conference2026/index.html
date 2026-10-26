@@ -50,6 +50,8 @@
   .sub { font-size: clamp(20px, 2.6vw, 28px); font-weight: 700; margin-top: 18px; letter-spacing: .04em; }
   .meta { font-size: 14px; letter-spacing: .08em; color: var(--ink-soft); margin-top: 28px; }
   .lead { font-size: 15.5px; margin-top: 40px; max-width: 640px; }
+  .ended { position: relative; z-index: 1; margin-top: 28px; padding: 16px 20px; border: 2px dashed var(--mint); background: #fff; font-size: 15.5px; font-weight: 700; line-height: 1.85; }
+  .ended a { border-bottom: 2px solid var(--mint); text-decoration: none; }
 
   /* toc */
   .toc { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0 24px; list-style: none; }
@@ -162,7 +164,8 @@
       <circle class="r1" cx="210" cy="210" r="86"/>
       <circle class="core" cx="210" cy="210" r="4"/>
     </svg>
-    <p class="kicker">CONFERENCE 2026｜会場参加の方へ</p>
+    <p class="ended">このカンファレンスは終了しました。ご参加ありがとうございました。<a href="https://ishikiken.jp/conference2026/report/">開催レポートはこちら →</a></p>
+    <p class="kicker" style="margin-top:36px;">CONFERENCE 2026｜会場参加の方へ</p>
     <h1>マシン・<br>コンシャスネス</h1>
     <p class="sub">当日のご案内</p>
     <p class="meta">2026.10.24 Sat – 10.25 Sun｜東京ミッドタウン ミッドタウン・イースト 7階</p>

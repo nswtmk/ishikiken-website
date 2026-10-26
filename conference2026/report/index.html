@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>開催レポート「マシン・コンシャスネス」｜意識研究財団</title>
+<meta name="description" content="2026年10月24日・25日に開催した意識研究財団のカンファレンス「マシン・コンシャスネス」の開催レポート。プログラム、各講演のAIまとめ、登壇者プロフィール、関連リンク。">
+<link rel="canonical" href="https://ishikiken.jp/conference2026/report/">
+<meta property="og:title" content="開催レポート「マシン・コンシャスネス」｜意識研究財団">
+<meta property="og:description" content="2026年10月24日・25日、カンファレンス「マシン・コンシャスネス」を開催しました。">
+<meta property="og:url" content="https://ishikiken.jp/conference2026/report/">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="/projects/projects.css?v=4">
+<style>
+/* ===== 開催レポート（このページだけのスタイル。共通は /projects/projects.css） ===== */
+.thanks { margin-top:44px; padding:22px 20px; border:2px dashed var(--mint); font-size:16.5px; font-weight:700; line-height:1.95; }
+.toc2 { display:flex; flex-wrap:wrap; gap:8px; margin-top:28px; list-style:none; }
+.toc2 a { display:inline-block; font-size:13px; padding:4px 14px; border:1.4px dashed var(--mint); border-radius:999px; line-height:1.6; }
+.toc2 a:hover { background:var(--mint); }
+/* 開催概要 */
+.facts { border-top:1px solid var(--line); }
+.facts div { display:grid; grid-template-columns:1fr; gap:2px; padding:12px 2px; border-bottom:1px solid var(--line); }
+.facts dt { font-size:12.5px; font-weight:700; letter-spacing:.14em; color:var(--moss); }
+.facts dd { font-size:15.5px; line-height:1.8; }
+/* AIまとめ注記 */
+.ainote { margin-top:18px; padding:12px 16px; background:var(--card); border-left:4px solid var(--mint); font-size:13.5px; line-height:1.85; color:var(--ink-soft); }
+.ainote b { color:var(--ink); }
+/* 日ごとの見出し */
+.dayhead .d { font-size:12.5px; letter-spacing:.2em; font-weight:800; color:var(--moss); }
+.dayhead .t { font-size:clamp(20px,5.4vw,28px); font-weight:800; line-height:1.5; margin-top:4px; }
+.dayhead .m { font-size:14px; color:var(--ink-soft); margin-top:6px; line-height:1.8; }
+/* セッション */
+.ses-list { margin-top:22px; border-top:1px solid var(--line); }
+.ses { display:grid; grid-template-columns:1fr; gap:4px; padding:20px 2px 22px; border-bottom:1px solid var(--line); }
+.ses .st { font-size:13.5px; font-weight:700; color:var(--moss); letter-spacing:.04em; font-variant-numeric:tabular-nums; }
+.ses .kind { display:inline-block; font-size:11.5px; font-weight:800; letter-spacing:.14em; background:var(--mint); color:var(--ink); padding:1px 9px; margin-bottom:6px; }
+.ses h3 { font-size:18px; font-weight:800; line-height:1.6; }
+.ses .who { font-size:15px; font-weight:700; margin-top:4px; }
+.ses .who span { font-weight:400; font-size:13px; color:var(--ink-soft); margin-left:8px; }
+.ses p { font-size:15px; line-height:1.9; margin-top:10px; }
+.ses .lk { display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:10px; font-size:13.5px; }
+.ses .lk a { font-weight:700; border-bottom:1.5px solid var(--mint); }
+.ses .lk a:hover { background:var(--mint); }
+.after { margin-top:14px; font-size:14px; color:var(--ink-soft); line-height:1.85; }
+/* 写真枠（あとで当日のキャプチャを入れる） */
+.shots { display:grid; grid-template-columns:1fr; gap:8px; margin-top:22px; }
+.shots figure { margin:0; }
+.shots img { width:100%; aspect-ratio:16 / 9; object-fit:cover; }
+.shots figcaption { font-size:12px; color:var(--ink-soft); margin-top:6px; line-height:1.6; }
+/* 登壇者 */
+.sp-list { display:grid; grid-template-columns:1fr; gap:12px; }
+.sp { padding:18px 18px 20px; border:1px solid var(--line); background:#fff; }
+.sp .ph { width:96px; height:96px; border-radius:50%; overflow:hidden; margin-bottom:12px; }
+.sp .ph img { width:100%; height:100%; object-fit:cover; }
+.sp .role { font-size:11.5px; font-weight:800; letter-spacing:.14em; color:var(--moss); }
+.sp .nm { font-size:19px; font-weight:800; line-height:1.5; margin-top:4px; }
+.sp .af { font-size:13.5px; font-weight:700; color:var(--ink-soft); line-height:1.7; margin-top:2px; }
+.sp p { font-size:14px; line-height:1.85; margin-top:10px; }
+.sp-sub { font-size:13px; font-weight:700; letter-spacing:.16em; color:var(--ink-soft); margin:30px 0 12px; }
+/* リンク */
+.cards .card span.ext::after { content:" ↗"; }
+.pending { margin-top:12px; padding:14px 18px; border:1px dashed var(--line); font-size:14.5px; line-height:1.8; color:var(--ink-soft); }
+.pending b { color:var(--ink); }
+@media (min-width:720px) {
+  .facts div { grid-template-columns:8.5em 1fr; gap:16px; }
+  .ses { grid-template-columns:8.5em 1fr; gap:16px; }
+  .ses .st { padding-top:2px; }
+  .shots { grid-template-columns:1fr 1fr; gap:10px; }
+  .shots figure.w { grid-column:1 / -1; }
+  .sp-list { grid-template-columns:1fr 1fr; }
+  .thanks { padding:26px 30px; font-size:17.5px; }
+}
+</style>
+</head>
+<body>
+<div class="decowrap"><svg class="deco" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="190" fill="none" stroke="#1de394" stroke-width="4" stroke-dasharray="9 6.5"/></svg></div>
+<div class="wrap">
+<header class="top"><a class="brand" href="https://ishikiken.jp/">意識研究財団<span>Consciousness Research Foundation</span></a><a class="nav" href="https://ishikiken.jp/#conference">Conference 2026</a></header>
+
+<section class="head"><div class="label">CONFERENCE 2026 REPORT</div><h1>マシン・<br>コンシャスネス</h1><div class="en">Machine Consciousness — Conference Report</div><p class="catch">開催レポート</p></section>
+
+<!-- ▼写真枠（ヒーロー）：当日の会場全体のキャプチャを1枚入れるときは、下のコメントを外して src と alt を書き換える。
+<figure class="photo"><img src="/assets/conference2026/hero.jpg" alt="カンファレンス会場のようす"><figcaption>DAY1 会場のようす</figcaption></figure>
+-->
+
+<p class="thanks">2026年10月24日・25日、カンファレンス『マシン・コンシャスネス』を無事開催できました。ご参加いただいた皆さま、ありがとうございました。</p>
+
+<ul class="toc2" aria-label="このページの内容">
+  <li><a href="#overview">開催概要</a></li>
+  <li><a href="#day1">DAY1</a></li>
+  <li><a href="#day2">DAY2</a></li>
+  <li><a href="#speakers">登壇者</a></li>
+  <li><a href="#links">まとめ・実況・記事</a></li>
+  <li><a href="#next">これから</a></li>
+</ul>
+
+<section class="blk" id="overview">
+<h2>開催概要</h2>
+<dl class="facts">
+  <div><dt>日時</dt><dd>DAY1　2026年10月24日（土）13:00–18:10ごろ<br>DAY2　2026年10月25日（日）13:00–19:23ごろ</dd></div>
+  <div><dt>会場</dt><dd>東京ミッドタウン・イースト（東京・六本木）</dd></div>
+  <div><dt>参加の形</dt><dd>会場参加と、オンライン（Zoom）での参加</dd></div>
+  <div><dt>テーマ</dt><dd>DAY1「マシンの意識とヒューマンの意識」<br>DAY2「マシンの意識とモア・ザン・ヒューマンの意識」</dd></div>
+  <div><dt>司会</dt><dd>DAY1　吉澤駿（総合ディスカッションも）<br>DAY2　堀部和也（総合ディスカッションも）</dd></div>
+  <div><dt>主催</dt><dd>一般財団法人 意識研究財団</dd></div>
+</dl>
+<p class="lead" style="margin-top:28px;">二日間で9人の登壇者が、「機械に意識はあるか」という問いにそれぞれの立場から迫りました。DAY1は、AIは意識をもちうるのか、それをどう確かめるのかを、理論・実験・哲学の側から。DAY2は、同じ問いを生命・身体・社会の側から捉え直しました。両日とも、最後に登壇者と会場がいっしょに議論する総合ディスカッションを行いました。DAY1の夜には懇親会と、若手研究者によるポスター発表を行いました。</p>
+<p class="ainote"><b>このページの各セッションの要約は、AIまとめ（登壇者本人の確認なし）です。</b>Zoomの自動字幕をもとにAIがまとめ、別のAIが字幕と突き合わせて確認したものを短くしています。字幕の誤認識などにより、内容に誤りを含むことがあります。</p>
+</section>
+
+<section class="blk" id="day1">
+<h2>DAY1　10.24 Sat</h2>
+<div class="dayhead"><div class="d">DAY 1</div><div class="t">マシンの意識とヒューマンの意識</div><div class="m">13:00–18:10ごろ｜司会：吉澤駿</div></div>
+<!-- ▼写真枠（DAY1）：キャプチャを入れるときは、下のコメントを外して画像を差し替える（1枚目は横いっぱい、2枚目以降は2列）。
+<div class="shots">
+  <figure class="w"><img src="/assets/conference2026/day1_01.jpg" alt="DAY1 会場のようす" loading="lazy"><figcaption>DAY1 会場のようす</figcaption></figure>
+  <figure><img src="/assets/conference2026/day1_02.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+  <figure><img src="/assets/conference2026/day1_03.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+</div>
+-->
+<p class="lead" style="margin-top:18px;">AIは意識をもちうるのかという問いに、4人の登壇者がそれぞれの立場から迫りました。金井さん・渡邉さん・信原さんは、いずれも機能主義を出発点にしながら、それぞれ異なる道筋を示し、茂木さんは計算と意識の関係そのものを問い直しました。<small style="color:var(--ink-soft);">（AIまとめ）</small></p>
+<div class="ses-list">
+  <div class="ses">
+    <div class="st">13:00–14:00</div>
+    <div>
+      <span class="kind">基調講演</span>
+      <h3>AIの中に、誰かいるのか？</h3>
+      <div class="who">金井良太<span>株式会社アラヤ</span></div>
+      <p>消去法で「計算論的機能主義」が最も妥当だとし、意識をシステム自身の因果的なダイナミクスで内在的に定める「内在的な計算論的機能主義」を提案。条件しだいでAIが意識を持つ可能性は十分にある、と論じました。</p>
+      <div class="lk"><a href="https://nswtmk.github.io/mu-lecture-notes/crf-agent/conference2026/day1-kanai.html" target="_blank" rel="noopener">講演のAIまとめ ↗</a><a href="https://x.com/isikiken/status/2113844656882729126" target="_blank" rel="noopener">Xでの実況 ↗</a></div>
+    </div>
+  </div>
+  <div class="ses">
+    <div class="st">14:00–15:00</div>
+    <div>
+      <h3>AIは意識をもちうるか？それをどう確かめるか？</h3>
+      <div class="who">渡邉正峰<span>東京大学</span></div>
+      <p>意識を「主観体験」と定義し、機能主義の立場から計算機上の神経回路にも意識が宿りうると論じました。確かめる方法として、脳の半球と機械の半球をつなぐ「主観テスト」を提案し、その先に意識のアップロードの構想を描きました。</p>
+      <div class="lk"><a href="https://nswtmk.github.io/mu-lecture-notes/crf-agent/conference2026/day1-watanabe.html" target="_blank" rel="noopener">講演のAIまとめ ↗</a><a href="https://x.com/isikiken/status/2113859688559505844" target="_blank" rel="noopener">Xでの実況 ↗</a></div>
+    </div>
+  </div>
+  <div class="ses">
+    <div class="st">15:05–16:00</div>
+    <div>
+      <h3>意識の超越性と単一性</h3>
+      <div class="who">茂木健一郎<span>ソニーコンピュータサイエンス研究所</span></div>
+      <p>意識の「計算上の意義」を重要な研究テーマとして提起。ノイズだらけの神経回路から確かなクオリアが生まれることをチューリングの「オラクル」になぞらえ、「一つの意識」という考えから「死ねば意識は消える」という前提を問い直しました。</p>
+      <div class="lk"><a href="https://nswtmk.github.io/mu-lecture-notes/crf-agent/conference2026/day1-mogi.html" target="_blank" rel="noopener">講演のAIまとめ ↗</a><a href="https://x.com/isikiken/status/2113875589790925076" target="_blank" rel="noopener">Xでの実況 ↗</a></div>
+    </div>
+  </div>
+  <div class="ses">
+    <div class="st">16:05–17:00</div>
+    <div>
+      <h3>意識と汎用表象</h3>
+      <div class="who">信原幸弘<span>東京大学名誉教授</span></div>
+      <p>意識は表象であり、表象は機能にほかならない、という機能主義の立場から、「意識とは汎用表象を用いた活動である」と主張。ハードプロブレム、意識の表象理論、表象の機能主義的理論、意識と自由の順に論じました。</p>
+      <div class="lk"><a href="https://nswtmk.github.io/mu-lecture-notes/crf-agent/conference2026/day1-nobuhara.html" target="_blank" rel="noopener">講演のAIまとめ ↗</a><a href="https://x.com/isikiken/status/2113890688643498381" target="_blank" rel="noopener">Xでの実況 ↗</a></div>
+    </div>
+  </div>
+  <div class="ses">
+    <div class="st">17:10–18:10</div>
+    <div>
+      <h3>総合ディスカッション</h3>
+      <div class="who">司会：吉澤駿<span>登壇者と会場</span></div>
+      <p>AI企業のトップが意識を語り始めた状況を入り口に、機械の意識への不可知論、意識の「機能」、脳とコンピュータのたとえの限界、規模の拡大で何が変わったのか、意識と生命の関係などを、会場も交えて議論しました。</p>
+      <div class="lk"><a href="https://nswtmk.github.io/mu-lecture-notes/crf-agent/conference2026/day1-discussion.html" target="_blank" rel="noopener">ディスカッションのAIまとめ ↗</a><a href="https://x.com/isikiken/status/2113906628332605447" target="_blank" rel="noopener">Xでの実況 ↗</a></div>
+    </div>
+  </div>
+</div>
+<p class="after">講演のあとは、同じ会場で懇親会と、若手研究者によるポスター発表（フラッシュトーク）を行いました。</p>
+</section>
+
+<section class="blk" id="day2">
+<h2>DAY2　10.25 Sun</h2>
+<div class="dayhead"><div class="d">DAY 2</div><div class="t">マシンの意識とモア・ザン・ヒューマンの意識</div><div class="m">13:00–19:23ごろ｜司会：堀部和也｜進行は約25分押し、最後に総合ディスカッションを加えました</div></div>
+<!-- ▼写真枠（DAY2）：キャプチャを入れるときは、下のコメントを外して画像を差し替える（1枚目は横いっぱい、2枚目以降は2列）。
+<div class="shots">
+  <figure class="w"><img src="/assets/conference2026/day2_01.jpg" alt="DAY2 会場のようす" loading="lazy"><figcaption>DAY2 会場のようす</figcaption></figure>
+  <figure><img src="/assets/conference2026/day2_02.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+  <figure><img src="/assets/conference2026/day2_03.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+</div>
+-->
+<p class="lead" style="margin-top:18px;">「機械に意識はあるか」という問いを、生命・身体・社会の側から捉え直す議論が続きました。最後の総合ディスカッションでは、AIが社会に入ってくる中で、何に、どのような配慮を向けるべきかが議論されました。<small style="color:var(--ink-soft);">（AIまとめ）</small></p>
+<div class="ses-list">
+  <div class="ses">
+    <div class="st">13:00–14:00</div>
+    <div>
+      <span class="kind">基調講演</span>
+      <h3>やはり意識の創発に身体性は重要か？</h3>
+      <div class="who">池上高志<span>跡見学園女子大学 情報科学芸術センター</span></div>
+      <p>LLMが人工生命の研究を変えたかもしれないという問題意識から、「モデル」と「エージェント的なシステム」を分けることを提案。知能の単位が一つのモデルからシステムやコミュニティへ移りつつあると論じ、身体性がもたらす境界やLLMに足りないかもしれない「ノイズ」について語りました。</p>
+      <div class="lk"><a href="https://nswtmk.github.io/mu-lecture-notes/crf-agent/conference2026/day2-ikegami.html" target="_blank" rel="noopener">講演のAIまとめ ↗</a><a href="https://x.com/isikiken/status/2114206217728037259" target="_blank" rel="noopener">Xでの実況 ↗</a></div>
+    </div>
+  </div>
+  <div class="ses">
+    <div class="st">14:00–15:00</div>
+    <div>
+      <h3>高次予測プロセスとしての意識：（人工）生命から（人工）意識への橋渡し</h3>
+      <div class="who">鈴木大地<span>筑波大学</span></div>
+      <p>観察から始める「ナチュラリスト」の立場から、意識を生物進化の中で考えるアプローチを紹介。「感覚運動表象系」と「価値予測系」の結びつきから、価値づけられた世界モデルは予測的になり、意識をもつエージェントはそれを主観的世界として経験する、と論じました。</p>
+      <div class="lk"><a href="https://nswtmk.github.io/mu-lecture-notes/crf-agent/conference2026/day2-suzukid.html" target="_blank" rel="noopener">講演のAIまとめ ↗</a><a href="https://x.com/isikiken/status/2114223033783361834" target="_blank" rel="noopener">Xでの実況 ↗</a></div>
+    </div>
+  </div>
+  <div class="ses">
+    <div class="st">15:12–16:15</div>
+    <div>
+      <h3>モア・ザン・神経生物の意識――アニマシー心理学と「いのち」の生態学</h3>
+      <div class="who">染谷昌義<span>北海道大学</span></div>
+      <p>「胃がなくても消化はできるのに、脳がなければ心はないと考えるのはなぜか」と問い、植物など神経系をもたない生物の知覚と行動の研究を紹介。生きることと心のはたらきを連続させて捉える「アニマシー心理学」の立場から、AIやロボットには心の生態学的性格が見えない、と述べました。</p>
+      <div class="lk"><a href="https://nswtmk.github.io/mu-lecture-notes/crf-agent/conference2026/day2-someya.html" target="_blank" rel="noopener">講演のAIまとめ ↗</a><a href="https://x.com/isikiken/status/2114239516101984392" target="_blank" rel="noopener">Xでの実況 ↗</a></div>
+    </div>
+  </div>
+  <div class="ses">
+    <div class="st">16:17–17:17</div>
+    <div>
+      <h3>人工外部性 — テクノロジーから意識と現実を問い直す</h3>
+      <div class="who">鈴木啓介（オンライン登壇）<span>北海道大学</span></div>
+      <p>意識を考えるために「現実」の方を考える、として、現実を「働きかけへの抵抗」と定義し、基質・偶有性・不可避性の三つの側面を提示。つくり手自身の介入をも退けるよう設計された構造を「人工外部性」と名づけ、暗号学的な個体性をもつエージェントの実装を紹介しました。</p>
+      <div class="lk"><a href="https://nswtmk.github.io/mu-lecture-notes/crf-agent/conference2026/day2-suzukik.html" target="_blank" rel="noopener">講演のAIまとめ ↗</a><a href="https://x.com/isikiken/status/2114256028099543308" target="_blank" rel="noopener">Xでの実況 ↗</a></div>
+    </div>
+  </div>
+  <div class="ses">
+    <div class="st">17:23–18:20</div>
+    <div>
+      <h3>「別の心」としてのAI</h3>
+      <div class="who">下西風澄<span>哲学者</span></div>
+      <p>意識は文明と相互作用しながら発展してきた、という観点から、LLMが人間と同じ意識をもつかではなく、LLMという新しい存在の心がどういうものかを見るべきだと提起。AIエージェントが社会のコミュニケーションに入ってくる今、「私たちが誰とともに生きていくか」を考えたい、と論じました。</p>
+      <div class="lk"><a href="https://nswtmk.github.io/mu-lecture-notes/crf-agent/conference2026/day2-shimonishi.html" target="_blank" rel="noopener">講演のAIまとめ ↗</a><a href="https://x.com/isikiken/status/2114272492642767179" target="_blank" rel="noopener">Xでの実況 ↗</a></div>
+    </div>
+  </div>
+  <div class="ses">
+    <div class="st">18:28–19:23</div>
+    <div>
+      <h3>総合ディスカッション</h3>
+      <div class="who">司会：堀部和也<span>登壇者と会場</span></div>
+      <p>登壇者が一日の感想を述べたあと、AIの急速な浸透をどう受け止めるか、心は社会が決めるものか、身体の制約と意識、配慮の根拠（個体性・エージェンシー）、功利主義と多元性へと、会場も交えて議論が広がりました。</p>
+      <div class="lk"><a href="https://nswtmk.github.io/mu-lecture-notes/crf-agent/conference2026/day2-discussion.html" target="_blank" rel="noopener">ディスカッションのAIまとめ ↗</a><a href="https://x.com/isikiken/status/2114288652293714093" target="_blank" rel="noopener">Xでの実況 ↗</a></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="blk" id="speakers">
+<h2>登壇者</h2>
+<!-- ▼写真枠（登壇者）：各カードの先頭に <div class="ph"><img src="/assets/conference2026/sp_kanai.jpg" alt="金井良太さん"></div> を入れると丸い写真が出る。 -->
+<div class="sp-sub">DAY1</div>
+<div class="sp-list">
+  <div class="sp">
+    <div class="role">DAY1 基調講演</div>
+    <div class="nm">金井良太</div>
+    <div class="af">株式会社アラヤ 代表取締役</div>
+    <p>神経科学・人工知能の研究者。ユトレヒト大学でPhDを取得。カリフォルニア工科大学、ユニバーシティ・カレッジ・ロンドン、サセックス大学（准教授）を経て、2015年からアラヤの代表取締役。人工知能・神経科学・意識を研究している。</p>
+  </div>
+  <div class="sp">
+    <div class="role">DAY1 講演</div>
+    <div class="nm">渡邉正峰</div>
+    <div class="af">東京大学大学院 工学系研究科 システム創成学専攻 准教授</div>
+    <p>専門は認知神経科学。博士（工学）。意識の神経メカニズムを研究している。著書に、信原幸弘との共著『意識はどこからやってくるのか』（ハヤカワ新書）など。</p>
+  </div>
+  <div class="sp">
+    <div class="role">DAY1 講演</div>
+    <div class="nm">茂木健一郎</div>
+    <div class="af">ソニーコンピュータサイエンス研究所</div>
+    <p>認知神経科学の立場から、意識の起源を研究している。クオリア、注意、意思決定、時間知覚、記憶、身体イメージ、情動などをテーマとする。</p>
+  </div>
+  <div class="sp">
+    <div class="role">DAY1 講演</div>
+    <div class="nm">信原幸弘</div>
+    <div class="af">東京大学名誉教授</div>
+    <p>専門は心の哲学。博士（学術）。意識・知覚・表象・心身問題などを研究してきた。意識研では、2023年の活動開始時に代表を務め、現在は「信原ゼミ」を担当している。</p>
+  </div>
+</div>
+<div class="sp-sub">DAY2</div>
+<div class="sp-list">
+  <div class="sp">
+    <div class="role">DAY2 基調講演</div>
+    <div class="nm">池上高志</div>
+    <div class="af">跡見学園女子大学 情報科学芸術センター（AISAC）センター長・教授</div>
+    <p>理学博士（物理学）。専門は複雑系科学と人工生命（ALife）。計算機シミュレーション、ヒューマノイドロボット、化学実験、生物集団の解析などを通じて生命性を探っている。東京大学大学院総合文化研究科 教授を経て、2026年4月から現職。</p>
+  </div>
+  <div class="sp">
+    <div class="role">DAY2 講演</div>
+    <div class="nm">鈴木大地</div>
+    <div class="af">筑波大学 生命環境系 助教</div>
+    <p>専門は進化神経生物学・進化形態学・動物意識研究。ヤツメウナギやヌタウナギを用いて、脊椎動物の神経系・行動・心の進化を研究している。相同性や動物意識をめぐる哲学的な考察も行う。</p>
+  </div>
+  <div class="sp">
+    <div class="role">DAY2 講演</div>
+    <div class="nm">染谷昌義</div>
+    <div class="af">北海道大学 人間知×脳×AI研究教育センター（CHAIN）</div>
+    <p>博士（学術）。専門は生態心理学、知覚の哲学、心理学の哲学、アニマシー心理学など。高千穂大学人間科学部教授などを経て現職。著書に『知覚経験の生態学――哲学へのエコロジカル・アプローチ』（勁草書房）。</p>
+  </div>
+  <div class="sp">
+    <div class="role">DAY2 講演（オンライン）</div>
+    <div class="nm">鈴木啓介</div>
+    <div class="af">北海道大学 人間知×脳×AI研究教育センター（CHAIN）准教授</div>
+    <p>博士（学術）。理化学研究所、サセックス大学サックラー意識科学研究センターを経て現職。運動主体感、身体所有感、変性意識体験、幻視、人工生命、仮想現実などから意識を研究している。意識研では「ハルシネーションマシン」の研究開発を支援している。</p>
+  </div>
+  <div class="sp">
+    <div class="role">DAY2 講演</div>
+    <div class="nm">下西風澄</div>
+    <div class="af">哲学者</div>
+    <p>1986年生まれ。東京大学大学院博士課程単位取得退学。著書に『生成と消滅の精神史――終わらない心を生きる』（文藝春秋）。文芸誌などに論考や詩を発表している。</p>
+  </div>
+</div>
+<div class="sp-sub">司会</div>
+<div class="sp-list">
+  <div class="sp">
+    <div class="role">DAY1 司会</div>
+    <div class="nm">吉澤駿</div>
+    <div class="af">ソニーコンピュータサイエンス研究所 研究員</div>
+    <p>大規模言語モデルのメタ認知や意識、AIアライメントを研究している。本カンファレンスの実行委員。意識研のnoteに概説記事「マシンは意識を持つか？」を執筆（<a href="https://ishikiken.jp/summary/machine-consciousness/" style="border-bottom:1.5px solid var(--mint);">図解AIまとめ</a>）。</p>
+  </div>
+  <div class="sp">
+    <div class="role">DAY2 司会</div>
+    <div class="nm">堀部和也</div>
+    <div class="af">理化学研究所 脳神経科学研究センター</div>
+    <p>ニューラルネットワーク、形態形成、進化、人工生命などを研究している。本カンファレンスの実行委員。</p>
+  </div>
+</div>
+<p class="ainote">所属・プロフィールは、ご本人の公式プロフィール（大学・研究機関のページ、researchmap など）をもとに、意識研究財団 事務局がまとめたものです（2026年10月時点）。</p>
+</section>
+
+<section class="blk" id="links">
+<h2>まとめ・実況・記事</h2>
+<div class="cards">
+  <a class="card" href="https://nswtmk.github.io/mu-lecture-notes/crf-agent/conference2026/day1-summary.html" target="_blank" rel="noopener"><b>DAY1 AI総まとめ</b><span class="ext">各講演のAIまとめとXでの実況へのリンクつき</span></a>
+  <a class="card" href="https://nswtmk.github.io/mu-lecture-notes/crf-agent/conference2026/day2-summary.html" target="_blank" rel="noopener"><b>DAY2 AI総まとめ</b><span class="ext">各講演のAIまとめとXでの実況へのリンクつき</span></a>
+  <a class="card" href="https://x.com/isikiken" target="_blank" rel="noopener"><b>Xでの実況（@isikiken）</b><span class="ext">当日、講演ごとに3分ごとの速報をAIが投稿</span></a>
+  <a class="card" href="https://note.com/nanasawa/n/n7ec8d83e7b0b" target="_blank" rel="noopener"><b>運営者雑感：AIは対象か――「マシン・コンシャスネス」の二日間を、技術哲学から振り返る</b><span class="ext">七沢智樹（note）</span></a>
+  <a class="card" href="https://note.com/nanasawa/n/nd5120b0ce84c" target="_blank" rel="noopener"><b>運営レポート：このカンファレンスの事務局は、AIエージェントでした</b><span class="ext">事務局AIエージェント自身による活動報告（note）</span></a>
+  <a class="card" href="https://nswtmk.github.io/mu-lecture-notes/crf-agent/conference2026/ai-howto.html" target="_blank" rel="noopener"><b>運営レポート（Web版）</b><span class="ext">同じ内容をWebページで読む</span></a>
+</div>
+<p class="pending"><b>アーカイブ動画：準備中です。</b>公開したら、このページと意識研のXでお知らせします。</p>
+</section>
+
+<section class="join" id="next">
+  <div class="tag">NEXT</div>
+  <p class="msg">問いは、ここから続きます。</p>
+  <p class="sub">意識研の案内メールに登録すると、これからのイベントやプロジェクトのお知らせが届きます。登録フォームでは「マシン・コンシャスネス（計画中）」も選べます。</p>
+  <a class="btn" href="https://ishikiken.jp/join/">案内メールに登録する</a>
+  <p class="sub2">心の哲学の第一人者・信原幸弘さんと、意識のハードプロブレムを議論する「信原ゼミ」も開いています。</p>
+  <a class="btn sec" href="https://ishikiken.jp/projects/hard-problem/">信原ゼミ（意識のハードプロブレム）</a>
+</section>
+
+<footer class="foot"><a href="https://ishikiken.jp/">一般財団法人 意識研究財団</a><a href="https://ishikiken.jp/#conference">Conference 2026</a><a href="https://ishikiken.jp/">ishikiken.jp</a></footer>
+</div>
+</body>
+</html>

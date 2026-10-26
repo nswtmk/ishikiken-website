@@ -240,6 +240,13 @@
   .conf-guide a { color: var(--paper); border-bottom: 1px solid var(--mint); padding-bottom: 3px; }
   .conf-guide a:hover { color: var(--mint); }
   .conf-note { font-size: 14px; color: #9a9a8e; line-height: 2.2; }
+  .conf-done { border: 2px dashed var(--mint); padding: 28px 30px 30px; margin: -36px 0 64px; }
+  .conf-done p { font-size: 17px; font-weight: 600; line-height: 1.95; color: var(--paper); }
+  .conf-done .conf-cta { margin-top: 20px; background: var(--mint); border-color: var(--mint); color: var(--ink); }
+  .conf-done .conf-cta:hover { background: var(--paper); border-color: var(--paper); }
+  @media (max-width: 720px) { .conf-done { padding: 22px 18px 24px; margin-top: -24px; } .conf-done p { font-size: 15.5px; } .conf-done .conf-cta { padding: 13px 26px; } }
+  .prog .p-more { display: inline-block; margin-top: 18px; font-size: 13.5px; font-weight: 700; color: var(--ink); border-bottom: 1.5px solid var(--mint); line-height: 1.6; }
+  .prog .p-more::after { content: " →"; }
   .conf-day .conf-mc { color: var(--mint) !important; font-size: 13.5px; letter-spacing: .06em; margin-bottom: 12px; }
   .conf-committee { border-top: 1px solid #3a3a32; padding-top: 24px; margin-bottom: 56px; }
   .conf-committee h4 { font-size: 13px; font-weight: 400; letter-spacing: .2em; color: var(--mint); margin-bottom: 16px; }
@@ -585,7 +592,8 @@
           </svg>
           <h3>カンファレンス</h3>
           <div class="p-role">問いを開く場</div>
-          <p>年に一度、意識の問いを公開の場で開きます。2026年は「マシン・コンシャスネス」をテーマに、10月24日・25日に行います。</p>
+          <p>年に一度、意識の問いを公開の場で開きます。2026年は「マシン・コンシャスネス」をテーマに、10月24日・25日に開催しました。</p>
+          <a class="p-more" href="../conference2026/report/">開催レポートはこちら</a>
         </div>
         <div class="prog">
           <div class="p-num">Program 02</div>
@@ -678,7 +686,11 @@
         <h2>Conference 2026<span class="en">カンファレンス</span></h2>
       </div>
       <h3 class="conf-title reveal">マシン・<br>コンシャスネス</h3>
-      <p class="conf-meta reveal">2026.10.24 Sat – 10.25 Sun｜東京ミッドタウン（東京・六本木）｜両日13:00開始｜会場参加は招待制（100名）｜オンライン無料配信（Zoom）｜参加申込受付中</p>
+      <p class="conf-meta reveal">2026.10.24 Sat – 10.25 Sun｜東京ミッドタウン（東京・六本木）｜会場参加とオンライン配信（Zoom）｜開催終了</p>
+      <div class="conf-done reveal">
+        <p>2026年10月24日・25日、カンファレンス『マシン・コンシャスネス』を無事開催できました。ご参加いただいた皆さま、ありがとうございました。</p>
+        <a class="conf-cta" href="../conference2026/report/">開催レポートはこちら →</a>
+      </div>
 
       <div class="conf-days reveal">
         <div class="conf-day">
@@ -729,14 +741,11 @@
       </div>
 
       <p class="conf-note reveal">
-        基調講演は講演45分＋質疑15分、各講演は講演30分＋討論30分の、議論を中心に据えた形式で行います。<br>
-        Day1の夜には懇親会と若手ポスター発表を、Day2の講演終了後にもポスター発表を予定しています（公募・審査制）。<br>
-        開催に先立ち、若手研究チームによる「マシン・コンシャスネス現状レポート」を作成し、参加者に配布します。<br>
-        登壇者・プログラムは変更になる場合があります。<br>
-        参加申込を受付中です（会場参加は招待制・オンラインは無料）。
+        基調講演は講演45分＋質疑15分、各講演は講演30分＋討論30分の、議論を中心に据えた形式で行いました。<br>
+        Day1の夜には懇親会とポスター発表を行い、Day2の最後には総合ディスカッションを加えました。<br>
+        上のタイムテーブルは当初の予定です。実際の進行、各講演のAIまとめ、登壇者のプロフィールは開催レポートにまとめています。
       </p>
-      <a class="conf-cta reveal" href="https://ishikiken-c2026.peatix.com/" target="_blank" rel="noopener">オンライン参加を申し込む（無料・Peatix） ↗</a>
-      <p class="conf-guide reveal">会場参加の方には、当日の入り方をメールでお知らせします。</p>
+      <a class="conf-cta reveal" href="../conference2026/report/">開催レポートを読む →</a>
     </div>
   </section>
 
@@ -762,7 +771,7 @@
         </div>
         <div class="sched-item">
           <div class="sd">10.24<span>–10.25</span><small>土–日</small></div>
-          <div><h4>カンファレンス 2026「マシン・コンシャスネス」<span class="sched-tag open">一般公開</span></h4><p>東京ミッドタウン（東京・六本木）｜オンライン無料配信<br><a href="https://ishikiken-c2026.peatix.com/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);">オンライン参加申込（Peatix・無料） ↗</a></p></div>
+          <div><h4>カンファレンス 2026「マシン・コンシャスネス」<span class="sched-tag closed">開催終了</span></h4><p>東京ミッドタウン（東京・六本木）｜会場とオンライン（Zoom）<br><a href="../conference2026/report/" style="border-bottom:1px solid var(--line);">開催レポート →</a></p></div>
         </div>
         <div class="sched-item">
           <div class="sd">10.31<span>–11.1</span><small>土–日</small></div>
@@ -892,10 +901,10 @@
             <span>2024年度 事業報告書 →</span>
             <span class="tag">2025.03期</span>
           </a>
-          <div class="arch-item">
-            <span>カンファレンス 2026「マシン・コンシャスネス」記録</span>
-            <span class="tag">COMING SOON</span>
-          </div>
+          <a class="arch-item" href="../conference2026/report/">
+            <span>カンファレンス 2026「マシン・コンシャスネス」開催レポート →</span>
+            <span class="tag">2026.10</span>
+          </a>
         </div>
       </div>
 
