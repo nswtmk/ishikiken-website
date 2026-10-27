@@ -176,6 +176,14 @@
   .sched-item .sd small { display: block; font-size: 10.5px; font-weight: 400; letter-spacing: .16em; color: var(--ink-soft); margin-top: 4px; }
   .sched-item h4 { font-size: 16.5px; font-weight: 600; line-height: 1.7; }
   .sched-item p { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
+  .sched-item p a { color: var(--ink); border-bottom: 1px solid var(--line); margin-right: 1.4em; }
+  .sched-item p a:last-child { margin-right: 0; }
+  .sched-item p a:hover { border-color: var(--ink); }
+  .sched-empty { font-size: 14px; color: var(--ink-soft); padding: 26px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  #schedule .sec-head { flex-direction: column; align-items: flex-end; }
+  .hist-link { display: inline-block; margin-top: 22px; font-size: 14.5px; font-weight: 700; border-bottom: 1.5px solid var(--mint); line-height: 1.6; }
+  .hist-link::after { content: " →"; }
+  @media (max-width: 720px) { #schedule .sec-head { align-items: flex-start; } .sched-item { grid-template-columns: 1fr; gap: 6px; } }
 
   /* timeline */
   .timeline { position: relative; margin-top: 20px; }
@@ -784,13 +792,10 @@
     <div class="container">
       <div class="sec-head reveal">
         <h2>Upcoming<span class="en">Schedule</span></h2>
+        <a class="hist-link" href="history/">Activity history</a>
       </div>
-      <div class="sched-list reveal">
-        <div class="sched-item">
-          <div class="sd">10.31<span>–11.1</span><small>Sat–Sun</small></div>
-          <div><h4>Kenji Miyazawa Reading Group Retreat &amp; Public Reading Session<span class="sched-tag open">Open to the public on Nov 1</span></h4><p>Ōtawara, Tochigi (Hanazono-sō)</p></div>
-        </div>
-      </div>
+      <div class="sched-list reveal" data-activities="upcoming" data-lang="en">
+<div class="sched-item"><div class="sd">10.28<small>Wed</small></div><div><h4>Nobuhara Seminar (Philosophy of Mind and Philosophy of AI)<span class="sched-tag open">Participants welcome</span></h4><p>Next: Session 2, “The Challenge of Physicalist Monism”<br>19:30–22:30 JST | Online (Zoom) | Lecturer: Yukihiro Nobuhara (Professor Emeritus, The University of Tokyo)<br><a class="sched-link" href="/projects/hard-problem/">Details (Japanese) →</a></p></div></div><div class="sched-item"><div class="sd">10.31<span>–11.1</span><small>Sat–Sun</small></div><div><h4>Kenji Miyazawa Reading Group Retreat &amp; Public Reading Session<span class="sched-tag open">Open to the public on Nov 1</span></h4><p>Ōtawara, Tochigi (Hanazono-sō)<br>Public reading session: Sun, Nov 1, from 13:00<br><a class="sched-link" href="https://ishikiken-kenji-satoyama.peatix.com/" target="_blank" rel="noopener">Register for the public session (Peatix, Japanese) ↗</a></p></div></div></div>
       <p class="fin-note">Schedules are subject to change. Details and how to participate will be announced for each event in due course.</p>
     </div>
   </section>
@@ -1017,5 +1022,7 @@
   }, { rootMargin: '-40% 0px -55% 0px' });
   secs.forEach(s => s && nav.observe(s));
 </script>
+<script src="/assets/data/activities.js?v=1"></script>
+<script src="/assets/data/activities-ui.js?v=1"></script>
 </body>
 </html>

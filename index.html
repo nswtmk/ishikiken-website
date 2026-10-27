@@ -176,6 +176,14 @@
   .sched-item .sd small { display: block; font-size: 10.5px; font-weight: 400; letter-spacing: .16em; color: var(--ink-soft); margin-top: 4px; }
   .sched-item h4 { font-size: 16.5px; font-weight: 600; line-height: 1.7; }
   .sched-item p { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
+  .sched-item p a { color: var(--ink); border-bottom: 1px solid var(--line); margin-right: 1.4em; }
+  .sched-item p a:last-child { margin-right: 0; }
+  .sched-item p a:hover { border-color: var(--ink); }
+  .sched-empty { font-size: 14px; color: var(--ink-soft); padding: 26px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  #schedule .sec-head { flex-direction: column; align-items: flex-end; }
+  .hist-link { display: inline-block; margin-top: 22px; font-size: 14.5px; font-weight: 700; border-bottom: 1.5px solid var(--mint); line-height: 1.6; }
+  .hist-link::after { content: " →"; }
+  @media (max-width: 720px) { #schedule .sec-head { align-items: flex-start; } .sched-item { grid-template-columns: 1fr; gap: 6px; } }
 
   /* timeline */
   .timeline { position: relative; margin-top: 20px; }
@@ -771,13 +779,10 @@
     <div class="container">
       <div class="sec-head reveal">
         <h2>活動予定<span class="en">Upcoming</span></h2>
+        <a class="hist-link" href="history/">活動履歴</a>
       </div>
-      <div class="sched-list reveal">
-        <div class="sched-item">
-          <div class="sd">10.31<span>–11.1</span><small>土–日</small></div>
-          <div><h4>宮沢賢治読書会 合宿・公開読書会<span class="sched-tag open">11/1は一般公開</span></h4><p>栃木・大田原（花園創）</p></div>
-        </div>
-      </div>
+      <div class="sched-list reveal" data-activities="upcoming" data-lang="ja">
+<div class="sched-item"><div class="sd">10.28<small>水</small></div><div><h4>信原ゼミ（心の哲学とAIの哲学）<span class="sched-tag open">参加者募集中</span></h4><p>次回 第2回「物的一元論の挑戦」<br>19:30〜22:30｜オンライン（Zoom）｜講師：信原幸弘（東京大学名誉教授）<br><a class="sched-link" href="/projects/hard-problem/">詳細はこちら →</a></p></div></div><div class="sched-item"><div class="sd">10.31<span>–11.1</span><small>土–日</small></div><div><h4>宮沢賢治読書会 合宿・公開読書会<span class="sched-tag open">11/1は一般公開</span></h4><p>栃木・大田原（花園創）<br>11/1（日）13:00〜 公開読書会「賢治から里山を見る／里山から賢治を見る」<br><a class="sched-link" href="https://ishikiken-kenji-satoyama.peatix.com/" target="_blank" rel="noopener">公開読書会の参加申込（Peatix） ↗</a></p></div></div></div>
       <p class="fin-note">予定は変更になる場合があります。各イベントの詳細・参加方法は順次ご案内します。</p>
     </div>
   </section>
@@ -1004,5 +1009,7 @@
   }, { rootMargin: '-40% 0px -55% 0px' });
   secs.forEach(s => s && nav.observe(s));
 </script>
+<script src="/assets/data/activities.js?v=1"></script>
+<script src="/assets/data/activities-ui.js?v=1"></script>
 </body>
 </html>
