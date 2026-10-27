@@ -107,6 +107,122 @@ window.ISHIKIKEN_ACTIVITIES = {
  },
  "items": [
   {
+   "id": "origins-lecture-2026-11",
+   "start": "2026-11",
+   "precision": "month",
+   "ja": {
+    "title": "意識の根源探求 オンラインレクチャー｜染谷昌義さん「植物の意識」（仮）",
+    "body": [
+     "オンライン・無料公開予定｜講演1時間半＋質疑30分｜日時は決まり次第お知らせします"
+    ],
+    "links": [
+     {
+      "t": "意識の根源探求",
+      "href": "/projects/origins/"
+     }
+    ]
+   },
+   "en": {
+    "title": "Origins of Consciousness Online Lecture: Masayoshi Someya, \"Plant Consciousness\" (tentative)",
+    "body": [
+     "Online, free (planned) | Date to be announced"
+    ],
+    "links": [
+     {
+      "t": "Origins of Consciousness (Japanese)",
+      "href": "/projects/origins/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "origins-lecture-2026-12",
+   "start": "2026-12",
+   "precision": "month",
+   "ja": {
+    "title": "意識の根源探求 オンラインレクチャー｜鈴木大地さん「意識の進化的起源」（仮）",
+    "body": [
+     "オンライン・無料公開予定｜講演1時間半＋質疑30分｜日時は決まり次第お知らせします"
+    ],
+    "links": [
+     {
+      "t": "意識の根源探求",
+      "href": "/projects/origins/"
+     }
+    ]
+   },
+   "en": {
+    "title": "Origins of Consciousness Online Lecture: Daichi Suzuki, \"The Evolutionary Origins of Consciousness\" (tentative)",
+    "body": [
+     "Online, free (planned) | Date to be announced"
+    ],
+    "links": [
+     {
+      "t": "Origins of Consciousness (Japanese)",
+      "href": "/projects/origins/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "origins-lecture-2027-01",
+   "start": "2027-01",
+   "precision": "month",
+   "ja": {
+    "title": "意識の根源探求 オンラインレクチャー｜下西風澄さん「心の歴史」（仮）",
+    "body": [
+     "オンライン・無料公開予定｜講演1時間半＋質疑30分｜日時は決まり次第お知らせします"
+    ],
+    "links": [
+     {
+      "t": "意識の根源探求",
+      "href": "/projects/origins/"
+     }
+    ]
+   },
+   "en": {
+    "title": "Origins of Consciousness Online Lecture: Kazeto Shimonishi, \"A History of the Mind\" (tentative)",
+    "body": [
+     "Online, free (planned) | Date to be announced"
+    ],
+    "links": [
+     {
+      "t": "Origins of Consciousness (Japanese)",
+      "href": "/projects/origins/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "origins-lecture-2027-02",
+   "start": "2027-02",
+   "precision": "month",
+   "ja": {
+    "title": "意識の根源探求 オンラインレクチャー｜講師調整中「実験意識考古学」（仮）",
+    "body": [
+     "オンライン・無料公開予定｜講演1時間半＋質疑30分｜日時は決まり次第お知らせします"
+    ],
+    "links": [
+     {
+      "t": "意識の根源探求",
+      "href": "/projects/origins/"
+     }
+    ]
+   },
+   "en": {
+    "title": "Origins of Consciousness Online Lecture: Lecturer TBA, \"Experimental Archaeology of Consciousness\" (tentative)",
+    "body": [
+     "Online, free (planned) | Date to be announced"
+    ],
+    "links": [
+     {
+      "t": "Origins of Consciousness (Japanese)",
+      "href": "/projects/origins/"
+     }
+    ]
+   }
+  },
+  {
    "id": "kenji-retreat-2026-11",
    "start": "2026-10-31",
    "end": "2026-11-01",
