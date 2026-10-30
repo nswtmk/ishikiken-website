@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>意識研アーカイブ｜意識研究財団</title>
+<meta name="description" content="意識研究財団のカンファレンス・ゼミの講演動画とAIまとめのアーカイブ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0b09; --bg2:#151512; --card:#1b1b17; --line:#2c2c26;
+  --ink:#f3f2ec; --ink-soft:#a9a89d; --mint:#1de394; --moss:#0ca568;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP","Inter",sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+@media(max-width:640px){.wrap{padding:0 16px}}
+
+/* header */
+header.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.brand{text-decoration:none;font-weight:700;font-size:15px;letter-spacing:.06em}
+.brand span{display:block;font-family:Inter;font-weight:400;font-size:10px;letter-spacing:.14em;color:var(--ink-soft)}
+.nav{font-size:13px;color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--line)}
+.nav:hover{color:var(--mint);border-color:var(--mint)}
+
+/* hero */
+.hero{position:relative;padding:72px 0 56px;border-bottom:1px solid var(--line);overflow:hidden}
+.hero > *:not(.deco){position:relative}
+.deco{position:absolute;right:-120px;top:10px;width:480px;height:480px;pointer-events:none;opacity:.85}
+@media(max-width:640px){.deco{width:260px;height:260px;right:-110px;top:20px}}
+.label{display:inline-block;font-family:Inter;font-weight:600;font-size:11px;letter-spacing:.22em;color:var(--bg);background:var(--mint);padding:4px 10px;border-radius:2px}
+h1{font-size:clamp(40px,7vw,84px);line-height:1.12;font-weight:700;letter-spacing:.02em;margin:22px 0 10px}
+.en{font-family:Inter;font-weight:800;font-size:13px;letter-spacing:.3em;color:var(--ink-soft)}
+.lead{max-width:640px;margin-top:26px;color:var(--ink-soft);font-size:15px}
+
+/* password note */
+.pw{margin-top:34px;display:flex;gap:18px;align-items:center;max-width:640px;background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--mint);padding:18px 22px;border-radius:4px}
+.pw .key{font-family:Inter;font-weight:800;font-size:22px;color:var(--mint);letter-spacing:.06em;white-space:nowrap}
+.pw p{font-size:14px;color:var(--ink)}
+.pw small{display:block;color:var(--ink-soft);font-size:12px;margin-top:2px}
+@media(max-width:640px){.pw{flex-direction:column;align-items:flex-start;gap:6px}}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:10px;padding:34px 0 8px}
+.chip{font:inherit;font-size:13px;color:var(--ink-soft);background:transparent;border:1px solid var(--line);border-radius:999px;padding:7px 16px;cursor:pointer}
+.chip:hover{color:var(--ink);border-color:var(--ink-soft)}
+.chip[aria-pressed="true"]{color:var(--bg);background:var(--mint);border-color:var(--mint);font-weight:700}
+
+/* sections */
+.group{padding:38px 0 10px}
+.group h2{display:flex;align-items:baseline;gap:14px;font-size:22px;font-weight:700;margin-bottom:6px}
+.group h2 .gen{font-family:Inter;font-weight:600;font-size:11px;letter-spacing:.2em;color:var(--mint)}
+.group .gdesc{color:var(--ink-soft);font-size:13px;margin-bottom:20px}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s, transform .2s}
+.card:hover{border-color:var(--moss);transform:translateY(-2px)}
+.thumb{position:relative;aspect-ratio:16/9;background:radial-gradient(120% 120% at 80% 10%,#20352b 0%,#121410 55%,#0b0b09 100%);display:flex;align-items:flex-end;padding:14px;cursor:pointer;border:0;width:100%;text-align:left;color:var(--ink)}
+.thumb .who{font-size:20px;font-weight:700;letter-spacing:.04em;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.thumb .play{position:absolute;right:14px;top:14px;width:44px;height:44px;border-radius:50%;border:2px dashed var(--mint);display:grid;place-items:center}
+.thumb .play::after{content:"";border-left:13px solid var(--mint);border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px}
+.thumb .dur{position:absolute;left:14px;top:14px;font-family:Inter;font-size:11px;font-weight:600;background:rgba(0,0,0,.65);padding:2px 7px;border-radius:3px;color:var(--ink)}
+.card.soon .thumb{cursor:default;background:repeating-linear-gradient(135deg,#141411 0 10px,#171713 10px 20px)}
+.card.soon .play{border-color:var(--line)}
+.card.soon .play::after{border-left-color:var(--line)}
+.body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.meta{font-family:Inter;font-size:11px;letter-spacing:.12em;color:var(--mint);font-weight:600}
+.title{font-size:15px;font-weight:700;line-height:1.55}
+.speaker{font-size:13px;color:var(--ink-soft)}
+.links{margin-top:auto;padding-top:10px;display:flex;gap:16px;font-size:12px}
+.links a{text-decoration:none;color:var(--ink-soft);border-bottom:1px solid var(--line)}
+.links a:hover{color:var(--mint);border-color:var(--mint)}
+.badge{font-size:11px;color:var(--ink-soft);border:1px solid var(--line);border-radius:3px;padding:1px 7px;align-self:flex-start}
+
+/* modal */
+dialog{border:0;padding:0;background:transparent;max-width:min(1100px,94vw);width:100%;margin:auto}
+dialog::backdrop{background:rgba(0,0,0,.85)}
+.mbox{background:var(--bg2);border:1px solid var(--line);border-radius:6px;overflow:hidden;color:var(--ink)}
+.player{aspect-ratio:16/9;background:#000;display:grid;place-items:center;color:var(--ink-soft);font-size:13px;text-align:center;padding:20px}
+.player iframe{width:100%;height:100%;border:0}
+.mtext{padding:18px 22px 22px;display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+.mtext .t{font-weight:700}
+.mtext .s{color:var(--ink-soft);font-size:13px}
+.close{font:inherit;font-size:13px;color:var(--ink-soft);background:none;border:1px solid var(--line);border-radius:999px;padding:5px 14px;cursor:pointer;white-space:nowrap}
+.close:hover{color:var(--mint);border-color:var(--mint)}
+
+footer{border-top:1px solid var(--line);margin-top:64px;padding:28px 0 48px;color:var(--ink-soft);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a{text-decoration:none;border-bottom:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="https://ishikiken.jp/">意識研究財団<span>Consciousness Research Foundation</span></a>
+  <a class="nav" href="https://ishikiken.jp/">財団のサイトへ</a>
+</header>
+
+<section class="hero">
+  <svg class="deco" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="190" fill="none" stroke="#1de394" stroke-width="3" stroke-dasharray="9 6.5"/></svg>
+  <span class="label">ARCHIVE</span>
+  <h1>意識研<br>アーカイブ</h1>
+  <div class="en">ISHIKIKEN ARCHIVE</div>
+  <p class="lead">意識研究財団が開いたカンファレンスやゼミの講演動画と、その内容をAIが整理した「AIまとめ」をまとめています。</p>
+  <div class="pw" role="note">
+    <div class="key">isiki</div>
+    <p>動画を視聴するには、プレーヤーに表示される入力欄にパスワード「isiki」（半角小文字）と入力してください。<small>パスワードは、ご案内メールを受け取った方のためのものです。SNSなどへの掲載はご遠慮ください。</small></p>
+  </div>
+</section>
+
+<nav class="filters" aria-label="絞り込み">
+  <button class="chip" data-f="all" aria-pressed="true">すべて</button>
+  <button class="chip" data-f="conf" aria-pressed="false">カンファレンス2026</button>
+  <button class="chip" data-f="nobu" aria-pressed="false">信原ゼミ</button>
+</nav>
+
+<main id="list"></main>
+
+<footer>
+  <span>© 一般財団法人 意識研究財団</span>
+  <span><a href="https://ishikiken.jp/join/">プロジェクトの案内メールに登録する</a></span>
+</footer>
+</div>
+
+<dialog id="dlg">
+  <div class="mbox">
+    <div class="player" id="player"></div>
+    <div class="mtext">
+      <div><div class="t" id="mt"></div><div class="s" id="ms"></div></div>
+      <button class="close" id="close">閉じる</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const AI='https://nswtmk.github.io/mu-lecture-notes/crf-agent/conference2026/';
+const groups=[
+ {key:'conf',title:'カンファレンス「マシン・コンシャスネス」',en:'MACHINE CONSCIOUSNESS 2026',desc:'2026年10月24日（土）・25日（日）　東京ミッドタウン',items:[
+  {day:'DAY1',who:'金井良太',aff:'株式会社アラヤ',title:'AIの中に、誰かいるのか？',dur:'',ai:AI+'day1-kanai.html',note:'録画が残っていないため、動画はありません'},
+  {day:'DAY1',who:'渡邉正峰',aff:'東京大学',title:'AIは意識をもちうるか？それをどう確かめるか？',dur:'',ai:AI+'day1-watanabe.html'},
+  {day:'DAY1',who:'茂木健一郎',aff:'ソニーコンピュータサイエンス研究所',title:'意識の超越性と単一性',dur:'',ai:AI+'day1-mogi.html'},
+  {day:'DAY1',who:'信原幸弘',aff:'東京大学名誉教授',title:'意識と汎用表象',dur:'',ai:AI+'day1-nobuhara.html'},
+  {day:'DAY1',who:'総合ディスカッション',aff:'DAY1 登壇者',title:'DAY1 総合ディスカッション',dur:'',ai:AI+'day1-summary.html'},
+  {day:'DAY2',who:'池上高志',aff:'東京大学',title:'やはり意識の創発に身体性は重要か？',dur:'1:04:18',vimeo:'1241125029',ai:AI+'day2-ikegami.html',ready:true},
+  {day:'DAY2',who:'鈴木大地',aff:'筑波大学',title:'高次予測プロセスとしての意識：（人工）生命から（人工）意識への橋渡し',dur:'',ai:AI+'day2-suzukid.html'},
+  {day:'DAY2',who:'染谷昌義',aff:'高千穂大学',title:'モア・ザン・神経生物の意識――アニマシー心理学と「いのち」の生態学',dur:'',ai:AI+'day2-someya.html'},
+  {day:'DAY2',who:'鈴木啓介',aff:'北海道大学',title:'人工外部性 — テクノロジーから意識と現実を問い直す',dur:'1:00:03',vimeo:'1241125043',ai:AI+'day2-suzukik.html',ready:true},
+  {day:'DAY2',who:'下西風澄',aff:'文筆家',title:'「別の心」としてのAI',dur:'',ai:AI+'day2-shimonishi.html'},
+  {day:'DAY2',who:'総合ディスカッション',aff:'DAY2 登壇者',title:'DAY2 総合ディスカッション',dur:'',ai:AI+'day2-discussion.html'}
+ ]},
+ {key:'nobu',title:'信原ゼミ「心の哲学とAIの哲学」',en:'NOBUHARA SEMINAR',desc:'講師：信原幸弘（東京大学名誉教授）　毎月第4水曜 19:30〜（オンライン）',items:[
+  {day:'第1回',who:'信原幸弘',aff:'2026年9月23日',title:'心身二元論の誘惑',dur:'2:10:27',vimeo:'1241125056',ai:'https://ishikiken.jp/projects/hard-problem/nobuhara-seminar/01/',ready:true},
+  {day:'第2回',who:'信原幸弘',aff:'2026年10月28日',title:'物的一元論の挑戦',dur:'2:18:07',vimeo:'1241125066',ai:'https://ishikiken.jp/projects/hard-problem/nobuhara-seminar/02/',ready:true}
+ ]}
+];
+const list=document.getElementById('list');
+function esc(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function render(f){
+  list.innerHTML='';
+  for(const g of groups){
+    if(f!=='all'&&f!==g.key) continue;
+    const sec=document.createElement('section'); sec.className='group';
+    sec.innerHTML=`<h2>${esc(g.title)}<span class="gen">${g.en}</span></h2><p class="gdesc">${esc(g.desc)}</p><div class="grid"></div>`;
+    const grid=sec.querySelector('.grid');
+    g.items.forEach((it,i)=>{
+      const c=document.createElement('article'); c.className='card'+(it.ready?'':' soon');
+      c.innerHTML=`<button class="thumb" ${it.ready?'':'disabled'} aria-label="${esc(it.title)}を再生">
+          ${it.dur?`<span class="dur">${it.dur}</span>`:''}<span class="play"></span><span class="who">${esc(it.who)}</span></button>
+        <div class="body"><div class="meta">${esc(it.day)}</div><div class="title">${esc(it.title)}</div><div class="speaker">${esc(it.who)}　${esc(it.aff)}</div>
+        ${it.ready?'':`<span class="badge">${esc(it.note||'動画は準備中')}</span>`}
+        <div class="links">${it.ai?`<a href="${it.ai}" target="_blank" rel="noopener">AIまとめを読む →</a>`:''}</div></div>`;
+      if(it.ready) c.querySelector('.thumb').onclick=()=>openV(it);
+      grid.appendChild(c);
+    });
+    list.appendChild(sec);
+  }
+}
+const dlg=document.getElementById('dlg');
+function openV(it){
+  document.getElementById('mt').textContent=it.title;
+  document.getElementById('ms').textContent=`${it.who}　${it.aff}　${it.day}`;
+  document.getElementById('player').innerHTML = it.vimeo
+    ? `<iframe src="https://player.vimeo.com/video/${it.vimeo}?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`
+    : '動画は準備中です。';
+  dlg.showModal();
+}
+document.getElementById('close').onclick=()=>{dlg.close();document.getElementById('player').innerHTML='';};
+dlg.addEventListener('click',e=>{if(e.target===dlg){dlg.close();document.getElementById('player').innerHTML='';}});
+document.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===b));render(b.dataset.f);});
+render('all');
+</script>
+</body>
+</html>
