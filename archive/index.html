@@ -143,15 +143,15 @@ const AI='https://nswtmk.github.io/mu-lecture-notes/crf-agent/conference2026/';
 const groups=[
  {key:'conf',title:'カンファレンス「マシン・コンシャスネス」',en:'MACHINE CONSCIOUSNESS 2026',desc:'2026年10月24日（土）・25日（日）　東京ミッドタウン',items:[
   {day:'DAY1',who:'金井良太',aff:'株式会社アラヤ',title:'AIの中に、誰かいるのか？',dur:'',ai:AI+'day1-kanai.html',note:'録画が残っていないため、動画はありません'},
-  {day:'DAY1',who:'渡邉正峰',aff:'東京大学',title:'AIは意識をもちうるか？それをどう確かめるか？',dur:'',ai:AI+'day1-watanabe.html'},
+  {day:'DAY1',who:'渡邉正峰',aff:'東京大学',title:'AIは意識をもちうるか？それをどう確かめるか？',dur:'47:15',vimeo:'1241157941',ai:AI+'day1-watanabe.html',ready:true,note2:'録画は講演の途中から始まります'},
   {day:'DAY1',who:'茂木健一郎',aff:'ソニーコンピュータサイエンス研究所',title:'意識の超越性と単一性',dur:'',ai:AI+'day1-mogi.html'},
   {day:'DAY1',who:'信原幸弘',aff:'東京大学名誉教授',title:'意識と汎用表象',dur:'',ai:AI+'day1-nobuhara.html'},
   {day:'DAY1',who:'総合ディスカッション',aff:'DAY1 登壇者',title:'DAY1 総合ディスカッション',dur:'',ai:AI+'day1-summary.html'},
-  {day:'DAY2',who:'池上高志',aff:'東京大学',title:'やはり意識の創発に身体性は重要か？',dur:'1:04:18',vimeo:'1241125029',ai:AI+'day2-ikegami.html',ready:true},
+  {day:'DAY2',who:'池上高志',aff:'跡見学園女子大学 情報科学芸術センター',title:'やはり意識の創発に身体性は重要か？',dur:'1:04:18',vimeo:'1241125029',ai:AI+'day2-ikegami.html',ready:true},
   {day:'DAY2',who:'鈴木大地',aff:'筑波大学',title:'高次予測プロセスとしての意識：（人工）生命から（人工）意識への橋渡し',dur:'',ai:AI+'day2-suzukid.html'},
-  {day:'DAY2',who:'染谷昌義',aff:'高千穂大学',title:'モア・ザン・神経生物の意識――アニマシー心理学と「いのち」の生態学',dur:'',ai:AI+'day2-someya.html'},
+  {day:'DAY2',who:'染谷昌義',aff:'北海道大学',title:'モア・ザン・神経生物の意識――アニマシー心理学と「いのち」の生態学',dur:'',ai:AI+'day2-someya.html'},
   {day:'DAY2',who:'鈴木啓介',aff:'北海道大学',title:'人工外部性 — テクノロジーから意識と現実を問い直す',dur:'1:00:03',vimeo:'1241125043',ai:AI+'day2-suzukik.html',ready:true},
-  {day:'DAY2',who:'下西風澄',aff:'文筆家',title:'「別の心」としてのAI',dur:'',ai:AI+'day2-shimonishi.html'},
+  {day:'DAY2',who:'下西風澄',aff:'哲学者',title:'「別の心」としてのAI',dur:'',ai:AI+'day2-shimonishi.html'},
   {day:'DAY2',who:'総合ディスカッション',aff:'DAY2 登壇者',title:'DAY2 総合ディスカッション',dur:'',ai:AI+'day2-discussion.html'}
  ]},
  {key:'nobu',title:'信原ゼミ「心の哲学とAIの哲学」',en:'NOBUHARA SEMINAR',desc:'講師：信原幸弘（東京大学名誉教授）　毎月第4水曜 19:30〜（オンライン）',items:[
@@ -173,7 +173,7 @@ function render(f){
       c.innerHTML=`<button class="thumb" ${it.ready?'':'disabled'} aria-label="${esc(it.title)}を再生">
           ${it.dur?`<span class="dur">${it.dur}</span>`:''}<span class="play"></span><span class="who">${esc(it.who)}</span></button>
         <div class="body"><div class="meta">${esc(it.day)}</div><div class="title">${esc(it.title)}</div><div class="speaker">${esc(it.who)}　${esc(it.aff)}</div>
-        ${it.ready?'':`<span class="badge">${esc(it.note||'動画は準備中')}</span>`}
+        ${it.ready?'':`<span class="badge">${esc(it.note||'動画は準備中')}</span>`}${it.note2?`<span class="badge">${esc(it.note2)}</span>`:''}
         <div class="links">${it.ai?`<a href="${it.ai}" target="_blank" rel="noopener">AIまとめを読む →</a>`:''}</div></div>`;
       if(it.ready) c.querySelector('.thumb').onclick=()=>openV(it);
       grid.appendChild(c);
